@@ -33,6 +33,7 @@ O código é evidência do estado atual, mas não deve ser a única fonte da int
 - [`docs/case-studies/`](docs/case-studies/): evidências e limitações dos experimentos realizados.
 - [`docs/GOVERNANCE.md`](docs/GOVERNANCE.md): como o próprio método deve evoluir.
 - [`templates/EKM-LEGACY-ADOPTION-INSTRUCTIONS.md`](templates/EKM-LEGACY-ADOPTION-INSTRUCTIONS.md): instrução inicial para um agente aplicar a EKM em um legado.
+- [`templates/EKM-READONLY-AUDIT-PROMPT.md`](templates/EKM-READONLY-AUDIT-PROMPT.md): prompt experimental para auditoria EKM isolada e sem mutações.
 - [`templates/`](templates/): arquivos mínimos para copiar ou adaptar em um projeto.
 
 ## Rotas de leitura
