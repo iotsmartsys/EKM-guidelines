@@ -19,11 +19,42 @@ O código é evidência do estado atual, mas não deve ser a única fonte da int
 
 ## Conteúdo deste repositório
 
+- [`docs/EKM-CONCEPT.md`](docs/EKM-CONCEPT.md): definição, problema, limites e hipóteses atuais.
 - [`docs/EKM-METHOD.md`](docs/EKM-METHOD.md): princípios e regras gerais da EKM.
+- [`docs/DESIGN-DECISIONS.md`](docs/DESIGN-DECISIONS.md): razões das principais escolhas do modelo.
 - [`docs/LEGACY-ADOPTION.md`](docs/LEGACY-ADOPTION.md): metodologia para adoção em projetos existentes.
 - [`docs/EXPERIMENT-HISTORY.md`](docs/EXPERIMENT-HISTORY.md): resumo dos experimentos que originaram o modelo.
+- [`docs/case-studies/`](docs/case-studies/): evidências e limitações dos experimentos realizados.
+- [`docs/GOVERNANCE.md`](docs/GOVERNANCE.md): como o próprio método deve evoluir.
 - [`templates/EKM-LEGACY-ADOPTION-INSTRUCTIONS.md`](templates/EKM-LEGACY-ADOPTION-INSTRUCTIONS.md): instrução inicial para um agente aplicar a EKM em um legado.
 - [`templates/`](templates/): arquivos mínimos para copiar ou adaptar em um projeto.
+
+## Rotas de leitura
+
+### Para compreender e discutir o método
+
+```text
+EKM-CONCEPT
+→ DESIGN-DECISIONS
+→ EXPERIMENT-HISTORY e case studies
+→ EKM-METHOD
+```
+
+### Para adotar em um projeto legado
+
+```text
+LEGACY-ADOPTION
+→ EKM-LEGACY-ADOPTION-INSTRUCTIONS
+→ templates
+```
+
+### Para evoluir a EKM
+
+```text
+GOVERNANCE
+→ DESIGN-DECISIONS
+→ novos experimentos e evidências
+```
 
 ## Estrutura mínima no projeto adotante
 
@@ -66,6 +97,8 @@ Quando a intenção não puder ser comprovada, a resposta correta é registrar u
 ## Estado do projeto
 
 Este repositório representa a primeira consolidação pública do método, construída a partir de experimentos reais em refatoração, preservação de arquitetura, reutilização de componentes e adoção em biblioteca legada.
+
+A EKM está em evolução: já é utilizável para novos experimentos, mas suas hipóteses, métricas e capacidade de generalização ainda precisam ser validadas.
 
 ## Licença
 
