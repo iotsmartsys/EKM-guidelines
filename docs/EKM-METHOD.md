@@ -4,7 +4,9 @@
 
 **Status:** Active
 
-**Versão:** 1.0
+**Versão:** 1.2
+
+**Modelo EKM:** 1.5
 
 ## 1. Objetivo
 
@@ -32,6 +34,10 @@ Reconstruibilidade não significa reproduzir o mesmo código ou binário.
 8. Documentação deve ser proporcional ao risco e ao valor do conhecimento.
 9. A adoção em legado é incremental e orientada por prioridade.
 10. O método deve reduzir retrabalho e custo de contexto, não criar burocracia sem finalidade.
+11. Uma especificação que depende de inferência relevante não está pronta para implementação.
+12. A confiabilidade da execução exige análise de implementabilidade antes do código.
+13. Versões normativas integradas à produção são imutáveis.
+14. Garantias verificáveis devem evoluir de disciplina para automação, sem atribuir à ferramenta julgamento semântico humano.
 
 ## 3. Classes de fonte
 
@@ -106,9 +112,44 @@ Cada especificação deve declarar, quando aplicável:
 - `Blocked`: depende de decisão ou condição externa.
 - `Retired`: removida intencionalmente.
 
-Os dois estados são independentes.
+### Estado da entrega
 
-## 6. Transações e lacunas
+- `Not Ready`: ainda não satisfaz integração.
+- `Ready for Integration`: implementação, validações e conhecimento podem seguir para integração.
+- `Done`: a versão normativa e sua implementação foram integradas à referência de produção declarada pelo projeto.
+
+Os estados normativo, de implementação e de entrega são independentes. `Implemented`, `Validated` e `Done` não são sinônimos.
+
+### Imutabilidade em produção
+
+Antes de `Done`, uma especificação pode ser revisada e retornar a estados anteriores. Após `Done`, sua identidade de ID e versão é imutável. Mudanças posteriores exigem nova especificação relacionada como `Amends`, `Supersedes`, `Corrects` ou `Retires`.
+
+O mapa e o changelog registram eventos posteriores e determinam a composição normativa vigente sem reescrever a versão integrada. Cada projeto deve declarar sua referência de produção; ela não deve ser inferida pelo executor.
+
+## 6. Technical Readiness Review e atomicidade
+
+Antes de qualquer alteração de implementação, o executor deve analisar integralmente a especificação, as fontes relacionadas e o baseline. Deve verificar clareza, consistência, testabilidade, contratos, dependências, condições de borda, compatibilidade, validações e mudanças necessárias não autorizadas.
+
+O resultado é binário:
+
+- `Implementable`: o recorte inteiro pode ser executado sem inferência relevante;
+- `Needs Clarification`: ao menos um requisito obrigatório depende de decisão ausente, contraditória ou ambígua.
+
+Inferência relevante é uma escolha capaz de alterar comportamento observável, produto, arquitetura, API, protocolo, persistência, concorrência, segurança, compatibilidade, configuração operacional ou critério de aceite.
+
+Em `Needs Clarification`:
+
+1. nenhum item da especificação nem artefato de implementação é alterado;
+2. o executor registra requisito, evidência, lacuna, decisão ausente, impacto das alternativas e ajuste recomendado;
+3. o responsável corrige ou aprova a correção da especificação;
+4. a análise integral é repetida;
+5. somente o novo resultado `Implementable` autoriza a execução.
+
+Implementação parcial exige divisão explícita e aprovada da especificação. Decisões mecânicas privadas continuam permitidas apenas quando comprovadamente equivalentes e sem impacto normativo.
+
+Durante `Needs Clarification`, somente registros EKM e a correção normativa explicitamente aprovada podem ser alterados.
+
+## 7. Transações e lacunas
 
 Mudanças relevantes usam identificadores `EKM-CHG-NNNN`. Lacunas usam `EKM-GAP-NNNN`.
 
@@ -119,9 +160,9 @@ Estados permitidos:
 - `Superseded`;
 - `Closed`.
 
-Uma transação deve registrar baseline, objetivo, requisitos, fontes afetadas, evidências, desvios e encerramento. Uma lacuna somente é fechada quando seu critério explícito de encerramento é comprovado.
+Uma transação deve registrar baseline, objetivo, requisitos, fontes afetadas, resultado da Technical Readiness Review, evidências, desvios e encerramento. Uma lacuna somente é fechada quando seu critério explícito de encerramento é comprovado.
 
-## 7. Proteção do conhecimento
+## 8. Proteção do conhecimento
 
 - Não remover decisões vigentes.
 - Não substituir documentos normativos por resumos.
@@ -131,7 +172,7 @@ Uma transação deve registrar baseline, objetivo, requisitos, fontes afetadas, 
 - Declarar semanticamente toda mudança normativa no relatório.
 - Obter autorização humana para remover conhecimento vigente.
 
-## 8. Baseline e reconciliação
+## 9. Baseline e reconciliação
 
 Antes de alterar o repositório, registre:
 
@@ -148,10 +189,17 @@ No encerramento, reconcilie separadamente:
 4. documentação normativa;
 5. todas as diferenças em relação ao worktree inicial.
 
-## 9. Definition of Done EKM
+## 10. Definition of Ready for Integration e Done
+
+`Ready for Integration` exige requisitos atendidos, validações obrigatórias aprovadas, implementação e conhecimento reconciliados, ausência de bloqueios e evidência auditável.
+
+`Done` exige ainda integração da versão normativa e da implementação à referência de produção declarada. Pendência obrigatória impede ambos os estados.
+
+## 11. Definition of Done da transação EKM
 
 Uma mudança só pode ser encerrada quando:
 
+- uma Technical Readiness Review válida autorizou a implementação antes da primeira alteração de implementação;
 - requisitos foram rastreados;
 - implementação e conhecimento estão reconciliados;
 - decisões não foram removidas silenciosamente;
@@ -162,7 +210,15 @@ Uma mudança só pode ser encerrada quando:
 
 Build aprovado, isoladamente, não comprova conformidade EKM.
 
-## 10. Conjunto mínimo recomendado
+Mudanças funcionais sob o modelo 1.5 somente encerram a transação em `Done`. Investigações e governança podem possuir critério aprovado próprio sem declarar entrega funcional.
+
+## 12. Automação e garantias previstas
+
+A EKM prevê um futuro `EKM Gate` para verificar automaticamente regras comprováveis antes da integração, reduzindo dependência de disciplina individual. São candidatos: estrutura e metadados, relações normativas, imutabilidade em produção, evidência de Technical Readiness, rastreabilidade, estados e reconciliação.
+
+O Gate permanece `Planned / Not Defined`. Arquitetura, schema, ferramenta, política de bloqueio e implantação ainda exigem especificação própria e experimentos. Nenhum projeto pode alegar garantia automatizada apenas por adotar estas diretrizes. Completude semântica e intenção permanecem responsabilidade humana.
+
+## 13. Conjunto mínimo recomendado
 
 ```text
 AGENTS.md

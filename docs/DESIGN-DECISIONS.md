@@ -58,12 +58,30 @@ Este documento registra as razões das principais escolhas do modelo atual. Não
 
 ## DD-010 — Autonomia proporcional à certeza
 
-**Decisão:** agentes avançam autonomamente em fatos verificáveis e interrompem apenas a parte dependente de julgamento.
+**Decisão:** agentes avançam autonomamente em descobertas e análises verificáveis. Em uma implementação regida por uma especificação atômica, qualquer requisito obrigatório dependente de julgamento bloqueia o recorte inteiro antes da primeira alteração.
 
-**Motivo:** interromper por qualquer dúvida reduz produtividade; decidir intenção sem autoridade aumenta risco.
+**Motivo:** adoção e investigação podem ser incrementais, mas implementar parcialmente uma especificação incompleta rompe a unidade de delegação e permite decisões normativas silenciosas.
 
 ## DD-011 — Estrutura mínima antes de expansão
 
 **Decisão:** começar com `AGENTS.md`, diretrizes, mapa, changelog, dossiê e especificações necessárias.
 
 **Motivo:** padronização facilita adoção, mas arquivos sem autoridade ou uso claro criam burocracia.
+
+## DD-012 — Technical Readiness Review obrigatória
+
+**Decisão:** toda especificação deve receber resultado `Implementable` ou `Needs Clarification` antes de qualquer alteração de implementação.
+
+**Motivo:** um build funcional pode esconder uma decisão inferida que não corresponde à intenção. Concentrar lacunas antes do código aumenta a confiabilidade e permite execução posterior verdadeiramente autônoma.
+
+## DD-013 — Versões normativas em produção são imutáveis
+
+**Decisão:** após `Done`, alterações de comportamento usam nova especificação relacionada, sem reescrever a versão integrada.
+
+**Motivo:** reescrever uma especificação de produção destrói a correspondência histórica entre intenção, implementação e evidência.
+
+## DD-014 — Garantias automatizadas são uma capacidade futura
+
+**Decisão:** prever um `EKM Gate`, sem definir prematuramente sua arquitetura ou alegar garantia ainda inexistente.
+
+**Motivo:** regras verificáveis não devem depender apenas de disciplina, mas a automação precisa nascer de requisitos e experimentos próprios e não substitui julgamento semântico humano.

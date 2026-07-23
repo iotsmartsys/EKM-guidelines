@@ -49,6 +49,18 @@ Ao iniciar a aplicação em uma biblioteca grande, ficou evidente que tentar doc
 - specification on touch;
 - níveis graduais de cobertura até `Reconstructible`.
 
+## 7. Implementação correta não valida uma inferência
+
+No experimento de exemplos executáveis, o executor encontrou um build legado que usava `LED_BUILTIN` sem defini-lo. Ele escolheu uma definição coerente com `LED_PIN` e obteve build aprovado, mas essa alternativa não estava autorizada pela especificação.
+
+O resultado mostrou que proibir contratos inventados não era suficiente: a lacuna precisa ser descoberta antes do código. A EKM passou a exigir Technical Readiness Review integral e bloqueio atômico quando qualquer requisito depender de inferência relevante.
+
+## 8. Evolução após implementação exige linhagem
+
+A reabertura da especificação dos exemplos mostrou que documentos ainda não integrados precisam poder voltar a revisão. Ao mesmo tempo, reescrever versões já entregues apagaria a intenção que governou a produção. O modelo passou a separar implementação, validação e entrega, congelando versões em `Done` e usando especificações relacionadas para evoluções posteriores.
+
+Essa ampliação também revelou que garantias baseadas apenas em disciplina são frágeis. O `EKM Gate` foi registrado como direção futura, ainda sem arquitetura ou implantação definida.
+
 ## Conclusão experimental
 
 A hipótese atual é que agentes conseguem executar mudanças com mais autonomia quando o repositório contém especificações, regras de preservação, mapa de autoridade e histórico transacional. A autonomia continua limitada onde existe julgamento de produto ou arquitetura.

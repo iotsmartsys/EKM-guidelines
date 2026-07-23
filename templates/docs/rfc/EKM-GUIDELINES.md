@@ -4,7 +4,9 @@
 
 **Status:** Active
 
-**Versão:** 1.0
+**Versão:** 1.2
+
+**Modelo EKM:** 1.5
 
 **Responsável:** `<RESPONSÁVEL>`
 
@@ -30,6 +32,10 @@ Estado da implementação: `Not Started`, `In Progress`, `Implemented`, `Validat
 
 Os estados são independentes e toda alteração exige evidência.
 
+Estado da entrega: `Not Ready`, `Ready for Integration` ou `Done`.
+
+O projeto deve declarar sua referência de produção. Após `Done`, a identidade ID+versão da especificação é imutável; evoluções usam nova especificação relacionada como `Amends`, `Supersedes`, `Corrects` ou `Retires`.
+
 ## 4. Proteção normativa
 
 - Não remover decisões vigentes.
@@ -48,16 +54,33 @@ Mudanças usam `EKM-CHG-NNNN`; lacunas usam `EKM-GAP-NNNN`.
 
 Estados: `Open`, `Blocked`, `Superseded` e `Closed`.
 
-## 7. Adoção incremental
+## 7. Technical Readiness Review
+
+Antes de qualquer alteração, analisar integralmente a especificação e declarar:
+
+- `Implementable`: todos os requisitos obrigatórios são executáveis sem inferência relevante;
+- `Needs Clarification`: existe decisão ausente, contradição ou ambiguidade com impacto normativo.
+
+Em `Needs Clarification`, nenhum item nem artefato de implementação pode ser alterado. Registrar requisito, evidência, lacuna, decisão ausente, impacto das alternativas e ajuste recomendado. Somente registros EKM e a correção normativa aprovada podem mudar. Depois, repetir a análise integral.
+
+Inferência relevante inclui escolhas sobre comportamento, produto, arquitetura, API, protocolo, persistência, concorrência, segurança, compatibilidade, configuração operacional ou aceite. Implementação parcial exige divisão de escopo explicitamente aprovada.
+
+## 8. Adoção incremental
 
 Classifique domínios como `Unmapped`, `Inventoried`, `Mapped`, `Reviewed`, `Specified` ou `Reconstructible`.
 
 Use specification on touch: funcionalidade relevante modificada deve alcançar ao menos `Specified` antes da implementação.
 
-## 8. Definition of Done
+## 9. Definition of Done
 
-Uma transação só pode ser fechada quando requisitos, implementação, conhecimento, evidências, mapa, gaps e diferenças do baseline estiverem reconciliados. Validações pendentes e operações externas devem ser declaradas.
+Uma transação só pode ser fechada quando uma análise válida autorizou a implementação antes da primeira alteração e requisitos, implementação, conhecimento, evidências, mapa, gaps e diferenças do baseline estiverem reconciliados. Validações pendentes e operações externas devem ser declaradas.
 
-## 9. Regras específicas do projeto
+Mudança funcional fica `Ready for Integration` após validação e reconciliação, e `Done` somente após integração à referência de produção.
 
-`<REGISTRAR RESTRIÇÕES PERMANENTES CONFIRMADAS PARA ESTE REPOSITÓRIO>`
+## 10. Automação e garantias previstas
+
+Um futuro `EKM Gate` poderá automatizar regras verificáveis de estrutura, rastreabilidade, imutabilidade e estados. Ele permanece `Planned / Not Defined`; não alegar garantia automática sem especificação, ferramenta e política implantadas. Julgamento semântico permanece humano.
+
+## 11. Regras específicas do projeto
+
+`<REGISTRAR REFERÊNCIA DE PRODUÇÃO E RESTRIÇÕES PERMANENTES CONFIRMADAS>`

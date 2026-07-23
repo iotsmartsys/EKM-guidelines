@@ -64,6 +64,9 @@ A EKM parte de hipóteses ainda em validação:
 3. transações e lacunas melhoram a auditabilidade;
 4. adoção incremental é mais sustentável que documentação exaustiva;
 5. melhor contexto deve se converter em produtividade mensurável.
+6. análise técnica anterior à implementação reduz inferências, interrupções e retrabalho durante a execução.
+7. imutabilidade de versões em produção preserva a linhagem entre intenção e entrega.
+8. garantias automatizadas podem aumentar conformidade em aspectos verificáveis sem substituir decisão humana.
 
 Os experimentos atuais sustentam essas hipóteses parcialmente, mas não demonstram aplicabilidade universal.
 

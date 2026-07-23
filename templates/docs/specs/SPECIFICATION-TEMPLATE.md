@@ -8,9 +8,15 @@
 
 **Estado da implementação:** Not Started
 
+**Estado da entrega:** Not Ready
+
+**Technical readiness:** Pending Review
+
 **Versão:** 0.1
 
 **Responsável:** `<RESPONSÁVEL>`
+
+**Relação normativa:** `New | Amends <ID@VERSÃO> | Supersedes <ID@VERSÃO> | Corrects <ID@VERSÃO> | Retires <ID@VERSÃO>`
 
 ## 1. Objetivo
 
@@ -60,3 +66,19 @@
 ## 12. Relações, desvios e lacunas
 
 `<OUTRAS ESPECIFICAÇÕES, EKM-GAP, COMPORTAMENTO ATUAL DIVERGENTE>`
+
+## 13. Registro da Technical Readiness Review
+
+**Resultado:** `Pending Review | Implementable | Needs Clarification`
+
+**Baseline analisado:** `<BRANCH, COMMIT E WORKTREE>`
+
+**Requisitos analisados:** `<LISTA OU INTERVALO>`
+
+**Dependências e fontes consultadas:** `<LISTA>`
+
+**Lacunas ou decisões ausentes:** `<NENHUMA OU ITENS RASTREÁVEIS>`
+
+**Evidência do resultado:** `<COMANDOS, INSPEÇÕES E CONCLUSÃO>`
+
+Uma especificação `Needs Clarification` não autoriza implementação parcial nem alteração de artefatos de implementação. Somente registros EKM e a correção normativa aprovada podem mudar. Após qualquer correção normativa, esta análise deve ser repetida integralmente.

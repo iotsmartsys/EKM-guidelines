@@ -1,5 +1,7 @@
 # EKM Guidelines
 
+**Modelo EKM vigente:** 1.5
+
 Engineering Knowledge Management (EKM) é uma abordagem para preservar o conhecimento necessário para compreender, evoluir, auditar e reconstruir um sistema de software com assistência de pessoas e agentes de IA.
 
 O objetivo não é documentar cada linha de código. É impedir que funcionalidades, contratos, decisões e critérios de aceite existam apenas na implementação, em conversas ou na memória de uma pessoa.
@@ -14,6 +16,10 @@ Changelog     → registra a evolução do conhecimento
 Código/testes → implementam e comprovam o comportamento
 Relatório     → registra evidências de uma execução
 ```
+
+Antes do código, toda especificação passa por uma Technical Readiness Review. O resultado deve ser `Implementable` ou `Needs Clarification`; uma única lacuna relevante bloqueia atomicamente todo o recorte até que a própria especificação seja corrigida e reanalisada.
+
+Versões integradas à referência de produção tornam-se imutáveis. A EKM também prevê um futuro `EKM Gate` para garantias automatizadas, mas essa capacidade permanece planejada e ainda não definida.
 
 O código é evidência do estado atual, mas não deve ser a única fonte da intenção do sistema.
 

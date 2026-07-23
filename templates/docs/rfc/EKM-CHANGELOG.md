@@ -32,6 +32,20 @@ Adotar a fundação EKM e registrar o conhecimento inicial do sistema sem altera
 
 `<LISTA RASTREÁVEL>`
 
+### Technical Readiness Review
+
+- Resultado: `<Implementable | Needs Clarification>`.
+- Baseline e fontes analisadas: `<LISTA>`.
+- Lacunas ou decisões ausentes: `<NENHUMA OU LISTA>`.
+- Evidência de que a análise ocorreu antes da primeira alteração de implementação: `<EVIDÊNCIA>`.
+
+### Estado da entrega
+
+- Referência de produção: `<BRANCH, TAG, RELEASE OU AMBIENTE>`.
+- Estado: `<Not Ready | Ready for Integration | Done>`.
+- Relações normativas criadas: `<NENHUMA OU LISTA>`.
+- Evidência de integração, quando `Done`: `<COMMIT, PR, TAG OU DEPLOY>`.
+
 ### Validações
 
 `<VALIDAÇÕES E RESULTADOS>`
