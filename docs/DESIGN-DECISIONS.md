@@ -85,3 +85,9 @@ Este documento registra as razões das principais escolhas do modelo atual. Não
 **Decisão:** prever um `EKM Gate`, sem definir prematuramente sua arquitetura ou alegar garantia ainda inexistente.
 
 **Motivo:** regras verificáveis não devem depender apenas de disciplina, mas a automação precisa nascer de requisitos e experimentos próprios e não substitui julgamento semântico humano.
+
+## DD-015 — Revisão não autoriza a própria implementação
+
+**Decisão:** a Technical Readiness Review é cumulativa, ocorre em execução separada da implementação e produz uma recomendação submetida ao responsável humano. Mesmo `Implementable` exige aprovação explícita e reconfirmação do baseline antes da primeira alteração.
+
+**Motivo:** o mesmo executor pode encontrar um bloqueio suficiente e interromper prematuramente a investigação, deixando outras lacunas sem registro. Também existe conflito de responsabilidade quando o agente produz e consome sua própria autorização. A separação manual preserva o protagonismo humano sem exigir prematuramente múltiplos agentes ou pipeline automatizado.

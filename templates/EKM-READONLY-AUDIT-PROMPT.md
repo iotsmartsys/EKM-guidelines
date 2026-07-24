@@ -48,11 +48,20 @@ Resultado permitido:
 - `Implementable`; ou
 - `Needs Clarification`.
 
-Conflito entre fontes, ambiguidade ou decisão ausente exige `Needs Clarification` e encerra a execução sem auditoria de conformidade. Não resolva o conflito por inferência.
+Conflito entre fontes, ambiguidade ou decisão ausente exige `Needs Clarification` e impede a auditoria de conformidade, mas não encerra a Technical Readiness Review. Continue até classificar todos os requisitos e dimensões obrigatórias. Não resolva o conflito por inferência.
+
+Para cada requisito ou dimensão, registre:
+
+- `Supported`;
+- `Gap`;
+- `Conflict`; ou
+- `Not Applicable`.
+
+Inclua evidência direta, impacto e decisão humana necessária. Encontrar somente o primeiro bloqueio caracteriza revisão incompleta.
 
 ## Fase 2 — Auditoria integral
 
-Execute somente após `Implementable`.
+Execute somente após `Implementable`. Como este prompt é read-only, o resultado não autoriza implementação nem outra mutação.
 
 Classifique individualmente todos os requisitos, decisões e critérios de aceite usando exatamente:
 

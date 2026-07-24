@@ -4,9 +4,9 @@
 
 **Status:** Active
 
-**Versão:** 1.2
+**Versão:** 1.3
 
-**Modelo EKM:** 1.5
+**Modelo EKM:** 1.6
 
 **Responsável:** `<RESPONSÁVEL>`
 
@@ -64,6 +64,20 @@ Antes de qualquer alteração, analisar integralmente a especificação e declar
 Em `Needs Clarification`, nenhum item nem artefato de implementação pode ser alterado. Registrar requisito, evidência, lacuna, decisão ausente, impacto das alternativas e ajuste recomendado. Somente registros EKM e a correção normativa aprovada podem mudar. Depois, repetir a análise integral.
 
 Inferência relevante inclui escolhas sobre comportamento, produto, arquitetura, API, protocolo, persistência, concorrência, segurança, compatibilidade, configuração operacional ou aceite. Implementação parcial exige divisão de escopo explicitamente aprovada.
+
+A revisão é cumulativa: encontrar um bloqueio interrompe qualquer intenção de implementação, mas não encerra a análise. Todos os requisitos, precondições, estados normativos, APIs, ciclos de vida, dependências, compatibilidade e validações devem ser classificados.
+
+Use uma matriz com:
+
+| Requisito ou dimensão | Resultado | Evidência | Lacuna ou impacto | Decisão necessária |
+|---|---|---|---|---|
+| `<ID OU ASPECTO>` | `Supported`, `Gap`, `Conflict` ou `Not Applicable` | `<EVIDÊNCIA>` | `<IMPACTO OU NONE>` | `<DECISÃO OU NONE>` |
+
+Technical Readiness Review e implementação ocorrem em execuções separadas. A execução da revisão encerra sem alterar implementação, mesmo com `Implementable`.
+
+`Implementable` significa apto para aprovação humana. A implementação exige aprovação explícita do responsável para a revisão e seu baseline. Antes da primeira alteração, reconfirmar especificação, branch, commit, worktree, resultado aprovado e transação `Open`. Mudança material exige nova revisão integral.
+
+`Needs Clarification` deve ser reportado como bloqueio, nunca como implementação concluída. Este controle é manual e não presume múltiplos agentes, CI/CD ou `EKM Gate`.
 
 ## 8. Adoção incremental
 

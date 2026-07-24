@@ -4,9 +4,9 @@
 
 **Status:** Active
 
-**Versão:** 1.2
+**Versão:** 1.3
 
-**Modelo EKM:** 1.5
+**Modelo EKM:** 1.6
 
 ## 1. Objetivo
 
@@ -137,13 +137,57 @@ O resultado é binário:
 
 Inferência relevante é uma escolha capaz de alterar comportamento observável, produto, arquitetura, API, protocolo, persistência, concorrência, segurança, compatibilidade, configuração operacional ou critério de aceite.
 
+### 6.1 Completude cumulativa
+
+Encontrar uma lacuna bloqueia imediatamente qualquer intenção de implementação, mas não encerra a Technical Readiness Review. O revisor deve continuar até classificar todos os requisitos e dimensões obrigatórias do recorte.
+
+A revisão deve verificar, além dos requisitos identificáveis:
+
+- precondições confrontadas com o baseline;
+- estados normativo, de implementação e de entrega;
+- APIs e ciclo de vida;
+- dependências e configuração;
+- compatibilidade e regressões;
+- viabilidade das validações e critérios de aceite.
+
+O resultado deve ser sustentado por uma matriz com:
+
+| Campo | Valores ou conteúdo |
+|---|---|
+| Requisito ou dimensão | Identificador ou aspecto transversal |
+| Resultado | `Supported`, `Gap`, `Conflict` ou `Not Applicable` |
+| Evidência | Fato verificável do baseline |
+| Lacuna ou impacto | Consequência técnica ou normativa |
+| Decisão necessária | Decisão humana pendente ou `None` |
+
+Nenhum requisito pode ficar sem classificação. Uma revisão encerrada no primeiro bloqueio não é integral.
+
+### 6.2 Separação entre revisão, aprovação e implementação
+
+A Technical Readiness Review e a implementação devem ocorrer em execuções separadas, ainda que sejam realizadas pelo mesmo agente.
+
+A execução da revisão deve registrar especificação, branch, commit e estado real do worktree, produzir a matriz completa e encerrar sem alterar implementação, inclusive quando o resultado for `Implementable`.
+
+`Implementable` significa apto para aprovação humana; não constitui autorização autônoma. A implementação somente pode começar após aprovação explícita do responsável para a revisão e o baseline registrados.
+
+Antes da primeira alteração, o executor deve reconfirmar que:
+
+- a especificação não sofreu mudança material;
+- branch, commit e worktree permanecem compatíveis com o baseline revisado;
+- a revisão aprovada permanece `Implementable`;
+- a transação aplicável está `Open`.
+
+Mudança material invalida a autorização e exige nova revisão integral. `Needs Clarification` deve ser reportado como bloqueio, nunca como implementação concluída.
+
+Esse controle é manual no modelo 1.6 e não depende de múltiplos agentes, CI/CD ou `EKM Gate`.
+
 Em `Needs Clarification`:
 
 1. nenhum item da especificação nem artefato de implementação é alterado;
 2. o executor registra requisito, evidência, lacuna, decisão ausente, impacto das alternativas e ajuste recomendado;
 3. o responsável corrige ou aprova a correção da especificação;
 4. a análise integral é repetida;
-5. somente o novo resultado `Implementable` autoriza a execução.
+5. somente o novo resultado `Implementable`, seguido de aprovação humana explícita e reconfirmação do baseline, autoriza a execução.
 
 Implementação parcial exige divisão explícita e aprovada da especificação. Decisões mecânicas privadas continuam permitidas apenas quando comprovadamente equivalentes e sem impacto normativo.
 
@@ -210,7 +254,7 @@ Uma mudança só pode ser encerrada quando:
 
 Build aprovado, isoladamente, não comprova conformidade EKM.
 
-Mudanças funcionais sob o modelo 1.5 somente encerram a transação em `Done`. Investigações e governança podem possuir critério aprovado próprio sem declarar entrega funcional.
+Mudanças funcionais sob o modelo 1.6 somente encerram a transação em `Done`. Investigações e governança podem possuir critério aprovado próprio sem declarar entrega funcional.
 
 ## 12. Automação e garantias previstas
 

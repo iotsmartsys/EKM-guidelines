@@ -36,8 +36,11 @@ Adotar a fundação EKM e registrar o conhecimento inicial do sistema sem altera
 
 - Resultado: `<Implementable | Needs Clarification>`.
 - Baseline e fontes analisadas: `<LISTA>`.
+- Matriz integral de requisitos e dimensões: `<CAMINHO OU CONTEÚDO>`.
 - Lacunas ou decisões ausentes: `<NENHUMA OU LISTA>`.
-- Evidência de que a análise ocorreu antes da primeira alteração de implementação: `<EVIDÊNCIA>`.
+- Evidência de que a revisão encerrou sem alteração de implementação: `<EVIDÊNCIA>`.
+- Aprovação humana para implementar: `<RESPONSÁVEL, DATA E REFERÊNCIA OU PENDENTE>`.
+- Reconfirmação do baseline antes da primeira alteração: `<EVIDÊNCIA OU NÃO APLICÁVEL>`.
 
 ### Estado da entrega
 

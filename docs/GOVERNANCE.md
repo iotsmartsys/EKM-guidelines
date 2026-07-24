@@ -8,7 +8,7 @@ Permitir que o método evolua com evidências sem apagar sua história nem apres
 
 A EKM é experimental e utilizável. Não está concluída nem descartada. Cada versão representa o melhor modelo conhecido até aquele momento.
 
-**Modelo vigente neste repositório:** 1.5.
+**Modelo vigente neste repositório:** 1.6.
 
 ## 3. Fontes deste repositório
 

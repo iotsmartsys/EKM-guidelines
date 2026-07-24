@@ -13,9 +13,14 @@ Antes de alterar código, build, testes, automações ou documentação, leia ne
 
 - A especificação define o comportamento esperado; não invente contratos ausentes.
 - Antes de alterar qualquer artefato de implementação, execute a Technical Readiness Review integral e declare `Implementable` ou `Needs Clarification`.
+- Classifique individualmente todos os requisitos e dimensões obrigatórias em uma matriz de evidências. Um bloqueio interrompe a implementação, mas não encerra a análise restante.
+- Execute a Technical Readiness Review e a implementação em execuções separadas. A execução da revisão deve encerrar sem alterar implementação, inclusive com resultado `Implementable`.
+- Trate `Implementable` como apto para aprovação humana, não como autorização automática. Implemente somente após aprovação explícita do responsável para a revisão e o baseline registrados.
+- Antes da primeira alteração, reconfirme especificação, branch, commit, worktree, resultado aprovado e transação `Open`. Mudança material exige nova revisão integral.
 - Se qualquer requisito obrigatório exigir inferência relevante, não implemente nenhum item; registre a lacuna e proponha o ajuste na especificação.
 - Após ajuste aprovado da especificação, repita a análise integral antes de implementar.
 - Em `Needs Clarification`, altere somente registros EKM e a correção normativa explicitamente aprovada.
+- Reporte `Needs Clarification` como bloqueio, nunca como implementação concluída.
 - Preserve APIs, contratos e conhecimento normativo salvo autorização explícita.
 - Considere todo o worktree inicial como baseline.
 - Abra ou identifique uma transação EKM antes de mudança relevante.
@@ -28,4 +33,4 @@ Antes de alterar código, build, testes, automações ou documentação, leia ne
 
 ## Relatório obrigatório
 
-Informe resultado, requisitos, arquivos, contratos, conhecimento alterado, validações, pendências, desvios, estado EKM e operações externas.
+Informe resultado, requisitos, arquivos, contratos, conhecimento alterado, validações, pendências, desvios, revisão e aprovação que autorizaram a implementação, reconfirmação do baseline, estado EKM e operações externas.

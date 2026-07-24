@@ -48,3 +48,18 @@ Foram produzidos diretrizes, mapa, changelog e especificações de API pública,
 ## Limitação
 
 A fundação documental foi aplicada apenas parcialmente. Ainda precisamos observar se outro executor consegue usar a instrução inicial com pouco contexto adicional e se o custo de manutenção permanece sustentável.
+
+## Continuação — revisão da especificação Air Conditioner Philco
+
+Uma especificação experimental presumiu, de forma intencional, que existia uma API pública para registrar `AirConditionerCapability`. O objetivo era verificar se a Technical Readiness Review confrontaria a premissa com o baseline sem transformar a descoberta em decisão arquitetural.
+
+O executor:
+
+- encontrou a ausência da API;
+- declarou `Needs Clarification`;
+- preservou a atomicidade;
+- não alterou implementação.
+
+Entretanto, encerrou a investigação no primeiro bloqueio e deixou outras dimensões sem classificação, incluindo o estado normativo `Draft` e a implementação do ciclo de vida da capability. O resultado motivou a revisão cumulativa, a matriz obrigatória, a separação entre revisão e implementação e a aprovação humana explícita introduzidas no modelo 1.6.
+
+O controle permanece manual. O estudo não comprova ainda a eficácia de coordenação por múltiplos agentes nem de um pipeline CI/CD.

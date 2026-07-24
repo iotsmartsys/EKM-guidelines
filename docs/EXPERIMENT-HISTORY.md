@@ -61,6 +61,22 @@ A reabertura da especificação dos exemplos mostrou que documentos ainda não i
 
 Essa ampliação também revelou que garantias baseadas apenas em disciplina são frágeis. O `EKM Gate` foi registrado como direção futura, ainda sem arquitetura ou implantação definida.
 
+## 9. Encontrar o primeiro bloqueio não comprova revisão integral
+
+Em um experimento deliberado, uma especificação de exemplo para `AirConditionerCapability` presumiu a existência de uma API pública que não havia sido confirmada. O executor identificou corretamente a premissa falsa, declarou `Needs Clarification` e não implementou a API por inferência.
+
+O bloqueio atômico funcionou, mas a revisão terminou após esse primeiro impedimento. Outras dimensões observáveis, como o estado normativo `Draft` e o ciclo de vida incompleto da capability, não foram registradas. A tarefa também foi marcada operacionalmente como concluída, embora a implementação estivesse bloqueada.
+
+O resultado mostrou que:
+
+- bloqueio imediato da implementação e continuidade da análise são obrigações diferentes;
+- revisão integral exige classificação cumulativa de todos os requisitos e dimensões;
+- o executor não deve produzir e consumir sua própria autorização;
+- `Implementable` deve aguardar aprovação humana;
+- a reconfirmação do baseline protege a autorização contra mudanças posteriores.
+
+O modelo 1.6 introduziu esses controles manualmente, sem exigir múltiplos agentes, CI/CD ou `EKM Gate`.
+
 ## Conclusão experimental
 
 A hipótese atual é que agentes conseguem executar mudanças com mais autonomia quando o repositório contém especificações, regras de preservação, mapa de autoridade e histórico transacional. A autonomia continua limitada onde existe julgamento de produto ou arquitetura.

@@ -77,8 +77,20 @@
 
 **Dependências e fontes consultadas:** `<LISTA>`
 
+| Requisito ou dimensão | Resultado | Evidência | Lacuna ou impacto | Decisão necessária |
+|---|---|---|---|---|
+| `<ID OU ASPECTO>` | `Supported`, `Gap`, `Conflict` ou `Not Applicable` | `<EVIDÊNCIA>` | `<IMPACTO OU NONE>` | `<DECISÃO OU NONE>` |
+
 **Lacunas ou decisões ausentes:** `<NENHUMA OU ITENS RASTREÁVEIS>`
 
 **Evidência do resultado:** `<COMANDOS, INSPEÇÕES E CONCLUSÃO>`
 
+**Aprovação humana para implementar:** `<RESPONSÁVEL, DATA E REFERÊNCIA OU PENDENTE>`
+
+**Reconfirmação do baseline:** `<EVIDÊNCIA OU NÃO APLICÁVEL>`
+
+A revisão deve continuar após o primeiro bloqueio até classificar todos os itens. Sua execução encerra sem alterar implementação, inclusive com `Implementable`.
+
 Uma especificação `Needs Clarification` não autoriza implementação parcial nem alteração de artefatos de implementação. Somente registros EKM e a correção normativa aprovada podem mudar. Após qualquer correção normativa, esta análise deve ser repetida integralmente.
+
+`Implementable` requer aprovação humana explícita e reconfirmação do baseline em uma execução posterior antes da primeira alteração de implementação.
