@@ -3,6 +3,8 @@
 **Status:** Proposed  
 **Natureza:** protocolo experimental não normativo  
 **Modelo EKM de referência:** 1.6  
+**Versão do protocolo:** 0.2
+
 **Branch do experimento:** `modelo_de_coordenacao_por_atores`  
 **Resultado:** ainda não executado
 
@@ -56,6 +58,8 @@ os benefícios observados.
 O experimento abrange:
 
 - análise integral de uma especificação e do baseline aplicável;
+- criação da especificação em branch exclusiva derivada de `main`;
+- handoffs entre atores baseados em checkpoints commitados;
 - aprovação humana explícita;
 - implementação da especificação aprovada;
 - build e testes aplicáveis;
@@ -70,6 +74,8 @@ O experimento não:
 - autoriza implementação sem Technical Readiness Review e aprovação humana;
 - transfere decisões de produto ou arquitetura aos atores de IA;
 - substitui testes, validação em hardware ou validação humana;
+- torna `qa` ou `homolog` obrigatórias antes que seu processo de promoção seja
+  especificado e validado;
 - alega independência real quando os atores forem simulados pelo mesmo agente,
   modelo ou contexto;
 - demonstra aplicabilidade universal a partir de uma única execução.
@@ -84,6 +90,7 @@ atores.
 Também devem ser registrados:
 
 - projeto, repositório, branch, commit e estado real do worktree;
+- commit de `main` do qual a branch exclusiva foi criada;
 - versão da EKM e fontes normativas aplicáveis;
 - tecnologia e tipo de mudança;
 - complexidade e riscos conhecidos;
@@ -101,6 +108,7 @@ como piloto exploratório e não como comprovação de superioridade.
 Responsável por:
 
 - definir objetivo, especificação e limites;
+- declarar a referência de origem e aprovar a criação da branch da mudança;
 - resolver decisões de produto e arquitetura;
 - aprovar ou rejeitar a recomendação da Technical Readiness Review;
 - autorizar explicitamente a implementação contra um baseline registrado;
@@ -110,7 +118,24 @@ Responsável por:
 
 O protagonismo decisório permanece humano durante todo o experimento.
 
-### 6.2 Engenheiro Analista
+### 6.2 Coordenação do processo
+
+A coordenação do processo é uma função operacional, não um novo papel de decisão
+arquitetural. Na primeira execução, ela pode ser exercida pelo arquiteto humano.
+Futuramente, poderá ser automatizada por um orquestrador.
+
+Responsável por:
+
+- registrar a referência e o commit de origem aprovados;
+- criar a branch exclusiva da mudança a partir de `main`;
+- verificar branch, commit, worktree e estados antes de cada atuação;
+- preparar e registrar o checkpoint de entrada de cada ator;
+- preservar a ordem dos gates e impedir início sobre checkpoint incompatível;
+- registrar o commit resultante de cada etapa;
+- executar operações Git somente quando explicitamente autorizadas;
+- não converter uma saída de agente em aprovação humana implícita.
+
+### 6.3 Engenheiro Analista
 
 Responsável por executar a Technical Readiness Review integral definida pela EKM
 1.6.
@@ -127,7 +152,7 @@ Deve:
 
 Não pode autorizar a própria recomendação nem implementar a especificação.
 
-### 6.3 Engenheiro Implementador
+### 6.4 Engenheiro Implementador
 
 Responsável por executar exclusivamente a especificação aprovada.
 
@@ -144,7 +169,7 @@ Deve:
 
 O relatório registra evidências e não cria nem altera requisitos.
 
-### 6.4 Engenheiro Tech Lead
+### 6.5 Engenheiro Tech Lead
 
 Responsável por revisar a implementação contra:
 
@@ -167,7 +192,7 @@ Seu parecer deve indicar uma destas conclusões experimentais:
 O Tech Lead não corrige diretamente a implementação. Quando necessário, produz
 um recorte corretivo ou devolve uma decisão ao arquiteto.
 
-### 6.5 Validador de Integridade da EKM
+### 6.6 Validador de Integridade da EKM
 
 Responsável por auditar se o processo e seus atores cumpriram a versão declarada
 da EKM e este protocolo.
@@ -198,7 +223,15 @@ técnica e não escolhe preferências de implementação que a EKM não regulame
 ## 7. Fluxo e gates
 
 ```text
-Especificação e baseline
+Objetivo e referência `main` definidos pelo arquiteto
+          ↓
+Preparação da mudança e registro do baseline
+          ↓
+Branch exclusiva derivada de `main`
+          ↓
+Especificação e transação EKM
+          ↓
+Checkpoint commitado da especificação
           ↓
 Engenheiro Analista
           ↓
@@ -208,13 +241,19 @@ Technical Readiness Review integral
           ↓
 Aprovação humana explícita
           ↓
+Checkpoint aprovado para implementação
+          ↓
 Engenheiro Implementador
           ↓
 Reconfirmação do baseline → implementação → build/testes → relatório
           ↓
+Checkpoint da implementação
+          ↓
 Engenheiro Tech Lead
     ├─ correção ou decisão necessária → arquiteto → novo ciclo autorizado
     └─ Aprovada
+          ↓
+Checkpoint da revisão técnica
           ↓
 Validador de Integridade da EKM
     ├─ ressalva, não conformidade ou ausência de prova → arquiteto
@@ -229,6 +268,119 @@ Nenhum parecer posterior corrige retroativamente um gate ausente. Se uma etapa
 obrigatória não tiver ocorrido no momento devido, o desvio deve permanecer
 registrado como evidência do experimento.
 
+### 7.1 Branch exclusiva da mudança
+
+Toda especificação funcional submetida a este experimento deve ser criada em
+uma nova branch exclusiva, derivada obrigatoriamente de `main`.
+
+Antes da primeira alteração da especificação, devem existir:
+
+- referência explícita a `main` como origem;
+- commit de origem registrado;
+- estado real do worktree de origem registrado;
+- branch da mudança criada;
+- transação `EKM-CHG` identificada e `Open`.
+
+A branch contém o ciclo completo da mudança: especificação, revisões, decisões,
+implementação, correções, relatórios e evidências. Criá-la não aprova a
+especificação nem autoriza implementação.
+
+Correções identificadas depois da implementação devem retornar à branch da
+mudança e percorrer novamente os gates afetados. Alterações diretas nas branches
+de promoção não substituem esse ciclo.
+
+Quando um repositório ainda não possuir a fundação EKM, sua adoção documental
+deve ocorrer como mudança precedente e separada. A fundação deve alcançar
+`main` antes que a branch da primeira especificação funcional seja derivada.
+
+### 7.2 Checkpoint de entrada dos atores
+
+Toda etapa ou operação de agente deve começar a partir de um commit explícito. O
+checkpoint de entrada contém:
+
+- repositório e branch;
+- SHA completo do commit;
+- confirmação de worktree limpo;
+- ID e versão da especificação;
+- estado normativo;
+- estado da implementação;
+- estado da entrega;
+- resultado da Technical Readiness Review;
+- identificador e estado da transação `EKM-CHG`;
+- artefatos e pareceres obrigatórios das etapas anteriores;
+- aprovação humana aplicável.
+
+O ator deve validar o checkpoint antes de atuar. Branch, commit, worktree,
+estado ou evidência incompatível com o gate esperado bloqueia a operação e deve
+ser reportado.
+
+Essa exigência não substitui a regra EKM de observar o worktree real. O worktree
+continua sendo verificado, mas qualquer diferença não commitada no início de um
+handoff constitui violação do checkpoint.
+
+### 7.3 Saída e formação do próximo checkpoint
+
+A saída de um ator não autoriza automaticamente a etapa seguinte. O ciclo de
+handoff é:
+
+```text
+checkpoint de entrada
+        ↓
+operação do ator
+        ↓
+artefatos, alterações e relatório
+        ↓
+revisão ou aprovação aplicável
+        ↓
+novo commit de checkpoint
+        ↓
+próximo ator
+```
+
+O commit de checkpoint deve preservar a saída da etapa anterior e o estado
+atual da especificação. O próximo ator recebe esse commit como entrada
+imutável.
+
+Quando a etapa exigir decisão humana, o checkpoint seguinte somente pode ser
+formado depois que a decisão estiver registrada. A existência de um commit não
+é, isoladamente, evidência de aprovação.
+
+### 7.4 Promoção prevista
+
+O pipeline pretendido para adoção futura é:
+
+```text
+main
+  ↓
+branch exclusiva da especificação e desenvolvimento
+  ↓
+qa
+  ↓
+homolog
+  ↓
+main
+```
+
+Neste estágio, apenas a criação da branch exclusiva a partir de `main` e os
+checkpoints dentro dela são exigidos pelo experimento.
+
+As branches `qa` e `homolog` são capacidades previstas, mas ainda não
+obrigatórias. Sua implementação futura deverá especificar, experimentar e
+aprovar ao menos:
+
+- se são permanentes, compartilhadas ou isoladas por mudança;
+- unidade de promoção: commit, merge, release ou artefato;
+- tratamento de mudanças concorrentes;
+- critérios de entrada e saída;
+- validações e aprovações de cada ambiente;
+- rastreabilidade entre commits, artefatos e deploys;
+- estratégia de correção, reversão e nova promoção.
+
+Enquanto essa definição não existir, nenhum projeto pode alegar conformidade
+com um pipeline EKM de `qa` e `homolog` apenas pela existência dessas branches.
+O estado `Done` continua condicionado à integração comprovada na referência de
+produção declarada.
+
 ## 8. Isolamento e simulação manual
 
 Cada atuação deve ocorrer em execução identificável e produzir um artefato
@@ -238,6 +390,7 @@ imutável de handoff. Para cada execução, registrar:
 - responsável pela simulação;
 - agente e modelo, quando aplicável;
 - data e identificador da sessão;
+- checkpoint de entrada;
 - entradas disponibilizadas;
 - contexto deliberadamente omitido;
 - saída produzida;
@@ -263,18 +416,20 @@ Uma execução deve preservar:
 1. versão deste protocolo;
 2. versão congelada da EKM utilizada;
 3. especificação submetida;
-4. baseline inicial;
-5. parecer e matriz do Engenheiro Analista;
-6. decisões e aprovação do arquiteto;
-7. reconfirmação anterior à implementação;
-8. relatório do Engenheiro Implementador;
-9. diff completo, builds, testes e validações;
-10. parecer do Engenheiro Tech Lead;
-11. relatório do Validador de Integridade da EKM;
-12. validação funcional e operacional;
-13. registro de ciclos corretivos;
-14. métricas e retrospectiva consolidada;
-15. decisão experimental.
+4. referência `main`, commit de origem e baseline inicial;
+5. evidência de criação da branch exclusiva;
+6. checkpoint de entrada e commit resultante de cada etapa;
+7. parecer e matriz do Engenheiro Analista;
+8. decisões e aprovação do arquiteto;
+9. reconfirmação anterior à implementação;
+10. relatório do Engenheiro Implementador;
+11. diff completo, builds, testes e validações;
+12. parecer do Engenheiro Tech Lead;
+13. relatório do Validador de Integridade da EKM;
+14. validação funcional e operacional;
+15. registro de ciclos corretivos;
+16. métricas e retrospectiva consolidada;
+17. decisão experimental.
 
 Ausência de uma evidência deve ser registrada; não pode ser convertida em
 resultado positivo por inferência.
@@ -309,6 +464,8 @@ evitado ou provocado.
 - tokens ou custo estimado, quando disponíveis;
 - volume de contexto e artefatos transferidos;
 - quantidade de handoffs;
+- quantidade de checkpoints formados ou rejeitados;
+- violações de branch, commit, worktree ou estado encontradas nos handoffs;
 - quantidade de ciclos corretivos;
 - intervenções e decisões humanas;
 - esforço de preparação e auditoria das evidências.
@@ -357,14 +514,16 @@ protocolo retroativamente. O registro deve conter:
 1. contexto;
 2. hipótese avaliada;
 3. baseline;
-4. atores, modelos e isolamento;
-5. cronologia e artefatos;
-6. achados por gate;
-7. métricas;
-8. resultado técnico;
-9. resultado de integridade EKM;
-10. limitações;
-11. retrospectiva;
-12. decisão: repetir, ajustar, propor adoção ou descartar.
+4. branch da mudança e commit de origem em `main`;
+5. checkpoints e estados da especificação;
+6. atores, modelos e isolamento;
+7. cronologia e artefatos;
+8. achados por gate;
+9. métricas;
+10. resultado técnico;
+11. resultado de integridade EKM;
+12. limitações;
+13. retrospectiva;
+14. decisão: repetir, ajustar, propor adoção ou descartar.
 
 Mudanças futuras neste protocolo devem possuir motivação e histórico próprios.
