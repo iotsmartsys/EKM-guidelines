@@ -59,8 +59,9 @@ Isso inclui recuperar comportamentos, contratos, limites, decisões, falhas espe
 O agente pode localizar fatos, comparar fontes, apoiar a especificação,
 implementar contratos aprovados e produzir evidências. O responsável humano
 continua decidindo intenção, prioridade, compatibilidade, relações de ganhos e
-perdas, aceitação
-da especificação, autorização para implementação e decisão final de entrega.
+perdas, arquitetura, risco aceito, autorização e decisão final de entrega.
+Quando houver conflito entre uma decisão do agente e uma decisão do Arquiteto,
+prevalece o Arquiteto.
 
 A EKM busca autonomia governada, não autonomia máxima. Interação humana em
 decisões, aprovações e validações é parte do funcionamento esperado do método,
@@ -71,17 +72,19 @@ coordenação operacional para decisões de maior impacto. Reduzir interação �
 desejável quando ela representa retrabalho, ambiguidade ou operação repetitiva;
 não quando ela exerce governança.
 
-## Especificação e autoridade humana
+## Especificação, estado e ordem humana
 
-A EKM fornece modelo, metodologia e mecanismos para confeccionar
-especificações. Ela não prevê automação da autoria como requisito ou capacidade
-do método e não determina a modalidade usada para produzir o documento. Seu
-contrato começa no artefato resultante e em sua submissão ao parecer humano.
+A EKM não determina como a especificação é confeccionada. Seu contrato começa
+no artefato resultante.
 
-Antes da análise de implementabilidade, um responsável humano deve declarar que
-a especificação representa a intenção conhecida e pode seguir para análise
-técnica. Inicialmente, esse parecer é declarativo: a EKM exige seu registro, mas
-não alega verificar automaticamente identidade, autenticidade ou autoridade.
+Cada tarefa de agente nasce de uma ordem do Arquiteto, por prompt ou pipeline.
+Essa ordem autoriza a etapa solicitada, enquanto o estado da especificação
+indica se ela está pronta para a etapa. Não é necessário repetir a ordem em um
+parecer documental com metadados Git.
+
+Git preserva autoria técnica, diferenças e linhagem. As fontes EKM preservam o
+que Git não explica sozinho: intenção, decisão, lacuna, evidência material e
+resultado.
 
 ## Hipóteses atuais
 
@@ -94,11 +97,11 @@ A EKM parte de hipóteses ainda em validação:
 5. melhor contexto deve se converter em produtividade mensurável.
 6. análise técnica anterior à implementação reduz inferências, interrupções e retrabalho durante a execução.
 7. imutabilidade de versões em produção preserva a linhagem entre intenção e entrega.
-8. garantias automatizadas podem aumentar conformidade em aspectos verificáveis sem substituir decisão humana.
-9. governança explícita aumenta confiança e velocidade sem exigir redução da
+8. governança explícita aumenta confiança e velocidade sem exigir redução da
    participação humana decisória.
-10. separar parecer humano da especificação, análise técnica e autorização para
-    implementar reduz conflito de responsabilidade.
+9. usar o estado da especificação e a ordem do Arquiteto reduz passagens
+   documentais sem perder autoridade.
+10. manter a linhagem no Git reduz duplicação sem perder auditabilidade.
 
 Os experimentos atuais sustentam essas hipóteses parcialmente, mas não demonstram aplicabilidade universal.
 

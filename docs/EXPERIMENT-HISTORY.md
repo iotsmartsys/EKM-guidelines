@@ -128,6 +128,30 @@ português e preservou os valores ingleses como identificadores legados de
 compatibilidade. O objetivo não é traduzir comandos ou APIs, mas garantir um
 nome e um significado canônico para cada conceito.
 
+## 12. Rastreabilidade redundante pode ocultar o valor do método
+
+Ao preparar um novo experimento em um aplicativo Swift para iOS, iPadOS e
+watchOS, a aplicação do protocolo 0.6 tornou visível um custo subestimado:
+checkpoints, registros de SHA, pareceres intermediários, matrizes universais e
+papéis obrigatórios repetiam informações ou decisões já disponíveis no Git e na
+ordem do Arquiteto.
+
+A revisão concluiu que:
+
+- a autoridade do Arquiteto deve prevalecer explicitamente sobre os agentes;
+- o prompt ou comando do Arquiteto já autoriza a etapa solicitada;
+- o estado da especificação é suficiente para orientar a etapa seguinte;
+- o Git deve preservar a linhagem sem ser transcrito para documentos;
+- cada agente ainda deve entregar seu trabalho por commit e push;
+- análise e revisão devem ser proporcionais ao risco;
+- problemas não adotados não devem entrar preventivamente no fluxo.
+
+O modelo 1.9 e o protocolo 0.7 removem a passagem documental obrigatória entre
+papéis, preservando decisões, lacunas, evidências materiais e entrega
+versionada. A hipótese do novo experimento é que essa dose menor de governança
+permitirá testar e descartar ideias mais rapidamente sem perder
+auditabilidade.
+
 ## Conclusão experimental
 
 A hipótese atual é que agentes conseguem executar mudanças com autonomia

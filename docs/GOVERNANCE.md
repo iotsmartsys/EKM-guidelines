@@ -2,98 +2,71 @@
 
 ## 1. Objetivo
 
-Permitir que o método evolua com evidências sem apagar sua história nem
-apresentar hipóteses como conclusões, preservando autoridade humana sobre
-decisões relevantes.
+Evoluir a EKM por evidência, com autoridade humana e com a menor carga
+operacional capaz de manter conhecimento, decisões, auditabilidade e
+verificabilidade.
 
-Governança é um objetivo central da EKM. Ela delimita quem pode decidir, quem
-pode executar, quais evidências sustentam cada transição e como exceções são
-tratadas. O objetivo não é eliminar participação humana, mas acelerar a
-engenharia com confiança, rastreabilidade e responsabilidade.
+**Modelo vigente:** 1.9.
 
-## 2. Estado atual
+## 2. Autoridade
 
-A EKM é experimental e utilizável. Não está concluída nem descartada. Cada versão representa o melhor modelo conhecido até aquele momento.
+O Arquiteto humano decide intenção, prioridade e adoção das regras. Agentes
+podem propor mudanças e apresentar evidências, mas não tornam uma hipótese
+obrigatória por iniciativa própria.
 
-**Modelo vigente neste repositório:** 1.8.
+## 3. Critério para adicionar governança
 
-## 3. Fontes deste repositório
+Uma nova obrigação deve demonstrar:
 
-| Fonte | Autoridade |
-|---|---|
-| `docs/EKM-CONCEPT.md` | Conceito e limites atuais |
-| `docs/EKM-METHOD.md` | Método de referência vigente |
-| `docs/DESIGN-DECISIONS.md` | Razões das decisões do método |
-| `docs/LEGACY-ADOPTION.md` | Processo recomendado para legados |
-| `templates/` | Modelos reutilizáveis que formam o ponto de partida operacional |
-| `docs/case-studies/` | Evidências e aprendizados, não regras universais |
+- problema observado em execução real;
+- ganho esperado para entrega, conhecimento ou verificação;
+- custo operacional e cognitivo;
+- forma proporcional de aplicação;
+- evidência que permitirá mantê-la, reduzi-la ou descartá-la.
 
-## 4. Critérios para evolução
+Ideias ainda não aprovadas não entram no fluxo vigente, nos templates, nos
+critérios dos experimentos ou nas validações.
 
-Uma mudança na EKM deve indicar:
+## 4. Critério para reduzir governança
 
-- problema observado;
-- evidência ou experimento que o revelou;
-- regra ou modelo afetado;
-- impacto nos modelos reutilizáveis;
-- impacto no vocabulário controlado e nos identificadores legados;
-- compatibilidade com adoções anteriores;
-- hipótese que ainda permanece aberta.
+Um controle deve ser simplificado ou removido quando:
 
-Preferências editoriais isoladas não justificam expansão do método.
+- repete informação já preservada por uma fonte confiável, como o Git;
+- exige preenchimento sem apoiar decisão humana;
+- cria etapas universais para um risco localizado;
+- atrasa o experimento sem evidência de ganho;
+- aumenta divergência entre documentos.
+
+Remover burocracia não autoriza perder decisão, lacuna ou evidência material.
 
 ## 5. Versionamento
 
-Usar versionamento semântico para versões publicadas do guideline:
+- **major:** mudança incompatível nos estados ou no modelo;
+- **minor:** mudança compatível de comportamento, regra ou capacidade;
+- **patch:** esclarecimento sem mudança operacional.
 
-- **major:** mudança incompatível no modelo ou nos estados;
-- **minor:** nova capacidade, regra ou modelo compatível;
-- **patch:** esclarecimento ou correção sem mudança de comportamento.
+Projetos adotantes migram deliberadamente. Registros históricos continuam
+válidos sob a versão usada em sua execução.
 
-Projetos adotantes não precisam atualizar automaticamente. A migração deve ser deliberada e registrar quais regras passaram a vigorar.
+## 6. Evolução
 
-## 6. Experimentos
+Para alterar o método:
 
-Estudos de caso devem separar:
+1. registrar o problema e a evidência;
+2. obter decisão do Arquiteto;
+3. atualizar método, decisões, templates e navegação afetados;
+4. preservar a compreensão dos experimentos anteriores;
+5. validar consistência textual e referências;
+6. entregar a mudança por commit e push.
 
-- contexto;
-- hipótese;
-- execução;
-- evidência;
-- resultado;
-- mudança introduzida no método;
-- limitações da conclusão.
+## 7. Medida de sucesso
 
-Resultados negativos são conhecimento válido e não devem ser omitidos.
+O sucesso não é quantidade de documentos ou controles. Avalie:
 
-## 7. Alterações nos modelos
-
-Ao modificar um modelo reutilizável:
-
-1. atualizar a fonte conceitual ou decisão relacionada;
-2. verificar consistência entre todos os modelos;
-3. manter o modelo genérico;
-4. não incorporar regras específicas de um projeto;
-5. registrar impacto para usuários existentes.
-6. preservar o português normativo e referenciar os identificadores legados
-   definidos pelo método.
-
-## 8. Critério de qualidade
-
-O sucesso da EKM não é medido pela quantidade de documentos. Deve ser avaliado por:
-
-- confiança na entrega e qualidade das decisões;
-- rastreabilidade de autoridade, responsabilidade e evidência;
-- tempo entre intenção, especificação, validação e entrega;
-- facilidade de localizar autoridade;
-- redução de perguntas repetidas e inferências;
-- preservação de contratos durante mudanças;
-- qualidade e autonomia segura da execução;
-- proporção entre participação humana decisória e coordenação operacional;
-- custo de manutenção do próprio conhecimento.
-
-Interações humanas planejadas de decisão, aprovação e validação não são
-classificadas automaticamente como custo ou falha. O método deve distinguir
-esses pontos de controle de retrabalho, ambiguidade e operação repetitiva.
-
-Essas métricas ainda precisam ser experimentadas de forma mais sistemática.
+- tempo entre intenção e entrega validada;
+- capacidade de experimentar e descartar ideias;
+- atualização do conhecimento;
+- decisões localizáveis;
+- evidências suficientes para verificar conclusões;
+- retrabalho e carga cognitiva;
+- confiança proporcional ao risco.
