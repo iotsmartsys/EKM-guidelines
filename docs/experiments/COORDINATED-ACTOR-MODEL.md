@@ -1,12 +1,13 @@
 # Experimento — Modelo de coordenação por atores
 
-**Status:** Proposed  
+**Status:** Experimental / In Progress
+
 **Natureza:** protocolo experimental não normativo  
 **Modelo EKM de referência:** 1.6  
-**Versão do protocolo:** 0.2
+**Versão do protocolo:** 0.3
 
 **Branch do experimento:** `modelo_de_coordenacao_por_atores`  
-**Resultado:** ainda não executado
+**Resultado:** piloto iniciado; fluxo completo ainda não executado
 
 ## 1. Contexto
 
@@ -17,8 +18,9 @@ separação automatizada de responsabilidades permanecem questões em aberto.
 
 Este experimento avaliará uma forma de trabalho coordenada por atores
 especializados. Na primeira execução, os atores poderão ser simulados
-manualmente em execuções separadas. O protocolo não altera o método vigente, os
-templates ou as regras aplicáveis aos projetos adotantes.
+manualmente em execuções separadas. O protocolo não altera o método de
+referência vigente. Os templates ajustados nesta branch pertencem ao experimento
+e não passam a reger projetos adotantes sem decisão explícita.
 
 ## 2. Pergunta experimental
 
@@ -84,8 +86,8 @@ O experimento não:
 
 Antes da execução, deve ser declarado o fluxo usado como baseline. A referência
 preferencial é o processo vigente da EKM 1.6, com Technical Readiness Review e
-implementação em execuções separadas, mas sem a divisão completa em quatro
-atores.
+implementação em execuções separadas, mas sem a divisão completa entre os
+papéis especializados deste protocolo.
 
 Também devem ser registrados:
 
@@ -101,126 +103,294 @@ Executar duas vezes a mesma mudança pode introduzir contaminação por aprendiz
 Quando não houver comparação pareada válida, a primeira execução será tratada
 como piloto exploratório e não como comprovação de superioridade.
 
-## 6. Atores e contratos de responsabilidade
+## 6. Contrato comum das etapas
 
-### 6.1 Arquiteto humano
+Cada atuação deve declarar antes de começar:
 
-Responsável por:
+1. papel exercido;
+2. objetivo e escopo;
+3. checkpoint de entrada;
+4. fontes obrigatórias;
+5. estados esperados;
+6. operações permitidas e proibidas;
+7. artefato de saída;
+8. resultado possível;
+9. condição de bloqueio;
+10. próximo gate.
 
-- definir objetivo, especificação e limites;
-- declarar a referência de origem e aprovar a criação da branch da mudança;
+Nenhum ator acumula silenciosamente a responsabilidade de outro. Uma ausência
+nesse contrato bloqueia somente a etapa afetada e deve ser registrada na
+transação `EKM-CHG`.
+
+Os registros de aprovação, implementação, revisão técnica, integridade,
+validação funcional e integração são consolidados na mesma transação. O histórico
+Git preserva os handoffs. A especificação mantém apenas o comportamento
+normativo e o registro da Technical Readiness Review.
+
+## 7. Atores e contratos de responsabilidade
+
+### 7.1 Arquiteto humano
+
+**Entrada:** objetivo da mudança, decisões disponíveis e pareceres produzidos
+pelos atores.
+
+**Responsabilidades:**
+
+- definir intenção, prioridade e limites;
+- declarar a referência de origem e aprovar a criação da branch;
 - resolver decisões de produto e arquitetura;
-- aprovar ou rejeitar a recomendação da Technical Readiness Review;
-- autorizar explicitamente a implementação contra um baseline registrado;
-- realizar ou coordenar a validação funcional e operacional;
-- decidir por correção, repetição, integração ou encerramento;
-- decidir futuramente se as evidências justificam mudança na EKM.
+- aprovar ou rejeitar especificação e Technical Readiness Review;
+- autorizar implementação contra checkpoint explícito;
+- aceitar ou rejeitar recortes corretivos;
+- realizar ou coordenar validação funcional e operacional;
+- decidir por integração, repetição ou encerramento.
 
-O protagonismo decisório permanece humano durante todo o experimento.
+**Saída:** decisão explícita registrada na transação, com escopo, checkpoint,
+data e responsável.
 
-### 6.2 Coordenação do processo
+O protagonismo decisório permanece humano. Aprovação não pode ser inferida de
+commit, silêncio, parecer técnico ou resultado de agente.
 
-A coordenação do processo é uma função operacional, não um novo papel de decisão
-arquitetural. Na primeira execução, ela pode ser exercida pelo arquiteto humano.
-Futuramente, poderá ser automatizada por um orquestrador.
+### 7.2 Coordenação do processo
 
-Responsável por:
+A coordenação é uma função operacional, não um novo papel arquitetural. Pode ser
+exercida pelo arquiteto e futuramente por um orquestrador.
 
-- registrar a referência e o commit de origem aprovados;
+**Entrada:** decisão humana aplicável e último checkpoint válido.
+
+**Responsabilidades:**
+
+- registrar referência e commit de origem;
 - criar a branch exclusiva da mudança a partir de `main`;
 - verificar branch, commit, worktree e estados antes de cada atuação;
-- preparar e registrar o checkpoint de entrada de cada ator;
-- preservar a ordem dos gates e impedir início sobre checkpoint incompatível;
-- registrar o commit resultante de cada etapa;
-- executar operações Git somente quando explicitamente autorizadas;
-- não converter uma saída de agente em aprovação humana implícita.
+- preparar o checkpoint de entrada;
+- preservar a ordem dos gates;
+- formar o commit resultante de cada etapa quando autorizado;
+- registrar operações Git e externas;
+- impedir início sobre checkpoint incompatível;
+- não converter saída de agente em aprovação implícita.
 
-### 6.3 Engenheiro Analista
+**Saída:** checkpoint registrado na transação e worktree limpo para o próximo
+ator.
 
-Responsável por executar a Technical Readiness Review integral definida pela EKM
-1.6.
+**Bloqueio:** divergência entre branch, commit, worktree, estados, aprovação ou
+artefatos obrigatórios.
 
-Deve:
+### 7.3 Autor da Especificação
 
-- confrontar todos os requisitos e dimensões obrigatórias com o baseline;
-- verificar clareza, consistência, testabilidade, contratos, dependências,
-  condições de borda, compatibilidade e validações;
-- produzir a matriz cumulativa da revisão;
-- registrar todas as lacunas, mesmo após encontrar o primeiro bloqueio;
-- emitir `Implementable` ou `Needs Clarification`;
-- encerrar sem alterar artefatos de implementação.
+**Entrada:** intenção e decisões fornecidas pelo arquiteto, branch exclusiva,
+transação `Open`, fontes EKM e baseline técnico disponível.
 
-Não pode autorizar a própria recomendação nem implementar a especificação.
+**Operações permitidas:**
 
-### 6.4 Engenheiro Implementador
+- inspecionar fontes e código para obter fatos;
+- elaborar ou corrigir requisitos, contratos, limites, aceite e validações;
+- atualizar mapa e transação;
+- registrar lacunas e decisões realmente necessárias.
 
-Responsável por executar exclusivamente a especificação aprovada.
+**Operações proibidas:**
 
-Deve:
+- alterar implementação;
+- executar a Technical Readiness Review;
+- preencher a matriz reservada ao Engenheiro Analista;
+- transformar opção não solicitada em decisão bloqueante;
+- tratar comportamento fora de escopo como lacuna obrigatória.
 
-- reconfirmar especificação, branch, commit, worktree, revisão e transação antes
-  da primeira alteração;
-- interromper a execução caso surja uma decisão relevante não autorizada;
-- implementar o recorte sem expansão silenciosa;
-- executar builds, testes e validações aplicáveis;
-- reconciliar código, automação, testes, documentação e diferenças do worktree;
-- produzir relatório de implementação e decisões locais;
-- declarar desvios, limitações, validações pendentes e operações externas.
+**Procedimento:**
 
-O relatório registra evidências e não cria nem altera requisitos.
+1. separar fatos observados, decisões confirmadas, inferências e lacunas;
+2. preencher as seções normativas do template;
+3. assegurar rastreabilidade entre requisitos e critérios de aceite;
+4. classificar explicitamente fora de escopo;
+5. manter o registro da Technical Readiness Review como `Pending Review`;
+6. encerrar a autoria sem alegar implementabilidade.
 
-### 6.5 Engenheiro Tech Lead
+**Saída:** especificação `Proposed`, `Not Started`, `Not Ready` e
+`Pending Review`, acompanhada de mapa e transação atualizados.
 
-Responsável por revisar a implementação contra:
+**Bloqueio:** falta de decisão indispensável para definir o próprio contrato.
+Opções não solicitadas, preferências e melhorias futuras não bloqueiam a autoria.
 
-- especificação aprovada;
-- Technical Readiness Review;
-- autorização e baseline registrados;
-- diff completo;
-- builds, testes e demais evidências;
-- relatório do Engenheiro Implementador.
+**Próximo gate:** Engenheiro Analista.
 
-Deve avaliar aderência requisito a requisito, qualidade técnica, regressões,
-suficiência das validações, mudanças não autorizadas e consistência do relatório.
-Seu parecer deve indicar uma destas conclusões experimentais:
+### 7.4 Engenheiro Analista
 
-- `Aprovada`;
-- `Correção necessária`;
-- `Decisão do arquiteto necessária`;
-- `Não verificável com as evidências disponíveis`.
+**Entrada:** especificação `Proposed`, `Pending Review`, checkpoint limpo,
+transação `Open` e baseline técnico correspondente.
 
-O Tech Lead não corrige diretamente a implementação. Quando necessário, produz
-um recorte corretivo ou devolve uma decisão ao arquiteto.
+**Operações permitidas:**
 
-### 6.6 Validador de Integridade da EKM
+- inspecionar integralmente fontes normativas e implementação;
+- preencher exclusivamente o registro da Technical Readiness Review;
+- atualizar a transação com o resultado e as lacunas;
+- recomendar correções sem implementá-las.
 
-Responsável por auditar se o processo e seus atores cumpriram a versão declarada
-da EKM e este protocolo.
+**Operações proibidas:**
 
-Deve verificar:
+- alterar código, testes, build ou automações;
+- reescrever requisitos para resolver decisões ausentes;
+- autorizar implementação;
+- encerrar no primeiro bloqueio.
 
-- separação e limites dos papéis;
-- validade da Technical Readiness Review;
-- aprovação humana e reconfirmação do baseline;
-- atomicidade e ausência de inferência relevante;
-- rastreabilidade entre requisitos, mudanças e evidências;
-- proteção do conhecimento normativo;
-- reconciliação e estados da transação;
-- declaração de desvios, pendências e operações;
-- suficiência das evidências para as alegações realizadas.
+**Procedimento:**
 
-Seu parecer deve indicar uma destas conclusões experimentais:
+1. validar o checkpoint;
+2. classificar todos os requisitos e dimensões obrigatórias;
+3. distinguir lacuna indispensável, item fora de escopo e opção não requerida;
+4. confrontar testabilidade, contratos, persistência, segurança,
+   compatibilidade, dependências e validações;
+5. registrar evidência, impacto e decisão necessária;
+6. emitir resultado binário.
+
+**Saída:** seção de Technical Readiness Review integral e referência na
+transação.
+
+**Resultados:**
+
+- `Implementable`: segue para aprovação humana;
+- `Needs Clarification`: retorna ao arquiteto e depois ao Autor da
+  Especificação.
+
+O resultado não altera sozinho o estado normativo nem autoriza implementação.
+
+### 7.5 Engenheiro Implementador
+
+**Entrada:** especificação `Approved` e `Implementable`, aprovação humana
+registrada, transação `Open`, checkpoint limpo e baseline reconfirmado.
+
+**Operações permitidas:**
+
+- alterar somente os ativos necessários à especificação;
+- executar build, testes e validações autorizadas;
+- tomar decisões mecânicas privadas sem efeito normativo;
+- registrar evidências e decisões locais na transação.
+
+**Operações proibidas:**
+
+- ampliar escopo;
+- inventar comportamento, contrato ou compatibilidade;
+- corrigir falha preexistente fora do recorte sem autorização;
+- declarar validação não executada;
+- tratar relatório como alteração de requisito.
+
+**Procedimento:**
+
+1. reconfirmar o checkpoint;
+2. rastrear requisito para alteração e evidência;
+3. implementar atomicamente o recorte;
+4. interromper diante de inferência relevante;
+5. executar validações obrigatórias;
+6. reconciliar todo o diff com o baseline;
+7. registrar relatório na transação.
+
+**Saída:** implementação, testes aplicáveis e relatório contendo requisitos,
+arquivos, decisões locais, validações, resultados, desvios, pendências e
+operações.
+
+**Resultados:**
+
+- `Implemented`: segue para Tech Lead;
+- `Blocked`: retorna ao arquiteto sem alegar conclusão.
+
+### 7.6 Engenheiro Tech Lead
+
+**Entrada:** checkpoint da implementação, especificação aprovada, Technical
+Readiness Review, autorização humana, diff completo, relatório e evidências.
+
+**Operações permitidas:** leituras, inspeções e repetição de validações
+reproduzíveis já autorizadas.
+
+**Operações proibidas:**
+
+- corrigir diretamente a implementação;
+- criar novo requisito;
+- substituir preferência técnica por obrigação;
+- declarar evidência não reproduzida como própria.
+
+**Procedimento:**
+
+1. validar o checkpoint e o escopo do diff;
+2. revisar requisito por requisito;
+3. avaliar qualidade, regressões, compatibilidade e suficiência dos testes;
+4. confrontar o relatório com as mudanças reais;
+5. classificar cada achado como desvio, risco, decisão necessária ou
+   recomendação não bloqueante;
+6. produzir parecer e, quando necessário, recorte corretivo.
+
+**Saída:** parecer registrado na transação com matriz requisito, evidência,
+resultado, severidade e correção requerida.
+
+**Resultados:**
+
+- `Aprovada`: segue para Validador de Integridade;
+- `Correção necessária`: retorna ao arquiteto e, após autorização, ao
+  Implementador;
+- `Decisão do arquiteto necessária`: retorna ao arquiteto;
+- `Não verificável`: retorna ao arquiteto com a evidência ausente.
+
+### 7.7 Validador de Integridade da EKM
+
+**Entrada:** checkpoint aprovado pelo Tech Lead e todos os artefatos da
+transação.
+
+**Operações permitidas:** auditoria read-only do processo, fontes, checkpoints e
+evidências.
+
+**Operações proibidas:**
+
+- repetir a Technical Readiness Review como Engenheiro Analista;
+- reavaliar preferência técnica já aderente à especificação;
+- corrigir código ou documentos;
+- redefinir requisitos;
+- substituir evidência ausente por inferência.
+
+**Procedimento:**
+
+1. validar a sequência dos checkpoints;
+2. verificar separação dos papéis;
+3. verificar Technical Readiness Review, aprovação e reconfirmação;
+4. verificar rastreabilidade, proteção normativa e reconciliação;
+5. conferir estados, desvios, pendências e operações;
+6. classificar cada controle como `Compliant`, `Non-compliant`,
+   `Not verifiable` ou `Blocked`;
+7. derivar a conclusão geral sem ocultar itens individuais.
+
+**Saída:** relatório de integridade read-only. A Coordenação o registra na
+transação sem alterar seu conteúdo semântico e forma o checkpoint seguinte.
+
+**Conclusões gerais:**
 
 - `Conforme`;
 - `Conforme com ressalvas`;
 - `Não conforme`;
-- `Não verificável com as evidências disponíveis`.
+- `Não verificável`;
+- `Blocked`.
 
-Essas conclusões pertencem ao protocolo e não alteram a semântica normativa da
-EKM 1.6. O Validador não redefine a especificação, não substitui a revisão
-técnica e não escolhe preferências de implementação que a EKM não regulamente.
+**Próximo gate:** validação funcional humana quando não houver bloqueio.
 
-## 7. Fluxo e gates
+### 7.8 Validação funcional, integração e encerramento
+
+**Entrada:** implementação aprovada tecnicamente, processo auditado e
+checkpoint limpo.
+
+**Responsabilidade humana:**
+
+- executar ou coordenar validações funcionais e operacionais;
+- registrar ambiente, procedimento, resultado e evidência;
+- decidir sobre `Validated` e `Ready for Integration`;
+- autorizar integração;
+- comprovar chegada à referência de produção;
+- reconciliar especificação, mapa, transação e estados após o merge.
+
+**Resultados:**
+
+- validação aprovada: `Validated / Ready for Integration`;
+- validação reprovada: retorno ao arquiteto para recorte corretivo;
+- integração comprovada em `main`: `Active / Validated / Done`, com fechamento
+  da transação;
+- integração ausente: transação permanece `Open`.
+
+## 8. Fluxo e gates
 
 ```text
 Objetivo e referência `main` definidos pelo arquiteto
@@ -229,7 +399,9 @@ Preparação da mudança e registro do baseline
           ↓
 Branch exclusiva derivada de `main`
           ↓
-Especificação e transação EKM
+Autor da Especificação
+          ↓
+Especificação `Proposed / Pending Review` e transação EKM
           ↓
 Checkpoint commitado da especificação
           ↓
@@ -256,10 +428,16 @@ Engenheiro Tech Lead
 Checkpoint da revisão técnica
           ↓
 Validador de Integridade da EKM
-    ├─ ressalva, não conformidade ou ausência de prova → arquiteto
-    └─ Conforme
+    ├─ Não conforme, Não verificável ou Blocked → arquiteto
+    └─ Conforme ou Conforme com ressalvas
           ↓
 Validação funcional/operacional humana
+          ↓
+Ready for Integration
+          ↓
+Integração em `main` e reconciliação
+          ↓
+Active / Validated / Done e transação fechada
           ↓
 Retrospectiva e decisão experimental
 ```
@@ -268,7 +446,7 @@ Nenhum parecer posterior corrige retroativamente um gate ausente. Se uma etapa
 obrigatória não tiver ocorrido no momento devido, o desvio deve permanecer
 registrado como evidência do experimento.
 
-### 7.1 Branch exclusiva da mudança
+### 8.1 Branch exclusiva da mudança
 
 Toda especificação funcional submetida a este experimento deve ser criada em
 uma nova branch exclusiva, derivada obrigatoriamente de `main`.
@@ -293,7 +471,7 @@ Quando um repositório ainda não possuir a fundação EKM, sua adoção documen
 deve ocorrer como mudança precedente e separada. A fundação deve alcançar
 `main` antes que a branch da primeira especificação funcional seja derivada.
 
-### 7.2 Checkpoint de entrada dos atores
+### 8.2 Checkpoint de entrada dos atores
 
 Toda etapa ou operação de agente deve começar a partir de um commit explícito. O
 checkpoint de entrada contém:
@@ -318,7 +496,7 @@ Essa exigência não substitui a regra EKM de observar o worktree real. O worktr
 continua sendo verificado, mas qualquer diferença não commitada no início de um
 handoff constitui violação do checkpoint.
 
-### 7.3 Saída e formação do próximo checkpoint
+### 8.3 Saída e formação do próximo checkpoint
 
 A saída de um ator não autoriza automaticamente a etapa seguinte. O ciclo de
 handoff é:
@@ -345,7 +523,25 @@ Quando a etapa exigir decisão humana, o checkpoint seguinte somente pode ser
 formado depois que a decisão estiver registrada. A existência de um commit não
 é, isoladamente, evidência de aprovação.
 
-### 7.4 Promoção prevista
+### 8.4 Estados e ownership
+
+| Gate concluído | Estado normativo | Technical readiness | Implementação | Entrega | Responsável pelo registro |
+|---|---|---|---|---|---|
+| Autoria em andamento | `Draft` | `Pending Review` | `Not Started` | `Not Ready` | Autor da Especificação |
+| Autoria concluída | `Proposed` | `Pending Review` | `Not Started` | `Not Ready` | Autor da Especificação |
+| Análise aprovada | `Proposed` | `Implementable` | `Not Started` | `Not Ready` | Engenheiro Analista |
+| Aprovação humana | `Approved` | `Implementable` | `Not Started` | `Not Ready` | Coordenação após decisão humana |
+| Implementação concluída | `Approved` | `Implementable` | `Implemented` | `Not Ready` | Engenheiro Implementador |
+| Tech Lead aprovado | `Approved` | `Implementable` | `Implemented` | `Not Ready` | Tech Lead registra parecer; não avança implementação |
+| Integridade conforme | `Approved` | `Implementable` | `Implemented` | `Not Ready` | Validador registra conformidade; não avança implementação |
+| Validação funcional aprovada | `Approved` | `Implementable` | `Validated` | `Ready for Integration` | Coordenação após decisão humana |
+| Integração comprovada em `main` | `Active` | `Implementable` | `Validated` | `Done` | Coordenação após integração |
+
+Resultado negativo não avança automaticamente estado. O parecer deve indicar o
+gate de retorno. Somente a coordenação aplica transição dependente de decisão
+humana ou integração.
+
+### 8.5 Promoção prevista
 
 O pipeline pretendido para adoção futura é:
 
@@ -381,7 +577,29 @@ com um pipeline EKM de `qa` e `homolog` apenas pela existência dessas branches.
 O estado `Done` continua condicionado à integração comprovada na referência de
 produção declarada.
 
-## 8. Isolamento e simulação manual
+### 8.6 Ciclos de retorno
+
+- `Needs Clarification`: retorna ao arquiteto e ao Autor da Especificação. A
+  correção produz novo checkpoint `Proposed / Pending Review` e invalida a
+  revisão anterior.
+- `Blocked` durante implementação: nenhum item pode ser apresentado como
+  implementação concluída. Se o bloqueio exigir mudança normativa, o fluxo
+  retorna à autoria; se for operacional, retorna ao arquiteto.
+- `Correção necessária` do Tech Lead: quando o contrato permanece inalterado,
+  retorna ao Implementador com recorte aprovado. Quando exige novo requisito ou
+  decisão, retorna à autoria, análise e aprovação humana.
+- `Não conforme`, `Não verificável` ou `Blocked` no Validador: retorna ao gate
+  que originou a violação ou a ausência de evidência. O relatório original
+  permanece preservado e uma nova validação é executada após o checkpoint
+  corretivo.
+- validação funcional reprovada: retorna ao arquiteto. Correção aderente ao
+  contrato volta ao Implementador; mudança de comportamento volta à autoria.
+
+Qualquer mudança material na especificação invalida Technical Readiness Review,
+aprovação e checkpoints posteriores. Nenhum retorno apaga parecer ou evidência
+anterior.
+
+## 9. Isolamento e simulação manual
 
 Cada atuação deve ocorrer em execução identificável e produzir um artefato
 imutável de handoff. Para cada execução, registrar:
@@ -409,12 +627,13 @@ Aplicam-se os seguintes controles:
 - o uso do mesmo agente, modelo ou sessão deve ser declarado como limitação;
 - o mesmo contexto não deve ser apresentado como evidência de independência.
 
-## 9. Evidências obrigatórias
+## 10. Evidências obrigatórias
 
 Uma execução deve preservar:
 
 1. versão deste protocolo;
-2. versão congelada da EKM utilizada;
+2. fonte EKM declarada pelo projeto e consultada em cada etapa; nesta fase, o
+   apontamento pode ser dinâmico e não exige fixação por commit;
 3. especificação submetida;
 4. referência `main`, commit de origem e baseline inicial;
 5. evidência de criação da branch exclusiva;
@@ -434,9 +653,9 @@ Uma execução deve preservar:
 Ausência de uma evidência deve ser registrada; não pode ser convertida em
 resultado positivo por inferência.
 
-## 10. Métricas
+## 11. Métricas
 
-### 10.1 Qualidade e aderência
+### 11.1 Qualidade e aderência
 
 - requisitos atendidos, parcialmente atendidos e não atendidos;
 - ambiguidades, conflitos e lacunas encontrados antes do código;
@@ -445,7 +664,7 @@ resultado positivo por inferência.
 - falhas escapadas para validação funcional ou integração;
 - suficiência e reprodutibilidade das validações.
 
-### 10.2 Valor incremental por ator
+### 11.2 Valor incremental por ator
 
 Cada achado deve ser classificado como:
 
@@ -458,7 +677,7 @@ Cada achado deve ser classificado como:
 Também devem ser registrados a severidade, o momento da detecção e o retrabalho
 evitado ou provocado.
 
-### 10.3 Custo operacional
+### 11.3 Custo operacional
 
 - tempo por ator e tempo total;
 - tokens ou custo estimado, quando disponíveis;
@@ -470,7 +689,7 @@ evitado ou provocado.
 - intervenções e decisões humanas;
 - esforço de preparação e auditoria das evidências.
 
-### 10.4 Efeito sobre o arquiteto
+### 11.4 Efeito sobre o arquiteto
 
 - decisões que exigiram participação humana;
 - tempo dedicado a decisões versus atividades operacionais;
@@ -478,7 +697,7 @@ evitado ou provocado.
 - confiança e facilidade de localizar a evidência;
 - aprendizado reutilizável produzido pelo experimento.
 
-## 11. Interpretação dos resultados
+## 12. Interpretação dos resultados
 
 A primeira execução será um piloto do protocolo. Ela poderá:
 
@@ -506,7 +725,7 @@ autoriza omitir as evidências negativas.
 Qualquer proposta de incorporação à EKM exige repetição em casos suficientemente
 diversos, comparação com baseline e uma mudança governada separadamente.
 
-## 12. Registro da execução
+## 13. Registro da execução
 
 Cada execução deve ser registrada em documento separado, sem alterar este
 protocolo retroativamente. O registro deve conter:
@@ -527,3 +746,37 @@ protocolo retroativamente. O registro deve conter:
 14. decisão: repetir, ajustar, propor adoção ou descartar.
 
 Mudanças futuras neste protocolo devem possuir motivação e histórico próprios.
+
+## 14. Evidência que motivou a versão 0.3
+
+A primeira atuação isolada do Autor da Especificação ocorreu no
+SmartHome-DeviceApi e produziu o checkpoint
+`eb5ed262dfa830f62aa936bb02ce7420780fdd3d`.
+
+O agente:
+
+- criou corretamente branch derivada de `main`, transação, especificação, mapa
+  e commit documental;
+- preservou o escopo e não alterou implementação;
+- registrou o contrato funcional fornecido;
+- preencheu parcialmente a Technical Readiness Review apesar de declarar que
+  não a executou;
+- tratou opções não solicitadas e um item fora de escopo como decisões
+  pendentes;
+- não declarou uma transação anterior que permanecia aberta e desatualizada
+  após merge.
+
+Essas evidências mostraram que descrição de responsabilidade sem contrato de
+etapa e ownership de saída não era suficiente. A versão 0.3 introduziu:
+
+- contrato comum para todas as etapas;
+- Autor da Especificação como atuação explícita;
+- ownership entre especificação, review e transação;
+- estados e gates de handoff;
+- registros mínimos de cada ator na mesma `EKM-CHG`;
+- Validador de Integridade separado do Engenheiro Analista e do Tech Lead;
+- ciclos de retorno e reconciliação pós-integração.
+
+A evidência provém de uma única autoria e não comprova ainda a eficácia do fluxo
+completo. Engenheiro Analista, Implementador, Tech Lead, Validador e integração
+permanecem por experimentar.

@@ -18,6 +18,19 @@
 
 **Relação normativa:** `New | Amends <ID@VERSÃO> | Supersedes <ID@VERSÃO> | Corrects <ID@VERSÃO> | Retires <ID@VERSÃO>`
 
+## Ownership do documento
+
+- O Autor da Especificação é responsável pelas seções 1 a 12 e pelo estado
+  inicial pendente da seção 13.1.
+- O Engenheiro Analista é responsável exclusivamente pelo registro da seção
+  13.2.
+- O Autor não executa nem simula a Technical Readiness Review.
+- Durante a elaboração, o estado normativo é `Draft`.
+- Ao concluir a autoria, o Autor altera o estado normativo para `Proposed` e
+  mantém `Technical readiness: Pending Review`.
+- Aprovação humana, implementação, Tech Lead, integridade, validação funcional e
+  integração são registradas na transação `EKM-CHG`.
+
 ## 1. Objetivo
 
 `<RESULTADO OBSERVÁVEL PRETENDIDO>`
@@ -69,7 +82,25 @@
 
 ## 13. Registro da Technical Readiness Review
 
-**Resultado:** `Pending Review | Implementable | Needs Clarification`
+### 13.1 Estado entregue pelo Autor da Especificação
+
+No checkpoint de saída da autoria, esta seção deve permanecer exatamente como:
+
+**Resultado:** `Pending Review`
+
+**Revisão executada:** Não.
+
+O Autor não deve preencher baseline analisado, requisitos analisados, matriz,
+lacunas ou evidência da revisão. Não use `Not Applicable` para representar uma
+revisão que não aconteceu.
+
+### 13.2 Registro exclusivo do Engenheiro Analista
+
+Ao executar a revisão, o Engenheiro Analista preserva a seção 13.1 como
+evidência do handoff, preenche o registro abaixo e atualiza o metadado
+`Technical readiness` com o resultado.
+
+**Resultado:** `Implementable | Needs Clarification`
 
 **Baseline analisado:** `<BRANCH, COMMIT E WORKTREE>`
 
@@ -85,12 +116,19 @@
 
 **Evidência do resultado:** `<COMANDOS, INSPEÇÕES E CONCLUSÃO>`
 
-**Aprovação humana para implementar:** `<RESPONSÁVEL, DATA E REFERÊNCIA OU PENDENTE>`
+**Referência na transação:** `<EKM-CHG-NNNN E CHECKPOINT>`
 
-**Reconfirmação do baseline:** `<EVIDÊNCIA OU NÃO APLICÁVEL>`
+A revisão deve continuar após o primeiro bloqueio até classificar todos os
+itens. Sua execução encerra sem alterar implementação, inclusive com
+`Implementable`.
 
-A revisão deve continuar após o primeiro bloqueio até classificar todos os itens. Sua execução encerra sem alterar implementação, inclusive com `Implementable`.
+Distinga decisão indispensável, comportamento fora de escopo e opção não
+solicitada. Somente decisão indispensável ausente produz `Gap`.
 
-Uma especificação `Needs Clarification` não autoriza implementação parcial nem alteração de artefatos de implementação. Somente registros EKM e a correção normativa aprovada podem mudar. Após qualquer correção normativa, esta análise deve ser repetida integralmente.
+Uma especificação `Needs Clarification` não autoriza implementação parcial nem
+alteração de artefatos de implementação. Somente registros EKM e a correção
+normativa aprovada podem mudar. Após correção normativa, a análise deve ser
+repetida integralmente.
 
-`Implementable` requer aprovação humana explícita e reconfirmação do baseline em uma execução posterior antes da primeira alteração de implementação.
+`Implementable` é recomendação técnica. Aprovação humana e reconfirmação do
+baseline são registradas na transação antes da implementação.

@@ -158,7 +158,7 @@ Os próximos ciclos devem priorizar:
 - [`docs/case-studies/`](docs/case-studies/): evidências e limitações dos casos reais.
 - [`docs/GOVERNANCE.md`](docs/GOVERNANCE.md): regras para evolução da própria EKM.
 - [`templates/EKM-LEGACY-ADOPTION-INSTRUCTIONS.md`](templates/EKM-LEGACY-ADOPTION-INSTRUCTIONS.md): instrução inicial para adoção em legado.
-- [`templates/EKM-READONLY-AUDIT-PROMPT.md`](templates/EKM-READONLY-AUDIT-PROMPT.md): prompt experimental para auditoria isolada.
+- [`templates/EKM-READONLY-AUDIT-PROMPT.md`](templates/EKM-READONLY-AUDIT-PROMPT.md): prompt experimental para o Validador de Integridade da EKM.
 - [`templates/`](templates/): conjunto mínimo adaptável para um projeto.
 
 ## Rotas de leitura

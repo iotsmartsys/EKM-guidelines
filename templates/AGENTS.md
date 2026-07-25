@@ -2,17 +2,46 @@
 
 Este repositório adota Engineering Knowledge Management (EKM).
 
-Antes de alterar código, build, testes, automações ou documentação, leia nesta ordem:
+Antes de qualquer atuação, leia nesta ordem:
 
 1. `docs/rfc/EKM-GUIDELINES.md`;
 2. `docs/rfc/KNOWLEDGE-MAP.md`;
-3. as especificações ativas relacionadas em `docs/specs/`;
+3. as especificações relacionadas à tarefa em `docs/specs/`, considerando seu
+   estado normativo;
 4. `docs/rfc/EKM-CHANGELOG.md` e a transação aberta.
+
+Quando o projeto adotar o experimento de coordenação por atores, leia também
+`docs/experiments/COORDINATED-ACTOR-MODEL.md` ou a referência externa declarada
+pelo projeto.
+
+## Papel obrigatório
+
+Antes de atuar, declare exatamente um papel:
+
+- Coordenação do processo;
+- Autor da Especificação;
+- Engenheiro Analista;
+- Engenheiro Implementador;
+- Engenheiro Tech Lead;
+- Validador de Integridade da EKM.
+
+Não acumule papéis na mesma execução. Se a tarefa não indicar um papel e a ação
+puder pertencer a mais de uma etapa, interrompa e solicite definição.
+
+Valide o checkpoint de entrada, os estados esperados e a transação antes de
+atuar. Registre a saída na seção correspondente da mesma `EKM-CHG`.
 
 ## Regras obrigatórias
 
 - A especificação define o comportamento esperado; não invente contratos ausentes.
-- Antes de alterar qualquer artefato de implementação, execute a Technical Readiness Review integral e declare `Implementable` ou `Needs Clarification`.
+- O Autor da Especificação preenche as seções normativas, encerra em `Proposed`
+  e `Pending Review` e não executa a Technical Readiness Review.
+- A seção de Technical Readiness Review pertence exclusivamente ao Engenheiro
+  Analista.
+- Antes de qualquer alteração de implementação, deve existir uma Technical
+  Readiness Review integral executada pelo Engenheiro Analista e seu resultado
+  deve estar registrado. Somente `Implementable` pode seguir para aprovação
+  humana; `Needs Clarification` bloqueia a implementação.
 - Classifique individualmente todos os requisitos e dimensões obrigatórias em uma matriz de evidências. Um bloqueio interrompe a implementação, mas não encerra a análise restante.
 - Execute a Technical Readiness Review e a implementação em execuções separadas. A execução da revisão deve encerrar sem alterar implementação, inclusive com resultado `Implementable`.
 - Trate `Implementable` como apto para aprovação humana, não como autorização automática. Implemente somente após aprovação explícita do responsável para a revisão e o baseline registrados.
@@ -30,7 +59,14 @@ Antes de alterar código, build, testes, automações ou documentação, leia ne
 - Não presuma que exista `EKM Gate` ou garantia automatizada sem ferramenta e política explicitamente implantadas.
 - Não execute operações Git ou externas não autorizadas.
 - Preserve alterações preexistentes e fora do escopo.
+- O Tech Lead revisa e produz parecer ou recorte corretivo; não implementa a
+  correção.
+- O Validador audita o processo; não repete a Technical Readiness Review, não
+  substitui o Tech Lead e não corrige artefatos.
 
 ## Relatório obrigatório
 
-Informe resultado, requisitos, arquivos, contratos, conhecimento alterado, validações, pendências, desvios, revisão e aprovação que autorizaram a implementação, reconfirmação do baseline, estado EKM e operações externas.
+Use a seção do seu papel na transação `EKM-CHG`. Informe checkpoint, resultado,
+requisitos ou controles avaliados, arquivos, evidências, validações, pendências,
+desvios, estados recomendados e operações Git ou externas. Não preencha a seção
+de outro papel.
