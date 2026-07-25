@@ -39,9 +39,9 @@ Não altere retroativamente um commit apenas para fazê-lo referenciar a si mesm
 O apontamento pode ser dinâmico sem fixação por SHA. A Coordenação registra qual
 contrato rege cada handoff e resolve incompatibilidades antes do ator seguinte.
 
-| Etapa | Checkpoint de entrada | Estados esperados | Fonte e versão do contrato | Compatibilidade ou normalização | Resultado da admissão |
-|---|---|---|---|---|---|
-| `<PAPEL>` | `<SHA>` | `<ESTADOS>` | `<CAMINHO E VERSÃO>` | `<AÇÃO OU NENHUMA>` | `Accepted`, `Checkpoint Blocked` ou `Not Applicable` |
+| Etapa | Checkpoint de entrada | Estados esperados | Parecer ou autorização humana aplicável | Fonte e versão do contrato | Compatibilidade ou normalização | Resultado da admissão |
+|---|---|---|---|---|---|---|
+| `<PAPEL>` | `<SHA>` | `<ESTADOS>` | `<RESULTADO E REFERÊNCIA OU NÃO APLICÁVEL>` | `<CAMINHO E VERSÃO>` | `<AÇÃO OU NENHUMA>` | `Accepted`, `Checkpoint Blocked` ou `Not Applicable` |
 
 ## 3. Autoria da especificação
 
@@ -52,12 +52,33 @@ contrato rege cada handoff e resolve incompatibilidades antes do ator seguinte.
 - Lacunas indispensáveis: `<LISTA OU NENHUMA>`.
 - Opções não solicitadas ou itens fora de escopo: `<LISTA OU NENHUMA>`.
 - Estado produzido: `Proposed / Pending Review / Not Started / Not Ready`.
+- Parecer humano da especificação: `Pending`.
 - Checkpoint de saída: `<SHA OU PENDENTE>`.
 
 O Autor não preenche matriz de Technical Readiness Review nem alega
 implementabilidade.
 
-## 4. Engenheiro Analista
+## 4. Parecer humano da especificação
+
+- Resultado: `Accepted | Revision Required | Pending`.
+- Responsável humano: `<NOME>`.
+- Data: `<AAAA-MM-DD>`.
+- Especificação e versão: `<ID@VERSÃO>`.
+- Checkpoint avaliado: `<BRANCH E SHA>`.
+- Escopo do parecer:
+  `<INTENÇÃO, REQUISITOS, LIMITES E DECISÕES ABRANGIDOS>`.
+- Ressalvas: `<LISTA OU NENHUMA>`.
+- Checkpoint de saída: `<SHA OU PENDENTE>`.
+
+`Accepted` confirma que a especificação representa a intenção conhecida e pode
+seguir para análise técnica. Não declara implementabilidade nem autoriza
+alteração de código. Commit, silêncio ou parecer de agente não substitui esta
+decisão.
+
+O registro é inicialmente declarativo. A EKM não alega verificar
+automaticamente identidade, autenticidade ou autoridade.
+
+## 5. Engenheiro Analista
 
 - Responsável: `<RESPONSÁVEL>`.
 - Checkpoint de entrada: `<SHA E ESTADOS>`.
@@ -68,7 +89,7 @@ implementabilidade.
 - Resultado da Technical Readiness Review:
   `Implementable | Needs Clarification | Not Executed | Pending`.
 - Registro integral:
-  `<ESPECIFICAÇÃO, SEÇÃO 13 | RELATÓRIO READ-ONLY DE ADMISSÃO>`.
+  `<ESPECIFICAÇÃO, SEÇÃO 14 | RELATÓRIO READ-ONLY DE ADMISSÃO>`.
 - Requisitos e dimensões analisados: `<LISTA OU INTERVALO>`.
 - Natureza das lacunas:
   `<Normative | Baseline | Tooling | Evidence | None, COM REFERÊNCIAS>`.
@@ -81,7 +102,7 @@ implementabilidade.
 - Artefatos temporários criados, alterados ou removidos:
   `<LISTA OU NENHUM>`.
 - Reconciliação de saída:
-  `<METADADOS, SEÇÃO 13, TRANSAÇÃO, GATE E WORKTREE>`.
+  `<METADADOS, SEÇÃO 14, TRANSAÇÃO, GATE E WORKTREE>`.
 - Checkpoint de saída: `<SHA OU PENDENTE>`.
 - Gate seguinte:
   `<APROVAÇÃO HUMANA | RETORNO À AUTORIA | RETORNO À COORDENAÇÃO>`.
@@ -90,7 +111,7 @@ implementabilidade.
 Analista não altera `Technical readiness`, não preenche a matriz da revisão e
 não normaliza artefatos de outro papel.
 
-## 5. Aprovação humana para implementação
+## 6. Aprovação humana para implementação
 
 - Resultado: `Approved | Rejected | Pending`.
 - Responsável: `<NOME>`.
@@ -103,7 +124,7 @@ não normaliza artefatos de outro papel.
 
 Commit, silêncio ou parecer de agente não substitui esta decisão.
 
-## 6. Engenheiro Implementador
+## 7. Engenheiro Implementador
 
 - Responsável: `<RESPONSÁVEL>`.
 - Checkpoint de entrada: `<SHA E ESTADOS>`.
@@ -126,7 +147,7 @@ Commit, silêncio ou parecer de agente não substitui esta decisão.
 
 O relatório registra a execução e não cria requisitos.
 
-## 7. Engenheiro Tech Lead
+## 8. Engenheiro Tech Lead
 
 - Responsável: `<RESPONSÁVEL>`.
 - Checkpoint de entrada: `<SHA E ESTADOS>`.
@@ -144,14 +165,14 @@ O relatório registra a execução e não cria requisitos.
 
 O Tech Lead não corrige a implementação nem cria requisitos.
 
-## 8. Validador de Integridade da EKM
+## 9. Validador de Integridade da EKM
 
 - Responsável: `<RESPONSÁVEL>`.
 - Checkpoint de entrada: `<SHA E ESTADOS>`.
 
 | Controle EKM | Resultado | Evidência | Impacto |
 |---|---|---|---|
-| `<CONTROLE>` | `Compliant | Non-compliant | Not verifiable | Blocked` | `<EVIDÊNCIA>` | `<IMPACTO>` |
+| `<CONTROLE>` | `Compliant`, `Non-compliant`, `Not verifiable`, `Blocked` ou `Not Applicable` | `<EVIDÊNCIA E VERSÃO DO CONTRATO>` | `<IMPACTO>` |
 
 - Conclusão geral: `Conforme | Conforme com ressalvas | Não conforme | Não verificável | Blocked | Pending`.
 - Não conformidades: `<LISTA OU NENHUMA>`.
@@ -161,7 +182,7 @@ O Tech Lead não corrige a implementação nem cria requisitos.
 O Validador audita o processo. Não repete a Technical Readiness Review, não
 substitui o Tech Lead e não corrige artefatos.
 
-## 9. Validação funcional e operacional
+## 10. Validação funcional e operacional
 
 - Responsável humano: `<NOME>`.
 - Ambiente: `<AMBIENTE>`.
@@ -172,7 +193,7 @@ substitui o Tech Lead e não corrige artefatos.
 - Desvios: `<LISTA OU NENHUMA>`.
 - Estado recomendado: `<READY FOR INTEGRATION OU RETORNO CORRETIVO>`.
 
-## 10. Integração e encerramento
+## 11. Integração e encerramento
 
 - Referência de produção: `main`.
 - Autorização para integrar: `<RESPONSÁVEL, DATA E REFERÊNCIA>`.
@@ -189,7 +210,7 @@ substitui o Tech Lead e não corrige artefatos.
 Sem integração comprovada na referência de produção, uma mudança funcional não
 pode declarar `Done` nem fechar a transação.
 
-## 11. Pendências, desvios e histórico corretivo
+## 12. Pendências, desvios e histórico corretivo
 
 `<GAPS, DESVIOS, RETORNOS ENTRE GATES E CHECKPOINTS SUBSEQUENTES>`
 

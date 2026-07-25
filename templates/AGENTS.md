@@ -36,13 +36,22 @@ correspondente da mesma `EKM-CHG`.
 ## Regras obrigatórias
 
 - A especificação define o comportamento esperado; não invente contratos ausentes.
+- A modalidade de confecção da especificação fica fora do contrato. A EKM não
+  prevê nem exige automação da autoria. Se atuar como Autor, aplique o contrato
+  ao artefato resultante.
 - O Autor da Especificação preenche as seções normativas, encerra em `Proposed`
-  e `Pending Review` e não executa a Technical Readiness Review.
+  com parecer humano `Pending` e `Pending Review`, e não executa a Technical
+  Readiness Review.
+- Antes da análise, deve existir parecer humano explícito `Accepted` sobre a
+  especificação e o checkpoint. Nenhum agente pode inferir, fabricar ou conceder
+  esse parecer.
+- O parecer humano da especificação não substitui `Implementable` nem a
+  aprovação humana posterior para implementação.
 - A seção de Technical Readiness Review pertence exclusivamente ao Engenheiro
   Analista.
 - Antes da Technical Readiness Review, o Analista executa o gate de admissão
-  sobre branch, SHA, worktree, estados, transação, contrato aplicável e
-  artefatos da autoria.
+  sobre branch, SHA, worktree, estados, parecer humano da especificação,
+  transação, contrato aplicável e artefatos da autoria.
 - `Checkpoint Blocked` encerra a atuação antes da revisão, não altera
   `Technical readiness` e retorna à Coordenação. Não é resultado da Technical
   Readiness Review.
@@ -57,7 +66,9 @@ correspondente da mesma `EKM-CHG`.
   `Non-blocking`, `Out of scope` ou `Unrequested option`.
 - Execute a Technical Readiness Review e a implementação em execuções separadas. A execução da revisão deve encerrar sem alterar implementação, inclusive com resultado `Implementable`.
 - Trate `Implementable` como apto para aprovação humana, não como autorização automática. Implemente somente após aprovação explícita do responsável para a revisão e o baseline registrados.
-- Antes da primeira alteração, reconfirme especificação, branch, commit, worktree, resultado aprovado e transação `Open`. Mudança material exige nova revisão integral.
+- Antes da primeira alteração, reconfirme especificação, parecer humano, branch,
+  commit, worktree, resultado aprovado e transação `Open`. Mudança material
+  exige novo parecer humano e nova revisão integral.
 - Se qualquer requisito obrigatório exigir inferência relevante, não implemente nenhum item; registre a lacuna e proponha o ajuste na especificação.
 - Após ajuste aprovado da especificação, repita a análise integral antes de implementar.
 - Em `Needs Clarification`, altere somente registros EKM e a correção normativa explicitamente aprovada.

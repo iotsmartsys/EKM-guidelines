@@ -4,13 +4,14 @@
 
 **Status:** Active
 
-**Versão:** 1.3
+**Versão:** 1.4
 
-**Modelo EKM:** 1.6
+**Modelo EKM:** 1.7
 
 ## 1. Objetivo
 
-Estabelecer um modelo sustentável de gestão do conhecimento de engenharia para equipes humanas e assistentes de IA.
+Estabelecer um modelo sustentável de governança e gestão do conhecimento de
+engenharia para equipes humanas e assistentes de IA.
 
 Um repositório aderente deve preservar conhecimento suficiente para que uma equipe competente consiga:
 
@@ -38,6 +39,14 @@ Reconstruibilidade não significa reproduzir o mesmo código ou binário.
 12. A confiabilidade da execução exige análise de implementabilidade antes do código.
 13. Versões normativas integradas à produção são imutáveis.
 14. Garantias verificáveis devem evoluir de disciplina para automação, sem atribuir à ferramenta julgamento semântico humano.
+15. A EKM busca autonomia governada: decisões relevantes e responsabilidade
+    final permanecem humanas.
+16. Interações humanas de decisão, aprovação e validação são controles do
+    método; somente coordenação operacional desnecessária deve ser reduzida.
+17. A modalidade de autoria fica fora do contrato; a EKM não prevê automação da
+    especificação.
+18. Uma especificação somente segue para análise de implementabilidade após
+    parecer humano explícito sobre sua intenção.
 
 ## 3. Classes de fonte
 
@@ -92,6 +101,10 @@ Cada especificação deve declarar, quando aplicável:
 - relações com outras fontes;
 - desvios e lacunas conhecidos.
 
+A modalidade de confecção fica fora do contrato da EKM. O método não prevê nem
+exige automação da autoria; governa o conteúdo, a autoridade e os gates do
+artefato resultante.
+
 ### Estado normativo
 
 - `Draft`: em elaboração.
@@ -120,6 +133,24 @@ Cada especificação deve declarar, quando aplicável:
 
 Os estados normativo, de implementação e de entrega são independentes. `Implemented`, `Validated` e `Done` não são sinônimos.
 
+### Parecer humano da especificação
+
+Ao concluir a autoria, a especificação fica `Proposed` e registra o parecer
+humano como `Pending`. Antes da Technical Readiness Review, o arquiteto ou outro
+responsável humano autorizado deve emitir:
+
+- `Accepted`: a especificação representa a intenção conhecida e pode seguir
+  para análise técnica;
+- `Revision Required`: a especificação retorna à autoria;
+- `Pending`: nenhuma decisão foi emitida.
+
+O parecer deve registrar responsável, data, checkpoint e ressalvas. Ele não
+declara implementabilidade nem autoriza alteração de código.
+
+Esse controle é inicialmente declarativo. A EKM exige evidência explícita, não
+permite que um agente presuma ou fabrique a decisão e não alega verificar
+automaticamente identidade, autenticidade ou autoridade.
+
 ### Imutabilidade em produção
 
 Antes de `Done`, uma especificação pode ser revisada e retornar a estados anteriores. Após `Done`, sua identidade de ID e versão é imutável. Mudanças posteriores exigem nova especificação relacionada como `Amends`, `Supersedes`, `Corrects` ou `Retires`.
@@ -128,7 +159,15 @@ O mapa e o changelog registram eventos posteriores e determinam a composição n
 
 ## 6. Technical Readiness Review e atomicidade
 
-Antes de qualquer alteração de implementação, o executor deve analisar integralmente a especificação, as fontes relacionadas e o baseline. Deve verificar clareza, consistência, testabilidade, contratos, dependências, condições de borda, compatibilidade, validações e mudanças necessárias não autorizadas.
+Depois do parecer humano `Accepted` e antes de qualquer alteração de
+implementação, o revisor deve analisar integralmente a especificação, as fontes
+relacionadas e o baseline. Deve verificar se o contrato aceito é passível de
+implementação sem inferência relevante, confrontando consistência,
+testabilidade, contratos, dependências, condições de borda, compatibilidade,
+validações e mudanças necessárias não autorizadas.
+
+A revisão não decide se a funcionalidade é desejável, não redefine intenção e
+não aprova a própria especificação.
 
 O resultado é binário:
 
@@ -173,21 +212,28 @@ A execução da revisão deve registrar especificação, branch, commit e estado
 Antes da primeira alteração, o executor deve reconfirmar que:
 
 - a especificação não sofreu mudança material;
+- o parecer humano `Accepted` permanece aplicável ao checkpoint;
 - branch, commit e worktree permanecem compatíveis com o baseline revisado;
 - a revisão aprovada permanece `Implementable`;
 - a transação aplicável está `Open`.
 
-Mudança material invalida a autorização e exige nova revisão integral. `Needs Clarification` deve ser reportado como bloqueio, nunca como implementação concluída.
+Mudança material invalida parecer, revisão e autorização. Exige novo parecer
+humano e nova revisão integral. `Needs Clarification` deve ser reportado como
+bloqueio, nunca como implementação concluída.
 
-Esse controle é manual no modelo 1.6 e não depende de múltiplos agentes, CI/CD ou `EKM Gate`.
+Esses controles são manuais no modelo 1.7 e não dependem de múltiplos agentes,
+CI/CD ou `EKM Gate`.
 
 Em `Needs Clarification`:
 
 1. nenhum item da especificação nem artefato de implementação é alterado;
 2. o executor registra requisito, evidência, lacuna, decisão ausente, impacto das alternativas e ajuste recomendado;
 3. o responsável corrige ou aprova a correção da especificação;
-4. a análise integral é repetida;
-5. somente o novo resultado `Implementable`, seguido de aprovação humana explícita e reconfirmação do baseline, autoriza a execução.
+4. um novo parecer humano `Accepted` confirma a intenção do checkpoint
+   corrigido;
+5. a análise integral é repetida;
+6. somente o novo resultado `Implementable`, seguido de aprovação humana
+   explícita e reconfirmação do baseline, autoriza a execução.
 
 Implementação parcial exige divisão explícita e aprovada da especificação. Decisões mecânicas privadas continuam permitidas apenas quando comprovadamente equivalentes e sem impacto normativo.
 
@@ -204,7 +250,10 @@ Estados permitidos:
 - `Superseded`;
 - `Closed`.
 
-Uma transação deve registrar baseline, objetivo, requisitos, fontes afetadas, resultado da Technical Readiness Review, evidências, desvios e encerramento. Uma lacuna somente é fechada quando seu critério explícito de encerramento é comprovado.
+Uma transação deve registrar baseline, objetivo, requisitos, fontes afetadas,
+parecer humano da especificação, resultado da Technical Readiness Review,
+autorização para implementação, evidências, desvios e encerramento. Uma lacuna
+somente é fechada quando seu critério explícito de encerramento é comprovado.
 
 ## 8. Proteção do conhecimento
 
@@ -243,7 +292,10 @@ No encerramento, reconcilie separadamente:
 
 Uma mudança só pode ser encerrada quando:
 
-- uma Technical Readiness Review válida autorizou a implementação antes da primeira alteração de implementação;
+- o parecer humano da especificação foi registrado antes da Technical Readiness
+  Review;
+- uma Technical Readiness Review válida e uma autorização humana explícita
+  precederam a primeira alteração de implementação;
 - requisitos foram rastreados;
 - implementação e conhecimento estão reconciliados;
 - decisões não foram removidas silenciosamente;
@@ -254,13 +306,24 @@ Uma mudança só pode ser encerrada quando:
 
 Build aprovado, isoladamente, não comprova conformidade EKM.
 
-Mudanças funcionais sob o modelo 1.6 somente encerram a transação em `Done`. Investigações e governança podem possuir critério aprovado próprio sem declarar entrega funcional.
+Mudanças funcionais sob o modelo 1.7 somente encerram a transação em `Done`.
+Investigações e governança podem possuir critério aprovado próprio sem declarar
+entrega funcional.
 
 ## 12. Automação e garantias previstas
 
-A EKM prevê um futuro `EKM Gate` para verificar automaticamente regras comprováveis antes da integração, reduzindo dependência de disciplina individual. São candidatos: estrutura e metadados, relações normativas, imutabilidade em produção, evidência de Technical Readiness, rastreabilidade, estados e reconciliação.
+A EKM prevê um futuro `EKM Gate` para verificar automaticamente regras
+comprováveis antes da integração, reduzindo dependência de disciplina
+individual. São candidatos: estrutura e metadados, presença declarada do
+parecer humano, relações normativas, imutabilidade em produção, evidência de
+Technical Readiness, rastreabilidade, estados e reconciliação.
 
-O Gate permanece `Planned / Not Defined`. Arquitetura, schema, ferramenta, política de bloqueio e implantação ainda exigem especificação própria e experimentos. Nenhum projeto pode alegar garantia automatizada apenas por adotar estas diretrizes. Completude semântica e intenção permanecem responsabilidade humana.
+O Gate permanece `Planned / Not Defined`. Arquitetura, schema, ferramenta,
+política de bloqueio e implantação ainda exigem especificação própria e
+experimentos. Nenhum projeto pode alegar garantia automatizada apenas por adotar
+estas diretrizes. Completude semântica, intenção e autenticidade do parecer
+permanecem responsabilidade humana. A EKM não prevê automação obrigatória para
+a confecção da especificação.
 
 ## 13. Conjunto mínimo recomendado
 

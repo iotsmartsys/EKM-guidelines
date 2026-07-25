@@ -3,8 +3,8 @@
 **Status:** Experimental / In Progress
 
 **Natureza:** protocolo experimental não normativo  
-**Modelo EKM de referência:** 1.6  
-**Versão do protocolo:** 0.4
+**Modelo EKM de referência:** 1.7
+**Versão do protocolo:** 0.5
 
 **Branch do experimento:** `modelo_de_coordenacao_por_atores`  
 **Resultado:** piloto avançou até validação humana; auditoria de integridade e
@@ -12,10 +12,11 @@ integração ainda não executadas
 
 ## 1. Contexto
 
-O modelo EKM 1.6 separa Technical Readiness Review, aprovação humana,
-implementação e reconciliação, mas não exige que essas responsabilidades sejam
-exercidas por agentes diferentes. A coordenação entre múltiplos agentes e a
-separação automatizada de responsabilidades permanecem questões em aberto.
+O modelo EKM 1.7 separa parecer humano da especificação, Technical Readiness
+Review, autorização humana para implementação, execução e reconciliação, mas
+não exige que as responsabilidades técnicas sejam exercidas por agentes
+diferentes. A coordenação entre múltiplos agentes e a separação assistida de
+responsabilidades permanecem questões em aberto.
 
 Este experimento avaliará uma forma de trabalho coordenada por atores
 especializados. Na primeira execução, os atores poderão ser simulados
@@ -25,17 +26,17 @@ e não passam a reger projetos adotantes sem decisão explícita.
 
 ## 2. Pergunta experimental
 
-A separação coordenada entre análise, implementação, revisão técnica e auditoria
-da EKM aumenta a aderência da implementação à especificação e reduz falhas ou
-retrabalho, mantendo custo operacional aceitável?
+A separação governada entre decisão humana, análise, implementação, revisão
+técnica e auditoria da EKM aumenta a confiança e a velocidade da entrega,
+mantendo custo operacional aceitável?
 
 ## 3. Hipóteses
 
 ### 3.1 Hipótese principal
 
-A separação de responsabilidades detecta, antes da validação funcional humana,
-desvios materiais que não seriam detectados pelo fluxo vigente quando as
-responsabilidades são concentradas.
+A separação de responsabilidades, sob autoridade humana explícita, aumenta a
+confiança da entrega e detecta desvios materiais sem transferir aos agentes a
+decisão sobre intenção ou integração.
 
 ### 3.2 Hipóteses secundárias
 
@@ -47,6 +48,8 @@ responsabilidades são concentradas.
   revisão exclusivamente técnica não detectaria;
 - handoffs explícitos produzem evidências localizáveis, auditáveis e
   reutilizáveis;
+- o parecer humano anterior à análise impede que uma especificação produzida por
+  agente adquira autoridade sobre a intenção;
 - o valor incremental dos controles compensa o tempo, o contexto, os tokens e a
   coordenação adicionais.
 
@@ -62,8 +65,9 @@ O experimento abrange:
 
 - análise integral de uma especificação e do baseline aplicável;
 - criação da especificação em branch exclusiva derivada de `main`;
+- parecer humano de que a especificação representa a intenção conhecida;
 - handoffs entre atores baseados em checkpoints commitados;
-- aprovação humana explícita;
+- autorização humana explícita para implementação;
 - implementação da especificação aprovada;
 - build e testes aplicáveis;
 - revisão técnica independente;
@@ -73,8 +77,10 @@ O experimento abrange:
 
 O experimento não:
 
-- modifica o modelo EKM 1.6;
-- autoriza implementação sem Technical Readiness Review e aprovação humana;
+- modifica por si só o modelo EKM 1.7;
+- exige que a especificação seja confeccionada por IA ou por qualquer forma
+  específica de automação;
+- autoriza implementação sem Technical Readiness Review e autorização humana;
 - transfere decisões de produto ou arquitetura aos atores de IA;
 - substitui testes, validação em hardware ou validação humana;
 - torna `qa` ou `homolog` obrigatórias antes que seu processo de promoção seja
@@ -86,9 +92,10 @@ O experimento não:
 ## 5. Baseline comparativo
 
 Antes da execução, deve ser declarado o fluxo usado como baseline. A referência
-preferencial é o processo vigente da EKM 1.6, com Technical Readiness Review e
-implementação em execuções separadas, mas sem a divisão completa entre os
-papéis especializados deste protocolo.
+preferencial é o processo vigente da EKM 1.7, com parecer humano da
+especificação, Technical Readiness Review e implementação em execuções
+separadas, mas sem a divisão completa entre os papéis especializados deste
+protocolo.
 
 Também devem ser registrados:
 
@@ -142,7 +149,8 @@ pelos atores.
 - definir intenção, prioridade e limites;
 - declarar a referência de origem e aprovar a criação da branch;
 - resolver decisões de produto e arquitetura;
-- aprovar ou rejeitar especificação e Technical Readiness Review;
+- emitir ou delegar a responsável humano o parecer sobre a especificação;
+- aprovar ou rejeitar a recomendação da Technical Readiness Review;
 - autorizar implementação contra checkpoint explícito;
 - aceitar ou rejeitar recortes corretivos;
 - realizar ou coordenar validação funcional e operacional;
@@ -156,8 +164,9 @@ commit, silêncio, parecer técnico ou resultado de agente.
 
 ### 7.2 Coordenação do processo
 
-A coordenação é uma função operacional, não um novo papel arquitetural. Pode ser
-exercida pelo arquiteto e futuramente por um orquestrador.
+A Coordenação é uma função de governança e orquestração, não uma nova autoridade
+arquitetural. Pode ser exercida pelo arquiteto ou por outro coordenador
+designado, com ou sem assistência de IA.
 
 **Entrada:** decisão humana aplicável e último checkpoint válido.
 
@@ -177,6 +186,8 @@ exercida pelo arquiteto e futuramente por um orquestrador.
 - registrar operações Git e externas;
 - impedir início sobre checkpoint incompatível;
 - não converter saída de agente em aprovação implícita.
+- distinguir participação humana decisória de intervenção operacional;
+- não emitir em nome do arquiteto parecer, aprovação ou aceitação ausente.
 
 **Saída:** checkpoint registrado na transação e worktree limpo para o próximo
 ator.
@@ -188,6 +199,10 @@ contrato aplicável ou artefatos obrigatórios.
 
 **Entrada:** intenção e decisões fornecidas pelo arquiteto, branch exclusiva,
 transação `Open`, fontes EKM e baseline técnico disponível.
+
+O Autor é uma função, não uma exigência de automação. Pode ser uma pessoa, uma
+colaboração humano–IA ou um agente. O contrato de saída é o mesmo em qualquer
+modalidade.
 
 **Operações permitidas:**
 
@@ -214,18 +229,48 @@ transação `Open`, fontes EKM e baseline técnico disponível.
 6. encerrar a autoria sem alegar implementabilidade.
 
 **Saída:** especificação `Proposed`, `Not Started`, `Not Ready` e
-`Pending Review`, acompanhada de mapa e transação atualizados.
+`Pending Review`, com parecer humano `Pending`, acompanhada de mapa e transação
+atualizados.
 
 **Bloqueio:** falta de decisão indispensável para definir o próprio contrato.
 Opções não solicitadas, preferências e melhorias futuras não bloqueiam a autoria.
 
-**Próximo gate:** Engenheiro Analista.
+**Próximo gate:** parecer humano da especificação.
 
-### 7.4 Engenheiro Analista
+### 7.4 Parecer humano da especificação
 
-**Entrada:** especificação `Proposed`, `Pending Review`, checkpoint limpo,
-transação `Open`, baseline técnico correspondente e contrato EKM aplicável
-declarado pela Coordenação.
+Este é um gate humano, não um agente obrigatório adicional.
+
+**Entrada:** especificação `Proposed`, parecer `Pending`, checkpoint da autoria,
+transação `Open` e intenção conhecida.
+
+**Responsabilidades humanas:**
+
+- confirmar que objetivo, requisitos, limites e decisões representam a intenção;
+- registrar responsável, data, checkpoint e ressalvas;
+- solicitar revisão quando o documento não representar a intenção;
+- não declarar viabilidade técnica sem a análise do Engenheiro Analista.
+
+**Resultados:**
+
+- `Accepted`: segue para o Engenheiro Analista;
+- `Revision Required`: retorna ao Autor da Especificação;
+- `Pending`: nenhum handoff técnico é autorizado.
+
+O parecer não altera sozinho `Technical readiness`, não autoriza código e não
+substitui a aprovação humana posterior para implementação. Nesta fase, sua
+evidência é declarativa; o protocolo não verifica automaticamente identidade,
+autenticidade ou autoridade.
+
+### 7.5 Engenheiro Analista
+
+**Entrada:** especificação `Proposed`, parecer humano `Accepted`,
+`Pending Review`, checkpoint limpo, transação `Open`, baseline técnico
+correspondente e contrato EKM aplicável declarado pela Coordenação.
+
+O Analista responde se o contrato aceito é passível de implementação e
+verificação no baseline sem inferência relevante. Não decide se a funcionalidade
+é desejável, não redefine intenção e não aprova a própria especificação.
 
 **Gate de admissão:**
 
@@ -235,10 +280,11 @@ Antes da Technical Readiness Review, o Analista deve verificar:
 2. worktree limpo;
 3. ID e versão da especificação;
 4. estados `Proposed / Pending Review / Not Started / Not Ready`;
-5. transação `Open`;
-6. presença dos artefatos da autoria;
-7. fonte EKM e versão do contrato declaradas;
-8. compatibilidade da especificação e da transação com esse contrato.
+5. parecer humano `Accepted`, com responsável, checkpoint e data;
+6. transação `Open`;
+7. presença dos artefatos da autoria;
+8. fonte EKM e versão do contrato declaradas;
+9. compatibilidade da especificação e da transação com esse contrato.
 
 O gate produz um resultado próprio:
 
@@ -285,7 +331,7 @@ referência na transação e relatório operacional da etapa.
 
 **Resultados da Technical Readiness Review:**
 
-- `Implementable`: segue para aprovação humana;
+- `Implementable`: segue para autorização humana de implementação;
 - `Needs Clarification`: retorna ao arquiteto e depois ao Autor da
   Especificação.
 
@@ -296,9 +342,9 @@ ferramenta ou à suficiência de evidência.
 
 O resultado não altera sozinho o estado normativo nem autoriza implementação.
 
-### 7.5 Engenheiro Implementador
+### 7.6 Engenheiro Implementador
 
-**Entrada:** especificação `Approved` e `Implementable`, aprovação humana
+**Entrada:** especificação `Approved` e `Implementable`, autorização humana
 registrada, transação `Open`, checkpoint limpo e baseline reconfirmado.
 
 **Operações permitidas:**
@@ -335,7 +381,7 @@ operações.
 - `Implemented`: segue para Tech Lead;
 - `Blocked`: retorna ao arquiteto sem alegar conclusão.
 
-### 7.6 Engenheiro Tech Lead
+### 7.7 Engenheiro Tech Lead
 
 **Entrada:** checkpoint da implementação, especificação aprovada, Technical
 Readiness Review, autorização humana, diff completo, relatório e evidências.
@@ -371,7 +417,7 @@ resultado, severidade e correção requerida.
 - `Decisão do arquiteto necessária`: retorna ao arquiteto;
 - `Não verificável`: retorna ao arquiteto com a evidência ausente.
 
-### 7.7 Validador de Integridade da EKM
+### 7.8 Validador de Integridade da EKM
 
 **Entrada:** checkpoint aprovado pelo Tech Lead e todos os artefatos da
 transação.
@@ -391,12 +437,17 @@ evidências.
 
 1. validar a sequência dos checkpoints;
 2. verificar separação dos papéis;
-3. verificar Technical Readiness Review, aprovação e reconfirmação;
+3. verificar parecer humano da especificação, Technical Readiness Review,
+   aprovação para implementação e reconfirmação;
 4. verificar rastreabilidade, proteção normativa e reconciliação;
 5. conferir estados, desvios, pendências e operações;
 6. classificar cada controle como `Compliant`, `Non-compliant`,
-   `Not verifiable` ou `Blocked`;
+   `Not verifiable`, `Blocked` ou `Not Applicable`;
 7. derivar a conclusão geral sem ocultar itens individuais.
+
+Cada handoff é auditado contra o contrato declarado quando ocorreu. Controle
+introduzido posteriormente recebe `Not Applicable`, com a versão que justifica
+a classificação, e não produz não conformidade retroativa.
 
 **Saída:** relatório de integridade read-only. A Coordenação o registra na
 transação sem alterar seu conteúdo semântico e forma o checkpoint seguinte.
@@ -409,9 +460,12 @@ transação sem alterar seu conteúdo semântico e forma o checkpoint seguinte.
 - `Não verificável`;
 - `Blocked`.
 
+`Conforme` exige que todos os controles aplicáveis estejam `Compliant`;
+controles `Not Applicable` não alteram a conclusão.
+
 **Próximo gate:** validação funcional humana quando não houver bloqueio.
 
-### 7.8 Validação funcional, integração e encerramento
+### 7.9 Validação funcional humana, integração e encerramento
 
 **Entrada:** implementação aprovada tecnicamente, processo auditado e
 checkpoint limpo.
@@ -424,6 +478,11 @@ checkpoint limpo.
 - autorizar integração;
 - comprovar chegada à referência de produção;
 - reconciliar especificação, mapa, transação e estados após o merge.
+
+A validação funcional humana é um gate esperado de governança. Sua existência
+não representa falta de autonomia do modelo. A Coordenação deve registrar
+ambiente, procedimento, resultado e evidência sem transformar a decisão em
+saída de agente.
 
 **Resultados:**
 
@@ -444,9 +503,15 @@ Branch exclusiva derivada de `main`
           ↓
 Autor da Especificação
           ↓
-Especificação `Proposed / Pending Review` e transação EKM
+Especificação `Proposed / Pending Review`, parecer humano `Pending`
           ↓
-Checkpoint commitado da especificação
+Checkpoint commitado da autoria
+          ↓
+Parecer humano da especificação
+    ├─ Revision Required → Autor da Especificação
+    └─ Accepted
+          ↓
+Checkpoint do parecer humano
           ↓
 Engenheiro Analista
           ↓
@@ -458,7 +523,7 @@ Technical Readiness Review integral
     ├─ Needs Clarification → decisão/correção humana → nova revisão integral
     └─ Implementable
           ↓
-Aprovação humana explícita
+Autorização humana explícita para implementação
           ↓
 Checkpoint aprovado para implementação
           ↓
@@ -531,11 +596,12 @@ checkpoint de entrada contém:
 - estado da implementação;
 - estado da entrega;
 - resultado da Technical Readiness Review;
+- parecer humano da especificação;
 - identificador e estado da transação `EKM-CHG`;
 - caminho da fonte EKM e versão do contrato experimental aplicável;
 - compatibilidade, migração ou normalização desde o checkpoint anterior;
 - artefatos e pareceres obrigatórios das etapas anteriores;
-- aprovação humana aplicável.
+- parecer ou autorização humana aplicável.
 
 O ator deve validar o checkpoint antes de atuar. Branch, commit, worktree,
 estado ou evidência incompatível com o gate esperado bloqueia a operação e deve
@@ -579,17 +645,18 @@ formado depois que a decisão estiver registrada. A existência de um commit nã
 
 ### 8.4 Estados e ownership
 
-| Gate concluído | Estado normativo | Technical readiness | Implementação | Entrega | Responsável pelo registro |
-|---|---|---|---|---|---|
-| Autoria em andamento | `Draft` | `Pending Review` | `Not Started` | `Not Ready` | Autor da Especificação |
-| Autoria concluída | `Proposed` | `Pending Review` | `Not Started` | `Not Ready` | Autor da Especificação |
-| Análise aprovada | `Proposed` | `Implementable` | `Not Started` | `Not Ready` | Engenheiro Analista |
-| Aprovação humana | `Approved` | `Implementable` | `Not Started` | `Not Ready` | Coordenação após decisão humana |
-| Implementação concluída | `Approved` | `Implementable` | `Implemented` | `Not Ready` | Engenheiro Implementador |
-| Tech Lead aprovado | `Approved` | `Implementable` | `Implemented` | `Not Ready` | Tech Lead registra parecer; não avança implementação |
-| Integridade conforme | `Approved` | `Implementable` | `Implemented` | `Not Ready` | Validador registra conformidade; não avança implementação |
-| Validação funcional aprovada | `Approved` | `Implementable` | `Validated` | `Ready for Integration` | Coordenação após decisão humana |
-| Integração comprovada em `main` | `Active` | `Implementable` | `Validated` | `Done` | Coordenação após integração |
+| Gate concluído | Estado normativo | Parecer humano da especificação | Technical readiness | Implementação | Entrega | Responsável pelo registro |
+|---|---|---|---|---|---|---|
+| Autoria em andamento | `Draft` | `Pending` | `Pending Review` | `Not Started` | `Not Ready` | Autor da Especificação |
+| Autoria concluída | `Proposed` | `Pending` | `Pending Review` | `Not Started` | `Not Ready` | Autor da Especificação |
+| Intenção aceita | `Proposed` | `Accepted` | `Pending Review` | `Not Started` | `Not Ready` | Coordenação após parecer humano |
+| Análise aprovada | `Proposed` | `Accepted` | `Implementable` | `Not Started` | `Not Ready` | Engenheiro Analista |
+| Aprovação para implementação | `Approved` | `Accepted` | `Implementable` | `Not Started` | `Not Ready` | Coordenação após decisão humana |
+| Implementação concluída | `Approved` | `Accepted` | `Implementable` | `Implemented` | `Not Ready` | Engenheiro Implementador |
+| Tech Lead aprovado | `Approved` | `Accepted` | `Implementable` | `Implemented` | `Not Ready` | Tech Lead registra parecer; não avança implementação |
+| Integridade conforme | `Approved` | `Accepted` | `Implementable` | `Implemented` | `Not Ready` | Validador registra conformidade; não avança implementação |
+| Validação funcional aprovada | `Approved` | `Accepted` | `Implementable` | `Validated` | `Ready for Integration` | Coordenação após decisão humana |
+| Integração comprovada em `main` | `Active` | `Accepted` | `Implementable` | `Validated` | `Done` | Coordenação após integração |
 
 Resultado negativo não avança automaticamente estado. O parecer deve indicar o
 gate de retorno. Somente a coordenação aplica transição dependente de decisão
@@ -640,14 +707,16 @@ produção declarada.
   corrigida por atuação autorizada do papel responsável, e um novo checkpoint
   é formado antes de repetir o gate de admissão;
 - `Needs Clarification`: retorna ao arquiteto e ao Autor da Especificação. A
-  correção produz novo checkpoint `Proposed / Pending Review` e invalida a
-  revisão anterior.
+  correção produz novo checkpoint `Proposed / Pending Review`, exige novo
+  parecer humano e invalida a revisão anterior.
+- `Revision Required` no parecer humano: retorna à autoria antes da Technical
+  Readiness Review. A correção exige novo parecer sobre o checkpoint resultante.
 - `Blocked` durante implementação: nenhum item pode ser apresentado como
   implementação concluída. Se o bloqueio exigir mudança normativa, o fluxo
   retorna à autoria; se for operacional, retorna ao arquiteto.
 - `Correção necessária` do Tech Lead: quando o contrato permanece inalterado,
   retorna ao Implementador com recorte aprovado. Quando exige novo requisito ou
-  decisão, retorna à autoria, análise e aprovação humana.
+  decisão, retorna à autoria, análise e autorização humana.
 - `Não conforme`, `Não verificável` ou `Blocked` no Validador: retorna ao gate
   que originou a violação ou a ausência de evidência. O relatório original
   permanece preservado e uma nova validação é executada após o checkpoint
@@ -655,9 +724,9 @@ produção declarada.
 - validação funcional reprovada: retorna ao arquiteto. Correção aderente ao
   contrato volta ao Implementador; mudança de comportamento volta à autoria.
 
-Qualquer mudança material na especificação invalida Technical Readiness Review,
-aprovação e checkpoints posteriores. Nenhum retorno apaga parecer ou evidência
-anterior.
+Qualquer mudança material na especificação invalida o parecer humano da
+especificação, a Technical Readiness Review, a autorização para implementação e
+os checkpoints posteriores. Nenhum retorno apaga parecer ou evidência anterior.
 
 ## 9. Isolamento e simulação manual
 
@@ -673,7 +742,8 @@ imutável de handoff. Para cada execução, registrar:
 - contexto deliberadamente omitido;
 - saída produzida;
 - consumo de tempo e tokens, quando disponível;
-- intervenções humanas.
+- participação humana, distinguindo gates decisórios e intervenções
+  operacionais.
 
 Aplicam-se os seguintes controles:
 
@@ -700,26 +770,29 @@ Uma execução deve preservar:
 6. referência `main`, commit de origem e baseline inicial;
 7. evidência de criação da branch exclusiva;
 8. checkpoint de entrada e commit resultante de cada etapa;
-9. resultado do gate de admissão do Engenheiro Analista;
-10. parecer, matrizes e evidências operacionais do Engenheiro Analista;
-11. decisões e aprovação do arquiteto;
-12. reconfirmação anterior à implementação;
-13. relatório do Engenheiro Implementador;
-14. diff completo, builds, testes e validações;
-15. parecer do Engenheiro Tech Lead;
-16. relatório do Validador de Integridade da EKM;
-17. validação funcional e operacional;
-18. registro de ciclos corretivos;
-19. métricas e retrospectiva consolidada;
-20. decisão experimental.
+9. parecer humano da especificação;
+10. resultado do gate de admissão do Engenheiro Analista;
+11. parecer, matrizes e evidências operacionais do Engenheiro Analista;
+12. aprovação humana para implementação;
+13. reconfirmação anterior à implementação;
+14. relatório do Engenheiro Implementador;
+15. diff completo, builds, testes e validações;
+16. parecer do Engenheiro Tech Lead;
+17. relatório do Validador de Integridade da EKM;
+18. validação funcional e operacional humana;
+19. decisão humana de integração;
+20. registro de ciclos corretivos;
+21. métricas e retrospectiva consolidada;
+22. decisão experimental.
 
 Ausência de uma evidência deve ser registrada; não pode ser convertida em
 resultado positivo por inferência.
 
 ## 11. Métricas
 
-### 11.1 Qualidade e aderência
+### 11.1 Confiança, qualidade e aderência
 
+- confiança declarada pelo arquiteto e evidências que a sustentam;
 - requisitos atendidos, parcialmente atendidos e não atendidos;
 - ambiguidades, conflitos e lacunas encontrados antes do código;
 - mudanças não autorizadas;
@@ -749,12 +822,13 @@ evitado ou provocado.
 - quantidade de checkpoints formados ou rejeitados;
 - violações de branch, commit, worktree ou estado encontradas nos handoffs;
 - quantidade de ciclos corretivos;
-- intervenções e decisões humanas;
+- gates e decisões humanas planejadas;
+- intervenções operacionais humanas não planejadas;
 - esforço de preparação e auditoria das evidências.
 
 ### 11.4 Efeito sobre o arquiteto
 
-- decisões que exigiram participação humana;
+- decisões humanas previstas efetivamente exercidas;
 - tempo dedicado a decisões versus atividades operacionais;
 - perguntas repetidas;
 - confiança e facilidade de localizar a evidência;
@@ -768,6 +842,11 @@ A primeira execução será um piloto do protocolo. Ela poderá:
 - revelar sobreposição, lacunas ou conflitos entre papéis;
 - indicar métricas inviáveis ou ausentes;
 - produzir evidência preliminar de benefício ou custo.
+
+Participação humana em pareceres, aprovações, validação funcional e decisão de
+integração é resultado esperado da governança. Sua quantidade não constitui,
+isoladamente, resultado negativo. A avaliação deve observar confiança, tempo de
+entrega e proporção entre decisão de valor e coordenação operacional.
 
 Ela não será suficiente, isoladamente, para incorporar o modelo ao método
 vigente.
@@ -893,3 +972,34 @@ O resultado da Technical Readiness Review permanece binário no protocolo 0.4.
 As mudanças foram repetidas uma vez no mesmo caso, conforme o registro da
 Execução 001, mas ainda precisam ser observadas em casos diferentes antes de
 qualquer proposta de incorporação ao método de referência.
+
+## 16. Alinhamento de governança e versão 0.5
+
+A avaliação parcial da Execução 001 tratou inicialmente a quantidade de
+intervenções humanas como possível limitação do modelo. A discussão posterior
+identificou que essa interpretação contrariava a premissa da EKM.
+
+O objetivo próximo não é extinguir interação humana nem transferir
+responsabilidade final aos agentes. O modelo deve priorizar:
+
+1. governança das decisões e responsabilidades;
+2. confiança e rastreabilidade da entrega;
+3. velocidade e capacidade de execução;
+4. preservação do conhecimento;
+5. redução de coordenação operacional desnecessária.
+
+A versão 0.5:
+
+- torna explícita a autonomia governada;
+- permite autoria humana, assistida ou por agente, sem exigir automação;
+- introduz parecer humano da especificação antes da análise técnica;
+- restringe o Analista à avaliação de implementabilidade;
+- separa parecer da intenção, autorização para implementar, validação funcional
+  e decisão de integração;
+- caracteriza a Coordenação como função de governança e orquestração;
+- distingue gates humanos planejados de intervenção operacional e retrabalho.
+
+A Execução 001 ocorreu sob contratos anteriores e não pode receber
+retroativamente um gate que não existia. Sua reavaliação registra a ausência de
+parecer humano formal anterior à análise como evidência histórica, não como
+violação retroativa.

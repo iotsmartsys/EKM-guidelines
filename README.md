@@ -1,12 +1,15 @@
 # EKM Guidelines
 
-**Modelo EKM vigente:** 1.6
+**Modelo EKM vigente:** 1.7
 
 **Estado:** experimental e utilizável
 
 **Garantia automatizada:** planejada, ainda não definida
 
-Engineering Knowledge Management (EKM) é um modelo de engenharia para acelerar entregas com qualidade e previsibilidade, coordenando pessoas, agentes de IA, conhecimento e automações em processos verificáveis e continuamente evolutivos.
+Engineering Knowledge Management (EKM) é um modelo de governança da engenharia
+assistida por IA para acelerar entregas com qualidade e previsibilidade,
+coordenando pessoas, agentes, conhecimento e automações em processos
+verificáveis e continuamente evolutivos.
 
 A preservação do conhecimento é uma infraestrutura essencial: permite que execução, manutenção e auditoria operem sobre intenção explícita, em vez de depender de conversas, memória ou inferências. Ela sustenta o objetivo principal, mas não o define isoladamente.
 
@@ -16,6 +19,8 @@ A EKM nasceu de experimentos em projetos reais. Ela não é apresentada como um 
 
 O principal objetivo da EKM é ampliar a capacidade de uma equipe transformar intenção em software validado, reduzindo o tempo entre especificação e entrega sem perder controle técnico. Para isso, busca:
 
+- governar decisões, responsabilidades, evidências e transições;
+- aumentar a confiança na entrega;
 - acelerar implementação, validação e evolução;
 - aumentar qualidade, consistência e previsibilidade das entregas;
 - estabelecer mecanismos e evidências auditáveis para processos, contratos, arquitetura e padrões;
@@ -47,7 +52,11 @@ Código/testes → implementação e evidência executável
 Relatório     → evidência de uma execução; não cria requisitos
 ```
 
-O método procura aumentar autonomia e produtividade sem transferir ao executor decisões de produto ou arquitetura que não estejam aprovadas.
+O método procura aumentar autonomia e produtividade sem transferir ao executor
+decisões de produto ou arquitetura que não estejam aprovadas. A autonomia é
+governada: participação humana em decisões, aprovações e validações é esperada.
+O método busca reduzir retrabalho e coordenação operacional, não extinguir a
+interação humana.
 
 ## Papel esperado da IA
 
@@ -61,13 +70,17 @@ A EKM foi concebida para permitir que a IA participe de diferentes responsabilid
 
 “Garantidora” não significa que a resposta de um modelo seja prova suficiente. Garantia exige a combinação de fontes normativas, testes, rastreabilidade, revisão humana e controles automatizados. Enquanto o `EKM Gate` não existir, a conformidade depende de verificação explícita; mesmo depois dele, decisões semânticas e responsabilidade permanecem humanas.
 
-## Fluxo vigente no modelo 1.6
+## Fluxo vigente no modelo 1.7
 
 ```text
-Especificação
+Confecção da especificação
+    ↓
+parecer humano sobre a intenção
+    ├─ Revision Required → corrigir a especificação
+    └─ Accepted
     ↓
 Technical Readiness Review integral
-    ├─ Needs Clarification → corrigir a fonte normativa e revisar novamente
+    ├─ Needs Clarification → corrigir, emitir novo parecer e revisar novamente
     └─ Implementable
             ↓
       aprovação humana explícita
@@ -81,7 +94,14 @@ Technical Readiness Review integral
       integração à referência de produção
 ```
 
-Revisão e implementação acontecem em execuções separadas. `Implementable` significa pronto para decisão humana, não autorização automática. Uma lacuna relevante bloqueia toda a implementação, mas a revisão deve continuar até classificar cumulativamente todos os requisitos e dimensões obrigatórias.
+O parecer humano da especificação confirma intenção, não implementabilidade. A
+EKM não prevê automação da autoria como parte do método: ela governa o artefato
+resultante, independentemente da modalidade usada para produzi-lo.
+
+Revisão e implementação acontecem em execuções separadas. `Implementable`
+significa pronto para decisão humana, não autorização automática. Uma lacuna
+relevante bloqueia toda a implementação, mas a revisão deve continuar até
+classificar cumulativamente todos os requisitos e dimensões obrigatórias.
 
 Versões normativas em `Done` são imutáveis. Evoluções posteriores usam novas especificações relacionadas por `Amends`, `Supersedes`, `Corrects` ou `Retires`.
 
@@ -95,6 +115,7 @@ Versões normativas em `Done` são imutáveis. Evoluções posteriores usam nova
 - transações `EKM-CHG` e lacunas `EKM-GAP`;
 - baseline baseado no worktree real, não somente em `HEAD`;
 - proteção contra remoção silenciosa de conhecimento normativo;
+- parecer humano da especificação anterior à análise técnica;
 - Technical Readiness Review integral e implementação atômica;
 - aprovação humana e reconfirmação antes da implementação;
 - adoção incremental em projetos legados por inventário, risco e *specification on touch*;
@@ -118,7 +139,8 @@ Esses resultados sustentam a utilidade da abordagem, mas ainda não demonstram a
 - métricas sistemáticas de produtividade, retrabalho, custo de contexto e manutenção;
 - validação em mais tecnologias, equipes e ciclos de vida;
 - semântica mais precisa para resultados como `Blocked` e `Not verifiable` em auditorias;
-- coordenação entre múltiplos agentes e separação automatizada de responsabilidades;
+- coordenação entre múltiplos agentes e separação assistida de responsabilidades;
+- autenticação e verificação automatizada de pareceres humanos;
 - custo sustentável de adoção e evolução em projetos de diferentes portes.
 
 ## Planos futuros

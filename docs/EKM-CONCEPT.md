@@ -2,9 +2,13 @@
 
 ## Definição
 
-Engineering Knowledge Management (EKM) é uma abordagem para manter alinhados o comportamento desejado, as decisões de engenharia, a implementação e suas evidências.
+Engineering Knowledge Management (EKM) é uma abordagem de governança da
+engenharia assistida por IA para manter alinhados o comportamento desejado, as
+decisões de engenharia, a implementação e suas evidências.
 
-Seu objetivo é tornar o conhecimento do sistema localizável, auditável e reutilizável por pessoas e agentes de IA.
+Seu objetivo é acelerar entregas confiáveis, preservando autoridade humana,
+responsabilidades delimitadas e conhecimento localizável, auditável e
+reutilizável por pessoas e agentes de IA.
 
 ## Problema tratado
 
@@ -51,9 +55,31 @@ Isso inclui recuperar comportamentos, contratos, limites, decisões, falhas espe
 
 ## Relação entre humano e agente
 
-O agente pode localizar fatos, comparar fontes, implementar especificações e produzir evidências. O responsável humano continua decidindo intenção, prioridade, compatibilidade e trade-offs quando as fontes não forem inequívocas.
+O agente pode localizar fatos, comparar fontes, apoiar a especificação,
+implementar contratos aprovados e produzir evidências. O responsável humano
+continua decidindo intenção, prioridade, compatibilidade, trade-offs, aceitação
+da especificação, autorização para implementação e decisão final de entrega.
 
-O ganho esperado é deslocar o esforço humano do trabalho repetitivo para decisões de maior impacto.
+A EKM busca autonomia governada, não autonomia máxima. Interação humana em
+decisões, aprovações e validações é parte do funcionamento esperado do método,
+não uma falha a ser eliminada.
+
+O ganho esperado é deslocar o esforço humano do trabalho repetitivo e da
+coordenação operacional para decisões de maior impacto. Reduzir interação é
+desejável quando ela representa retrabalho, ambiguidade ou operação repetitiva;
+não quando ela exerce governança.
+
+## Especificação e autoridade humana
+
+A EKM fornece modelo, metodologia e mecanismos para confeccionar
+especificações. Ela não prevê automação da autoria como requisito ou capacidade
+do método e não determina a modalidade usada para produzir o documento. Seu
+contrato começa no artefato resultante e em sua submissão ao parecer humano.
+
+Antes da análise de implementabilidade, um responsável humano deve declarar que
+a especificação representa a intenção conhecida e pode seguir para análise
+técnica. Inicialmente, esse parecer é declarativo: a EKM exige seu registro, mas
+não alega verificar automaticamente identidade, autenticidade ou autoridade.
 
 ## Hipóteses atuais
 
@@ -67,6 +93,10 @@ A EKM parte de hipóteses ainda em validação:
 6. análise técnica anterior à implementação reduz inferências, interrupções e retrabalho durante a execução.
 7. imutabilidade de versões em produção preserva a linhagem entre intenção e entrega.
 8. garantias automatizadas podem aumentar conformidade em aspectos verificáveis sem substituir decisão humana.
+9. governança explícita aumenta confiança e velocidade sem exigir redução da
+   participação humana decisória.
+10. separar parecer humano da especificação, análise técnica e autorização para
+    implementar reduz conflito de responsabilidade.
 
 Os experimentos atuais sustentam essas hipóteses parcialmente, mas não demonstram aplicabilidade universal.
 

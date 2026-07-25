@@ -77,7 +77,7 @@ O resultado mostrou que:
 
 O modelo 1.6 introduziu esses controles manualmente, sem exigir múltiplos agentes, CI/CD ou `EKM Gate`.
 
-## 10. Papéis separados melhoram rastreabilidade, mas aumentam coordenação
+## 10. Papéis separados melhoram rastreabilidade, mas aumentam coordenação operacional
 
 O primeiro piloto de coordenação por atores aplicou Autor da Especificação,
 Engenheiro Analista, Engenheiro Implementador e Engenheiro Tech Lead a uma
@@ -97,11 +97,24 @@ O resultado parcial sustenta continuar o experimento, não incorporar o modelo
 como obrigação. Validador de Integridade, integração e retrospectiva final ainda
 precisam ser executados.
 
+A avaliação inicial tratou a quantidade de interações humanas como possível
+custo do modelo. A discussão posterior corrigiu essa expectativa: pareceres,
+aprovações, validações e decisões finais são governança esperada. O custo a
+reduzir é o de correções documentais, ambiguidades, preparação repetitiva e
+tratamento operacional de handoffs.
+
+Esse alinhamento motivou o modelo 1.7 e o protocolo 0.5: a especificação pode ser
+humana, assistida ou produzida por agente, mas deve receber parecer humano
+explícito antes da análise de implementabilidade.
+
 Detalhes:
 [`SMARTHOME-DEVICEAPI-COORDINATED-ACTORS.md`](case-studies/SMARTHOME-DEVICEAPI-COORDINATED-ACTORS.md).
 
 ## Conclusão experimental
 
-A hipótese atual é que agentes conseguem executar mudanças com mais autonomia quando o repositório contém especificações, regras de preservação, mapa de autoridade e histórico transacional. A autonomia continua limitada onde existe julgamento de produto ou arquitetura.
+A hipótese atual é que agentes conseguem executar mudanças com autonomia
+governada quando o repositório contém especificações, regras de preservação,
+mapa de autoridade e histórico transacional. Julgamento de intenção, produto,
+arquitetura e entrega permanece humano.
 
 Este modelo ainda deve evoluir por meio de novas aplicações, auditorias e regressões observadas.

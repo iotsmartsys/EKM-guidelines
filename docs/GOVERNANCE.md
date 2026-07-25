@@ -2,13 +2,20 @@
 
 ## 1. Objetivo
 
-Permitir que o método evolua com evidências sem apagar sua história nem apresentar hipóteses como conclusões.
+Permitir que o método evolua com evidências sem apagar sua história nem
+apresentar hipóteses como conclusões, preservando autoridade humana sobre
+decisões relevantes.
+
+Governança é um objetivo central da EKM. Ela delimita quem pode decidir, quem
+pode executar, quais evidências sustentam cada transição e como exceções são
+tratadas. O objetivo não é eliminar participação humana, mas acelerar a
+engenharia com confiança, rastreabilidade e responsabilidade.
 
 ## 2. Estado atual
 
 A EKM é experimental e utilizável. Não está concluída nem descartada. Cada versão representa o melhor modelo conhecido até aquele momento.
 
-**Modelo vigente neste repositório:** 1.6.
+**Modelo vigente neste repositório:** 1.7.
 
 ## 3. Fontes deste repositório
 
@@ -72,11 +79,18 @@ Ao modificar um template:
 
 O sucesso da EKM não é medido pela quantidade de documentos. Deve ser avaliado por:
 
+- confiança na entrega e qualidade das decisões;
+- rastreabilidade de autoridade, responsabilidade e evidência;
+- tempo entre intenção, especificação, validação e entrega;
 - facilidade de localizar autoridade;
 - redução de perguntas repetidas e inferências;
 - preservação de contratos durante mudanças;
 - qualidade e autonomia segura da execução;
-- tempo entre especificação e validação;
+- proporção entre participação humana decisória e coordenação operacional;
 - custo de manutenção do próprio conhecimento.
+
+Interações humanas planejadas de decisão, aprovação e validação não são
+classificadas automaticamente como custo ou falha. O método deve distinguir
+esses gates de retrabalho, ambiguidade e operação repetitiva.
 
 Essas métricas ainda precisam ser experimentadas de forma mais sistemática.

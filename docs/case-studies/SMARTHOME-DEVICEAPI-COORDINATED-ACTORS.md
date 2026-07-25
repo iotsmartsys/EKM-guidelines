@@ -11,6 +11,9 @@ O fluxo foi dividido entre Autor da Especificação, Engenheiro Analista,
 Engenheiro Implementador e Engenheiro Tech Lead, com gates e decisões explícitas
 da Coordenação e do arquiteto.
 
+A execução ocorreu sob as versões 0.2 a 0.4 do protocolo e foi posteriormente
+reavaliada conforme o alinhamento de governança da versão 0.5.
+
 ## Hipótese
 
 A separação de responsabilidades e os handoffs por commit deveriam aumentar a
@@ -33,6 +36,10 @@ A execução avançou até:
 O Validador de Integridade da EKM, a integração e o encerramento ainda não foram
 executados.
 
+O contrato executado ainda não exigia parecer humano formal da especificação
+antes do Analista. A intenção foi fornecida e refinada pelo arquiteto, mas não
+há registro equivalente ao novo gate `Accepted` associado a um checkpoint.
+
 ## Evidências favoráveis
 
 - A branch exclusiva e os checkpoints preservaram a origem e cada handoff.
@@ -46,6 +53,8 @@ executados.
 - O Tech Lead não declarou validação operacional inexistente quando restore e
   banco isolado estavam indisponíveis.
 - A validação humana confirmou a implementação e a funcionalidade.
+- A autorização para implementação e a validação funcional exerceram a
+  governança humana esperada.
 
 ## Fricções e evidências negativas
 
@@ -61,6 +70,8 @@ executados.
   inicialmente percebido como resíduo de build.
 - A validação manual aceita pelo arquiteto ainda precisa ser reconciliada no
   registro transacional.
+- O parecer humano da especificação não existia como gate formal no contrato
+  aplicado e não pode ser criado retroativamente.
 - O custo de coordenação e correção documental foi relevante para uma mudança
   funcional pequena.
 
@@ -72,8 +83,17 @@ arquiteto.
 
 O resultado metodológico é promissor, mas ainda inconclusivo. A separação de
 papéis melhorou rastreabilidade, controle de escopo e honestidade das evidências.
-Ao mesmo tempo, o caso revelou excesso de intervenção humana, inconsistências
-documentais e dependência de um ambiente de execução adequado.
+Ao mesmo tempo, o caso revelou sobrecarga de coordenação operacional,
+inconsistências documentais e dependência de um ambiente de execução adequado.
+
+A confiança foi favorecida por checkpoints, revisão independente e decisão
+humana. O efeito sobre velocidade ainda não pode ser concluído, porque tempo
+ativo, custo de contexto e duração das intervenções não foram medidos de forma
+sistemática.
+
+A quantidade de decisões humanas não é tratada como falha. Pareceres,
+aprovações, validação funcional e decisão de integração são controles esperados;
+o alvo de redução é retrabalho e operação repetitiva.
 
 ## Conclusão provisória
 
@@ -91,6 +111,7 @@ em evidência versionada e reproduzível sempre que possível.
 
 - uma única funcionalidade e um único repositório;
 - protocolo alterado durante a execução;
+- ausência, no contrato executado, do parecer humano formal anterior à análise;
 - agentes sem identificação versionada de modelo, custo e tempo ativo;
 - build e validação funcional não reproduzidos no ambiente dos agentes;
 - auditoria de integridade e integração ainda pendentes.

@@ -6,6 +6,10 @@
 
 **Natureza:** evidência experimental não normativa
 
+**Contrato executado:** versões 0.2 a 0.4
+
+**Reavaliação:** versão 0.5, sem aplicação retroativa de gates
+
 **Período observado:** 24–25/07/2026
 
 **Projeto:** SmartHome-DeviceApi
@@ -51,6 +55,8 @@ A execução forneceu evidência preliminar para as seguintes hipóteses:
 7. o Tech Lead consegue separar aderência estática de evidência operacional;
 8. a validação humana permanece necessária quando o ambiente do agente não
    permite produzir evidência funcional suficiente.
+9. interação humana decisória pode aumentar confiança sem representar falha de
+   autonomia.
 
 Esta execução ainda não avaliou o Validador de Integridade, a promoção entre
 branches, a integração ou o encerramento completo.
@@ -332,12 +338,35 @@ O episódio demonstrou que resíduos do ambiente precisam ser classificados pela
 origem. Tratá-los genericamente como artefatos do build pode produzir diagnóstico
 incorreto.
 
+### 8.9 Reavaliação sob o alinhamento de governança 0.5
+
+A versão 0.5 distingue participação humana decisória de intervenção operacional.
+Sob essa definição:
+
+- aprovação para implementação e validação funcional humana foram gates
+  esperados e contribuíram para a confiança da entrega;
+- a normalização de estados, correções transacionais e investigação de resíduos
+  do ambiente foram coordenação operacional a ser reduzida;
+- a autoria por agente não é requisito nem resultado esperado da EKM; ela foi
+  apenas a modalidade escolhida neste piloto;
+- o Analista produziu evidência válida sobre implementabilidade, mas não deveria
+  ser interpretado como aprovador da intenção;
+- não existia no contrato 0.4 um gate formal de parecer humano da especificação
+  antes da análise.
+
+A intenção funcional havia sido fornecida e refinada pelo arquiteto, mas não
+existe registro explícito, anterior à primeira análise, com responsável,
+checkpoint e resultado equivalente ao novo parecer `Accepted`. Essa ausência é
+uma limitação histórica e não uma não conformidade retroativa.
+
 ## 9. Métricas disponíveis
 
 | Métrica | Resultado |
 |---|---|
 | Atuações especializadas concluídas | 6: duas de autoria, duas de análise, uma de implementação e uma de Tech Lead |
-| Atos explícitos de Coordenação ou decisão humana | 3: normalização, aprovação e validação manual |
+| Gates humanos decisórios concluídos | 2: autorização para implementação e validação/aceitação funcional |
+| Parecer humano formal da especificação | não previsto no contrato executado; não verificável retroativamente |
+| Coordenação operacional destacada | normalização da transação e tratamento de ocorrências do ambiente |
 | Checkpoints da mudança após o baseline | 8 |
 | Requisitos funcionais analisados | 10 |
 | Requisitos confirmados estaticamente pelo Tech Lead | 10 |
@@ -348,8 +377,9 @@ incorreto.
 | Validador de Integridade e integração | não executados |
 
 O intervalo entre commits não representa duração confiável das atuações. Tempo
-ativo, tokens, custo, quantidade de leituras e intervenções humanas não foram
-registrados de forma suficientemente sistemática para comparação.
+ativo, tokens, custo, quantidade de leituras, gates humanos e intervenções
+operacionais não foram registrados de forma suficientemente sistemática para
+comparação.
 
 ## 10. Resultado técnico
 
@@ -411,6 +441,7 @@ Validador.
 - o ambiente dos agentes não conseguiu restaurar as dependências;
 - não houve banco isolado para validação funcional automatizada;
 - a evidência detalhada da validação manual ainda não está versionada;
+- o parecer humano da especificação não existia como gate no contrato executado;
 - o Validador de Integridade e a integração ainda não foram executados.
 
 ## 13. Retrospectiva
@@ -426,7 +457,9 @@ Validador.
 - o Implementador preservou o recorte aprovado;
 - o Tech Lead não confundiu aderência estática com validação operacional;
 - a validação humana resolveu uma limitação real do ambiente sem transferir a
-  decisão final para a IA.
+  decisão final para a IA;
+- as decisões humanas de autorização e aceitação exerceram a governança
+  pretendida.
 
 ### Precisa melhorar
 
@@ -445,7 +478,10 @@ Validador.
   de revisões repetidas;
 - o ambiente de execução precisa permitir restore e oferecer banco isolado;
 - a evidência manual precisa ser reconciliada antes do próximo handoff;
-- o processo mostrou custo relevante de Coordenação e correção documental.
+- o processo mostrou custo relevante de Coordenação operacional e correção
+  documental;
+- novas execuções devem registrar o parecer humano da especificação antes da
+  análise.
 
 ## 14. Decisão e próximos passos
 
@@ -473,15 +509,17 @@ validação manual humana.
 **Parecer parcial atual:** continuar o experimento, sem incorporar ainda o
 modelo ao método de referência.
 
-Até a etapa atual, o caso demonstra utilidade técnica e de rastreabilidade, mas
-também custo elevado de Coordenação, fragilidade documental e dependência do
-ambiente. A eficácia do fluxo completo e o custo operacional aceitável ainda não
-foram demonstrados.
+Até a etapa atual, o caso demonstra utilidade técnica, governança humana e
+rastreabilidade, mas também custo elevado de Coordenação operacional,
+fragilidade documental e dependência do ambiente. A eficácia do fluxo completo
+e o custo operacional aceitável ainda não foram demonstrados.
 
 Próximos passos:
 
 1. reconciliar na transação a validação e a aceitação humanas;
-2. executar o Validador de Integridade da EKM a partir de checkpoint explícito;
+2. executar o Validador de Integridade da EKM a partir de checkpoint explícito,
+   auditando cada handoff pelo contrato aplicável à época e sem exigir
+   retroativamente o parecer humano introduzido na versão 0.5;
 3. decidir e registrar o tratamento das não conformidades, se existirem;
 4. integrar e encerrar a transação somente depois dos gates aplicáveis;
 5. registrar retrospectiva final, custo, intervenções e decisão de adotar,

@@ -66,28 +66,35 @@ Classifique individualmente:
 6. gate de admissão do Engenheiro Analista anterior à revisão;
 7. separação entre os papéis;
 8. autoria encerrada sem Technical Readiness Review simulada;
-9. Technical Readiness Review integral pelo Engenheiro Analista;
-10. classificação da natureza das lacunas;
-11. classificação das dúvidas e decisões já declaradas;
-12. aprovação humana explícita;
-13. reconfirmação do baseline pelo Implementador;
-14. rastreabilidade entre requisito, alteração e evidência;
-15. escopo e atomicidade;
-16. preservação de fontes normativas;
-17. declaração de decisões locais, desvios e pendências;
-18. relatório do Implementador confrontado com o diff;
-19. parecer independente do Tech Lead;
-20. validações obrigatórias e evidências;
-21. estados da especificação e da transação;
-22. comandos, operações Git ou externas e artefatos temporários declarados;
-23. reconciliação dos metadados, registros e worktree inicial e final.
+9. parecer humano explícito da especificação anterior à análise;
+10. distinção entre parecer da especificação e autorização para implementar;
+11. Technical Readiness Review integral pelo Engenheiro Analista;
+12. classificação da natureza das lacunas;
+13. classificação das dúvidas e decisões já declaradas;
+14. aprovação humana explícita para implementação;
+15. reconfirmação do baseline pelo Implementador;
+16. rastreabilidade entre requisito, alteração e evidência;
+17. escopo e atomicidade;
+18. preservação de fontes normativas;
+19. declaração de decisões locais, desvios e pendências;
+20. relatório do Implementador confrontado com o diff;
+21. parecer independente do Tech Lead;
+22. validações obrigatórias e evidências;
+23. estados da especificação e da transação;
+24. comandos, operações Git ou externas e artefatos temporários declarados;
+25. reconciliação dos metadados, registros e worktree inicial e final.
 
 Para cada controle, use exatamente:
 
 - `Compliant`;
 - `Non-compliant`;
 - `Not verifiable`;
-- `Blocked`.
+- `Blocked`;
+- `Not Applicable`.
+
+Audite cada handoff contra a versão do contrato declarada quando ele ocorreu.
+Use `Not Applicable` quando o controle ainda não existia naquela versão e
+registre a versão como evidência. Não crie não conformidade retroativa.
 
 Inclua evidência direta e impacto. Relatório anterior, changelog ou alegação de
 outro ator não constitui prova suficiente quando a evidência primária estiver
@@ -97,7 +104,8 @@ disponível.
 
 Derive uma conclusão:
 
-- `Conforme`: todos os controles aplicáveis estão `Compliant`;
+- `Conforme`: todos os controles aplicáveis estão `Compliant`; controles
+  `Not Applicable` não alteram a conclusão;
 - `Conforme com ressalvas`: todos os controles obrigatórios estão `Compliant`,
   mas existem observações não bloqueantes fora desses controles;
 - `Não conforme`: existe ao menos um controle `Non-compliant` relevante;

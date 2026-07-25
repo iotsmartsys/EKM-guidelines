@@ -91,3 +91,20 @@ Este documento registra as razões das principais escolhas do modelo atual. Não
 **Decisão:** a Technical Readiness Review é cumulativa, ocorre em execução separada da implementação e produz uma recomendação submetida ao responsável humano. Mesmo `Implementable` exige aprovação explícita e reconfirmação do baseline antes da primeira alteração.
 
 **Motivo:** o mesmo executor pode encontrar um bloqueio suficiente e interromper prematuramente a investigação, deixando outras lacunas sem registro. Também existe conflito de responsabilidade quando o agente produz e consome sua própria autorização. A separação manual preserva o protagonismo humano sem exigir prematuramente múltiplos agentes ou pipeline automatizado.
+
+## DD-016 — Governança e parecer humano precedem implementabilidade
+
+**Decisão:** a EKM busca autonomia governada, não autonomia máxima. A modalidade
+de confecção da especificação fica fora do contrato e sua automação não é
+prevista como requisito ou capacidade do método. O artefato somente segue para
+Technical Readiness Review após parecer humano explícito de que representa a
+intenção conhecida.
+
+Esse parecer é diferente tanto do resultado técnico `Implementable` quanto da
+autorização humana posterior para alterar o código. Inicialmente, seu registro é
+declarativo e não implica verificação automatizada de identidade ou autoridade.
+
+**Motivo:** o Engenheiro Analista deve avaliar se um contrato aceito é passível
+de implementação, não decidir o que o produto deve fazer. Interação humana em
+decisões, aprovações e validações é governança esperada; o que deve ser reduzido
+é retrabalho e coordenação operacional sem valor decisório.

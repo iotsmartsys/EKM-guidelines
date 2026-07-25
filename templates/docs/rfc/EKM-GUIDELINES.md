@@ -4,9 +4,9 @@
 
 **Status:** Active
 
-**Versão:** 1.3
+**Versão:** 1.4
 
-**Modelo EKM:** 1.6
+**Modelo EKM:** 1.7
 
 **Responsável:** `<RESPONSÁVEL>`
 
@@ -36,7 +36,25 @@ Estado da entrega: `Not Ready`, `Ready for Integration` ou `Done`.
 
 O projeto deve declarar sua referência de produção. Após `Done`, a identidade ID+versão da especificação é imutável; evoluções usam nova especificação relacionada como `Amends`, `Supersedes`, `Corrects` ou `Retires`.
 
-## 4. Proteção normativa
+## 4. Governança e parecer humano
+
+A EKM busca autonomia governada. Decisões relevantes, aprovações e
+responsabilidade final permanecem humanas.
+
+A modalidade de confecção da especificação fica fora do contrato. A EKM não
+prevê nem exige automação da autoria. Ao concluir a autoria, a especificação
+fica `Proposed` com parecer humano `Pending`.
+
+Antes da Technical Readiness Review, o arquiteto ou responsável humano
+autorizado registra `Accepted` ou `Revision Required`. `Accepted` confirma que o
+documento representa a intenção conhecida e autoriza somente a análise técnica.
+Não declara implementabilidade nem autoriza código.
+
+O parecer é inicialmente declarativo. Nenhum agente pode inferi-lo ou
+fabricá-lo, e o projeto não alega verificar automaticamente identidade,
+autenticidade ou autoridade.
+
+## 5. Proteção normativa
 
 - Não remover decisões vigentes.
 - Não substituir fonte normativa por resumo.
@@ -44,19 +62,20 @@ O projeto deve declarar sua referência de produção. Após `Done`, a identidad
 - Não resolver conflito normativo silenciosamente.
 - Remoção ou enfraquecimento de conhecimento exige autorização humana explícita.
 
-## 5. Baseline
+## 6. Baseline
 
 O baseline inclui branch, commit e todo o worktree observado no início. Alterações preexistentes devem ser preservadas e reconciliadas separadamente.
 
-## 6. Transações e lacunas
+## 7. Transações e lacunas
 
 Mudanças usam `EKM-CHG-NNNN`; lacunas usam `EKM-GAP-NNNN`.
 
 Estados: `Open`, `Blocked`, `Superseded` e `Closed`.
 
-## 7. Technical Readiness Review
+## 8. Technical Readiness Review
 
-Antes de qualquer alteração, analisar integralmente a especificação e declarar:
+Depois do parecer humano `Accepted` e antes de qualquer alteração, analisar se
+a especificação é passível de implementação no baseline e declarar:
 
 - `Implementable`: todos os requisitos obrigatórios são executáveis sem inferência relevante;
 - `Needs Clarification`: existe decisão ausente, contradição ou ambiguidade com impacto normativo.
@@ -75,26 +94,39 @@ Use uma matriz com:
 
 Technical Readiness Review e implementação ocorrem em execuções separadas. A execução da revisão encerra sem alterar implementação, mesmo com `Implementable`.
 
-`Implementable` significa apto para aprovação humana. A implementação exige aprovação explícita do responsável para a revisão e seu baseline. Antes da primeira alteração, reconfirmar especificação, branch, commit, worktree, resultado aprovado e transação `Open`. Mudança material exige nova revisão integral.
+`Implementable` significa apto para aprovação humana. A implementação exige
+aprovação explícita do responsável para a revisão e seu baseline. Antes da
+primeira alteração, reconfirmar especificação, parecer humano, branch, commit,
+worktree, resultado aprovado e transação `Open`. Mudança material exige novo
+parecer humano e nova revisão integral.
 
 `Needs Clarification` deve ser reportado como bloqueio, nunca como implementação concluída. Este controle é manual e não presume múltiplos agentes, CI/CD ou `EKM Gate`.
 
-## 8. Adoção incremental
+## 9. Adoção incremental
 
 Classifique domínios como `Unmapped`, `Inventoried`, `Mapped`, `Reviewed`, `Specified` ou `Reconstructible`.
 
 Use specification on touch: funcionalidade relevante modificada deve alcançar ao menos `Specified` antes da implementação.
 
-## 9. Definition of Done
+## 10. Definition of Done
 
-Uma transação só pode ser fechada quando uma análise válida autorizou a implementação antes da primeira alteração e requisitos, implementação, conhecimento, evidências, mapa, gaps e diferenças do baseline estiverem reconciliados. Validações pendentes e operações externas devem ser declaradas.
+Uma transação só pode ser fechada quando o parecer humano da especificação foi
+registrado, uma análise válida autorizou a implementação antes da primeira
+alteração e requisitos, implementação, conhecimento, evidências, mapa, gaps e
+diferenças do baseline estiverem reconciliados. Validações pendentes e operações
+externas devem ser declaradas.
 
 Mudança funcional fica `Ready for Integration` após validação e reconciliação, e `Done` somente após integração à referência de produção.
 
-## 10. Automação e garantias previstas
+## 11. Automação e garantias previstas
 
-Um futuro `EKM Gate` poderá automatizar regras verificáveis de estrutura, rastreabilidade, imutabilidade e estados. Ele permanece `Planned / Not Defined`; não alegar garantia automática sem especificação, ferramenta e política implantadas. Julgamento semântico permanece humano.
+Um futuro `EKM Gate` poderá automatizar regras verificáveis de estrutura,
+presença declarada do parecer, rastreabilidade, imutabilidade e estados. Ele
+permanece `Planned / Not Defined`; não alegar garantia automática sem
+especificação, ferramenta e política implantadas. Julgamento semântico e
+autenticidade do parecer permanecem humanos. A automação desse gate não implica
+automação da autoria da especificação.
 
-## 11. Regras específicas do projeto
+## 12. Regras específicas do projeto
 
 `<REGISTRAR REFERÊNCIA DE PRODUÇÃO E RESTRIÇÕES PERMANENTES CONFIRMADAS>`
