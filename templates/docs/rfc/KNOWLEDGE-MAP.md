@@ -1,8 +1,8 @@
 # EKM — Mapa das Fontes de Verdade
 
-**Tipo:** Normativo
+**Classe da fonte:** Normativa
 
-**Status:** Active
+**Estado da fonte:** Vigente
 
 ## 1. Governança
 

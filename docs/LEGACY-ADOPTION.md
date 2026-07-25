@@ -41,9 +41,11 @@ Definir:
 - orçamento de tempo/contexto;
 - pessoas responsáveis por decisões.
 
-### Fase 1 — Baseline real
+### Fase 1 — Estado de referência real
 
-Registrar branch, commit, worktree, arquivos de instrução, builds, testes e documentação existentes. Alterações preexistentes pertencem ao baseline e não podem ser apagadas ou atribuídas à adoção.
+Registrar branch, commit, árvore de trabalho, arquivos de instrução, builds,
+testes e documentação existentes. Alterações preexistentes pertencem ao estado
+de referência e não podem ser apagadas ou atribuídas à adoção.
 
 ### Fase 2 — Inventário em largura
 
@@ -124,7 +126,7 @@ O agente deve interromper ou solicitar decisão antes de:
 
 A adoção inicial está concluída quando:
 
-- o baseline está registrado;
+- o estado de referência está registrado;
 - os domínios relevantes estão ao menos inventariados;
 - a arquitetura e os fluxos principais estão no dossiê;
 - APIs, integrações, persistência, build, testes e release possuem localização conhecida;

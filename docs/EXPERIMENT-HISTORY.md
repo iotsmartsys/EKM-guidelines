@@ -110,6 +110,24 @@ explícito antes da análise de implementabilidade.
 Detalhes:
 [`SMARTHOME-DEVICEAPI-COORDINATED-ACTORS.md`](case-studies/SMARTHOME-DEVICEAPI-COORDINATED-ACTORS.md).
 
+## 11. Vocabulário misto também é risco operacional
+
+A revisão do método e dos modelos encontrou três camadas misturadas sem
+distinção suficiente: prosa normativa em português, termos técnicos externos e
+identificadores de estados em inglês.
+
+O piloto de atores tornou o problema observável. `Accepted` representava tanto
+aceitação humana da intenção quanto admissão técnica de um marco; `Pending` e
+`Blocked` também apareciam em contextos distintos. Termos como `gate`,
+`handoff`, `checkpoint` e `Technical Readiness Review` eram usados como prosa
+normativa sem vocabulário canônico.
+
+O modelo 1.8 adotou português do Brasil como idioma normativo, definiu força
+controlada para obrigações e permissões, introduziu rótulos contextuais em
+português e preservou os valores ingleses como identificadores legados de
+compatibilidade. O objetivo não é traduzir comandos ou APIs, mas garantir um
+nome e um significado canônico para cada conceito.
+
 ## Conclusão experimental
 
 A hipótese atual é que agentes conseguem executar mudanças com autonomia

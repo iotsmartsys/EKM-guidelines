@@ -32,7 +32,7 @@ Este documento registra as razões das principais escolhas do modelo atual. Não
 
 **Motivo:** tarefas concluídas e conhecimento faltante precisam permanecer rastreáveis sem depender de conversas ou listas informais.
 
-## DD-006 — Baseline é o worktree observado
+## DD-006 — O estado de referência é a árvore de trabalho observada
 
 **Decisão:** a comparação inclui alterações rastreadas, não rastreadas e preexistentes, não apenas `HEAD`.
 
@@ -64,15 +64,20 @@ Este documento registra as razões das principais escolhas do modelo atual. Não
 
 ## DD-011 — Estrutura mínima antes de expansão
 
-**Decisão:** começar com `AGENTS.md`, diretrizes, mapa, changelog, dossiê e especificações necessárias.
+**Decisão:** começar com `AGENTS.md`, diretrizes, mapa, histórico de mudanças,
+dossiê e especificações necessárias.
 
 **Motivo:** padronização facilita adoção, mas arquivos sem autoridade ou uso claro criam burocracia.
 
-## DD-012 — Technical Readiness Review obrigatória
+## DD-012 — Revisão de implementabilidade obrigatória
 
-**Decisão:** toda especificação deve receber resultado `Implementable` ou `Needs Clarification` antes de qualquer alteração de implementação.
+**Decisão:** toda especificação deve receber resultado Implementável
+[`Implementable`] ou Precisa de esclarecimento [`Needs Clarification`] antes de
+qualquer alteração de implementação.
 
-**Motivo:** um build funcional pode esconder uma decisão inferida que não corresponde à intenção. Concentrar lacunas antes do código aumenta a confiabilidade e permite execução posterior verdadeiramente autônoma.
+**Motivo:** um processo de construção funcional pode esconder uma decisão
+inferida que não corresponde à intenção. Concentrar lacunas antes do código
+aumenta a confiabilidade e permite execução posterior verdadeiramente autônoma.
 
 ## DD-013 — Versões normativas em produção são imutáveis
 
@@ -88,16 +93,23 @@ Este documento registra as razões das principais escolhas do modelo atual. Não
 
 ## DD-015 — Revisão não autoriza a própria implementação
 
-**Decisão:** a Technical Readiness Review é cumulativa, ocorre em execução separada da implementação e produz uma recomendação submetida ao responsável humano. Mesmo `Implementable` exige aprovação explícita e reconfirmação do baseline antes da primeira alteração.
+**Decisão:** a revisão de implementabilidade é cumulativa, ocorre em execução
+separada da implementação e produz uma recomendação submetida ao responsável
+humano. Mesmo Implementável [`Implementable`] exige aprovação explícita e
+reconfirmação do estado de referência antes da primeira alteração.
 
-**Motivo:** o mesmo executor pode encontrar um bloqueio suficiente e interromper prematuramente a investigação, deixando outras lacunas sem registro. Também existe conflito de responsabilidade quando o agente produz e consome sua própria autorização. A separação manual preserva o protagonismo humano sem exigir prematuramente múltiplos agentes ou pipeline automatizado.
+**Motivo:** o mesmo executor pode encontrar um bloqueio suficiente e interromper
+prematuramente a investigação, deixando outras lacunas sem registro. Também
+existe conflito de responsabilidade quando o agente produz e consome sua própria
+autorização. A separação manual preserva o protagonismo humano sem exigir
+prematuramente múltiplos agentes ou fluxo automatizado.
 
 ## DD-016 — Governança e parecer humano precedem implementabilidade
 
 **Decisão:** a EKM busca autonomia governada, não autonomia máxima. A modalidade
 de confecção da especificação fica fora do contrato e sua automação não é
 prevista como requisito ou capacidade do método. O artefato somente segue para
-Technical Readiness Review após parecer humano explícito de que representa a
+revisão de implementabilidade após parecer humano explícito de que representa a
 intenção conhecida.
 
 Esse parecer é diferente tanto do resultado técnico `Implementable` quanto da
@@ -108,3 +120,21 @@ declarativo e não implica verificação automatizada de identidade ou autoridad
 de implementação, não decidir o que o produto deve fazer. Interação humana em
 decisões, aprovações e validações é governança esperada; o que deve ser reduzido
 é retrabalho e coordenação operacional sem valor decisório.
+
+## DD-017 — Português canônico e identificadores legados explícitos
+
+**Decisão:** o português do Brasil é o idioma normativo canônico da EKM.
+Termos técnicos externos e identificadores legados podem ser preservados, mas
+devem possuir significado canônico em português e aparecer delimitados como
+identificadores.
+
+Resultados sobre intenção, admissão, implementabilidade, autorização,
+implementação e auditoria devem declarar seu contexto. Um mesmo identificador
+legado não autoriza tratar decisões diferentes como equivalentes.
+
+**Motivo:** a mistura não controlada de português e inglês, somada ao uso
+contextualmente diferente de valores como `Accepted`, `Pending` e `Blocked`,
+aumenta ambiguidade para pessoas, agentes e futuras automações. Traduzir
+comandos, APIs ou identificadores de forma indiscriminada também reduziria a
+precisão e quebraria compatibilidade. A separação entre rótulo normativo e
+identificador preserva clareza e migração gradual.

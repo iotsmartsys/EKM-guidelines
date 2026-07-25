@@ -1,12 +1,12 @@
 # EKM — Diretrizes de Engenharia e Preservação do Conhecimento
 
-**Tipo:** Normativo
+**Classe da fonte:** Normativa
 
-**Status:** Active
+**Estado da fonte:** Vigente
 
-**Versão:** 1.4
+**Versão do documento:** 1.5
 
-**Modelo EKM:** 1.7
+**Versão do modelo EKM:** 1.8
 
 **Responsável:** `<RESPONSÁVEL>`
 
@@ -24,15 +24,32 @@ Preservar intenção, decisões, contratos e evidências suficientes para compre
 - Código e testes implementam e evidenciam comportamentos.
 - Relatórios registram execuções e não alteram requisitos implicitamente.
 
+### 2.1 Linguagem normativa
+
+O português do Brasil é o idioma normativo. **DEVE** e **NÃO DEVE** expressam
+obrigação; **PODE** expressa permissão; **RECOMENDA-SE** não cria obrigação;
+**NÃO SE APLICA** exige motivo e evidência.
+
+Nomes de ferramentas, comandos, arquivos, APIs e identificadores estáveis podem
+permanecer no idioma original. Estados e resultados devem apresentar rótulo
+canônico em português; os valores ingleses entre colchetes são identificadores
+legados de compatibilidade. `Accepted`, `Pending` e `Blocked` nunca devem
+aparecer sem o contexto da decisão ou etapa a que pertencem.
+
 ## 3. Estados das especificações
 
-Estado normativo: `Draft`, `Proposed`, `Approved`, `Active`, `Superseded`, `Withdrawn` ou `Archived`.
+Estado normativo: Rascunho [`Draft`], Proposta [`Proposed`], Aprovada
+[`Approved`], Vigente [`Active`], Substituída [`Superseded`], Retirada
+[`Withdrawn`] ou Arquivada [`Archived`].
 
-Estado da implementação: `Not Started`, `In Progress`, `Implemented`, `Validated`, `Regressed`, `Blocked` ou `Retired`.
+Estado da implementação: Não iniciada [`Not Started`], Em andamento
+[`In Progress`], Implementada [`Implemented`], Validada [`Validated`],
+Regredida [`Regressed`], Bloqueada [`Blocked`] ou Descontinuada [`Retired`].
 
 Os estados são independentes e toda alteração exige evidência.
 
-Estado da entrega: `Not Ready`, `Ready for Integration` ou `Done`.
+Estado da entrega: Não pronta [`Not Ready`], Pronta para integração
+[`Ready for Integration`] ou Concluída [`Done`].
 
 O projeto deve declarar sua referência de produção. Após `Done`, a identidade ID+versão da especificação é imutável; evoluções usam nova especificação relacionada como `Amends`, `Supersedes`, `Corrects` ou `Retires`.
 
@@ -45,7 +62,7 @@ A modalidade de confecção da especificação fica fora do contrato. A EKM não
 prevê nem exige automação da autoria. Ao concluir a autoria, a especificação
 fica `Proposed` com parecer humano `Pending`.
 
-Antes da Technical Readiness Review, o arquiteto ou responsável humano
+Antes da revisão de implementabilidade, o arquiteto ou responsável humano
 autorizado registra `Accepted` ou `Revision Required`. `Accepted` confirma que o
 documento representa a intenção conhecida e autoriza somente a análise técnica.
 Não declara implementabilidade nem autoriza código.
@@ -58,13 +75,16 @@ autenticidade ou autoridade.
 
 - Não remover decisões vigentes.
 - Não substituir fonte normativa por resumo.
-- Não perder obrigação, contexto, risco ou trade-off em reorganização editorial.
+- Não perder obrigação, contexto, risco ou relação de ganhos e perdas em
+  reorganização editorial.
 - Não resolver conflito normativo silenciosamente.
 - Remoção ou enfraquecimento de conhecimento exige autorização humana explícita.
 
 ## 6. Baseline
 
-O baseline inclui branch, commit e todo o worktree observado no início. Alterações preexistentes devem ser preservadas e reconciliadas separadamente.
+O estado de referência inclui branch, commit e toda a árvore de trabalho
+observada no início. Alterações preexistentes devem ser preservadas e
+reconciliadas separadamente.
 
 ## 7. Transações e lacunas
 
@@ -72,13 +92,13 @@ Mudanças usam `EKM-CHG-NNNN`; lacunas usam `EKM-GAP-NNNN`.
 
 Estados: `Open`, `Blocked`, `Superseded` e `Closed`.
 
-## 8. Technical Readiness Review
+## 8. Revisão de implementabilidade
 
 Depois do parecer humano `Accepted` e antes de qualquer alteração, analisar se
-a especificação é passível de implementação no baseline e declarar:
+a especificação é passível de implementação no estado de referência e declarar:
 
-- `Implementable`: todos os requisitos obrigatórios são executáveis sem inferência relevante;
-- `Needs Clarification`: existe decisão ausente, contradição ou ambiguidade com impacto normativo.
+- Implementável [`Implementable`]: todos os requisitos obrigatórios são executáveis sem inferência relevante;
+- Precisa de esclarecimento [`Needs Clarification`]: existe decisão ausente, contradição ou ambiguidade com impacto normativo.
 
 Em `Needs Clarification`, nenhum item nem artefato de implementação pode ser alterado. Registrar requisito, evidência, lacuna, decisão ausente, impacto das alternativas e ajuste recomendado. Somente registros EKM e a correção normativa aprovada podem mudar. Depois, repetir a análise integral.
 
@@ -90,14 +110,16 @@ Use uma matriz com:
 
 | Requisito ou dimensão | Resultado | Evidência | Lacuna ou impacto | Decisão necessária |
 |---|---|---|---|---|
-| `<ID OU ASPECTO>` | `Supported`, `Gap`, `Conflict` ou `Not Applicable` | `<EVIDÊNCIA>` | `<IMPACTO OU NONE>` | `<DECISÃO OU NONE>` |
+| `<ID OU ASPECTO>` | Suportado [`Supported`], Lacuna [`Gap`], Conflito [`Conflict`] ou Não aplicável [`Not Applicable`] | `<EVIDÊNCIA>` | `<IMPACTO OU NENHUM>` | `<DECISÃO OU NENHUMA>` |
 
-Technical Readiness Review e implementação ocorrem em execuções separadas. A execução da revisão encerra sem alterar implementação, mesmo com `Implementable`.
+Revisão de implementabilidade e implementação ocorrem em execuções separadas.
+A execução da revisão encerra sem alterar implementação, mesmo com o resultado
+Implementável [`Implementable`].
 
 `Implementable` significa apto para aprovação humana. A implementação exige
-aprovação explícita do responsável para a revisão e seu baseline. Antes da
+aprovação explícita do responsável para a revisão e seu estado de referência. Antes da
 primeira alteração, reconfirmar especificação, parecer humano, branch, commit,
-worktree, resultado aprovado e transação `Open`. Mudança material exige novo
+árvore de trabalho, resultado aprovado e transação Aberta [`Open`]. Mudança material exige novo
 parecer humano e nova revisão integral.
 
 `Needs Clarification` deve ser reportado como bloqueio, nunca como implementação concluída. Este controle é manual e não presume múltiplos agentes, CI/CD ou `EKM Gate`.
@@ -108,12 +130,12 @@ Classifique domínios como `Unmapped`, `Inventoried`, `Mapped`, `Reviewed`, `Spe
 
 Use specification on touch: funcionalidade relevante modificada deve alcançar ao menos `Specified` antes da implementação.
 
-## 10. Definition of Done
+## 10. Critérios de conclusão
 
 Uma transação só pode ser fechada quando o parecer humano da especificação foi
 registrado, uma análise válida autorizou a implementação antes da primeira
 alteração e requisitos, implementação, conhecimento, evidências, mapa, gaps e
-diferenças do baseline estiverem reconciliados. Validações pendentes e operações
+diferenças do estado de referência estiverem reconciliados. Validações pendentes e operações
 externas devem ser declaradas.
 
 Mudança funcional fica `Ready for Integration` após validação e reconciliação, e `Done` somente após integração à referência de produção.
@@ -124,7 +146,7 @@ Um futuro `EKM Gate` poderá automatizar regras verificáveis de estrutura,
 presença declarada do parecer, rastreabilidade, imutabilidade e estados. Ele
 permanece `Planned / Not Defined`; não alegar garantia automática sem
 especificação, ferramenta e política implantadas. Julgamento semântico e
-autenticidade do parecer permanecem humanos. A automação desse gate não implica
+autenticidade do parecer permanecem humanos. A automação desse ponto de controle não implica
 automação da autoria da especificação.
 
 ## 12. Regras específicas do projeto

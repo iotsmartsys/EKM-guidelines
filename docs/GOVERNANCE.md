@@ -15,7 +15,7 @@ engenharia com confiança, rastreabilidade e responsabilidade.
 
 A EKM é experimental e utilizável. Não está concluída nem descartada. Cada versão representa o melhor modelo conhecido até aquele momento.
 
-**Modelo vigente neste repositório:** 1.7.
+**Modelo vigente neste repositório:** 1.8.
 
 ## 3. Fontes deste repositório
 
@@ -25,7 +25,7 @@ A EKM é experimental e utilizável. Não está concluída nem descartada. Cada 
 | `docs/EKM-METHOD.md` | Método de referência vigente |
 | `docs/DESIGN-DECISIONS.md` | Razões das decisões do método |
 | `docs/LEGACY-ADOPTION.md` | Processo recomendado para legados |
-| `templates/` | Ponto de partida operacional |
+| `templates/` | Modelos reutilizáveis que formam o ponto de partida operacional |
 | `docs/case-studies/` | Evidências e aprendizados, não regras universais |
 
 ## 4. Critérios para evolução
@@ -35,7 +35,8 @@ Uma mudança na EKM deve indicar:
 - problema observado;
 - evidência ou experimento que o revelou;
 - regra ou modelo afetado;
-- impacto nos templates;
+- impacto nos modelos reutilizáveis;
+- impacto no vocabulário controlado e nos identificadores legados;
 - compatibilidade com adoções anteriores;
 - hipótese que ainda permanece aberta.
 
@@ -46,7 +47,7 @@ Preferências editoriais isoladas não justificam expansão do método.
 Usar versionamento semântico para versões publicadas do guideline:
 
 - **major:** mudança incompatível no modelo ou nos estados;
-- **minor:** nova capacidade, regra ou template compatível;
+- **minor:** nova capacidade, regra ou modelo compatível;
 - **patch:** esclarecimento ou correção sem mudança de comportamento.
 
 Projetos adotantes não precisam atualizar automaticamente. A migração deve ser deliberada e registrar quais regras passaram a vigorar.
@@ -67,13 +68,15 @@ Resultados negativos são conhecimento válido e não devem ser omitidos.
 
 ## 7. Alterações nos modelos
 
-Ao modificar um template:
+Ao modificar um modelo reutilizável:
 
 1. atualizar a fonte conceitual ou decisão relacionada;
 2. verificar consistência entre todos os modelos;
-3. manter o template genérico;
+3. manter o modelo genérico;
 4. não incorporar regras específicas de um projeto;
 5. registrar impacto para usuários existentes.
+6. preservar o português normativo e referenciar os identificadores legados
+   definidos pelo método.
 
 ## 8. Critério de qualidade
 
@@ -91,6 +94,6 @@ O sucesso da EKM não é medido pela quantidade de documentos. Deve ser avaliado
 
 Interações humanas planejadas de decisão, aprovação e validação não são
 classificadas automaticamente como custo ou falha. O método deve distinguir
-esses gates de retrabalho, ambiguidade e operação repetitiva.
+esses pontos de controle de retrabalho, ambiguidade e operação repetitiva.
 
 Essas métricas ainda precisam ser experimentadas de forma mais sistemática.

@@ -28,7 +28,7 @@ Use os modelos EKM disponíveis como base, adaptando-os ao projeto sem introduzi
 - Não alterar código-fonte, testes, dependências, build, CI/CD, release ou configuração.
 - Não executar commit, tag, push, branch, PR, deploy ou publicação.
 - Não apagar, mover ou reescrever documentos existentes.
-- Preservar todo o worktree inicial.
+- Preservar toda a árvore de trabalho inicial.
 - Não declarar como requisito uma intenção que não esteja comprovada.
 - Não classificar especificação descoberta como `Active` sem fonte inequívoca ou aprovação humana.
 - Otimizar leitura e uso de contexto; não despejar arquivos extensos sem necessidade.
@@ -39,16 +39,17 @@ Registre:
 
 - caminho do repositório;
 - branch e commit atuais;
-- status completo do worktree;
+- estado completo da árvore de trabalho;
 - instruções locais (`AGENTS.md` e equivalentes);
 - documentação existente;
 - linguagens, manifests e ferramentas principais.
 
-O baseline é o worktree observado, não somente `HEAD`.
+O estado de referência é a árvore de trabalho observada, não somente `HEAD`.
 
 ## Fase 2 — Inventário econômico
 
-Comece em largura usando árvore rasa, listagem de arquivos, manifests, configurações e busca de símbolos. Localize:
+Comece em largura usando árvore rasa, listagem de arquivos, arquivos de
+manifesto, configurações e busca de símbolos. Localize:
 
 1. entradas e executáveis;
 2. módulos e fronteiras arquiteturais;
@@ -95,11 +96,13 @@ Continue autonomamente nos fatos independentes das respostas. Não bloqueie todo
 
 ### `AGENTS.md`
 
-Crie a porta de entrada curta e obrigatória. Ela deve ordenar a leitura das fontes EKM, proteger o baseline e definir interrupções e relatório.
+Crie a porta de entrada curta e obrigatória. Ela deve ordenar a leitura das
+fontes EKM, proteger o estado de referência e definir interrupções e relatório.
 
 ### `EKM-GUIDELINES.md`
 
-Adapte as regras gerais da EKM ao repositório. Preserve estados, transações, lacunas, proteção normativa, baseline e Definition of Done.
+Adapte as regras gerais da EKM ao repositório. Preserve estados, transações,
+lacunas, proteção normativa, estado de referência e critérios de conclusão.
 
 ### `KNOWLEDGE-MAP.md`
 
@@ -107,7 +110,8 @@ Mapeie fontes, domínios, implementação principal, evidências, cobertura de a
 
 ### `EKM-CHANGELOG.md`
 
-Abra `EKM-CHG-0001` para a fundação. Registre baseline, ativos, decisões, validações e resultado. Feche somente após auditoria.
+Abra `EKM-CHG-0001` para a fundação. Registre estado de referência, ativos,
+decisões, validações e resultado. Feche somente após auditoria.
 
 ### `SYSTEM-DOSSIER.md`
 
@@ -155,7 +159,7 @@ Interrompa somente a parte afetada e solicite decisão quando houver:
 Informe:
 
 1. resultado executivo;
-2. baseline usado;
+2. estado de referência usado;
 3. ativos criados e modificados;
 4. fatos e decisões registrados;
 5. especificações e seus dois estados;

@@ -2,7 +2,8 @@
 
 ## Definição
 
-Engineering Knowledge Management (EKM) é uma abordagem de governança da
+Gestão do Conhecimento de Engenharia (*Engineering Knowledge Management* —
+EKM) é uma abordagem de governança da
 engenharia assistida por IA para manter alinhados o comportamento desejado, as
 decisões de engenharia, a implementação e suas evidências.
 
@@ -57,7 +58,8 @@ Isso inclui recuperar comportamentos, contratos, limites, decisões, falhas espe
 
 O agente pode localizar fatos, comparar fontes, apoiar a especificação,
 implementar contratos aprovados e produzir evidências. O responsável humano
-continua decidindo intenção, prioridade, compatibilidade, trade-offs, aceitação
+continua decidindo intenção, prioridade, compatibilidade, relações de ganhos e
+perdas, aceitação
 da especificação, autorização para implementação e decisão final de entrega.
 
 A EKM busca autonomia governada, não autonomia máxima. Interação humana em

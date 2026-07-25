@@ -1,12 +1,13 @@
 # EKM Guidelines
 
-**Modelo EKM vigente:** 1.7
+**Modelo EKM vigente:** 1.8
 
 **Estado:** experimental e utilizável
 
 **Garantia automatizada:** planejada, ainda não definida
 
-Engineering Knowledge Management (EKM) é um modelo de governança da engenharia
+Gestão do Conhecimento de Engenharia (*Engineering Knowledge Management* —
+EKM) é um modelo de governança da engenharia
 assistida por IA para acelerar entregas com qualidade e previsibilidade,
 coordenando pessoas, agentes, conhecimento e automações em processos
 verificáveis e continuamente evolutivos.
@@ -65,27 +66,28 @@ A EKM foi concebida para permitir que a IA participe de diferentes responsabilid
 - **executora:** implementar especificações aprovadas, produzir código, testes e artefatos;
 - **mantenedora:** evoluir o sistema preservando contratos, compatibilidade e conhecimento vigente;
 - **analista:** verificar implementabilidade antes do código e identificar decisões ausentes;
-- **auditora:** confrontar especificação, implementação, validações e baseline;
+- **auditora:** confrontar especificação, implementação, validações e estado de
+  referência;
 - **garantidora de controles verificáveis:** aplicar regras e padrões automatizáveis e produzir evidências sobre arquitetura, boas práticas e processos.
 
 “Garantidora” não significa que a resposta de um modelo seja prova suficiente. Garantia exige a combinação de fontes normativas, testes, rastreabilidade, revisão humana e controles automatizados. Enquanto o `EKM Gate` não existir, a conformidade depende de verificação explícita; mesmo depois dele, decisões semânticas e responsabilidade permanecem humanas.
 
-## Fluxo vigente no modelo 1.7
+## Fluxo vigente no modelo 1.8
 
 ```text
 Confecção da especificação
     ↓
 parecer humano sobre a intenção
-    ├─ Revision Required → corrigir a especificação
-    └─ Accepted
+    ├─ Revisão necessária [`Revision Required`] → corrigir a especificação
+    └─ Intenção aceita [`Accepted`]
     ↓
-Technical Readiness Review integral
-    ├─ Needs Clarification → corrigir, emitir novo parecer e revisar novamente
-    └─ Implementable
+Revisão de implementabilidade integral
+    ├─ Precisa de esclarecimento [`Needs Clarification`] → corrigir, emitir novo parecer e revisar novamente
+    └─ Implementável [`Implementable`]
             ↓
       aprovação humana explícita
             ↓
-      reconfirmação do baseline
+      reconfirmação do estado de referência
             ↓
       implementação atômica
             ↓
@@ -98,12 +100,15 @@ O parecer humano da especificação confirma intenção, não implementabilidade
 EKM não prevê automação da autoria como parte do método: ela governa o artefato
 resultante, independentemente da modalidade usada para produzi-lo.
 
-Revisão e implementação acontecem em execuções separadas. `Implementable`
+Revisão e implementação acontecem em execuções separadas. Implementável
+[`Implementable`]
 significa pronto para decisão humana, não autorização automática. Uma lacuna
 relevante bloqueia toda a implementação, mas a revisão deve continuar até
 classificar cumulativamente todos os requisitos e dimensões obrigatórias.
 
-Versões normativas em `Done` são imutáveis. Evoluções posteriores usam novas especificações relacionadas por `Amends`, `Supersedes`, `Corrects` ou `Retires`.
+Versões normativas concluídas [`Done`] são imutáveis. Evoluções posteriores
+usam novas especificações relacionadas pelos identificadores `Amends`,
+`Supersedes`, `Corrects` ou `Retires`, definidos no vocabulário controlado.
 
 ## Estado atual
 
@@ -112,19 +117,22 @@ Versões normativas em `Done` são imutáveis. Evoluções posteriores usam nova
 - estrutura mínima de fontes normativas;
 - especificações incrementais como unidade de comportamento e delegação;
 - estados normativo, de implementação e de entrega independentes;
+- português do Brasil como idioma normativo e vocabulário controlado com
+  identificadores legados explícitos;
 - transações `EKM-CHG` e lacunas `EKM-GAP`;
-- baseline baseado no worktree real, não somente em `HEAD`;
+- estado de referência baseado na árvore de trabalho real, não somente em
+  `HEAD`;
 - proteção contra remoção silenciosa de conhecimento normativo;
 - parecer humano da especificação anterior à análise técnica;
-- Technical Readiness Review integral e implementação atômica;
+- revisão de implementabilidade integral e implementação atômica;
 - aprovação humana e reconfirmação antes da implementação;
 - adoção incremental em projetos legados por inventário, risco e *specification on touch*;
-- templates para adoção, especificação e auditoria read-only.
+- modelos para adoção, especificação e auditoria somente leitura.
 
 ### O que os experimentos indicaram
 
 - especificações claras reduzem expansão de escopo e retrabalho;
-- build e testes não comprovam preservação da intenção;
+- construção e testes não comprovam preservação da intenção;
 - validação em hardware continua indispensável quando faz parte do contrato;
 - relatórios de execução podem omitir mudanças semânticas relevantes;
 - comparar apenas com o último commit pode ocultar perda de trabalho preexistente;
@@ -138,14 +146,14 @@ Esses resultados sustentam a utilidade da abordagem, mas ainda não demonstram a
 
 - métricas sistemáticas de produtividade, retrabalho, custo de contexto e manutenção;
 - validação em mais tecnologias, equipes e ciclos de vida;
-- semântica mais precisa para resultados como `Blocked` e `Not verifiable` em auditorias;
+- evolução compatível dos identificadores legados de estados e resultados;
 - coordenação entre múltiplos agentes e separação assistida de responsabilidades;
 - autenticação e verificação automatizada de pareceres humanos;
 - custo sustentável de adoção e evolução em projetos de diferentes portes.
 
 ## Planos futuros
 
-### EKM Gate
+### Ponto de controle EKM (`EKM Gate`)
 
 Está previsto um mecanismo automatizado para proteger a integração à produção. Ele poderá verificar aspectos comprováveis, como:
 
@@ -157,7 +165,10 @@ Está previsto um mecanismo automatizado para proteger a integração à produç
 - rastreabilidade entre requisitos, mudanças e validações;
 - reconciliação antes do merge.
 
-O `EKM Gate` permanece **Planned / Not Defined**. Ainda não existem arquitetura, schema, ferramenta ou política de bloqueio aprovados. Mesmo no futuro, automação não substituirá julgamento humano sobre intenção e trade-offs.
+O ponto de controle EKM permanece **planejado e não definido**
+[`Planned / Not Defined`]. Ainda não existem arquitetura, esquema, ferramenta
+ou política de bloqueio aprovados. Mesmo no futuro, automação não substituirá
+julgamento humano sobre intenção e relações de ganhos e perdas.
 
 ### Evolução experimental
 
@@ -240,7 +251,8 @@ Exemplo:
 
 ```text
 Adote a EKM neste repositório seguindo EKM-LEGACY-ADOPTION-INSTRUCTIONS.md.
-Nesta etapa, não altere código, build, testes ou automações. Registre o baseline,
+Nesta etapa, não altere código, build, testes ou automações. Registre o estado
+de referência,
 mapeie o sistema, produza os ativos mínimos e transforme incertezas em lacunas.
 ```
 
@@ -255,7 +267,9 @@ A EKM não é:
 - garantia automática de conformidade;
 - processo concluído ou aplicável sem adaptação a qualquer organização.
 
-O agente pode descobrir fatos verificáveis. Intenção, compatibilidade, prioridade e trade-offs continuam sob responsabilidade humana quando não houver autoridade normativa inequívoca.
+O agente pode descobrir fatos verificáveis. Intenção, compatibilidade, prioridade
+e relações de ganhos e perdas continuam sob responsabilidade humana quando não
+houver autoridade normativa inequívoca.
 
 ## Licença
 
