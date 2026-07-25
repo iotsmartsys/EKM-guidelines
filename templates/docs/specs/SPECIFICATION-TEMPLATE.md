@@ -96,25 +96,49 @@ revisão que não aconteceu.
 
 ### 13.2 Registro exclusivo do Engenheiro Analista
 
-Ao executar a revisão, o Engenheiro Analista preserva a seção 13.1 como
-evidência do handoff, preenche o registro abaixo e atualiza o metadado
-`Technical readiness` com o resultado.
+Antes de modificar esta especificação, o Engenheiro Analista executa o gate de
+admissão. Se o resultado for `Checkpoint Blocked`, não altera este documento e
+entrega um relatório read-only à Coordenação, que o registra na transação.
 
-**Resultado:** `Implementable | Needs Clarification`
+Somente após `Accepted`, o Analista preserva a seção 13.1 como evidência do
+handoff e preenche o registro abaixo.
+
+**Contrato EKM aplicável:** `<FONTE E VERSÃO DO PROTOCOLO>`
 
 **Baseline analisado:** `<BRANCH, COMMIT E WORKTREE>`
+
+| Controle de admissão | Esperado | Observado | Resultado |
+|---|---|---|---|
+| Branch e SHA | `<CHECKPOINT>` | `<EVIDÊNCIA>` | `Accepted` |
+| Worktree | `Clean` | `<EVIDÊNCIA>` | `Accepted` |
+| Estados | `Proposed / Pending Review / Not Started / Not Ready` | `<ESTADOS>` | `Accepted` |
+| Transação | `Open` | `<ESTADO>` | `Accepted` |
+| Contrato e artefatos | `<VERSÃO E ARTEFATOS>` | `<EVIDÊNCIA>` | `Accepted` |
+
+**Resultado do gate de admissão:** `Accepted`
+
+Após `Accepted`, preencha o restante desta seção e atualize o metadado
+`Technical readiness`.
+
+**Resultado da Technical Readiness Review:** `Implementable | Needs Clarification`
 
 **Requisitos analisados:** `<LISTA OU INTERVALO>`
 
 **Dependências e fontes consultadas:** `<LISTA>`
 
-| Requisito ou dimensão | Resultado | Evidência | Lacuna ou impacto | Decisão necessária |
-|---|---|---|---|---|
-| `<ID OU ASPECTO>` | `Supported`, `Gap`, `Conflict` ou `Not Applicable` | `<EVIDÊNCIA>` | `<IMPACTO OU NONE>` | `<DECISÃO OU NONE>` |
+| Requisito ou dimensão | Resultado | Natureza da lacuna | Evidência | Lacuna ou impacto | Decisão necessária |
+|---|---|---|---|---|---|
+| `<ID OU ASPECTO>` | `Supported`, `Gap`, `Conflict` ou `Not Applicable` | `Normative`, `Baseline`, `Tooling`, `Evidence` ou `None` | `<EVIDÊNCIA>` | `<IMPACTO OU NONE>` | `<DECISÃO OU NONE>` |
 
 **Lacunas ou decisões ausentes:** `<NENHUMA OU ITENS RASTREÁVEIS>`
 
+| Dúvida ou decisão já declarada | Classificação | Evidência | Ação |
+|---|---|---|---|
+| `<ITEM OU NONE>` | `Blocking`, `Non-blocking`, `Out of scope` ou `Unrequested option` | `<EVIDÊNCIA>` | `<RETORNO À AUTORIA OU NONE>` |
+
 **Evidência do resultado:** `<COMANDOS, INSPEÇÕES E CONCLUSÃO>`
+
+**Reconciliação de saída:** `<METADADOS, SEÇÃO 13, TRANSAÇÃO E GATE SEGUINTE>`
 
 **Referência na transação:** `<EKM-CHG-NNNN E CHECKPOINT>`
 
@@ -123,7 +147,8 @@ itens. Sua execução encerra sem alterar implementação, inclusive com
 `Implementable`.
 
 Distinga decisão indispensável, comportamento fora de escopo e opção não
-solicitada. Somente decisão indispensável ausente produz `Gap`.
+solicitada. Somente decisão indispensável ausente produz `Gap`. A natureza da
+lacuna explica sua origem, mas não cria um terceiro resultado da revisão.
 
 Uma especificação `Needs Clarification` não autoriza implementação parcial nem
 alteração de artefatos de implementação. Somente registros EKM e a correção

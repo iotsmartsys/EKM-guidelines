@@ -29,7 +29,9 @@ Não acumule papéis na mesma execução. Se a tarefa não indicar um papel e a 
 puder pertencer a mais de uma etapa, interrompa e solicite definição.
 
 Valide o checkpoint de entrada, os estados esperados e a transação antes de
-atuar. Registre a saída na seção correspondente da mesma `EKM-CHG`.
+atuar. A Coordenação deve declarar a fonte EKM, a versão do contrato aplicável e
+qualquer normalização desde o checkpoint anterior. Registre a saída na seção
+correspondente da mesma `EKM-CHG`.
 
 ## Regras obrigatórias
 
@@ -38,11 +40,21 @@ atuar. Registre a saída na seção correspondente da mesma `EKM-CHG`.
   e `Pending Review` e não executa a Technical Readiness Review.
 - A seção de Technical Readiness Review pertence exclusivamente ao Engenheiro
   Analista.
+- Antes da Technical Readiness Review, o Analista executa o gate de admissão
+  sobre branch, SHA, worktree, estados, transação, contrato aplicável e
+  artefatos da autoria.
+- `Checkpoint Blocked` encerra a atuação antes da revisão, não altera
+  `Technical readiness` e retorna à Coordenação. Não é resultado da Technical
+  Readiness Review.
 - Antes de qualquer alteração de implementação, deve existir uma Technical
   Readiness Review integral executada pelo Engenheiro Analista e seu resultado
   deve estar registrado. Somente `Implementable` pode seguir para aprovação
   humana; `Needs Clarification` bloqueia a implementação.
 - Classifique individualmente todos os requisitos e dimensões obrigatórias em uma matriz de evidências. Um bloqueio interrompe a implementação, mas não encerra a análise restante.
+- Na matriz do Analista, classifique a natureza de cada lacuna como
+  `Normative`, `Baseline`, `Tooling`, `Evidence` ou `None`.
+- O Analista classifica toda dúvida ou decisão já declarada como `Blocking`,
+  `Non-blocking`, `Out of scope` ou `Unrequested option`.
 - Execute a Technical Readiness Review e a implementação em execuções separadas. A execução da revisão deve encerrar sem alterar implementação, inclusive com resultado `Implementable`.
 - Trate `Implementable` como apto para aprovação humana, não como autorização automática. Implemente somente após aprovação explícita do responsável para a revisão e o baseline registrados.
 - Antes da primeira alteração, reconfirme especificação, branch, commit, worktree, resultado aprovado e transação `Open`. Mudança material exige nova revisão integral.
@@ -68,5 +80,6 @@ atuar. Registre a saída na seção correspondente da mesma `EKM-CHG`.
 
 Use a seção do seu papel na transação `EKM-CHG`. Informe checkpoint, resultado,
 requisitos ou controles avaliados, arquivos, evidências, validações, pendências,
-desvios, estados recomendados e operações Git ou externas. Não preencha a seção
-de outro papel.
+desvios, estados recomendados, comandos, resultados, operações Git ou externas,
+artefatos temporários e reconciliação do worktree. Não preencha a seção de
+outro papel.

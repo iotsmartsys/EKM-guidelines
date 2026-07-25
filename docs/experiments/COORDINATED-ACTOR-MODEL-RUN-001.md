@@ -312,19 +312,31 @@ Validador.
 
 ## 14. Decisão e próximos passos
 
-**Decisão experimental:** pendente de confirmação humana.
+**Decisão experimental:** `Adjust and repeat`.
 
-**Recomendação produzida pela avaliação:** ajustar e repetir; não propor adoção
-normativa nem descartar o modelo com esta evidência.
+O arquiteto confirmou em 24/07/2026 a aplicação das melhorias identificadas à
+branch experimental da EKM-guidelines. A decisão não incorpora o modelo ao
+método de referência nem comprova sua eficácia.
 
-Próximos passos candidatos:
+O protocolo 0.4 passou a experimentar:
+
+1. gate de admissão do Engenheiro Analista;
+2. responsabilidade da Coordenação pela compatibilidade da EKM dinâmica;
+3. `Checkpoint Blocked` separado do resultado da revisão;
+4. natureza explícita das lacunas;
+5. classificação obrigatória de dúvidas e decisões declaradas;
+6. reconciliação de saída;
+7. registro de comandos, resultados, operações e artefatos temporários;
+8. controles correspondentes no Validador de Integridade.
+
+Próximos passos:
 
 1. decidir se a falha preexistente dos testes será tratada como mudança
    preparatória separada;
 2. devolver a especificação ao Autor para corrigir estado e decisões
    artificiais;
-3. normalizar a transação para o contrato atual sem apagar os checkpoints
-   anteriores;
+3. a Coordenação normalizar a transação para o contrato 0.4 sem apagar os
+   checkpoints anteriores;
 4. repetir integralmente a atuação do Engenheiro Analista;
 5. continuar o piloto somente após novo resultado e aprovação humana;
 6. registrar métricas e identificação dos agentes nas próximas etapas;

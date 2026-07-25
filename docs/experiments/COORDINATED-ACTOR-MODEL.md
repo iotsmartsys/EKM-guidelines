@@ -4,7 +4,7 @@
 
 **Natureza:** protocolo experimental não normativo  
 **Modelo EKM de referência:** 1.6  
-**Versão do protocolo:** 0.3
+**Versão do protocolo:** 0.4
 
 **Branch do experimento:** `modelo_de_coordenacao_por_atores`  
 **Resultado:** piloto iniciado; fluxo completo ainda não executado
@@ -110,13 +110,15 @@ Cada atuação deve declarar antes de começar:
 1. papel exercido;
 2. objetivo e escopo;
 3. checkpoint de entrada;
-4. fontes obrigatórias;
-5. estados esperados;
-6. operações permitidas e proibidas;
-7. artefato de saída;
-8. resultado possível;
-9. condição de bloqueio;
-10. próximo gate.
+4. fonte EKM e versão do contrato experimental aplicável;
+5. compatibilidade ou normalização exigida desde o checkpoint anterior;
+6. fontes obrigatórias;
+7. estados esperados;
+8. operações permitidas e proibidas;
+9. artefato de saída;
+10. resultado possível;
+11. condição de bloqueio;
+12. próximo gate.
 
 Nenhum ator acumula silenciosamente a responsabilidade de outro. Uma ausência
 nesse contrato bloqueia somente a etapa afetada e deve ser registrada na
@@ -163,6 +165,11 @@ exercida pelo arquiteto e futuramente por um orquestrador.
 - registrar referência e commit de origem;
 - criar a branch exclusiva da mudança a partir de `main`;
 - verificar branch, commit, worktree e estados antes de cada atuação;
+- declarar a fonte EKM e a versão do contrato experimental aplicável ao
+  handoff, sem exigir fixação por commit nesta fase;
+- detectar mudança do contrato desde o checkpoint anterior;
+- normalizar artefatos incompatíveis por atuação autorizada ou bloquear o
+  handoff, sem atribuir a normalização ao ator seguinte;
 - preparar o checkpoint de entrada;
 - preservar a ordem dos gates;
 - formar o commit resultante de cada etapa quando autorizado;
@@ -173,8 +180,8 @@ exercida pelo arquiteto e futuramente por um orquestrador.
 **Saída:** checkpoint registrado na transação e worktree limpo para o próximo
 ator.
 
-**Bloqueio:** divergência entre branch, commit, worktree, estados, aprovação ou
-artefatos obrigatórios.
+**Bloqueio:** divergência entre branch, commit, worktree, estados, aprovação,
+contrato aplicável ou artefatos obrigatórios.
 
 ### 7.3 Autor da Especificação
 
@@ -216,40 +223,75 @@ Opções não solicitadas, preferências e melhorias futuras não bloqueiam a au
 ### 7.4 Engenheiro Analista
 
 **Entrada:** especificação `Proposed`, `Pending Review`, checkpoint limpo,
-transação `Open` e baseline técnico correspondente.
+transação `Open`, baseline técnico correspondente e contrato EKM aplicável
+declarado pela Coordenação.
+
+**Gate de admissão:**
+
+Antes da Technical Readiness Review, o Analista deve verificar:
+
+1. repositório, branch e SHA;
+2. worktree limpo;
+3. ID e versão da especificação;
+4. estados `Proposed / Pending Review / Not Started / Not Ready`;
+5. transação `Open`;
+6. presença dos artefatos da autoria;
+7. fonte EKM e versão do contrato declaradas;
+8. compatibilidade da especificação e da transação com esse contrato.
+
+O gate produz um resultado próprio:
+
+- `Accepted`: autoriza o início da Technical Readiness Review;
+- `Checkpoint Blocked`: interrompe antes da revisão e retorna à Coordenação.
+
+`Checkpoint Blocked` não é resultado da Technical Readiness Review. Nesse caso,
+o Analista não altera o metadado `Technical readiness`, não preenche a matriz da
+revisão e não tenta normalizar artefatos de outro papel. Seu relatório de
+admissão é registrado pela Coordenação no formato compatível disponível.
 
 **Operações permitidas:**
 
 - inspecionar integralmente fontes normativas e implementação;
 - preencher exclusivamente o registro da Technical Readiness Review;
 - atualizar a transação com o resultado e as lacunas;
+- executar verificações reproduzíveis necessárias para avaliar viabilidade;
 - recomendar correções sem implementá-las.
 
 **Operações proibidas:**
 
 - alterar código, testes, build ou automações;
 - reescrever requisitos para resolver decisões ausentes;
+- normalizar silenciosamente artefato incompatível de outro papel;
 - autorizar implementação;
 - encerrar no primeiro bloqueio.
 
-**Procedimento:**
+**Procedimento após `Accepted`:**
 
-1. validar o checkpoint;
-2. classificar todos os requisitos e dimensões obrigatórias;
-3. distinguir lacuna indispensável, item fora de escopo e opção não requerida;
+1. classificar todos os requisitos e dimensões obrigatórias;
+2. classificar toda dúvida ou decisão já declarada na especificação como
+   `Blocking`, `Non-blocking`, `Out of scope` ou `Unrequested option`;
+3. identificar a natureza de cada lacuna como `Normative`, `Baseline`,
+   `Tooling`, `Evidence` ou `None`;
 4. confrontar testabilidade, contratos, persistência, segurança,
    compatibilidade, dependências e validações;
 5. registrar evidência, impacto e decisão necessária;
-6. emitir resultado binário.
+6. emitir resultado binário da Technical Readiness Review;
+7. reconciliar metadados, seção da revisão, transação e gate seguinte;
+8. registrar comandos, resultados, operações e artefatos temporários.
 
-**Saída:** seção de Technical Readiness Review integral e referência na
-transação.
+**Saída após `Accepted`:** seção de Technical Readiness Review integral,
+referência na transação e relatório operacional da etapa.
 
-**Resultados:**
+**Resultados da Technical Readiness Review:**
 
 - `Implementable`: segue para aprovação humana;
 - `Needs Clarification`: retorna ao arquiteto e depois ao Autor da
   Especificação.
+
+O resultado da revisão permanece binário. A natureza da lacuna explica sua
+origem, mas não cria um terceiro resultado. O parecer deve deixar explícito
+quando a decisão ausente pertence ao comportamento normativo, ao baseline, à
+ferramenta ou à suficiência de evidência.
 
 O resultado não altera sozinho o estado normativo nem autoriza implementação.
 
@@ -407,6 +449,10 @@ Checkpoint commitado da especificação
           ↓
 Engenheiro Analista
           ↓
+Gate de admissão
+    ├─ Checkpoint Blocked → Coordenação → normalização ou novo handoff
+    └─ Accepted
+          ↓
 Technical Readiness Review integral
     ├─ Needs Clarification → decisão/correção humana → nova revisão integral
     └─ Implementable
@@ -485,12 +531,19 @@ checkpoint de entrada contém:
 - estado da entrega;
 - resultado da Technical Readiness Review;
 - identificador e estado da transação `EKM-CHG`;
+- caminho da fonte EKM e versão do contrato experimental aplicável;
+- compatibilidade, migração ou normalização desde o checkpoint anterior;
 - artefatos e pareceres obrigatórios das etapas anteriores;
 - aprovação humana aplicável.
 
 O ator deve validar o checkpoint antes de atuar. Branch, commit, worktree,
 estado ou evidência incompatível com o gate esperado bloqueia a operação e deve
 ser reportado.
+
+O apontamento dinâmico para a EKM não exige fixação ou validação por SHA nesta
+fase. Ainda assim, a Coordenação deve declarar a versão do contrato usada no
+handoff e tratar incompatibilidades introduzidas desde o checkpoint anterior.
+Essa declaração registra semântica de processo, não integridade criptográfica.
 
 Essa exigência não substitui a regra EKM de observar o worktree real. O worktree
 continua sendo verificado, mas qualquer diferença não commitada no início de um
@@ -541,6 +594,9 @@ Resultado negativo não avança automaticamente estado. O parecer deve indicar o
 gate de retorno. Somente a coordenação aplica transição dependente de decisão
 humana ou integração.
 
+O gate de admissão não altera estados. `Accepted` apenas permite iniciar a
+revisão; `Checkpoint Blocked` preserva os estados recebidos.
+
 ### 8.5 Promoção prevista
 
 O pipeline pretendido para adoção futura é:
@@ -579,6 +635,9 @@ produção declarada.
 
 ### 8.6 Ciclos de retorno
 
+- `Checkpoint Blocked`: retorna à Coordenação sem executar a etapa. A causa é
+  corrigida por atuação autorizada do papel responsável, e um novo checkpoint
+  é formado antes de repetir o gate de admissão;
 - `Needs Clarification`: retorna ao arquiteto e ao Autor da Especificação. A
   correção produz novo checkpoint `Proposed / Pending Review` e invalida a
   revisão anterior.
@@ -634,21 +693,24 @@ Uma execução deve preservar:
 1. versão deste protocolo;
 2. fonte EKM declarada pelo projeto e consultada em cada etapa; nesta fase, o
    apontamento pode ser dinâmico e não exige fixação por commit;
-3. especificação submetida;
-4. referência `main`, commit de origem e baseline inicial;
-5. evidência de criação da branch exclusiva;
-6. checkpoint de entrada e commit resultante de cada etapa;
-7. parecer e matriz do Engenheiro Analista;
-8. decisões e aprovação do arquiteto;
-9. reconfirmação anterior à implementação;
-10. relatório do Engenheiro Implementador;
-11. diff completo, builds, testes e validações;
-12. parecer do Engenheiro Tech Lead;
-13. relatório do Validador de Integridade da EKM;
-14. validação funcional e operacional;
-15. registro de ciclos corretivos;
-16. métricas e retrospectiva consolidada;
-17. decisão experimental.
+3. versão do contrato experimental declarada em cada handoff;
+4. compatibilidade, migração ou normalização aplicada;
+5. especificação submetida;
+6. referência `main`, commit de origem e baseline inicial;
+7. evidência de criação da branch exclusiva;
+8. checkpoint de entrada e commit resultante de cada etapa;
+9. resultado do gate de admissão do Engenheiro Analista;
+10. parecer, matrizes e evidências operacionais do Engenheiro Analista;
+11. decisões e aprovação do arquiteto;
+12. reconfirmação anterior à implementação;
+13. relatório do Engenheiro Implementador;
+14. diff completo, builds, testes e validações;
+15. parecer do Engenheiro Tech Lead;
+16. relatório do Validador de Integridade da EKM;
+17. validação funcional e operacional;
+18. registro de ciclos corretivos;
+19. métricas e retrospectiva consolidada;
+20. decisão experimental.
 
 Ausência de uma evidência deve ser registrada; não pode ser convertida em
 resultado positivo por inferência.
@@ -787,3 +849,40 @@ A evidência provém de uma única autoria e não comprova ainda a eficácia do 
 completo. Na publicação da versão 0.3, Engenheiro Analista, Implementador, Tech
 Lead, Validador e integração permaneciam por experimentar. A primeira atuação
 posterior do Engenheiro Analista está preservada no registro da Execução 001.
+
+## 15. Evidência que motivou a versão 0.4
+
+O Engenheiro Analista da Execução 001 produziu o checkpoint
+`a3cbb556d3388d2987da1e87b46c20c97945ff65` após consultar o protocolo 0.3.
+
+A atuação:
+
+- analisou cumulativamente os requisitos funcionais;
+- preservou a separação entre revisão e implementação;
+- identificou uma falha preexistente que impedia as validações obrigatórias;
+- aceitou como válido um checkpoint ainda em `Draft`;
+- não tratou a incompatibilidade entre os artefatos 0.2 e o contrato 0.3;
+- não classificou decisões artificiais deixadas pela autoria;
+- deixou inconsistência entre o resultado da revisão e o encerramento da
+  transação;
+- não registrou integralmente comandos, resultados e artefatos temporários.
+
+O protocolo havia mudado entre os checkpoints do Autor e do Analista. Como a
+fonte EKM é dinâmica e não exige fixação por commit nesta fase, a execução
+também revelou ausência de responsabilidade explícita para compatibilidade de
+transações em andamento.
+
+A versão 0.4 introduziu experimentalmente:
+
+- declaração do contrato EKM aplicável em cada handoff;
+- responsabilidade da Coordenação por compatibilidade e normalização;
+- gate de admissão do Engenheiro Analista;
+- `Checkpoint Blocked` separado do resultado da Technical Readiness Review;
+- classificação da natureza das lacunas;
+- classificação obrigatória de dúvidas e decisões já declaradas;
+- reconciliação de saída e evidência operacional do Analista;
+- controles correspondentes nos templates e na auditoria.
+
+O resultado da Technical Readiness Review permanece binário no protocolo 0.4.
+Essas mudanças ainda precisam ser repetidas no mesmo caso e em casos diferentes
+antes de qualquer proposta de incorporação ao método de referência.

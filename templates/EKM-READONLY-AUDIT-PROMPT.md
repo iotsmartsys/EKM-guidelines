@@ -48,7 +48,8 @@ por registrá-lo na transação sem alterar seu conteúdo semântico.
 3. Leia integralmente o `AGENTS.md`.
 4. Siga a ordem de leitura e as referências EKM declaradas pelo projeto.
 5. Leia a especificação, a transação, o mapa, os pareceres e as evidências.
-6. Declare a ordem real das fontes lidas.
+6. Identifique a versão do contrato EKM declarada em cada handoff.
+7. Declare a ordem real das fontes lidas.
 
 Se o checkpoint estiver divergente ou o worktree não estiver limpo, classifique
 o controle correspondente e não oculte a divergência.
@@ -60,21 +61,26 @@ Classifique individualmente:
 1. branch exclusiva derivada de `main`;
 2. transação aberta antes da mudança;
 3. checkpoint de entrada de cada ator;
-4. separação entre os papéis;
-5. autoria encerrada sem Technical Readiness Review simulada;
-6. Technical Readiness Review integral pelo Engenheiro Analista;
-7. aprovação humana explícita;
-8. reconfirmação do baseline pelo Implementador;
-9. rastreabilidade entre requisito, alteração e evidência;
-10. escopo e atomicidade;
-11. preservação de fontes normativas;
-12. declaração de decisões locais, desvios e pendências;
-13. relatório do Implementador confrontado com o diff;
-14. parecer independente do Tech Lead;
-15. validações obrigatórias e evidências;
-16. estados da especificação e da transação;
-17. operações Git e externas declaradas;
-18. reconciliação do worktree inicial e final.
+4. contrato EKM aplicável declarado em cada handoff;
+5. incompatibilidades normalizadas ou bloqueadas pela Coordenação;
+6. gate de admissão do Engenheiro Analista anterior à revisão;
+7. separação entre os papéis;
+8. autoria encerrada sem Technical Readiness Review simulada;
+9. Technical Readiness Review integral pelo Engenheiro Analista;
+10. classificação da natureza das lacunas;
+11. classificação das dúvidas e decisões já declaradas;
+12. aprovação humana explícita;
+13. reconfirmação do baseline pelo Implementador;
+14. rastreabilidade entre requisito, alteração e evidência;
+15. escopo e atomicidade;
+16. preservação de fontes normativas;
+17. declaração de decisões locais, desvios e pendências;
+18. relatório do Implementador confrontado com o diff;
+19. parecer independente do Tech Lead;
+20. validações obrigatórias e evidências;
+21. estados da especificação e da transação;
+22. comandos, operações Git ou externas e artefatos temporários declarados;
+23. reconciliação dos metadados, registros e worktree inicial e final.
 
 Para cada controle, use exatamente:
 

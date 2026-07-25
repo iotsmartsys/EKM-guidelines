@@ -34,6 +34,15 @@ Não altere retroativamente um commit apenas para fazê-lo referenciar a si mesm
 - Fontes normativas: `<LISTA>`.
 - Lacunas preexistentes relevantes: `<LISTA OU NENHUMA>`.
 
+### 2.1 Handoffs e contrato EKM aplicável
+
+O apontamento pode ser dinâmico sem fixação por SHA. A Coordenação registra qual
+contrato rege cada handoff e resolve incompatibilidades antes do ator seguinte.
+
+| Etapa | Checkpoint de entrada | Estados esperados | Fonte e versão do contrato | Compatibilidade ou normalização | Resultado da admissão |
+|---|---|---|---|---|---|
+| `<PAPEL>` | `<SHA>` | `<ESTADOS>` | `<CAMINHO E VERSÃO>` | `<AÇÃO OU NENHUMA>` | `Accepted`, `Checkpoint Blocked` ou `Not Applicable` |
+
 ## 3. Autoria da especificação
 
 - Autor: `<RESPONSÁVEL>`.
@@ -52,12 +61,34 @@ implementabilidade.
 
 - Responsável: `<RESPONSÁVEL>`.
 - Checkpoint de entrada: `<SHA E ESTADOS>`.
-- Resultado: `Implementable | Needs Clarification | Pending`.
-- Registro integral: `<ESPECIFICAÇÃO, SEÇÃO 13>`.
+- Contrato EKM aplicável: `<FONTE E VERSÃO>`.
+- Resultado do gate de admissão: `Accepted | Checkpoint Blocked | Pending`.
+- Divergências de admissão:
+  `<BRANCH, SHA, WORKTREE, ESTADOS, TRANSAÇÃO, CONTRATO OU NENHUMA>`.
+- Resultado da Technical Readiness Review:
+  `Implementable | Needs Clarification | Not Executed | Pending`.
+- Registro integral:
+  `<ESPECIFICAÇÃO, SEÇÃO 13 | RELATÓRIO READ-ONLY DE ADMISSÃO>`.
 - Requisitos e dimensões analisados: `<LISTA OU INTERVALO>`.
+- Natureza das lacunas:
+  `<Normative | Baseline | Tooling | Evidence | None, COM REFERÊNCIAS>`.
+- Classificação de dúvidas e decisões declaradas:
+  `<Blocking | Non-blocking | Out of scope | Unrequested option, COM REFERÊNCIAS>`.
 - Lacunas ou decisões necessárias: `<LISTA OU NENHUMA>`.
+- Comandos e verificações executados: `<LISTA EXATA>`.
+- Resultados e saídas relevantes: `<LISTA OU ARTEFATO>`.
+- Operações Git e externas: `<LISTA OU NENHUMA>`.
+- Artefatos temporários criados, alterados ou removidos:
+  `<LISTA OU NENHUM>`.
+- Reconciliação de saída:
+  `<METADADOS, SEÇÃO 13, TRANSAÇÃO, GATE E WORKTREE>`.
 - Checkpoint de saída: `<SHA OU PENDENTE>`.
-- Gate seguinte: `<APROVAÇÃO HUMANA OU RETORNO À AUTORIA>`.
+- Gate seguinte:
+  `<APROVAÇÃO HUMANA | RETORNO À AUTORIA | RETORNO À COORDENAÇÃO>`.
+
+`Checkpoint Blocked` encerra a atuação antes da revisão. Nesse caso, o
+Analista não altera `Technical readiness`, não preenche a matriz da revisão e
+não normaliza artefatos de outro papel.
 
 ## 5. Aprovação humana para implementação
 
