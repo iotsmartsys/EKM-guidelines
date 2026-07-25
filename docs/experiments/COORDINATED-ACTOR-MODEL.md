@@ -747,6 +747,12 @@ protocolo retroativamente. O registro deve conter:
 
 Mudanças futuras neste protocolo devem possuir motivação e histórico próprios.
 
+Execuções registradas:
+
+- [`COORDINATED-ACTOR-MODEL-RUN-001.md`](COORDINATED-ACTOR-MODEL-RUN-001.md):
+  autoria e Technical Readiness Review da especificação de reset de settings no
+  SmartHome-DeviceApi.
+
 ## 14. Evidência que motivou a versão 0.3
 
 A primeira atuação isolada do Autor da Especificação ocorreu no
@@ -778,5 +784,6 @@ etapa e ownership de saída não era suficiente. A versão 0.3 introduziu:
 - ciclos de retorno e reconciliação pós-integração.
 
 A evidência provém de uma única autoria e não comprova ainda a eficácia do fluxo
-completo. Engenheiro Analista, Implementador, Tech Lead, Validador e integração
-permanecem por experimentar.
+completo. Na publicação da versão 0.3, Engenheiro Analista, Implementador, Tech
+Lead, Validador e integração permaneciam por experimentar. A primeira atuação
+posterior do Engenheiro Analista está preservada no registro da Execução 001.

@@ -154,7 +154,7 @@ Os próximos ciclos devem priorizar:
 - [`docs/DESIGN-DECISIONS.md`](docs/DESIGN-DECISIONS.md): razões das principais escolhas.
 - [`docs/LEGACY-ADOPTION.md`](docs/LEGACY-ADOPTION.md): adoção incremental em projetos existentes.
 - [`docs/EXPERIMENT-HISTORY.md`](docs/EXPERIMENT-HISTORY.md): evolução produzida pelos experimentos.
-- [`docs/experiments/`](docs/experiments/): protocolos experimentais não normativos ainda em avaliação.
+- [`docs/experiments/`](docs/experiments/): protocolos e registros de execuções experimentais não normativos ainda em avaliação.
 - [`docs/case-studies/`](docs/case-studies/): evidências e limitações dos casos reais.
 - [`docs/GOVERNANCE.md`](docs/GOVERNANCE.md): regras para evolução da própria EKM.
 - [`templates/EKM-LEGACY-ADOPTION-INSTRUCTIONS.md`](templates/EKM-LEGACY-ADOPTION-INSTRUCTIONS.md): instrução inicial para adoção em legado.
