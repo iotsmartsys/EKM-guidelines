@@ -7,7 +7,8 @@
 **Versão do protocolo:** 0.4
 
 **Branch do experimento:** `modelo_de_coordenacao_por_atores`  
-**Resultado:** piloto iniciado; fluxo completo ainda não executado
+**Resultado:** piloto avançou até validação humana; auditoria de integridade e
+integração ainda não executadas
 
 ## 1. Contexto
 
@@ -812,8 +813,13 @@ Mudanças futuras neste protocolo devem possuir motivação e histórico própri
 Execuções registradas:
 
 - [`COORDINATED-ACTOR-MODEL-RUN-001.md`](COORDINATED-ACTOR-MODEL-RUN-001.md):
-  autoria e Technical Readiness Review da especificação de reset de settings no
-  SmartHome-DeviceApi.
+  execução do reset de settings no SmartHome-DeviceApi até a validação manual
+  e aceitação humanas.
+
+Estudo de caso:
+
+- [`SMARTHOME-DEVICEAPI-COORDINATED-ACTORS.md`](../case-studies/SMARTHOME-DEVICEAPI-COORDINATED-ACTORS.md):
+  resultado técnico e metodológico parcial da Execução 001.
 
 ## 14. Evidência que motivou a versão 0.3
 
@@ -884,5 +890,6 @@ A versão 0.4 introduziu experimentalmente:
 - controles correspondentes nos templates e na auditoria.
 
 O resultado da Technical Readiness Review permanece binário no protocolo 0.4.
-Essas mudanças ainda precisam ser repetidas no mesmo caso e em casos diferentes
-antes de qualquer proposta de incorporação ao método de referência.
+As mudanças foram repetidas uma vez no mesmo caso, conforme o registro da
+Execução 001, mas ainda precisam ser observadas em casos diferentes antes de
+qualquer proposta de incorporação ao método de referência.

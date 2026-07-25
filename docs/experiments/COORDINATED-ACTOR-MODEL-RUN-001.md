@@ -6,7 +6,7 @@
 
 **Natureza:** evidência experimental não normativa
 
-**Período observado:** 24/07/2026
+**Período observado:** 24–25/07/2026
 
 **Projeto:** SmartHome-DeviceApi
 
@@ -27,8 +27,13 @@ O contrato solicitado pelo arquiteto incluiu:
 - retorno `404` para device inexistente;
 - idempotência.
 
-Foram executados, em chats separados, os papéis de Autor da Especificação e
-Engenheiro Analista. Nenhuma implementação funcional ocorreu.
+Foram executados, em chats separados, os papéis de Autor da Especificação,
+Engenheiro Analista, Engenheiro Implementador e Engenheiro Tech Lead. A
+Coordenação normalizou a transação, aprovou a implementação e o arquiteto
+realizou validação manual do código e da funcionalidade.
+
+O Validador de Integridade da EKM, a integração e o encerramento da transação
+ainda não ocorreram. Este registro apresenta, portanto, resultado parcial.
 
 ## 2. Hipóteses avaliadas
 
@@ -41,10 +46,14 @@ A execução forneceu evidência preliminar para as seguintes hipóteses:
 3. o Engenheiro Analista identifica impedimentos do baseline antes do código;
 4. checkpoints explícitos tornam divergências de processo localizáveis;
 5. o apontamento dinâmico para a EKM exige tratamento de compatibilidade quando
-   o protocolo muda durante uma transação.
+   o protocolo muda durante uma transação;
+6. o Implementador consegue executar um recorte aprovado sem ampliar o escopo;
+7. o Tech Lead consegue separar aderência estática de evidência operacional;
+8. a validação humana permanece necessária quando o ambiente do agente não
+   permite produzir evidência funcional suficiente.
 
-Esta execução não avaliou ainda Implementador, Tech Lead, Validador de
-Integridade, validação funcional ou integração.
+Esta execução ainda não avaliou o Validador de Integridade, a promoção entre
+branches, a integração ou o encerramento completo.
 
 ## 3. Baseline
 
@@ -60,10 +69,10 @@ Integridade, validação funcional ou integração.
 - Fonte EKM: repositório local `EKM-guidelines`, consultado dinamicamente por
   decisão experimental, sem fixação obrigatória de commit.
 
-O baseline já continha uma falha de compilação conhecida em
-`tests/Api.Tests/DeviceMetricsTests.cs`: chamadas ao método
-`DeviceMetricsController.Save` não forneciam o parâmetro `deviceId` exigido
-pela assinatura vigente. A falha estava registrada em `EKM-CHG-0001`.
+O baseline já continha uma falha conhecida em `tests/Api.Tests`. Durante o
+experimento, o arquiteto decidiu descontinuar essa suíte e determinou que ela
+fosse ignorada em todas as situações. A suíte não foi usada como evidência pelo
+Implementador nem pelo Tech Lead.
 
 ## 4. Branch e checkpoints
 
@@ -72,10 +81,16 @@ pela assinatura vigente. A falha estava registrada em `EKM-CHG-0001`.
 | Origem | `3fde52003d23b76d4a76be33e6b416beca0f1a7c` | referência `main` | sem especificação funcional | baseline |
 | Autor da Especificação | `eb5ed262dfa830f62aa936bb02ce7420780fdd3d` | `3fde52003d23b76d4a76be33e6b416beca0f1a7c` | `Draft / Pending Review / Not Started / Not Ready` | autoria encerrada |
 | Engenheiro Analista | `a3cbb556d3388d2987da1e87b46c20c97945ff65` | `eb5ed262dfa830f62aa936bb02ce7420780fdd3d` | `Draft / Needs Clarification / Not Started / Not Ready` | revisão bloqueada |
+| Correção da especificação | `b7238c557578fcab1d5ff13e524a16e87cc3ff47` | `a3cbb556d3388d2987da1e87b46c20c97945ff65` | correções documentais | autoria revisada |
+| Normalização pela Coordenação | `535e376e961574c449e9ed4bcb283db1ae66d5ed` | `b7238c557578fcab1d5ff13e524a16e87cc3ff47` | `Proposed / Pending Review / Not Started / Not Ready` | entrada compatível com 0.4 |
+| Nova análise | `8d7b2fdf5e7e00a10cb30b4e6ad4f5ae0dd603e1` | `535e376e961574c449e9ed4bcb283db1ae66d5ed` | `Proposed / Implementable / Not Started / Not Ready` | recomendação técnica |
+| Aprovação humana | `12bde0a5b48046b763ea6a098e8e630a547b3bfe` | `8d7b2fdf5e7e00a10cb30b4e6ad4f5ae0dd603e1` | `Approved / Implementable / Not Started / Not Ready` | implementação autorizada |
+| Engenheiro Implementador | `f1586fae9b068ca28b39cd5f356b6fcb3a54d96e` | `12bde0a5b48046b763ea6a098e8e630a547b3bfe` | `Approved / Implementable / Implemented / Not Ready` | implementação encerrada |
+| Engenheiro Tech Lead | `83697ea9b2e54f36259252ae65d100293aa474a1` | `f1586fae9b068ca28b39cd5f356b6fcb3a54d96e` | `Approved / Implementable / Implemented / Not Ready` | `Não verificável` |
 
-O checkpoint do Autor alterou três arquivos documentais, com 324 inserções e
-duas remoções. O checkpoint do Analista alterou dois arquivos documentais, com
-59 inserções e 34 remoções.
+Após o checkpoint do Tech Lead, o worktree foi declarado limpo. A validação
+manual e a aceitação humana posteriores ainda não possuem checkpoint próprio no
+repositório da implementação.
 
 ## 5. Evolução da EKM durante a execução
 
@@ -119,9 +134,9 @@ Essa mudança entre etapas criou uma condição de compatibilidade:
 
 ### 6.3 Avaliação posterior
 
-A avaliação dos dois checkpoints foi realizada no contexto de mentoria do
-experimento. Ela não substitui o parecer formal do Validador de Integridade da
-EKM.
+A avaliação dos checkpoints e as decisões de Coordenação foram realizadas no
+contexto de mentoria do experimento. Elas não substituem o parecer formal do
+Validador de Integridade da EKM.
 
 A separação por chats reduz contexto compartilhado explícito, mas não comprova
 independência de modelo, treinamento ou responsável humano.
@@ -145,7 +160,27 @@ independência de modelo, treinamento ou responsável humano.
    preexistente do projeto de testes;
 10. o Analista registrou `Needs Clarification` e criou novo checkpoint;
 11. a avaliação posterior encontrou inconsistências adicionais de estado,
-    transação e relatório.
+    transação e relatório;
+12. o arquiteto descontinuou `Api.Tests` e definiu que a suíte deve ser ignorada
+    em todas as situações;
+13. o Autor corrigiu a especificação e a Coordenação normalizou a transação para
+    o protocolo 0.4;
+14. uma nova atuação do Analista classificou `DSR-001` a `DSR-010` como
+    `Supported` e concluiu `Implementable`;
+15. a Coordenação aceitou desvios documentais não bloqueantes e o arquiteto
+    aprovou explicitamente a implementação;
+16. o Implementador alterou quatro arquivos de código, atualizou especificação e
+    transação, e produziu o estado `Implemented`;
+17. o build canônico do Implementador falhou durante restore após cerca de 301
+    segundos, sem resultado de compilação utilizável;
+18. a validação funcional não foi executada pelo Implementador por ausência de
+    banco isolado autorizado;
+19. o Tech Lead confirmou estaticamente a aderência de `DSR-001` a `DSR-010`,
+    repetiu a falha de restore e emitiu parecer `Não verificável`;
+20. o arquiteto realizou manualmente a validação e os testes, aceitando tanto o
+    código quanto a funcionalidade;
+21. o Validador de Integridade, a integração e o encerramento permanecem
+    pendentes.
 
 ## 8. Achados por gate
 
@@ -219,20 +254,98 @@ Isso revela uma possível sobrecarga semântica do resultado binário atual:
 Separar essas situações é uma hipótese de melhoria. Nenhuma alteração normativa
 é adotada por este registro.
 
+### 8.4 Repetição do Engenheiro Analista
+
+**Contribuições:**
+
+- recebeu checkpoint normalizado e executou o gate de admissão 0.4;
+- reavaliou integralmente os dez requisitos;
+- distinguiu ocorrência de tooling de decisão funcional ausente;
+- concluiu `Implementable` e preservou a aprovação humana como gate separado.
+
+**Desvios ou limitações:**
+
+- o registro da transação preservou inconsistências entre a primeira e a nova
+  revisão;
+- a combinação `Supported / Tooling` não expressou com clareza a diferença
+  entre suporte do código e falha da validação;
+- o build canônico continuou sem evidência de compilação por falha no restore.
+
+A Coordenação decidiu não repetir a etapa novamente. Os desvios foram aceitos
+como não bloqueantes e preservados para avaliação do experimento.
+
+### 8.5 Engenheiro Implementador
+
+**Contribuições:**
+
+- implementou somente o endpoint aprovado;
+- resolveu o identificador público para a chave interna;
+- limitou o `DELETE` às linhas de `DeviceSettings` do device;
+- preservou os retornos `204`, `404`, a ausência de body e a idempotência;
+- atualizou os estados e produziu relatório de implementação;
+- não utilizou a suíte `Api.Tests`, conforme decisão humana;
+- removeu do worktree o artefato temporário criado pelo ambiente.
+
+**Limitações:**
+
+- o build canônico falhou no restore e não comprovou compilação do checkpoint;
+- não havia ambiente de banco isolado autorizado para validação funcional;
+- a evidência operacional suficiente precisou ser produzida posteriormente pelo
+  arquiteto.
+
+### 8.6 Engenheiro Tech Lead
+
+**Contribuições:**
+
+- revisou o diff completo desde a aprovação humana;
+- confirmou estaticamente todos os requisitos e a ausência de mudanças não
+  autorizadas;
+- verificou a consistência parcial do relatório do Implementador;
+- distinguiu conformidade estática de comprovação operacional;
+- não propôs correção de código sem desvio técnico identificado.
+
+**Limitações:**
+
+- repetiu a falha de restore do ambiente;
+- não pôde executar cenários destrutivos sem banco isolado;
+- encerrou com `Não verificável`, devolvendo a decisão à Coordenação.
+
+### 8.7 Validação humana
+
+O arquiteto informou ter validado manualmente a implementação e a
+funcionalidade e aceitou ambas. Essa evidência resolve, para a decisão humana, a
+incerteza operacional deixada pelo Tech Lead.
+
+Até o fechamento deste registro, os procedimentos e resultados detalhados dessa
+validação ainda não haviam sido reconciliados na `EKM-CHG-0002`. A aceitação não
+substitui a auditoria de integridade nem torna a entrega integrada.
+
+### 8.8 Artefato `Library/.../deviceid`
+
+As atuações que tentaram o build criaram incidentalmente
+`Library/Application Support/Microsoft/DeveloperTools/deviceid` dentro do
+worktree e o removeram antes dos checkpoints. A investigação posterior associou
+o arquivo à inicialização de telemetria do tooling C# do ambiente, não à
+implementação do reset.
+
+O episódio demonstrou que resíduos do ambiente precisam ser classificados pela
+origem. Tratá-los genericamente como artefatos do build pode produzir diagnóstico
+incorreto.
+
 ## 9. Métricas disponíveis
 
 | Métrica | Resultado |
 |---|---|
-| Atuações especializadas concluídas | 2 |
-| Handoffs entre atores concluídos | 1 |
-| Checkpoints da mudança produzidos | 2 |
+| Atuações especializadas concluídas | 6: duas de autoria, duas de análise, uma de implementação e uma de Tech Lead |
+| Atos explícitos de Coordenação ou decisão humana | 3: normalização, aprovação e validação manual |
+| Checkpoints da mudança após o baseline | 8 |
 | Requisitos funcionais analisados | 10 |
-| Requisitos classificados `Supported` pelo Analista | 10 |
-| Dimensões transversais classificadas `Supported` | 2 |
-| Dimensões transversais classificadas `Gap` | 1 |
-| Arquivos de implementação alterados | 0 |
-| Commits produzidos na branch funcional | 2 |
-| Implementação, Tech Lead, Validador e integração | não executados |
+| Requisitos confirmados estaticamente pelo Tech Lead | 10 |
+| Arquivos de implementação alterados | 4 |
+| Build canônico pós-implementação no ambiente dos agentes | sem resultado de compilação; restore falhou |
+| Validação funcional pelo agente | não executada por ausência de banco isolado |
+| Validação manual humana | executada e aceita |
+| Validador de Integridade e integração | não executados |
 
 O intervalo entre commits não representa duração confiável das atuações. Tempo
 ativo, tokens, custo, quantidade de leituras e intervenções humanas não foram
@@ -240,15 +353,18 @@ registrados de forma suficientemente sistemática para comparação.
 
 ## 10. Resultado técnico
 
-A especificação descreve um recorte tecnicamente viável e o Analista encontrou
-suporte no baseline para todos os requisitos funcionais.
+A funcionalidade foi especificada, considerada implementável, aprovada,
+implementada e confirmada estaticamente contra os dez requisitos. O arquiteto
+realizou validação manual e aceitou o código e o comportamento funcional.
 
-O projeto de testes, entretanto, não compilava por falha preexistente fora do
-domínio de settings. Como nenhuma implementação ocorreu, não existe ainda
-evidência de atendimento funcional, build posterior, testes do reset ou
-preservação efetiva das linhas não específicas.
+O ambiente dos agentes não produziu build pós-implementação utilizável porque o
+restore falhou repetidamente. Também não havia banco isolado autorizado para os
+testes destrutivos. Assim, a evidência técnica combinou inspeção estática do
+Tech Lead com validação manual humana, em vez de uma cadeia automatizada
+reproduzível.
 
-O resultado técnico permanece `Not Started / Not Ready`.
+O estado versionado permanece `Implemented / Not Ready` até reconciliação da
+validação humana, auditoria de integridade e integração.
 
 ## 11. Resultado de integridade EKM
 
@@ -266,15 +382,23 @@ A avaliação preliminar encontrou:
 - inconsistência textual residual no encerramento da transação;
 - decisões artificiais da autoria não classificadas pelo Analista.
 
+Na continuação também foram observados:
+
+- correção e normalização explícitas antes da repetição;
+- implementação limitada ao escopo aprovado;
+- revisão técnica independente do relatório do Implementador;
+- inconsistências documentais residuais aceitas pela Coordenação;
+- falhas de tooling corretamente impedindo afirmação de evidência inexistente;
+- aceitação humana ainda não reconciliada na transação.
+
 Esses itens são evidências para ajuste do experimento, não parecer formal do
 Validador.
 
 ## 12. Limitações
 
 - apenas uma funcionalidade e um repositório foram observados;
-- somente Autor e Analista atuaram;
 - modelos, versões, tokens e tempos ativos não foram preservados;
-- o protocolo mudou entre as duas atuações;
+- o protocolo mudou entre a autoria inicial e a primeira análise;
 - o protocolo 0.3 foi influenciado pela saída do Autor, impedindo comparação
   independente entre as duas etapas;
 - o SHA da EKM consultada não foi registrado pelos atores, por decisão
@@ -282,8 +406,12 @@ Validador.
 - os prompts completos e os logs executáveis não foram preservados como
   artefatos versionados;
 - a revisão posterior compartilha o contexto do arquiteto e não é independente;
-- a falha do projeto de testes já era conhecida, embora o Analista tenha
-  confirmado seu impacto sobre esta especificação.
+- a suíte de testes problemática foi descontinuada por decisão humana durante o
+  caso, alterando a condição observada pela primeira análise;
+- o ambiente dos agentes não conseguiu restaurar as dependências;
+- não houve banco isolado para validação funcional automatizada;
+- a evidência detalhada da validação manual ainda não está versionada;
+- o Validador de Integridade e a integração ainda não foram executados.
 
 ## 13. Retrospectiva
 
@@ -295,6 +423,10 @@ Validador.
 - a análise cumulativa cobriu todos os requisitos;
 - um impedimento de validação foi localizado antes da implementação;
 - os desvios puderam ser atribuídos a checkpoints específicos.
+- o Implementador preservou o recorte aprovado;
+- o Tech Lead não confundiu aderência estática com validação operacional;
+- a validação humana resolveu uma limitação real do ambiente sem transferir a
+  decisão final para a IA.
 
 ### Precisa melhorar
 
@@ -309,10 +441,15 @@ Validador.
 - opções não solicitadas e itens fora de escopo precisam ser classificados sem
   se tornarem bloqueios;
 - métricas de custo e isolamento precisam ser coletadas desde o início.
+- a transação deve representar sem contradição o histórico e o resultado vigente
+  de revisões repetidas;
+- o ambiente de execução precisa permitir restore e oferecer banco isolado;
+- a evidência manual precisa ser reconciliada antes do próximo handoff;
+- o processo mostrou custo relevante de Coordenação e correção documental.
 
 ## 14. Decisão e próximos passos
 
-**Decisão experimental:** `Adjust and repeat`.
+**Decisão experimental anterior:** `Adjust and repeat`.
 
 O arquiteto confirmou em 24/07/2026 a aplicação das melhorias identificadas à
 branch experimental da EKM-guidelines. A decisão não incorpora o modelo ao
@@ -329,19 +466,26 @@ O protocolo 0.4 passou a experimentar:
 7. registro de comandos, resultados, operações e artefatos temporários;
 8. controles correspondentes no Validador de Integridade.
 
+As ações de correção, normalização e repetição foram executadas. A nova atuação
+do Analista foi aprovada, e o fluxo avançou até Implementador, Tech Lead e
+validação manual humana.
+
+**Parecer parcial atual:** continuar o experimento, sem incorporar ainda o
+modelo ao método de referência.
+
+Até a etapa atual, o caso demonstra utilidade técnica e de rastreabilidade, mas
+também custo elevado de Coordenação, fragilidade documental e dependência do
+ambiente. A eficácia do fluxo completo e o custo operacional aceitável ainda não
+foram demonstrados.
+
 Próximos passos:
 
-1. decidir se a falha preexistente dos testes será tratada como mudança
-   preparatória separada;
-2. devolver a especificação ao Autor para corrigir estado e decisões
-   artificiais;
-3. a Coordenação normalizar a transação para o contrato 0.4 sem apagar os
-   checkpoints anteriores;
-4. repetir integralmente a atuação do Engenheiro Analista;
-5. continuar o piloto somente após novo resultado e aprovação humana;
-6. registrar métricas e identificação dos agentes nas próximas etapas;
-7. submeter a execução completa ao Validador de Integridade antes de concluir o
-   experimento.
+1. reconciliar na transação a validação e a aceitação humanas;
+2. executar o Validador de Integridade da EKM a partir de checkpoint explícito;
+3. decidir e registrar o tratamento das não conformidades, se existirem;
+4. integrar e encerrar a transação somente depois dos gates aplicáveis;
+5. registrar retrospectiva final, custo, intervenções e decisão de adotar,
+   ajustar, repetir ou descartar o modelo.
 
 Qualquer mudança na EKM de referência decorrente destes achados deve ocorrer em
 mudança governada própria, com compatibilidade e impacto nos templates

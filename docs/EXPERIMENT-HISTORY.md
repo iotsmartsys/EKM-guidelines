@@ -77,6 +77,29 @@ O resultado mostrou que:
 
 O modelo 1.6 introduziu esses controles manualmente, sem exigir múltiplos agentes, CI/CD ou `EKM Gate`.
 
+## 10. Papéis separados melhoram rastreabilidade, mas aumentam coordenação
+
+O primeiro piloto de coordenação por atores aplicou Autor da Especificação,
+Engenheiro Analista, Engenheiro Implementador e Engenheiro Tech Lead a uma
+mudança real no SmartHome-DeviceApi.
+
+Os checkpoints tornaram os handoffs e desvios localizáveis. O Implementador
+permaneceu no recorte aprovado, e o Tech Lead confirmou aderência estática sem
+transformar uma falha de ambiente em falsa evidência operacional. O arquiteto
+validou manualmente e aceitou o código e a funcionalidade.
+
+O mesmo caso exigiu correções documentais, normalização do protocolo durante a
+transação e intervenções frequentes da Coordenação. Restore indisponível e
+ausência de banco isolado também impediram uma cadeia automatizada de
+evidências.
+
+O resultado parcial sustenta continuar o experimento, não incorporar o modelo
+como obrigação. Validador de Integridade, integração e retrospectiva final ainda
+precisam ser executados.
+
+Detalhes:
+[`SMARTHOME-DEVICEAPI-COORDINATED-ACTORS.md`](case-studies/SMARTHOME-DEVICEAPI-COORDINATED-ACTORS.md).
+
 ## Conclusão experimental
 
 A hipótese atual é que agentes conseguem executar mudanças com mais autonomia quando o repositório contém especificações, regras de preservação, mapa de autoridade e histórico transacional. A autonomia continua limitada onde existe julgamento de produto ou arquitetura.
