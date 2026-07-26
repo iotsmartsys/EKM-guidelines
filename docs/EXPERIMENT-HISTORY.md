@@ -152,6 +152,33 @@ versionada. A hipótese do novo experimento é que essa dose menor de governanç
 permitirá testar e descartar ideias mais rapidamente sem perder
 auditabilidade.
 
+## 13. Resultado funcional e conformidade do agente são independentes
+
+No experimento com o aplicativo Swift, o Arquiteto validou a implementação e
+executou os testes integrados com resultado aprovado. Ao mesmo tempo, observou
+que agentes usados pelo chat do VS Code não cumpriram integralmente a EKM ou
+tomaram decisões incompatíveis com o método. Entre os executores experimentados,
+somente o Codex apresentou conformidade consistente segundo a avaliação humana.
+
+A boa assertividade do Codex também foi percebida em conversas novas. O
+experimento, porém, não isolou modelo, ambiente agente, hierarquia de
+instruções, ferramentas ou eventual contexto disponível. Portanto, não existe
+evidência para atribuir o resultado a memória entre conversas ou ao contexto do
+ChatGPT.
+
+O achado impede duas equivalências indevidas:
+
+- implementação funcionalmente aceita não comprova conformidade EKM;
+- conformidade observada em um executor não comprova independência do método
+  em relação a modelos e ambientes.
+
+A consequência atual não é adicionar controles. É manter as regras essenciais
+curtas, locais e verificáveis, para que não dependam de memória implícita nem
+compitam desnecessariamente pela atenção do agente.
+
+Detalhes:
+[`IOTSMARTHOME-MULTI-AGENT-OBSERVATION.md`](case-studies/IOTSMARTHOME-MULTI-AGENT-OBSERVATION.md).
+
 ## Conclusão experimental
 
 A hipótese atual é que agentes conseguem executar mudanças com autonomia

@@ -80,6 +80,8 @@ decisões confirmadas e funcionalidades tocadas.
 - [`docs/experiments/COORDINATED-ACTOR-MODEL.md`](docs/experiments/COORDINATED-ACTOR-MODEL.md):
   protocolo experimental 0.7.
 - [`docs/case-studies/`](docs/case-studies/): evidências históricas, não regras universais.
+- [`docs/case-studies/IOTSMARTHOME-MULTI-AGENT-OBSERVATION.md`](docs/case-studies/IOTSMARTHOME-MULTI-AGENT-OBSERVATION.md):
+  resultado funcional e conformidade entre agentes no aplicativo Swift.
 - [`docs/GOVERNANCE.md`](docs/GOVERNANCE.md): como evoluir a EKM.
 - [`templates/`](templates/): ativos reutilizáveis.
 
