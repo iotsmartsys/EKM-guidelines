@@ -203,3 +203,13 @@ orquestração, e esses conceitos não participam dos experimentos atuais.
 
 **Motivo:** não se deve adicionar ao processo uma preocupação ainda não adotada.
 Antecipá-la criaria regras e custo antes de existir evidência de utilidade.
+
+## DD-022 — Fluxo iniciado em branch derivada da `main`
+
+**Decisão:** todo fluxo de trabalho deve começar em uma branch de trabalho
+derivada da `main`, nunca diretamente na `main`. A mesma branch pode atravessar
+as etapas autorizadas do recorte; não se exige uma branch nova por atuação.
+
+**Motivo:** usar a `main` como origem comum torna explícito o baseline de
+produção, preserva a linhagem da mudança e mantém o trabalho isolado até a
+decisão humana de integração, sem duplicar metadados do Git nos documentos EKM.

@@ -9,8 +9,8 @@ Não se documenta todo o legado antes de produzir valor.
 ## 2. Autoridade e tarefa
 
 O Arquiteto define o repositório, o recorte e se a tarefa é apenas documental.
-Essa ordem autoriza a etapa. O agente inicia com árvore de trabalho limpa e
-termina com commit, push e árvore limpa.
+Essa ordem autoriza a etapa. O agente inicia o fluxo em uma branch derivada da
+`main`, com árvore de trabalho limpa, e termina com commit, push e árvore limpa.
 
 ## 3. Fundação recomendada
 

@@ -1,8 +1,8 @@
 # Método EKM
 
-**Versão do documento:** 1.6
+**Versão do documento:** 1.7
 
-**Modelo EKM:** 1.9
+**Modelo EKM:** 1.10
 
 **Estado:** experimental e utilizável
 
@@ -197,11 +197,18 @@ ocultada.
 
 Toda tarefa de agente deve:
 
-1. começar com a árvore de trabalho limpa;
-2. produzir um resultado material e versionável;
-3. criar um commit ao fim da etapa;
-4. enviar o commit ao repositório remoto por push;
-5. terminar com a árvore de trabalho limpa.
+1. começar em uma branch de trabalho derivada da `main`, nunca diretamente na
+   `main`;
+2. começar com a árvore de trabalho limpa;
+3. produzir um resultado material e versionável;
+4. criar um commit ao fim da etapa;
+5. enviar o commit ao repositório remoto por push;
+6. terminar com a árvore de trabalho limpa.
+
+A branch pode atravessar as etapas autorizadas do mesmo recorte. A exigência é
+que o fluxo de trabalho tenha sido iniciado a partir da `main`; não é necessário
+criar uma nova branch para cada atuação, atualizar a branch com avanços
+posteriores da `main` nem copiar a branch de origem para os documentos EKM.
 
 Uma tarefa não usa commit vazio para simular entrega. Mesmo quando não houver
 mudança de código, a conclusão material da etapa deve atualizar o artefato EKM
@@ -272,7 +279,7 @@ uma diretriz externa aplicável ou precisa declarar regras próprias.
 
 ## 11. Limites atuais
 
-A EKM 1.9 não define orquestração, concorrência, locks ou filas. Esses
+A EKM 1.10 não define orquestração, concorrência, locks ou filas. Esses
 mecanismos não fazem parte do fluxo nem dos critérios dos experimentos atuais.
 
 O modelo também não afirma que documentação substitui código, testes,

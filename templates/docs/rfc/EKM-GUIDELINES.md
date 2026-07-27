@@ -4,9 +4,9 @@
 
 **Estado da fonte:** Vigente
 
-**Versão do documento:** 1.6
+**Versão do documento:** 1.7
 
-**Versão do modelo EKM:** 1.9
+**Versão do modelo EKM:** 1.10
 
 **Escopo:** Todo o repositório
 
@@ -50,9 +50,10 @@ Revisões adicionais acontecem somente quando solicitadas.
 
 ## 4. Contrato Git
 
-Toda tarefa de agente começa com árvore limpa, produz resultado material,
-termina com commit e push e deixa a árvore limpa. Push com falha significa etapa
-não entregue.
+Todo fluxo começa em uma branch de trabalho derivada da `main`, nunca
+diretamente na `main`. Toda tarefa de agente começa com árvore limpa, produz
+resultado material, termina com commit e push e deixa a árvore limpa. Push com
+falha significa etapa não entregue.
 
 A tarefa não autoriza force push, reescrita de histórico, merge, tag, release ou
 deploy sem ordem específica.

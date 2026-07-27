@@ -1,6 +1,6 @@
 # EKM Guidelines
 
-**Modelo EKM vigente:** 1.9
+**Modelo EKM vigente:** 1.10
 
 **Estado:** experimental e utilizável
 
@@ -13,12 +13,13 @@ A EKM deve começar pequena. Governança é útil quando acelera decisões, redu
 retrabalho ou aumenta confiança; não quando apenas multiplica documentos e
 passagens operacionais.
 
-## Princípios da versão 1.9
+## Princípios da versão 1.10
 
 - O Arquiteto humano sempre tem autoridade final sobre decisões dos agentes.
 - Cada tarefa nasce de uma ordem do Arquiteto, por prompt ou pipeline.
 - O estado da especificação informa se a próxima etapa está pronta.
 - Git mantém a linhagem técnica; documentos não repetem SHAs e commits.
+- O fluxo começa em uma branch de trabalho derivada da `main`.
 - Toda tarefa começa com árvore limpa e termina com commit, push e árvore limpa.
 - Revisão e evidência são proporcionais ao risco e ao recorte.
 - Decisões, lacunas e conhecimento afetado continuam registrados.
@@ -38,7 +39,7 @@ analisar implementabilidade
        decisão humana e integração
 ```
 
-O pipeline representa a ordem lógica das etapas. A EKM 1.9 não define
+O pipeline representa a ordem lógica das etapas. A EKM 1.10 não define
 orquestração, concorrência, locks ou filas, e esses temas não influenciam os
 experimentos atuais.
 
@@ -88,7 +89,8 @@ decisões confirmadas e funcionalidades tocadas.
 ## Adoção rápida
 
 1. O Arquiteto delimita repositório, escopo e restrições.
-2. O agente confirma árvore limpa.
+2. O agente confirma que está em uma branch derivada da `main` e com a árvore
+   limpa.
 3. O agente aplica
    [`EKM-LEGACY-ADOPTION-INSTRUCTIONS.md`](templates/EKM-LEGACY-ADOPTION-INSTRUCTIONS.md).
 4. São criados apenas os ativos úteis ao próximo experimento.

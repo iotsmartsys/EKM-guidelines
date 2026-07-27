@@ -1,17 +1,19 @@
 # Instrução — Adoção inicial da EKM em repositório legado
 
-Adote a EKM 1.9 no repositório `<CAMINHO_DO_REPOSITORIO>`.
+Adote a EKM 1.10 no repositório `<CAMINHO_DO_REPOSITORIO>`.
 
 O Arquiteto autoriza nesta tarefa somente levantamento e fundação documental.
 Não altere código, testes, dependências, build, automações ou configuração.
 
 ## Contrato da tarefa
 
-1. Comece somente com a árvore de trabalho limpa.
-2. Leia as instruções locais e preserve documentação existente.
-3. Produza uma fundação pequena e adaptada ao projeto.
-4. Não declare como requisito uma intenção que não esteja comprovada.
-5. Termine com commit, push e árvore de trabalho limpa.
+1. Comece somente em uma branch derivada da `main`, nunca diretamente na
+   `main`.
+2. Comece somente com a árvore de trabalho limpa.
+3. Leia as instruções locais e preserve documentação existente.
+4. Produza uma fundação pequena e adaptada ao projeto.
+5. Não declare como requisito uma intenção que não esteja comprovada.
+6. Termine com commit, push e árvore de trabalho limpa.
 
 Não copie branch, SHA, comandos de leitura ou mensagem de commit para os
 documentos. O Git mantém essa trilha. A ordem não autoriza force push, merge,

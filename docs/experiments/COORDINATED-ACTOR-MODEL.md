@@ -1,8 +1,8 @@
 # Protocolo experimental de execução por etapas
 
-**Modelo EKM aplicável:** 1.9
+**Modelo EKM aplicável:** 1.10
 
-**Versão do protocolo:** 0.7
+**Versão do protocolo:** 0.8
 
 **Estado:** experimental
 
@@ -39,13 +39,15 @@ locking, filas ou verificações de concorrência.
 
 Toda etapa de agente:
 
-1. verifica que a árvore de trabalho está limpa antes de começar;
-2. lê `AGENTS.md`, a especificação aplicável e a transação relacionada;
-3. executa apenas a etapa solicitada;
-4. atualiza somente os artefatos necessários;
-5. registra evidências materiais e limitações;
-6. cria commit e realiza push;
-7. confirma a árvore limpa ao terminar.
+1. verifica que o fluxo está em uma branch derivada da `main`, nunca diretamente
+   na `main`;
+2. verifica que a árvore de trabalho está limpa antes de começar;
+3. lê `AGENTS.md`, a especificação aplicável e a transação relacionada;
+4. executa apenas a etapa solicitada;
+5. atualiza somente os artefatos necessários;
+6. registra evidências materiais e limitações;
+7. cria commit e realiza push;
+8. confirma a árvore limpa ao terminar.
 
 O agente não copia SHA, branch, comandos de leitura ou mensagem de commit para
 a documentação. O Git mantém essa trilha.
@@ -72,6 +74,7 @@ A implementação só começa com:
 
 - ordem do Arquiteto para implementar;
 - especificação Implementável [`Implementable`];
+- branch de trabalho derivada da `main`;
 - árvore de trabalho limpa.
 
 O Implementador produz código, testes, conhecimento atualizado e evidências
@@ -96,7 +99,10 @@ posterior de reconciliação.
 
 ## 8. Evidência do experimento
 
-O protocolo 0.7 substitui, para novos experimentos, os checkpoints, declarações
+O protocolo 0.8 preserva a simplificação introduzida pelo protocolo 0.7 e exige
+que o fluxo comece em uma branch derivada da `main`.
+
+O protocolo 0.7 substituiu os checkpoints, declarações
 de prontidão, matrizes universais, registros manuais de SHA e papéis obrigatórios
 do protocolo 0.6.
 

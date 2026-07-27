@@ -179,6 +179,18 @@ compitam desnecessariamente pela atenção do agente.
 Detalhes:
 [`IOTSMARTHOME-MULTI-AGENT-OBSERVATION.md`](case-studies/IOTSMARTHOME-MULTI-AGENT-OBSERVATION.md).
 
+## 14. O fluxo precisa de uma origem comum e isolada
+
+O primeiro piloto de coordenação por atores iniciou a mudança em uma branch
+funcional derivada da `main`. Essa prática preservou a origem do trabalho e
+isolou especificação, análise e implementação até a decisão de integração, mas
+permanecia registrada apenas como característica daquela execução.
+
+O Arquiteto decidiu adotá-la como regra geral. A EKM 1.10 e o protocolo 0.8
+passaram a exigir que todo fluxo comece em uma branch de trabalho derivada da
+`main`, nunca diretamente nela. A mesma branch pode atravessar as etapas do
+recorte e não precisa incorporar avanços posteriores da `main`.
+
 ## Conclusão experimental
 
 A hipótese atual é que agentes conseguem executar mudanças com autonomia

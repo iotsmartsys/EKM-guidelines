@@ -11,9 +11,11 @@ evidência aprovada. Quando faltar uma decisão, devolva-a ao Arquiteto.
 
 ## Antes de começar
 
-1. Confirme que a árvore de trabalho está limpa. Se não estiver, pare e informe.
-2. Leia esta instrução, a especificação aplicável e a transação relacionada.
-3. Confirme que o estado da especificação permite a etapa solicitada.
+1. Confirme que a branch atual deriva da `main` e não é a própria `main`. Se
+   não derivar, pare e informe.
+2. Confirme que a árvore de trabalho está limpa. Se não estiver, pare e informe.
+3. Leia esta instrução, a especificação aplicável e a transação relacionada.
+4. Confirme que o estado da especificação permite a etapa solicitada.
 
 Não é necessário registrar SHA, branch de origem, checkpoint ou declaração de
 prontidão em documentos EKM.
