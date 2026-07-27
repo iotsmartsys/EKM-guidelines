@@ -74,15 +74,21 @@ decisões confirmadas e funcionalidades tocadas.
 ## Conteúdo
 
 - [`docs/EKM-CONCEPT.md`](docs/EKM-CONCEPT.md): conceito, problema e limites.
-- [`docs/EKM-METHOD.md`](docs/EKM-METHOD.md): método de referência 1.9.
+- [`docs/EKM-METHOD.md`](docs/EKM-METHOD.md): método de referência 1.10.
 - [`docs/DESIGN-DECISIONS.md`](docs/DESIGN-DECISIONS.md): razões e evolução das decisões.
 - [`docs/LEGACY-ADOPTION.md`](docs/LEGACY-ADOPTION.md): adoção incremental.
 - [`docs/EXPERIMENT-HISTORY.md`](docs/EXPERIMENT-HISTORY.md): aprendizados dos experimentos.
 - [`docs/experiments/COORDINATED-ACTOR-MODEL.md`](docs/experiments/COORDINATED-ACTOR-MODEL.md):
-  protocolo experimental 0.7.
+  protocolo experimental 0.8.
+- [`docs/experiments/SELF-CONTAINED-IMPLEMENTER-RUN-001.md`](docs/experiments/SELF-CONTAINED-IMPLEMENTER-RUN-001.md):
+  execução sequencial com prompt autocontido, Kimi K2.7 Code e Codex.
 - [`docs/case-studies/`](docs/case-studies/): evidências históricas, não regras universais.
 - [`docs/case-studies/IOTSMARTHOME-MULTI-AGENT-OBSERVATION.md`](docs/case-studies/IOTSMARTHOME-MULTI-AGENT-OBSERVATION.md):
   resultado funcional e conformidade entre agentes no aplicativo Swift.
+- [`docs/case-studies/IOTSMARTSYSCORE-GARAGE-CONTROL-SEQUENTIAL-AGENTS.md`](docs/case-studies/IOTSMARTSYSCORE-GARAGE-CONTROL-SEQUENTIAL-AGENTS.md):
+  controle de garagem validado após execução sequencial heterogênea.
+- [`templates/prompts/ENGENHEIRO-IMPLEMENTADOR.md`](templates/prompts/ENGENHEIRO-IMPLEMENTADOR.md):
+  modelo experimental de instrução autocontida para implementação.
 - [`docs/GOVERNANCE.md`](docs/GOVERNANCE.md): como evoluir a EKM.
 - [`templates/`](templates/): ativos reutilizáveis.
 

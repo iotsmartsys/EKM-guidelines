@@ -191,6 +191,36 @@ passaram a exigir que todo fluxo comece em uma branch de trabalho derivada da
 `main`, nunca diretamente nela. A mesma branch pode atravessar as etapas do
 recorte e não precisa incorporar avanços posteriores da `main`.
 
+## 15. A execução pode sobreviver à troca de agente e modelo
+
+A implementação da especificação `IOTSSC-GARAGE-CONTROL@0.1` foi conduzida em
+duas partes sequenciais com uma instrução autocontida para o Implementador.
+
+O Copilot com Kimi K2.7 Code produziu uma implementação parcial material e
+versionada. A execução consumiu aproximadamente 80 mil tokens e foi interrompida
+quando os créditos da conta se esgotaram. O Codex no ChatGPT retomou o trabalho,
+completou o recorte e reconciliou as fontes EKM sem compartilhar a conversa do
+primeiro ambiente.
+
+O environment automatizado canônico permaneceu bloqueado por configuração
+preexistente, e essa limitação não foi convertida em sucesso. Posteriormente, o
+Arquiteto executou os testes no dispositivo, validou a implementação e promoveu
+a especificação para `Active / Validated / Ready for Integration`.
+
+O caso demonstra que especificação, estado e Git podem funcionar como memória
+compartilhada entre executores heterogêneos. Também mostra que aderência técnica
+e viabilidade econômica são dimensões independentes: o resultado foi
+aproveitável, mas o consumo do primeiro executor foi material.
+
+A evidência favorece continuar testando prompts autocontidos por etapa. Um
+único caso não autoriza torná-los obrigatórios nem afirmar independência
+universal de modelo.
+
+Detalhes:
+
+- [`SELF-CONTAINED-IMPLEMENTER-RUN-001.md`](experiments/SELF-CONTAINED-IMPLEMENTER-RUN-001.md);
+- [`IOTSMARTSYSCORE-GARAGE-CONTROL-SEQUENTIAL-AGENTS.md`](case-studies/IOTSMARTSYSCORE-GARAGE-CONTROL-SEQUENTIAL-AGENTS.md).
+
 ## Conclusão experimental
 
 A hipótese atual é que agentes conseguem executar mudanças com autonomia
