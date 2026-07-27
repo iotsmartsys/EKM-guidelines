@@ -1,5 +1,12 @@
 # Ordem de execução — Engenheiro Implementador
 
+**Modalidade:** instrução autocontida experimental
+
+Este template preserva a modalidade em que todas as regras pertinentes chegam
+na própria invocação. Para a modalidade de perfil fixo referenciado, use
+[`COMANDO-POR-PERFIL.md`](COMANDO-POR-PERFIL.md) com
+[`roles/ENGENHEIRO-IMPLEMENTADOR.md`](../../roles/ENGENHEIRO-IMPLEMENTADOR.md).
+
 ## 1. Autoridade e responsabilidade
 
 Esta é uma ordem do Arquiteto para executar exclusivamente a etapa de

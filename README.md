@@ -82,6 +82,8 @@ decisões confirmadas e funcionalidades tocadas.
   protocolo experimental 0.8.
 - [`docs/experiments/SELF-CONTAINED-IMPLEMENTER-RUN-001.md`](docs/experiments/SELF-CONTAINED-IMPLEMENTER-RUN-001.md):
   execução sequencial com prompt autocontido, Kimi K2.7 Code e Codex.
+- [`docs/experiments/REFERENCED-ROLE-PROFILES.md`](docs/experiments/REFERENCED-ROLE-PROFILES.md):
+  protocolo experimental de instruções fixas selecionadas pelo `AGENTS.md`.
 - [`docs/case-studies/`](docs/case-studies/): evidências históricas, não regras universais.
 - [`docs/case-studies/IOTSMARTHOME-MULTI-AGENT-OBSERVATION.md`](docs/case-studies/IOTSMARTHOME-MULTI-AGENT-OBSERVATION.md):
   resultado funcional e conformidade entre agentes no aplicativo Swift.
@@ -89,6 +91,12 @@ decisões confirmadas e funcionalidades tocadas.
   controle de garagem validado após execução sequencial heterogênea.
 - [`templates/prompts/ENGENHEIRO-IMPLEMENTADOR.md`](templates/prompts/ENGENHEIRO-IMPLEMENTADOR.md):
   modelo experimental de instrução autocontida para implementação.
+- [`roles/`](roles/): regras comuns e perfis experimentais separados por
+  responsabilidade.
+- [`templates/AGENTS-PERFIS-REFERENCIADOS.md`](templates/AGENTS-PERFIS-REFERENCIADOS.md):
+  roteador experimental para instalar a modalidade em um projeto.
+- [`templates/prompts/COMANDO-POR-PERFIL.md`](templates/prompts/COMANDO-POR-PERFIL.md):
+  ordem mínima para selecionar um perfil fixo.
 - [`docs/GOVERNANCE.md`](docs/GOVERNANCE.md): como evoluir a EKM.
 - [`templates/`](templates/): ativos reutilizáveis.
 
