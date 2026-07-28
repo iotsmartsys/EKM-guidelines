@@ -1,6 +1,6 @@
 # Instrução — Adoção inicial da EKM em repositório legado
 
-Adote a EKM 1.11 no repositório `<CAMINHO_DO_REPOSITORIO>`.
+Adote a EKM 1.12 no repositório `<CAMINHO_DO_REPOSITORIO>`.
 
 O Arquiteto autoriza nesta tarefa somente levantamento e fundação documental.
 Não altere código, testes, dependências, build, automações ou configuração.

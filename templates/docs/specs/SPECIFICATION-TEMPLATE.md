@@ -6,7 +6,7 @@
 
 **Versão:** 0.1
 
-**Estado normativo:** Rascunho [`Draft`]
+**Estado normativo:** Proposta [`Proposed`]
 
 **Estado da implementação:** Não iniciada [`Not Started`]
 
@@ -55,7 +55,16 @@ Descontinua [`Retires`] `<ID@VERSÃO>`
 
 ## 9. Relações, decisões e lacunas
 
-`<OUTRAS ESPECIFICAÇÕES, DECISÕES DO ARQUITETO E EKM-GAP RELACIONADAS>`
+**Fatos observados:** `<EVIDÊNCIAS QUE LIMITAM OU SUSTENTAM A PROPOSTA>`
+
+**Intenção e decisões confirmadas:** `<ORDEM E DECISÕES DO ARQUITETO>`
+
+**Solução proposta:** `<RECOMENDAÇÕES DO AUTOR AINDA SUBORDINADAS AO ARQUITETO>`
+
+**Decisões pendentes:** `<SOMENTE ESCOLHAS NECESSÁRIAS QUE EXIGEM AUTORIDADE
+HUMANA, OU NENHUMA>`
+
+**Relações:** `<OUTRAS ESPECIFICAÇÕES E EKM-GAP RELACIONADAS>`
 
 ## 10. Revisão de implementabilidade
 

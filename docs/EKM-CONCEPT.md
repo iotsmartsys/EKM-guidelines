@@ -92,7 +92,7 @@ A EKM organiza a execução por quatro atores:
 
 | Ator | Responsabilidade |
 |---|---|
-| Autor da Especificação | transformar intenção confirmada em contrato verificável |
+| Autor da Especificação | investigar o problema e transformar intenção confirmada em solução proposta e contrato verificável |
 | Engenheiro Analista | determinar implementabilidade sem inventar decisões |
 | Engenheiro Implementador | implementar, validar e registrar o estado sustentado |
 | Engenheiro Revisor | revisar evidências e registrar decisões humanas recebidas |
@@ -126,6 +126,8 @@ A EKM parte de hipóteses ainda em validação:
     a metodologia completa em cada tarefa.
 12. especificação, estados e Git permitem continuidade entre modelos e
     ambientes diferentes.
+13. permitir que o Autor investigue e proponha solução, preservando análise de
+    implementabilidade independente, reduz handoffs sem criar autoaprovação.
 
 O ciclo completo no aplicativo iotsmarthome sustentou a adoção do modelo de
 atores na EKM 1.11. Os experimentos não demonstram aplicabilidade universal nem
@@ -133,5 +135,5 @@ garantem obediência de qualquer agente.
 
 ## Estado do método
 
-A EKM 1.11 está aprovada e vigente para adoção. O método continua evoluindo
+A EKM 1.12 está aprovada e vigente para adoção. O método continua evoluindo
 quando evidências mostrarem lacunas, excesso de custo ou regras inadequadas.

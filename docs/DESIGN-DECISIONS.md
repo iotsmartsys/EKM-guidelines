@@ -238,3 +238,53 @@ preservando continuidade por meio da especificação, dos estados e do Git. O
 mesmo caso mostrou que papéis incompatíveis e regras genéricas favorecem
 promoções incorretas e reinterpretações. Tornar responsabilidades e passagens
 explícitas aumenta aderência sem criar um ator burocrático de reconciliação.
+
+## DD-024 — O Autor investiga e propõe sem revisar a própria implementabilidade
+
+**Decisão:** o Autor da Especificação pode analisar um problema complexo,
+inspecionar fontes técnicas, comparar alternativas e propor uma solução
+arquitetural e implementável. Não é criado um papel adicional de coautoria.
+
+O Autor separa fatos observados, intenção e decisões confirmadas, solução
+proposta e decisões pendentes. Recomendações permanecem subordinadas ao
+Arquiteto. A própria autoria não produz `Implementable`: a revisão de
+implementabilidade continua pertencendo a uma atuação independente do
+Engenheiro Analista.
+
+**Alternativas consideradas:**
+
+- criar um Coautor ou Especialista de Solução formal foi rejeitado porque
+  duplicaria a responsabilidade do Autor e acrescentaria passagem operacional;
+- limitar o Autor à transcrição de requisitos foi rejeitado porque problemas
+  transversais exigem investigação e desenho antes de formarem um contrato
+  implementável;
+- permitir que o Autor aprovasse a própria implementabilidade foi rejeitado
+  porque eliminaria a verificação independente e misturaria produção e
+  autorização do contrato;
+- tratar o Autor como Autor/Analista foi rejeitado porque tornaria ambíguo qual
+  atuação sustenta `Implementable`.
+
+**Motivo:** o perfil anterior já exigia uma especificação implementável, mas
+não explicitava que a investigação e a proposição de solução pertenciam à
+autoria. Essa ambiguidade permitia tanto uma autoria superficial quanto a
+criação de decisões pendentes artificiais para escolhas opcionais. Um
+experimento anterior registrou sobreposição parcial da autoria com a revisão de
+implementabilidade e lacunas artificiais; o novo experimento de remoção de
+dados sensíveis mostrou que a autoria de um problema transversal precisa
+formular uma solução, não apenas reproduzir a intenção inicial.
+
+**Riscos observados para reavaliação:**
+
+- o Autor pode apresentar recomendação como decisão confirmada;
+- pode devolver escolhas técnicas resolvíveis como falsas decisões do
+  Arquiteto;
+- pode produzir proposta enviesada que o Analista apenas ratifique;
+- a separação conceitual pode não ser suficiente para preservar independência
+  quando agentes compartilham contexto.
+
+A decisão deve ser reavaliada se os experimentos mostrarem autoaprovação,
+aumento de decisões artificiais, perda de independência da análise ou
+necessidade recorrente de um especialista com responsabilidade realmente
+distinta. A motivação e estes critérios permanecem neste registro de desenho,
+fora das fontes carregadas pelos atores em uma tarefa funcional normal; o
+perfil contém somente a regra operacional necessária.

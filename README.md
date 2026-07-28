@@ -1,6 +1,6 @@
 # EKM Guidelines
 
-**Modelo EKM vigente:** 1.11
+**Modelo EKM vigente:** 1.12
 
 **Estado:** aprovado e vigente
 
@@ -13,13 +13,15 @@ A EKM deve começar pequena. Governança é útil quando acelera decisões, redu
 retrabalho ou aumenta confiança; não quando apenas multiplica documentos e
 passagens operacionais.
 
-## Princípios da versão 1.11
+## Princípios da versão 1.12
 
 - O Arquiteto humano sempre tem autoridade final sobre decisões dos agentes.
 - Cada etapa de uma especificação nasce de uma ordem que identifica papel,
   especificação e recorte.
 - O agente lê regras comuns, exatamente um perfil e somente as fontes
   pertinentes à sua atuação.
+- O Autor pode investigar o problema e propor uma solução; o Analista valida
+  sua implementabilidade em atuação independente.
 - O estado da especificação informa se a próxima etapa está pronta.
 - Cada ator promove e registra os estados sustentados por sua própria etapa.
 - Git mantém a linhagem técnica; documentos não repetem SHAs e commits.
@@ -41,7 +43,7 @@ Autor → Analista → Implementador → Revisor/Tech Lead
 
 Os atores oficiais são Autor da Especificação, Engenheiro Analista, Engenheiro
 Implementador e Engenheiro Revisor. O fluxo representa a ordem lógica das
-etapas. A EKM 1.11 não define orquestração, concorrência, locks ou filas, e
+etapas. A EKM 1.12 não define orquestração, concorrência, locks ou filas, e
 esses temas não influenciam os trabalhos atuais.
 
 ## Responsabilidades das fontes
@@ -75,7 +77,7 @@ decisões confirmadas e funcionalidades tocadas.
 ## Conteúdo
 
 - [`docs/EKM-CONCEPT.md`](docs/EKM-CONCEPT.md): conceito, problema e limites.
-- [`docs/EKM-METHOD.md`](docs/EKM-METHOD.md): método de referência 1.11.
+- [`docs/EKM-METHOD.md`](docs/EKM-METHOD.md): método de referência 1.12.
 - [`docs/DESIGN-DECISIONS.md`](docs/DESIGN-DECISIONS.md): razões e evolução das decisões.
 - [`docs/LEGACY-ADOPTION.md`](docs/LEGACY-ADOPTION.md): adoção incremental.
 - [`docs/EXPERIMENT-HISTORY.md`](docs/EXPERIMENT-HISTORY.md): aprendizados dos experimentos.

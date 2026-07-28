@@ -1,6 +1,6 @@
 # Regras comuns dos perfis EKM
 
-**Modelo EKM aplicável:** 1.11
+**Modelo EKM aplicável:** 1.12
 
 **Versão do perfil:** 1.0
 

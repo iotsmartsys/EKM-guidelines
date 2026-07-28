@@ -1,8 +1,8 @@
 # Método EKM
 
-**Versão do documento:** 1.8
+**Versão do documento:** 1.9
 
-**Modelo EKM:** 1.11
+**Modelo EKM:** 1.12
 
 **Estado:** aprovado e vigente
 
@@ -215,10 +215,29 @@ adicional destinado apenas a reconciliar ou versionar o resultado dos demais.
 
 ### 7.1 Autor da Especificação
 
-O Autor registra comportamento, limites, decisões e critérios de aceite. Ao
-terminar, deixa a especificação como Proposta [`Proposed`], Não iniciada
-[`Not Started`], Não pronta [`Not Ready`] e Pendente de revisão
-[`Pending Review`]. O próprio Autor registra e entrega essa promoção.
+O Autor analisa o problema na profundidade necessária para transformar a
+intenção recebida em uma solução proposta, implementável e verificável. Pode
+inspecionar fontes técnicas, confrontar restrições, comparar alternativas e
+propor arquitetura, fluxos, contratos e critérios de aceite.
+
+A autoria deve distinguir:
+
+- fatos observados nas fontes;
+- intenção e decisões confirmadas pelo Arquiteto;
+- solução e recomendações propostas pelo Autor;
+- decisões pendentes que exigem autoridade humana.
+
+Uma recomendação do Autor não se torna decisão confirmada por estar na
+especificação. O Autor não deve criar lacuna bloqueante para alternativa
+opcional, comportamento fora do escopo ou escolha técnica que não dependa de
+intenção, produto, arquitetura ou risco ainda não decidido.
+
+A análise necessária à autoria não é revisão de implementabilidade. O Autor
+não promove a própria proposta para Implementável [`Implementable`] nem ocupa
+a responsabilidade do Engenheiro Analista. Ao terminar, deixa a especificação
+como Proposta [`Proposed`], Não iniciada [`Not Started`], Não pronta
+[`Not Ready`] e Pendente de revisão [`Pending Review`]. O próprio Autor
+registra e entrega essa promoção.
 
 ### 7.2 Engenheiro Analista
 
@@ -375,7 +394,7 @@ uma diretriz externa aplicável ou precisa declarar regras próprias.
 
 ## 11. Limites atuais
 
-A EKM 1.11 não define orquestração, concorrência, locks ou filas. Esses
+A EKM 1.12 não define orquestração, concorrência, locks ou filas. Esses
 mecanismos não fazem parte do fluxo nem dos critérios dos experimentos atuais.
 
 O modelo também não afirma que documentação substitui código, testes,

@@ -6,7 +6,7 @@ Evoluir a EKM por evidência, com autoridade humana e com a menor carga
 operacional capaz de manter conhecimento, decisões, auditabilidade e
 verificabilidade.
 
-**Modelo vigente:** 1.11.
+**Modelo vigente:** 1.12.
 
 ## 2. Autoridade
 
