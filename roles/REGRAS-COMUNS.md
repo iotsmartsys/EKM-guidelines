@@ -2,7 +2,7 @@
 
 **Modelo EKM aplicável:** 1.10
 
-**Versão do perfil:** 0.1
+**Versão do perfil:** 0.2
 
 **Estado:** experimental
 
@@ -62,7 +62,19 @@ conveniência. Registre o conflito e devolva a decisão ao Arquiteto.
 
 ## 5. Git e entrega
 
-Toda atuação iniciada deve:
+Cada ator encerra a própria etapa. Não transfira a um ator adicional a
+responsabilidade de registrar um resultado que esta atuação já sustentou.
+
+Antes da entrega:
+
+1. atualize a especificação e somente o conhecimento materialmente afetado;
+2. promova apenas os estados cuja evidência pertence à responsabilidade do
+   papel recebido;
+3. preserve estados, limitações e lacunas que a atuação não resolveu;
+4. registre decisões humanas recebidas sem reinterpretá-las nem aprová-las em
+   nome do Arquiteto.
+
+Toda atuação iniciada deve então:
 
 1. produzir resultado material e versionável;
 2. criar commit ao fim da etapa;
@@ -71,6 +83,8 @@ Toda atuação iniciada deve:
 
 Falha no push significa etapa não entregue. Não use commit vazio. A ordem normal
 não autoriza force push, reescrita de histórico, merge, tag, release ou deploy.
+Não existe uma etapa autônoma de reconciliação destinada apenas a repetir ou
+versionar o resultado de outro ator.
 
 ## 6. Limite desta modalidade
 

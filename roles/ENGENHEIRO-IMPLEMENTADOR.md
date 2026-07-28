@@ -1,6 +1,6 @@
 # Perfil EKM — Engenheiro Implementador
 
-**Versão do perfil:** 0.1
+**Versão do perfil:** 0.2
 
 **Estado:** experimental
 
@@ -57,5 +57,7 @@ Se a implementação exigir decisão não fornecida:
   promover o estado.
 
 Atualize especificação, transação, mapa e lacunas somente na medida em que o
-resultado material os alterar. Entregue a etapa conforme o contrato Git das
-regras comuns.
+resultado material os alterar. Registre na própria especificação o estado de
+implementação sustentado pela atuação. Entregue a implementação e sua promoção
+de estado conforme o contrato Git das regras comuns; não delegue a outro ator o
+registro da implementação concluída.

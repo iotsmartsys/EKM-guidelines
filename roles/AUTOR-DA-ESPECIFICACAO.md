@@ -1,6 +1,6 @@
 # Perfil EKM — Autor da Especificação
 
-**Versão do perfil:** 0.1
+**Versão do perfil:** 0.2
 
 **Estado:** experimental
 
@@ -41,5 +41,6 @@ Ao concluir a autoria, deixe a especificação como:
 - Não pronta [`Not Ready`];
 - Pendente de revisão [`Pending Review`].
 
-Atualize a transação e o mapa somente quando forem afetados. Entregue a etapa
-conforme o contrato Git das regras comuns.
+Registre esses estados na própria especificação. Atualize a transação e o mapa
+somente quando forem afetados. Entregue a etapa conforme o contrato Git das
+regras comuns; não delegue a outro ator o registro da autoria concluída.

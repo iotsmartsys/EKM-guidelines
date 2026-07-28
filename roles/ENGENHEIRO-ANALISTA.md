@@ -1,6 +1,6 @@
 # Perfil EKM — Engenheiro Analista
 
-**Versão do perfil:** 0.1
+**Versão do perfil:** 0.2
 
 **Estado:** experimental
 
@@ -39,9 +39,11 @@ Produza exatamente um resultado:
 - Precisa de esclarecimento [`Needs Clarification`], quando falta decisão
   necessária.
 
-Atualize a seção de implementabilidade, decisões ausentes, evidências materiais,
-transação e lacunas relacionadas. O estado de implementação permanece Não
+Promova a revisão de implementabilidade na própria especificação para o
+resultado produzido. Atualize decisões ausentes, evidências materiais,
+transação e lacunas relacionadas. Preserve o estado de implementação como Não
 iniciada [`Not Started`].
 
 Uma ordem posterior do Arquiteto é necessária para iniciar implementação.
-Entregue a etapa conforme o contrato Git das regras comuns.
+Entregue a análise e sua promoção de estado conforme o contrato Git das regras
+comuns; não delegue a outro ator o registro da análise concluída.

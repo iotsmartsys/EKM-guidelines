@@ -2,7 +2,7 @@
 
 **Modelo EKM aplicável:** 1.10
 
-**Versão do protocolo:** 0.1
+**Versão do protocolo:** 0.2
 
 **Estado:** experimental
 
@@ -57,7 +57,75 @@ Mapeamento inicial:
 O perfil não deve absorver arquitetura específica de um projeto, e o
 `AGENTS.md` não deve duplicar todos os perfis.
 
-## 5. Acesso à EKM
+## 5. Responsabilidade pela passagem
+
+Cada ator encerra a própria etapa:
+
+1. executa somente a responsabilidade do perfil recebido;
+2. atualiza a especificação e o conhecimento materialmente afetado;
+3. promove somente os estados sustentados pelas evidências da etapa;
+4. cria commit, realiza push e termina com árvore limpa.
+
+Não existe um ator adicional destinado apenas a reconciliar ou versionar o
+resultado dos demais. Quando Tech Lead e Arquiteto já tiverem validado e
+aprovado o resultado, o Engenheiro Revisor registra essa evidência recebida,
+promove `Active / Validated / Ready for Integration` e fecha a transação
+aplicável. Ele não substitui nem repete a decisão humana.
+
+```mermaid
+flowchart TD
+    A["Arquiteto<br/>intenção, decisões e ordem"] --> B
+
+    subgraph AUT["Autor da Especificação"]
+        B["Especifica o recorte"] --> B1["Proposed<br/>Not Started<br/>Not Ready<br/>Pending Review"]
+        B1 --> B2["Commit + push<br/>árvore limpa"]
+    end
+
+    B2 --> C["Ordem de análise"]
+
+    subgraph ANA["Engenheiro Analista"]
+        C --> D["Confronta requisitos e fontes"]
+        D --> E{"Falta decisão?"}
+        E -- "Sim" --> F["Needs Clarification"]
+        E -- "Não" --> G["Implementable"]
+        F --> H["Registra resultado<br/>commit + push"]
+        G --> H
+    end
+
+    H --> I{"Implementable?"}
+    I -- "Não" --> J["Arquiteto decide"]
+    J --> B
+    I -- "Sim" --> K["Ordem de implementação"]
+
+    subgraph IMP["Engenheiro Implementador"]
+        K --> L["Implementa e valida o recorte"]
+        L --> M["In Progress, Blocked<br/>ou Implemented"]
+        M --> N["Registra resultado<br/>commit + push"]
+    end
+
+    N --> O["Tech Lead / Engenheiro Revisor"]
+
+    subgraph REV["Revisão e decisão humana"]
+        O --> P["Revisa código e evidências"]
+        P --> Q{"Tech Lead validou e<br/>Arquiteto aprovou?"}
+        Q -- "Não" --> R["Registra achados<br/>commit + push"]
+        Q -- "Sim" --> S["Active<br/>Validated<br/>Ready for Integration"]
+        S --> T["Fecha a mudança<br/>commit + push"]
+    end
+
+    R --> K
+    T --> U["Integração autorizada separadamente"]
+    U --> V{"Integrada à referência<br/>de produção?"}
+    V -- "Não" --> W["Ready for Integration"]
+    V -- "Sim" --> X["Done"]
+
+    A -. "autoridade final" .-> C
+    A -.-> K
+    A -.-> Q
+    A -.-> U
+```
+
+## 6. Acesso à EKM
 
 O `AGENTS.md` deve apontar para um caminho da EKM acessível ao ambiente do
 agente. No experimento local, pode ser um caminho absoluto.
@@ -71,7 +139,7 @@ Se o ambiente não puder acessar a fonte:
 Distribuição, cópia controlada ou empacotamento dos perfis permanecem decisões
 de adoção de cada ambiente e não são definidos por este protocolo.
 
-## 6. Modalidades preservadas
+## 7. Modalidades preservadas
 
 A modalidade referenciada não substitui o prompt autocontido já experimentado:
 
@@ -81,7 +149,7 @@ A modalidade referenciada não substitui o prompt autocontido já experimentado:
 
 Ambas usam a mesma especificação, autoridade humana, estados e contrato Git.
 
-## 7. Avaliação
+## 8. Avaliação
 
 Cada experimento deve observar somente o necessário para comparar as
 modalidades:
@@ -91,7 +159,7 @@ modalidades:
 - intervenções e retrabalho;
 - resultado funcional e limitações reais.
 
-## 8. Limites
+## 9. Limites
 
 - seguir referências continua dependendo da capacidade do agente e do ambiente;
 - caminhos locais podem não existir em containers ou serviços remotos;
@@ -100,7 +168,7 @@ modalidades:
 - o protocolo não garante aderência universal;
 - a execução permanece sequencial e não introduz controle de concorrência.
 
-## 9. Critério experimental
+## 10. Critério experimental
 
 Esta modalidade permanece experimental até ser exercida em tarefas reais. Sua
 existência não altera o modelo normativo 1.10 nem torna os perfis obrigatórios

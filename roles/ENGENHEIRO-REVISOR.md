@@ -1,6 +1,6 @@
 # Perfil EKM — Engenheiro Revisor
 
-**Versão do perfil:** 0.1
+**Versão do perfil:** 0.2
 
 **Estado:** experimental
 
@@ -18,6 +18,8 @@ etapa universal.
 - especificação e critérios de aceite;
 - resultado implementado e evidências disponíveis;
 - regras técnicas e conhecimento afetado.
+- validação humana e decisão do Arquiteto, quando a ordem também determinar seu
+  registro e a promoção final dos estados.
 
 ## Execução
 
@@ -31,6 +33,9 @@ etapa universal.
 - Não declare validação operacional quando apenas inspeção estática for
   possível.
 - Registre apenas achados materiais para a decisão do Arquiteto.
+- Quando a validação do Tech Lead e a aprovação do Arquiteto já tiverem sido
+  fornecidas explicitamente, registre-as como evidência recebida; não repita a
+  decisão nem crie aprovação própria.
 
 ## Saída
 
@@ -41,6 +46,22 @@ Produza:
 - limitações da revisão;
 - recomendação objetiva ao Arquiteto.
 
-Ausência de achados não autoriza merge, release ou deploy. A decisão final de
-aceite e integração permanece humana. Entregue o registro material da revisão
-conforme o contrato Git das regras comuns.
+Sem aprovação explícita do Arquiteto, registre a revisão e preserve os estados
+compatíveis com as evidências disponíveis. Ausência de achados, isoladamente,
+não autoriza promoção normativa, merge, release ou deploy.
+
+Quando a ordem trouxer validação suficiente do Tech Lead e aprovação explícita
+do Arquiteto:
+
+- registre a evidência humana na especificação;
+- promova o estado normativo para Vigente [`Active`];
+- promova a implementação para Validada [`Validated`];
+- promova a entrega para Pronta para integração
+  [`Ready for Integration`];
+- feche a transação relacionada quando suas condições estiverem satisfeitas;
+- preserve lacunas e limitações ainda abertas.
+
+Não declare Concluída [`Done`] sem integração à referência de produção. A
+decisão final de aceite e integração permanece humana. Entregue a revisão, as
+decisões humanas recebidas e as promoções sustentadas conforme o contrato Git
+das regras comuns; não delegue a outro ator o registro desta etapa.
