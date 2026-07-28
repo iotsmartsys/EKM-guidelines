@@ -1,15 +1,15 @@
 # EKM — Mapa das Fontes de Verdade
 
-**Tipo:** Normativo
+**Classe da fonte:** Normativa
 
-**Status:** Active
+**Estado da fonte:** Vigente
 
 ## 1. Governança
 
 | Área | Fonte | Tipo | Estado |
 |---|---|---|---|
 | Instruções para agentes | `AGENTS.md` | Normativo | Active |
-| Diretrizes EKM | `docs/rfc/EKM-GUIDELINES.md` | Normativo | Active |
+| Diretrizes EKM | `<REFERÊNCIA EXTERNA OU docs/rfc/EKM-GUIDELINES.md>` | Normativo | Active |
 | Mapa de conhecimento | `docs/rfc/KNOWLEDGE-MAP.md` | Normativo | Active |
 | Histórico EKM | `docs/rfc/EKM-CHANGELOG.md` | Operacional | Active |
 | Visão do sistema | `docs/specs/SYSTEM-DOSSIER.md` | `<CLASSIFICAÇÃO>` | `<ESTADO>` |

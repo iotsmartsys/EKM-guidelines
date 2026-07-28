@@ -1,102 +1,34 @@
-# Prompt experimental — Auditoria EKM read-only
+# Prompt opcional — Revisão de integridade da EKM
 
-**Status:** Experimental
+**Estado:** Experimental
 
-Use este prompt para comparar agentes e modelos. Ele não substitui as fontes normativas do projeto.
+Use somente quando o Arquiteto solicitar uma revisão independente. Esta não é
+uma etapa obrigatória do fluxo EKM 1.11.
 
 ```text
-Você está executando uma auditoria isolada em um repositório governado pela EKM.
+Revise a integridade EKM da mudança <EKM-CHG-NNNN> no repositório
+<CAMINHO_DO_REPOSITORIO>.
 
-## Isolamento obrigatório
+O Arquiteto autoriza somente revisão e atualização do registro de evidência.
+Não altere código, testes, especificação ou decisões.
 
-- Use exclusivamente este prompt e os arquivos do repositório.
-- Não leia nem grave memórias do agente, Copilot, IDE ou conversas anteriores.
-- Não crie arquivos de memória, notas ou cache fora do repositório.
-- Não instale ferramentas, pacotes ou dependências.
-- Não acesse rede ou serviços externos sem autorização explícita.
-- Ferramenta ausente deve ser registrada como `Blocked`, nunca instalada por iniciativa própria.
+1. Comece em uma branch derivada da `main`, nunca diretamente na `main`.
+2. Comece com a árvore de trabalho limpa.
+3. Leia AGENTS.md, a especificação e a transação relacionadas.
+4. Verifique:
+   - aderência da implementação aos requisitos;
+   - preservação das fontes normativas;
+   - coerência dos estados;
+   - presença das evidências materiais exigidas;
+   - lacunas ou desvios não declarados.
+5. Classifique cada achado como Conforme, Não conforme ou Não verificável.
+6. Não invente evidência nem transforme risco aceito em validação aprovada.
+7. Registre apenas achados materiais.
+8. Termine com commit, push e árvore de trabalho limpa.
 
-## Preparação permitida
-
-Antes da leitura normativa, execute somente comandos Git de leitura necessários para registrar:
-
-- raiz do repositório;
-- branch;
-- commit;
-- estado inicial do worktree.
-
-Depois, leia integralmente e nesta ordem:
-
-1. AGENTS.md
-2. docs/rfc/EKM-GUIDELINES.md
-3. docs/rfc/KNOWLEDGE-MAP.md
-4. docs/rfc/EKM-CHANGELOG.md
-5. docs/specs/EXECUTABLE-HARDWARE-EXAMPLES.md
-
-Essas fontes são obrigatórias. Não substitua a leitura por resumo, memória ou resultado anterior.
-
-## Modo read-only
-
-Não altere nenhum arquivo, incluindo código, configuração, teste, automação, especificação ou registro EKM. São permitidas buscas, comandos Git de leitura e validações que utilizem ferramentas já disponíveis e gerem somente artefatos ignorados previstos pelo projeto.
-
-## Fase 1 — Technical Readiness Review
-
-Analise integralmente requisitos, decisões, contratos, critérios de aceite, validações, relações normativas e baseline.
-
-Resultado permitido:
-
-- `Implementable`; ou
-- `Needs Clarification`.
-
-Conflito entre fontes, ambiguidade ou decisão ausente exige `Needs Clarification` e impede a auditoria de conformidade, mas não encerra a Technical Readiness Review. Continue até classificar todos os requisitos e dimensões obrigatórias. Não resolva o conflito por inferência.
-
-Para cada requisito ou dimensão, registre:
-
-- `Supported`;
-- `Gap`;
-- `Conflict`; ou
-- `Not Applicable`.
-
-Inclua evidência direta, impacto e decisão humana necessária. Encontrar somente o primeiro bloqueio caracteriza revisão incompleta.
-
-## Fase 2 — Auditoria integral
-
-Execute somente após `Implementable`. Como este prompt é read-only, o resultado não autoriza implementação nem outra mutação.
-
-Classifique individualmente todos os requisitos, decisões e critérios de aceite usando exatamente:
-
-- `Compliant`;
-- `Non-compliant`;
-- `Not verifiable`;
-- `Blocked`.
-
-Não combine estados nem use qualificadores como “parcial” ou “estrutural”. Requisito dependente de validação não executada não pode ser declarado `Compliant` quando a evidência executável fizer parte de seu contrato.
-
-Para cada item, informe evidência direta e justificativa. Estado anterior, changelog ou relatório não constitui prova de conformidade.
-
-## Relatório
-
-1. Fontes lidas e ordem real
-2. Baseline
-3. Technical Readiness Review
-4. Matriz integral de requisitos
-5. Matriz integral de decisões
-6. Matriz integral de critérios de aceite
-7. Validações executadas
-8. Não conformidades
-9. Itens `Not verifiable` ou `Blocked`
-10. Estados EKM recomendados, sem aplicá-los
-11. Comparação do worktree inicial e final
-12. Todas as operações Git, externas e artefatos temporários
-
-Não declare comando, leitura ou validação que não apareça na execução real.
-
-## Tarefa
-
-Valide a conformidade integral da implementação com docs/specs/EXECUTABLE-HARDWARE-EXAMPLES.md.
-Não implemente correções e não atualize documentos EKM.
+Não copie SHA, branch ou histórico de comandos para o documento. O Git já
+preserva esses dados.
 ```
 
-## Limite
-
-Este template melhora descoberta e comparabilidade, mas não garante conformidade do executor. Resultados ainda exigem revisão enquanto o `EKM Gate` permanecer `Planned / Not Defined`.
+O resultado é uma recomendação ao Arquiteto, que mantém a autoridade sobre
+aceite e integração.

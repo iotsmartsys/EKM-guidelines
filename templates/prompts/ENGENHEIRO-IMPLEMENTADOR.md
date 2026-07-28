@@ -1,0 +1,94 @@
+# Ordem de execução — Engenheiro Implementador
+
+**Modalidade:** instrução autocontida experimental
+
+Este template preserva a modalidade em que todas as regras pertinentes chegam
+na própria invocação. Para a modalidade de perfil fixo referenciado, use
+[`COMANDO-POR-PERFIL.md`](COMANDO-POR-PERFIL.md) com
+[`roles/ENGENHEIRO-IMPLEMENTADOR.md`](../../roles/ENGENHEIRO-IMPLEMENTADOR.md).
+
+## 1. Autoridade e responsabilidade
+
+Esta é uma ordem do Arquiteto para executar exclusivamente a etapa de
+implementação.
+
+Implemente o contrato fornecido sem ampliar escopo, redefinir requisitos ou
+tomar decisões reservadas ao Arquiteto.
+
+## 2. Condições de entrada
+
+- Repositório: <CAMINHO>
+- Branch: <BRANCH DESIGNADA>
+- Especificação: <ID E VERSÃO>
+- Estado de implementabilidade: Implementável
+- Árvore de trabalho inicial: deve estar limpa
+
+Se alguma condição não for verdadeira, não inicie a implementação.
+
+## 3. Objetivo
+
+<RESULTADO PRETENDIDO>
+
+## 4. Especificação aplicável
+
+<CONTEÚDO INTEGRAL OU RECORTE AUTOSSUFICIENTE DA ESPECIFICAÇÃO>
+
+## 5. Escopo autorizado
+
+- <MÓDULOS, COMPONENTES E COMPORTAMENTOS>
+
+## 6. Fora de escopo
+
+- <COMPORTAMENTOS E ÁREAS QUE NÃO DEVEM SER ALTERADOS>
+
+## 7. Regras EKM aplicáveis
+
+- Não invente comportamento, requisito ou decisão arquitetural.
+- Não substitua decisão do Arquiteto.
+- Interrompa diante de decisão ausente.
+- Preserve conhecimento normativo vigente.
+- Atualize as fontes afetadas pela implementação.
+- Registre evidências materiais e limitações reais.
+- Não declare como aprovada uma validação que falhou.
+
+## 8. Regras de engenharia aplicáveis
+
+<ARQUITETURA, PADRÕES, SOLID, CONCORRÊNCIA, ESTILO E RESTRIÇÕES DO PROJETO>
+
+## 9. Referências canônicas
+
+- <COMPONENTE EXISTENTE A SER USADO COMO REFERÊNCIA>
+- <CONTRATOS E FONTES TÉCNICAS APLICÁVEIS>
+
+## 10. Validações obrigatórias
+
+- <BUILD>
+- <TESTES>
+- <ANÁLISES OU INSPEÇÕES>
+
+## 11. Tratamento de bloqueios
+
+Se a implementação exigir uma decisão não fornecida:
+
+1. não escolha uma alternativa por conveniência;
+2. preserve o trabalho válido já realizado somente se ele não depender da decisão;
+3. registre a decisão ausente e seu impacto;
+4. devolva o recorte ao Arquiteto.
+
+## 12. Entrega obrigatória
+
+- Atualize código, testes e conhecimento afetado.
+- Registre somente evidências materiais.
+- Crie um commit com o resultado da tarefa.
+- Faça push para a branch designada.
+- Termine com árvore de trabalho limpa.
+- Não realize merge, force push, tag, release ou deploy.
+
+## 13. Resposta esperada
+
+Informe de forma concisa:
+
+- resultado;
+- validações executadas;
+- limitações ou decisões pendentes;
+- confirmação de commit, push e árvore limpa.

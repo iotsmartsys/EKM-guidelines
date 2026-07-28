@@ -1,239 +1,123 @@
 # EKM Guidelines
 
-**Modelo EKM vigente:** 1.6
+**Modelo EKM vigente:** 1.11
 
-**Estado:** experimental e utilizável
+**Estado:** aprovado e vigente
 
-**Garantia automatizada:** planejada, ainda não definida
+Gestão do Conhecimento de Engenharia (*Engineering Knowledge Management* —
+EKM) é um modelo de engenharia assistida por IA para transformar intenção em
+software validado, mantendo autoridade humana, conhecimento atual e evidências
+suficientes para verificar a entrega.
 
-Engineering Knowledge Management (EKM) é um modelo de engenharia para acelerar entregas com qualidade e previsibilidade, coordenando pessoas, agentes de IA, conhecimento e automações em processos verificáveis e continuamente evolutivos.
+A EKM deve começar pequena. Governança é útil quando acelera decisões, reduz
+retrabalho ou aumenta confiança; não quando apenas multiplica documentos e
+passagens operacionais.
 
-A preservação do conhecimento é uma infraestrutura essencial: permite que execução, manutenção e auditoria operem sobre intenção explícita, em vez de depender de conversas, memória ou inferências. Ela sustenta o objetivo principal, mas não o define isoladamente.
+## Princípios da versão 1.11
 
-A EKM nasceu de experimentos em projetos reais. Ela não é apresentada como um método concluído ou universal: este repositório reúne o melhor modelo conhecido até agora, os artefatos necessários para adotá-lo e as evidências que explicam sua evolução.
+- O Arquiteto humano sempre tem autoridade final sobre decisões dos agentes.
+- Cada etapa de uma especificação nasce de uma ordem que identifica papel,
+  especificação e recorte.
+- O agente lê regras comuns, exatamente um perfil e somente as fontes
+  pertinentes à sua atuação.
+- O estado da especificação informa se a próxima etapa está pronta.
+- Cada ator promove e registra os estados sustentados por sua própria etapa.
+- Git mantém a linhagem técnica; documentos não repetem SHAs e commits.
+- O fluxo começa em uma branch de trabalho derivada da `main`.
+- Toda tarefa começa com árvore limpa e termina com commit, push e árvore limpa.
+- Revisão e evidência são proporcionais ao risco e ao recorte.
+- Decisões, lacunas e conhecimento afetado continuam registrados.
+- O fluxo atual não incorpora controles para problemas ainda não adotados.
 
-## Objetivo
-
-O principal objetivo da EKM é ampliar a capacidade de uma equipe transformar intenção em software validado, reduzindo o tempo entre especificação e entrega sem perder controle técnico. Para isso, busca:
-
-- acelerar implementação, validação e evolução;
-- aumentar qualidade, consistência e previsibilidade das entregas;
-- estabelecer mecanismos e evidências auditáveis para processos, contratos, arquitetura e padrões;
-- tornar o trabalho repetível entre pessoas, agentes, sessões e projetos;
-- permitir automação progressiva das atividades e controles de engenharia;
-- reduzir retrabalho, ambiguidades, perda de contexto e decisões improvisadas;
-- evoluir continuamente os próprios mecanismos de especificação, execução, auditoria e integração.
-
-Para viabilizar essa aceleração com segurança, funcionalidades, contratos, decisões e critérios de aceite não podem existir apenas no código, em conversas, relatórios ou memória individual. A EKM organiza esse conhecimento como parte do sistema de engenharia.
-
-A **reconstruibilidade funcional** é uma das capacidades resultantes: uma equipe competente deve conseguir recuperar e reconstruir comportamento equivalente a partir das fontes normativas e evidências, sem depender da implementação existente como única explicação.
-
-## Motivação estratégica
-
-A engenharia de software está se tornando mais orientada a processos nos quais agentes de IA participam continuamente da análise, implementação, manutenção e validação. Para que essa adoção produza valor sustentável, não basta gerar código mais rápido: a IA precisa receber intenção explícita, trabalhar dentro de limites verificáveis e devolver evidências que possam ser auditadas.
-
-A EKM prepara repositórios e processos para esse cenário por meio de fontes de verdade localizáveis, especificações implementáveis, execução rastreável e validações reproduzíveis. Qualidade, aceleração e previsibilidade são resultados pretendidos e hipóteses em validação, não garantias universais. Seu valor deve ser demonstrado por resultados mensuráveis.
-
-## Propósito operacional
-
-A EKM organiza responsabilidades diferentes, sem procurar um único documento que contenha toda a verdade:
+## Fluxo vigente
 
 ```text
-Especificação → o que o sistema deve fazer
-Diretriz      → como mudanças e conhecimento devem ser tratados
-Mapa          → onde está cada fonte de verdade e cada lacuna
-Changelog     → como o conhecimento e as entregas evoluíram
+Autor → Analista → Implementador → Revisor/Tech Lead
+  ↑         │             │                │
+  └─ decisão do Arquiteto ┴────────────────┘
+                                    ↓
+                         decisão humana e integração
+```
+
+Os atores oficiais são Autor da Especificação, Engenheiro Analista, Engenheiro
+Implementador e Engenheiro Revisor. O fluxo representa a ordem lógica das
+etapas. A EKM 1.11 não define orquestração, concorrência, locks ou filas, e
+esses temas não influenciam os trabalhos atuais.
+
+## Responsabilidades das fontes
+
+```text
+Especificação → comportamento, limites e aceite
+Diretriz      → regras de trabalho e preservação
+Mapa          → localização das fontes e lacunas
+Changelog     → decisões, lacunas, evidências e resultado
 Código/testes → implementação e evidência executável
+Git           → commits, autoria, diferenças e linhagem
 Relatório     → evidência de uma execução; não cria requisitos
 ```
 
-O método procura aumentar autonomia e produtividade sem transferir ao executor decisões de produto ou arquitetura que não estejam aprovadas.
-
-## Papel esperado da IA
-
-A EKM foi concebida para permitir que a IA participe de diferentes responsabilidades da engenharia:
-
-- **executora:** implementar especificações aprovadas, produzir código, testes e artefatos;
-- **mantenedora:** evoluir o sistema preservando contratos, compatibilidade e conhecimento vigente;
-- **analista:** verificar implementabilidade antes do código e identificar decisões ausentes;
-- **auditora:** confrontar especificação, implementação, validações e baseline;
-- **garantidora de controles verificáveis:** aplicar regras e padrões automatizáveis e produzir evidências sobre arquitetura, boas práticas e processos.
-
-“Garantidora” não significa que a resposta de um modelo seja prova suficiente. Garantia exige a combinação de fontes normativas, testes, rastreabilidade, revisão humana e controles automatizados. Enquanto o `EKM Gate` não existir, a conformidade depende de verificação explícita; mesmo depois dele, decisões semânticas e responsabilidade permanecem humanas.
-
-## Fluxo vigente no modelo 1.6
-
-```text
-Especificação
-    ↓
-Technical Readiness Review integral
-    ├─ Needs Clarification → corrigir a fonte normativa e revisar novamente
-    └─ Implementable
-            ↓
-      aprovação humana explícita
-            ↓
-      reconfirmação do baseline
-            ↓
-      implementação atômica
-            ↓
-      validação e reconciliação EKM
-            ↓
-      integração à referência de produção
-```
-
-Revisão e implementação acontecem em execuções separadas. `Implementable` significa pronto para decisão humana, não autorização automática. Uma lacuna relevante bloqueia toda a implementação, mas a revisão deve continuar até classificar cumulativamente todos os requisitos e dimensões obrigatórias.
-
-Versões normativas em `Done` são imutáveis. Evoluções posteriores usam novas especificações relacionadas por `Amends`, `Supersedes`, `Corrects` ou `Retires`.
-
-## Estado atual
-
-### O que já está definido e utilizável
-
-- estrutura mínima de fontes normativas;
-- especificações incrementais como unidade de comportamento e delegação;
-- estados normativo, de implementação e de entrega independentes;
-- transações `EKM-CHG` e lacunas `EKM-GAP`;
-- baseline baseado no worktree real, não somente em `HEAD`;
-- proteção contra remoção silenciosa de conhecimento normativo;
-- Technical Readiness Review integral e implementação atômica;
-- aprovação humana e reconfirmação antes da implementação;
-- adoção incremental em projetos legados por inventário, risco e *specification on touch*;
-- templates para adoção, especificação e auditoria read-only.
-
-### O que os experimentos indicaram
-
-- especificações claras reduzem expansão de escopo e retrabalho;
-- build e testes não comprovam preservação da intenção;
-- validação em hardware continua indispensável quando faz parte do contrato;
-- relatórios de execução podem omitir mudanças semânticas relevantes;
-- comparar apenas com o último commit pode ocultar perda de trabalho preexistente;
-- agentes podem implementar soluções tecnicamente coerentes, porém não autorizadas, quando a especificação permite inferência;
-- instruções operacionais explícitas melhoram bastante a consistência entre modelos diferentes;
-- modelos e agentes ainda variam na leitura, classificação e observância das fontes EKM.
-
-Esses resultados sustentam a utilidade da abordagem, mas ainda não demonstram aplicabilidade universal nem conformidade independente do executor.
-
-### O que permanece em aberto
-
-- métricas sistemáticas de produtividade, retrabalho, custo de contexto e manutenção;
-- validação em mais tecnologias, equipes e ciclos de vida;
-- semântica mais precisa para resultados como `Blocked` e `Not verifiable` em auditorias;
-- coordenação entre múltiplos agentes e separação automatizada de responsabilidades;
-- custo sustentável de adoção e evolução em projetos de diferentes portes.
-
-## Planos futuros
-
-### EKM Gate
-
-Está previsto um mecanismo automatizado para proteger a integração à produção. Ele poderá verificar aspectos comprováveis, como:
-
-- estrutura e metadados obrigatórios;
-- relações e estados das especificações;
-- evidência de Technical Readiness e aprovação;
-- imutabilidade de versões em produção;
-- transações e lacunas abertas;
-- rastreabilidade entre requisitos, mudanças e validações;
-- reconciliação antes do merge.
-
-O `EKM Gate` permanece **Planned / Not Defined**. Ainda não existem arquitetura, schema, ferramenta ou política de bloqueio aprovados. Mesmo no futuro, automação não substituirá julgamento humano sobre intenção e trade-offs.
-
-### Evolução experimental
-
-Os próximos ciclos devem priorizar:
-
-1. ampliar auditorias e implementações comparativas entre agentes, modelos e contextos;
-2. transformar divergências observadas em regras somente quando houver evidência;
-3. ampliar os estudos de caso sem tornar o método específico de uma tecnologia;
-4. definir métricas leves e úteis;
-5. especificar e experimentar o EKM Gate antes de recomendar sua adoção.
-
-## Conteúdo do repositório
-
-- [`docs/EKM-CONCEPT.md`](docs/EKM-CONCEPT.md): definição, problema, limites e hipóteses.
-- [`docs/EKM-METHOD.md`](docs/EKM-METHOD.md): método de referência vigente.
-- [`docs/DESIGN-DECISIONS.md`](docs/DESIGN-DECISIONS.md): razões das principais escolhas.
-- [`docs/LEGACY-ADOPTION.md`](docs/LEGACY-ADOPTION.md): adoção incremental em projetos existentes.
-- [`docs/EXPERIMENT-HISTORY.md`](docs/EXPERIMENT-HISTORY.md): evolução produzida pelos experimentos.
-- [`docs/case-studies/`](docs/case-studies/): evidências e limitações dos casos reais.
-- [`docs/GOVERNANCE.md`](docs/GOVERNANCE.md): regras para evolução da própria EKM.
-- [`templates/EKM-LEGACY-ADOPTION-INSTRUCTIONS.md`](templates/EKM-LEGACY-ADOPTION-INSTRUCTIONS.md): instrução inicial para adoção em legado.
-- [`templates/EKM-READONLY-AUDIT-PROMPT.md`](templates/EKM-READONLY-AUDIT-PROMPT.md): prompt experimental para auditoria isolada.
-- [`templates/`](templates/): conjunto mínimo adaptável para um projeto.
-
-## Rotas de leitura
-
-### Compreender ou discutir a EKM
-
-```text
-EKM-CONCEPT
-→ DESIGN-DECISIONS
-→ EXPERIMENT-HISTORY e case studies
-→ EKM-METHOD
-```
-
-### Adotar em um projeto legado
-
-```text
-LEGACY-ADOPTION
-→ EKM-LEGACY-ADOPTION-INSTRUCTIONS
-→ templates
-```
-
-### Evoluir o método
-
-```text
-GOVERNANCE
-→ DESIGN-DECISIONS
-→ experimento e evidência
-→ atualização consistente do método e dos templates
-```
-
-## Estrutura mínima no projeto adotante
+## Estrutura inicial recomendada
 
 ```text
 AGENTS.md
 docs/
 ├── rfc/
-│   ├── EKM-GUIDELINES.md
 │   ├── KNOWLEDGE-MAP.md
 │   └── EKM-CHANGELOG.md
 └── specs/
-    ├── SYSTEM-DOSSIER.md
-    └── <especificações incrementais>.md
+    └── SYSTEM-DOSSIER.md
 ```
 
-Essa estrutura é um ponto de partida. Novos documentos só devem existir quando possuírem autoridade, escopo ou ciclo de vida próprios.
+Uma diretriz local só é necessária quando não existe referência externa
+aplicável ou o projeto possui regras próprias. Especificações são criadas para
+decisões confirmadas e funcionalidades tocadas.
 
-## Início rápido em um legado
+## Conteúdo
 
-1. Leia [`LEGACY-ADOPTION.md`](docs/LEGACY-ADOPTION.md).
-2. Forneça ao executor [`EKM-LEGACY-ADOPTION-INSTRUCTIONS.md`](templates/EKM-LEGACY-ADOPTION-INSTRUCTIONS.md).
-3. Informe caminho, escopo, referência de produção e restrições.
-4. Autorize inicialmente apenas levantamento e fundação documental.
-5. Responda às perguntas de intenção que o código não pode resolver.
-6. Revise e aprove as fontes antes de classificá-las como vigentes.
+- [`docs/EKM-CONCEPT.md`](docs/EKM-CONCEPT.md): conceito, problema e limites.
+- [`docs/EKM-METHOD.md`](docs/EKM-METHOD.md): método de referência 1.11.
+- [`docs/DESIGN-DECISIONS.md`](docs/DESIGN-DECISIONS.md): razões e evolução das decisões.
+- [`docs/LEGACY-ADOPTION.md`](docs/LEGACY-ADOPTION.md): adoção incremental.
+- [`docs/EXPERIMENT-HISTORY.md`](docs/EXPERIMENT-HISTORY.md): aprendizados dos experimentos.
+- [`docs/experiments/COORDINATED-ACTOR-MODEL.md`](docs/experiments/COORDINATED-ACTOR-MODEL.md):
+  protocolo experimental 0.8.
+- [`docs/experiments/SELF-CONTAINED-IMPLEMENTER-RUN-001.md`](docs/experiments/SELF-CONTAINED-IMPLEMENTER-RUN-001.md):
+  execução sequencial com prompt autocontido, Kimi K2.7 Code e Codex.
+- [`docs/experiments/REFERENCED-ROLE-PROFILES.md`](docs/experiments/REFERENCED-ROLE-PROFILES.md):
+  protocolo 0.2 concluído que originou os perfis oficiais.
+- [`docs/case-studies/`](docs/case-studies/): evidências históricas, não regras universais.
+- [`docs/case-studies/IOTSMARTHOME-MULTI-AGENT-OBSERVATION.md`](docs/case-studies/IOTSMARTHOME-MULTI-AGENT-OBSERVATION.md):
+  resultado funcional e conformidade entre agentes no aplicativo Swift.
+- [`docs/case-studies/IOTSMARTSYSCORE-GARAGE-CONTROL-SEQUENTIAL-AGENTS.md`](docs/case-studies/IOTSMARTSYSCORE-GARAGE-CONTROL-SEQUENTIAL-AGENTS.md):
+  controle de garagem validado após execução sequencial heterogênea.
+- [`docs/case-studies/IOTSMARTHOME-REFERENCED-ACTORS-LIFECYCLE.md`](docs/case-studies/IOTSMARTHOME-REFERENCED-ACTORS-LIFECYCLE.md):
+  ciclo completo que sustentou a aprovação do modelo de atores.
+- [`templates/prompts/ENGENHEIRO-IMPLEMENTADOR.md`](templates/prompts/ENGENHEIRO-IMPLEMENTADOR.md):
+  modelo experimental de instrução autocontida para implementação.
+- [`roles/`](roles/): regras comuns e perfis oficiais separados por
+  responsabilidade.
+- [`templates/AGENTS.md`](templates/AGENTS.md):
+  roteador oficial para instalar o modelo de atores em um projeto.
+- [`templates/prompts/COMANDO-POR-PERFIL.md`](templates/prompts/COMANDO-POR-PERFIL.md):
+  ordem mínima para selecionar um perfil fixo.
+- [`docs/GOVERNANCE.md`](docs/GOVERNANCE.md): como evoluir a EKM.
+- [`templates/`](templates/): ativos reutilizáveis.
 
-Exemplo:
+## Adoção rápida
 
-```text
-Adote a EKM neste repositório seguindo EKM-LEGACY-ADOPTION-INSTRUCTIONS.md.
-Nesta etapa, não altere código, build, testes ou automações. Registre o baseline,
-mapeie o sistema, produza os ativos mínimos e transforme incertezas em lacunas.
-```
+1. O Arquiteto delimita repositório, escopo e restrições.
+2. O agente confirma que está em uma branch derivada da `main` e com a árvore
+   limpa.
+3. O agente aplica
+   [`EKM-LEGACY-ADOPTION-INSTRUCTIONS.md`](templates/EKM-LEGACY-ADOPTION-INSTRUCTIONS.md).
+4. A fundação instala o roteador `AGENTS.md` e aponta para os perfis EKM.
+5. São criados apenas os demais ativos úteis ao próximo trabalho.
+6. Cada tarefa identifica papel e especificação, promove seu resultado, cria
+   commit, realiza push e termina com árvore limpa.
 
-## Limites
+## Limite
 
-A EKM não é:
-
-- documentação de cada linha de código;
-- substituição de Git, testes, RFCs ou ADRs;
-- promessa de autonomia total;
-- autorização para transformar código legado em requisito por inferência;
-- garantia automática de conformidade;
-- processo concluído ou aplicável sem adaptação a qualquer organização.
-
-O agente pode descobrir fatos verificáveis. Intenção, compatibilidade, prioridade e trade-offs continuam sob responsabilidade humana quando não houver autoridade normativa inequívoca.
-
-## Licença
-
-Este projeto é distribuído sob a [GNU General Public License v3.0](LICENSE).
+A EKM não substitui testes, revisão, observabilidade ou julgamento humano.
+Qualidade e aceleração são hipóteses que devem ser demonstradas em casos reais.
+O método evolui quando a evidência mostra utilidade e também quando mostra
+burocracia sem retorno.

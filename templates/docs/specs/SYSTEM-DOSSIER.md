@@ -2,7 +2,7 @@
 
 **Tipo:** Informativo com decisões confirmadas identificadas
 
-**Status:** Draft
+**Estado da fonte:** Rascunho [`Draft`]
 
 **Última auditoria:** `<DATA>`
 

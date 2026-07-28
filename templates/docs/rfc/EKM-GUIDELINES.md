@@ -1,100 +1,85 @@
-# EKM — Diretrizes de Engenharia e Preservação do Conhecimento
+# EKM — Diretrizes locais
 
-**Tipo:** Normativo
+**Classe da fonte:** Normativa
 
-**Status:** Active
+**Estado da fonte:** Vigente
 
-**Versão:** 1.3
+**Versão do documento:** 1.8
 
-**Modelo EKM:** 1.6
-
-**Responsável:** `<RESPONSÁVEL>`
+**Versão do modelo EKM:** 1.11
 
 **Escopo:** Todo o repositório
 
-## 1. Objetivo
+## 1. Autoridade
 
-Preservar intenção, decisões, contratos e evidências suficientes para compreender, evoluir, auditar e reconstruir o sistema sem depender de conversas ou memória individual.
+O Arquiteto humano tem autoridade final sobre intenção, prioridade, escopo,
+arquitetura, risco, autorização, validação e integração. A ordem recebida por
+prompt ou pipeline identifica papel, especificação e recorte autorizado.
+
+Agentes não inventam requisitos nem expandem o recorte. Evidências factuais
+permanecem factuais mesmo quando o Arquiteto aceita o risco.
 
 ## 2. Fontes
 
-- Especificações definem o que o sistema deve fazer.
-- Diretrizes definem como mudanças e conhecimento devem ser tratados.
-- RFCs e ADRs registram decisões e consequências.
-- Código e testes implementam e evidenciam comportamentos.
-- Relatórios registram execuções e não alteram requisitos implicitamente.
+- especificações definem comportamento e aceite;
+- estas diretrizes definem regras locais;
+- o mapa localiza fontes e lacunas;
+- o changelog registra decisões, lacunas, evidências e resultados;
+- código e testes implementam e evidenciam;
+- relatórios não criam requisitos.
 
-## 3. Estados das especificações
+Git registra commits, autoria, diferenças, branches e linhagem. Não duplique
+esses dados manualmente nas fontes EKM.
 
-Estado normativo: `Draft`, `Proposed`, `Approved`, `Active`, `Superseded`, `Withdrawn` ou `Archived`.
+## 3. Fluxo
 
-Estado da implementação: `Not Started`, `In Progress`, `Implemented`, `Validated`, `Regressed`, `Blocked` ou `Retired`.
+```text
+Autor da Especificação
+→ Engenheiro Analista
+→ Engenheiro Implementador
+→ Engenheiro Revisor / Tech Lead
+→ decisão humana e integração
+```
 
-Os estados são independentes e toda alteração exige evidência.
+Implementação exige especificação Implementável [`Implementable`]. Precisa de
+esclarecimento [`Needs Clarification`] retorna a decisão ao Arquiteto sem
+alteração parcial da implementação.
 
-Estado da entrega: `Not Ready`, `Ready for Integration` ou `Done`.
+Cada ator atualiza a especificação, promove os estados sustentados pela própria
+etapa e entrega o resultado por commit e push. Não existe um ator separado
+apenas para reconciliação.
 
-O projeto deve declarar sua referência de produção. Após `Done`, a identidade ID+versão da especificação é imutável; evoluções usam nova especificação relacionada como `Amends`, `Supersedes`, `Corrects` ou `Retires`.
+O `AGENTS.md` seleciona as regras comuns e exatamente um perfil oficial da EKM.
+O agente não carrega perfis de outros papéis nem a metodologia completa, salvo
+ordem explícita de governança.
 
-## 4. Proteção normativa
+## 4. Contrato Git
 
-- Não remover decisões vigentes.
-- Não substituir fonte normativa por resumo.
-- Não perder obrigação, contexto, risco ou trade-off em reorganização editorial.
-- Não resolver conflito normativo silenciosamente.
-- Remoção ou enfraquecimento de conhecimento exige autorização humana explícita.
+Todo fluxo começa em uma branch de trabalho derivada da `main`, nunca
+diretamente na `main`. Toda tarefa de agente começa com árvore limpa, produz
+resultado material, termina com commit e push e deixa a árvore limpa. Push com
+falha significa etapa não entregue.
 
-## 5. Baseline
+A tarefa não autoriza force push, reescrita de histórico, merge, tag, release ou
+deploy sem ordem específica.
 
-O baseline inclui branch, commit e todo o worktree observado no início. Alterações preexistentes devem ser preservadas e reconciliadas separadamente.
+## 5. Preservação
 
-## 6. Transações e lacunas
+- Não remover ou enfraquecer decisão vigente silenciosamente.
+- Não substituir fonte normativa por resumo incompleto.
+- Não resolver conflito normativo por preferência do agente.
+- Atualizar conhecimento afetado na mesma mudança.
+- Registrar lacunas que precisem sobreviver à tarefa.
+
+## 6. Transações
 
 Mudanças usam `EKM-CHG-NNNN`; lacunas usam `EKM-GAP-NNNN`.
 
-Estados: `Open`, `Blocked`, `Superseded` e `Closed`.
+Uma transação registra somente objetivo, decisões, lacunas, evidências materiais
+e resultado. Ela é concluída quando o resultado aceito foi integrado ou, em
+trabalho documental, entregue; o conhecimento está atual; e lacunas restantes
+estão explícitas.
 
-## 7. Technical Readiness Review
+## 7. Regras específicas do projeto
 
-Antes de qualquer alteração, analisar integralmente a especificação e declarar:
-
-- `Implementable`: todos os requisitos obrigatórios são executáveis sem inferência relevante;
-- `Needs Clarification`: existe decisão ausente, contradição ou ambiguidade com impacto normativo.
-
-Em `Needs Clarification`, nenhum item nem artefato de implementação pode ser alterado. Registrar requisito, evidência, lacuna, decisão ausente, impacto das alternativas e ajuste recomendado. Somente registros EKM e a correção normativa aprovada podem mudar. Depois, repetir a análise integral.
-
-Inferência relevante inclui escolhas sobre comportamento, produto, arquitetura, API, protocolo, persistência, concorrência, segurança, compatibilidade, configuração operacional ou aceite. Implementação parcial exige divisão de escopo explicitamente aprovada.
-
-A revisão é cumulativa: encontrar um bloqueio interrompe qualquer intenção de implementação, mas não encerra a análise. Todos os requisitos, precondições, estados normativos, APIs, ciclos de vida, dependências, compatibilidade e validações devem ser classificados.
-
-Use uma matriz com:
-
-| Requisito ou dimensão | Resultado | Evidência | Lacuna ou impacto | Decisão necessária |
-|---|---|---|---|---|
-| `<ID OU ASPECTO>` | `Supported`, `Gap`, `Conflict` ou `Not Applicable` | `<EVIDÊNCIA>` | `<IMPACTO OU NONE>` | `<DECISÃO OU NONE>` |
-
-Technical Readiness Review e implementação ocorrem em execuções separadas. A execução da revisão encerra sem alterar implementação, mesmo com `Implementable`.
-
-`Implementable` significa apto para aprovação humana. A implementação exige aprovação explícita do responsável para a revisão e seu baseline. Antes da primeira alteração, reconfirmar especificação, branch, commit, worktree, resultado aprovado e transação `Open`. Mudança material exige nova revisão integral.
-
-`Needs Clarification` deve ser reportado como bloqueio, nunca como implementação concluída. Este controle é manual e não presume múltiplos agentes, CI/CD ou `EKM Gate`.
-
-## 8. Adoção incremental
-
-Classifique domínios como `Unmapped`, `Inventoried`, `Mapped`, `Reviewed`, `Specified` ou `Reconstructible`.
-
-Use specification on touch: funcionalidade relevante modificada deve alcançar ao menos `Specified` antes da implementação.
-
-## 9. Definition of Done
-
-Uma transação só pode ser fechada quando uma análise válida autorizou a implementação antes da primeira alteração e requisitos, implementação, conhecimento, evidências, mapa, gaps e diferenças do baseline estiverem reconciliados. Validações pendentes e operações externas devem ser declaradas.
-
-Mudança funcional fica `Ready for Integration` após validação e reconciliação, e `Done` somente após integração à referência de produção.
-
-## 10. Automação e garantias previstas
-
-Um futuro `EKM Gate` poderá automatizar regras verificáveis de estrutura, rastreabilidade, imutabilidade e estados. Ele permanece `Planned / Not Defined`; não alegar garantia automática sem especificação, ferramenta e política implantadas. Julgamento semântico permanece humano.
-
-## 11. Regras específicas do projeto
-
-`<REGISTRAR REFERÊNCIA DE PRODUÇÃO E RESTRIÇÕES PERMANENTES CONFIRMADAS>`
+`<REFERÊNCIA DE PRODUÇÃO, VALIDAÇÕES OBRIGATÓRIAS E RESTRIÇÕES CONFIRMADAS>`

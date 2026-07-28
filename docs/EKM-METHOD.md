@@ -1,276 +1,384 @@
-# EKM — Engineering Knowledge Management
+# Método EKM
 
-**Tipo:** Diretriz de referência
+**Versão do documento:** 1.8
 
-**Status:** Active
+**Modelo EKM:** 1.11
 
-**Versão:** 1.3
-
-**Modelo EKM:** 1.6
+**Estado:** aprovado e vigente
 
 ## 1. Objetivo
 
-Estabelecer um modelo sustentável de gestão do conhecimento de engenharia para equipes humanas e assistentes de IA.
+A EKM organiza intenção, execução e evidência para acelerar a entrega de
+software sem transferir decisões de produto ou arquitetura aos agentes. O
+método deve começar com a menor dose de governança capaz de manter:
 
-Um repositório aderente deve preservar conhecimento suficiente para que uma equipe competente consiga:
+- conhecimento vigente;
+- decisões relevantes registradas;
+- execução auditável;
+- resultados verificáveis.
 
-- compreender o propósito e os comportamentos do sistema;
-- modificar o sistema sem remover contratos inadvertidamente;
-- auditar a conformidade entre intenção e implementação;
-- recuperar decisões e regressões relevantes;
-- reconstruir uma implementação funcionalmente equivalente sem depender da implementação atual como única fonte.
+Um controle que não melhora essas quatro propriedades ou a velocidade e a
+qualidade da entrega não deve ser obrigatório.
 
-Reconstruibilidade não significa reproduzir o mesmo código ou binário.
+## 2. Autoridade
 
-## 2. Princípios
+O Arquiteto humano é a autoridade final sobre intenção, prioridade, escopo,
+arquitetura, risco aceito, autorização, validação e integração.
 
-1. Conhecimento permanente pertence ao repositório, não à conversa.
-2. A especificação é a unidade principal do comportamento esperado.
-3. Código e testes não substituem a intenção normativa.
-4. Relatórios registram evidências, mas não criam requisitos implicitamente.
-5. Nenhum agente deve inventar decisões ausentes.
-6. Mudanças de código e de conhecimento formam uma única transação de engenharia.
-7. O baseline inclui o worktree real, não apenas o último commit.
-8. Documentação deve ser proporcional ao risco e ao valor do conhecimento.
-9. A adoção em legado é incremental e orientada por prioridade.
-10. O método deve reduzir retrabalho e custo de contexto, não criar burocracia sem finalidade.
-11. Uma especificação que depende de inferência relevante não está pronta para implementação.
-12. A confiabilidade da execução exige análise de implementabilidade antes do código.
-13. Versões normativas integradas à produção são imutáveis.
-14. Garantias verificáveis devem evoluir de disciplina para automação, sem atribuir à ferramenta julgamento semântico humano.
+Decisões e recomendações de agentes são subordinadas às decisões do Arquiteto.
+O agente deve apontar conflitos e consequências observáveis, mas não pode
+substituir uma decisão humana nem expandir silenciosamente o escopo recebido.
 
-## 3. Classes de fonte
+A autoridade humana não altera fatos. Uma validação que falhou continua
+registrada como falha; o Arquiteto pode aceitar o risco ou decidir prosseguir,
+mas não converter a evidência em aprovação técnica inexistente. Quando uma
+decisão humana muda o comportamento esperado, a especificação deve ser
+atualizada.
 
-### Normativa
+## 3. Fontes de conhecimento
 
-Define obrigação vigente: especificações, contratos, arquitetura, RFCs, ADRs e diretrizes ativas.
+| Fonte | Responsabilidade |
+|---|---|
+| Especificação | comportamento, limites e critérios de aceite |
+| Diretriz | regras locais de trabalho e preservação |
+| Mapa de conhecimento | localização das fontes e lacunas |
+| Changelog EKM | decisões, lacunas, evidências e resultado das mudanças |
+| Dossiê | visão geral e navegação do sistema |
+| Código e testes | implementação e evidência executável |
+| Relatório | evidência de uma execução; não cria requisito |
 
-### Histórica
+Git registra autoria técnica, commits, diferenças, branches e linhagem. Esses
+dados não devem ser copiados manualmente para documentos EKM, salvo quando um
+dado Git for necessário para explicar uma decisão ou um desvio material.
 
-Preserva decisões e estados anteriores. Não governa a implementação atual.
+## 4. Unidade de trabalho
 
-### Operacional
+Uma especificação incremental é a unidade de comportamento e delegação. Ela
+deve conter apenas o necessário para executar e verificar o recorte:
 
-Define procedimentos de build, release, deploy, recuperação ou manutenção.
+- objetivo e contexto;
+- escopo e fora de escopo;
+- requisitos verificáveis;
+- contratos, estados e falhas relevantes;
+- critérios de aceite e validações;
+- relações normativas e lacunas conhecidas;
+- resultado da revisão de implementabilidade.
 
-### Evidência ou relatório
+Versões concluídas da especificação são preservadas. Mudanças posteriores usam
+uma nova versão relacionada por `Amends`, `Supersedes`, `Corrects` ou `Retires`.
 
-Registra uma execução, teste, auditoria, incidente ou experimento.
+## 5. Estados
 
-### Informativa
+Os estados permanecem independentes:
 
-Explica conceitos sem impor obrigação.
+### 5.1 Estado normativo
 
-## 4. Hierarquia e conflito
+- Rascunho [`Draft`]
+- Proposta [`Proposed`]
+- Aprovada [`Approved`]
+- Vigente [`Active`]
+- Substituída [`Superseded`]
+- Retirada [`Withdrawn`]
+- Arquivada [`Archived`]
 
-```text
-Princípios e decisões vigentes
-→ arquitetura e contratos
-→ especificações ativas
-→ critérios de aceite e testes
-→ implementação atual
-→ relatórios, histórico e conversas
+### 5.2 Estado da implementação
+
+- Não iniciada [`Not Started`]
+- Em andamento [`In Progress`]
+- Implementada [`Implemented`]
+- Validada [`Validated`]
+- Regredida [`Regressed`]
+- Bloqueada [`Blocked`]
+- Descontinuada [`Retired`]
+
+### 5.3 Estado da entrega
+
+- Não pronta [`Not Ready`]
+- Pronta para integração [`Ready for Integration`]
+- Concluída [`Done`]
+
+### 5.4 Revisão de implementabilidade
+
+- Pendente de revisão [`Pending Review`]
+- Implementável [`Implementable`]
+- Precisa de esclarecimento [`Needs Clarification`]
+
+O estado declarado na especificação, combinado com a ordem do Arquiteto,
+determina se a próxima etapa pode começar. Não é obrigatório registrar
+manualmente SHA, branch de origem, checkpoint ou cadeia de commits para
+autorizar a transição.
+
+## 6. Ordem do Arquiteto
+
+Cada tarefa do ciclo de uma especificação é iniciada por uma ação do Arquiteto,
+diretamente por prompt ou por comando de pipeline. Essa ação:
+
+- identifica o papel, a especificação e o recorte autorizado;
+- autoriza apenas as operações normais necessárias àquela etapa;
+- não concede liberdade para ampliar requisitos ou tomar decisões reservadas
+  ao Arquiteto.
+
+Antes de agir, o agente lê:
+
+1. o `AGENTS.md` do projeto;
+2. as regras comuns dos perfis;
+3. exatamente um perfil correspondente ao papel recebido;
+4. a especificação indicada;
+5. somente as fontes técnicas pertinentes ao recorte.
+
+Não carrega perfis de outros papéis nem a metodologia completa, salvo ordem
+explícita de governança. Se a ordem não identificar papel e especificação, a
+tarefa não começa.
+
+Tarefas de adoção inicial ou governança do próprio método ficam fora do ciclo
+funcional e exigem ordem explícita com seu recorte documental.
+
+Não é necessário criar um registro adicional de aprovação com nome, data, SHA
+ou assinatura para repetir a ordem recebida.
+
+Uma ordem de análise autoriza somente análise e atualização dos artefatos de
+conhecimento correspondentes. Uma ordem de implementação autoriza a
+implementação somente quando a especificação estiver Implementável
+[`Implementable`].
+
+## 7. Fluxo oficial por atores
+
+Os atores oficiais são:
+
+| Ator | Perfil oficial |
+|---|---|
+| Autor da Especificação | `roles/AUTOR-DA-ESPECIFICACAO.md` |
+| Engenheiro Analista | `roles/ENGENHEIRO-ANALISTA.md` |
+| Engenheiro Implementador | `roles/ENGENHEIRO-IMPLEMENTADOR.md` |
+| Engenheiro Revisor, que pode corresponder ao Tech Lead humano | `roles/ENGENHEIRO-REVISOR.md` |
+
+O fluxo é uma ordem lógica de atuações sequenciais, não uma infraestrutura de
+orquestração:
+
+```mermaid
+flowchart TD
+    A["Arquiteto<br/>intenção, decisões e ordem"] --> B
+
+    subgraph AUT["Autor da Especificação"]
+        B["Especifica o recorte"] --> B1["Proposed<br/>Not Started<br/>Not Ready<br/>Pending Review"]
+        B1 --> B2["Commit + push<br/>árvore limpa"]
+    end
+
+    B2 --> C["Ordem de análise"]
+
+    subgraph ANA["Engenheiro Analista"]
+        C --> D["Confronta requisitos e fontes"]
+        D --> E{"Falta decisão?"}
+        E -- "Sim" --> F["Needs Clarification"]
+        E -- "Não" --> G["Implementable"]
+        F --> H["Registra resultado<br/>commit + push"]
+        G --> H
+    end
+
+    H --> I{"Implementable?"}
+    I -- "Não" --> J["Arquiteto decide"]
+    J --> B
+    I -- "Sim" --> K["Ordem de implementação"]
+
+    subgraph IMP["Engenheiro Implementador"]
+        K --> L["Implementa e valida o recorte"]
+        L --> M["In Progress, Blocked<br/>ou Implemented"]
+        M --> N["Registra resultado<br/>commit + push"]
+    end
+
+    N --> O["Tech Lead / Engenheiro Revisor"]
+
+    subgraph REV["Revisão e decisão humana"]
+        O --> P["Revisa código e evidências"]
+        P --> Q{"Tech Lead validou e<br/>Arquiteto aprovou?"}
+        Q -- "Não" --> R["Registra achados<br/>commit + push"]
+        Q -- "Sim" --> S["Active<br/>Validated<br/>Ready for Integration"]
+        S --> T["Fecha a mudança<br/>commit + push"]
+    end
+
+    R --> K
+    T --> U["Integração autorizada separadamente"]
+    U --> V{"Integrada à referência<br/>de produção?"}
+    V -- "Não" --> W["Ready for Integration"]
+    V -- "Sim" --> X["Done"]
+
+    A -. "autoridade final" .-> C
+    A -.-> K
+    A -.-> Q
+    A -.-> U
 ```
 
-A hierarquia auxilia a localizar autoridade, mas não autoriza ignorar contradições. Diante de conflito normativo, o agente deve registrar a divergência, interromper o trecho afetado e solicitar decisão humana.
+Cada ator encerra a própria etapa: atualiza a especificação e o conhecimento
+materialmente afetado, promove somente os estados sustentados por sua atuação,
+cria commit, realiza push e termina com árvore limpa. Não existe um ator
+adicional destinado apenas a reconciliar ou versionar o resultado dos demais.
 
-## 5. Especificações incrementais
+### 7.1 Autor da Especificação
 
-Um sistema é formado por funcionalidades definidas e modificadas em momentos diferentes. A EKM não exige uma especificação monolítica.
+O Autor registra comportamento, limites, decisões e critérios de aceite. Ao
+terminar, deixa a especificação como Proposta [`Proposed`], Não iniciada
+[`Not Started`], Não pronta [`Not Ready`] e Pendente de revisão
+[`Pending Review`]. O próprio Autor registra e entrega essa promoção.
 
-Cada especificação deve declarar, quando aplicável:
+### 7.2 Engenheiro Analista
 
-- identificador e título;
-- estado normativo e estado da implementação;
-- objetivo, contexto e escopo;
-- comportamento esperado;
-- requisitos identificáveis;
-- invariantes e contratos;
-- estados, falhas e condições de borda;
-- fora de escopo;
-- critérios de aceite e validações;
-- relações com outras fontes;
-- desvios e lacunas conhecidos.
+O Analista verifica se os requisitos podem ser implementados sem decisão
+normativa, de produto ou arquitetura não declarada. A análise deve cobrir o
+recorte necessário para sustentar o resultado, sem exigir uma matriz universal.
 
-### Estado normativo
+Se encontrar uma lacuna bloqueante, pode encerrar a análise assim que a decisão
+necessária estiver clara. Deve registrar os demais bloqueios materiais já
+observados, mas não é obrigado a continuar uma inspeção sem valor para obter uma
+lista exaustiva.
 
-- `Draft`: em elaboração.
-- `Proposed`: pronta para decisão.
-- `Approved`: aprovada, ainda não necessariamente vigente.
-- `Active`: fonte vigente.
-- `Superseded`: substituída por fonte indicada.
-- `Withdrawn`: retirada antes de vigorar.
-- `Archived`: preservada apenas historicamente.
+O resultado é:
 
-### Estado da implementação
+- Implementável [`Implementable`], quando o recorte pode ser executado sem
+  inferência relevante; ou
+- Precisa de esclarecimento [`Needs Clarification`], quando falta uma decisão
+  necessária.
 
-- `Not Started`: não iniciada.
-- `In Progress`: parcial.
-- `Implemented`: concluída, mas sem toda a evidência exigida.
-- `Validated`: critérios comprovados.
-- `Regressed`: deixou de atender ao comportamento antes comprovado.
-- `Blocked`: depende de decisão ou condição externa.
-- `Retired`: removida intencionalmente.
+O Analista não altera a implementação. Ele registra a revisão de
+implementabilidade, as decisões ausentes, as evidências e as lacunas
+relacionadas e entrega sua própria promoção.
 
-### Estado da entrega
+### 7.3 Engenheiro Implementador
 
-- `Not Ready`: ainda não satisfaz integração.
-- `Ready for Integration`: implementação, validações e conhecimento podem seguir para integração.
-- `Done`: a versão normativa e sua implementação foram integradas à referência de produção declarada pelo projeto.
+O Implementador segue a especificação Implementável [`Implementable`], atualiza
+código, testes e conhecimento afetado e executa validações proporcionais ao
+risco. Decisões ausentes interrompem a implementação e retornam ao Arquiteto;
+não são preenchidas por conveniência técnica.
 
-Os estados normativo, de implementação e de entrega são independentes. `Implemented`, `Validated` e `Done` não são sinônimos.
+Resultado de build, teste, inspeção, hardware ou outra validação deve ser
+registrado quando for material para comprovar ou limitar a entrega. Não se
+registram comandos de leitura, arquivos temporários ou detalhes operacionais
+sem efeito sobre a conclusão.
 
-### Imutabilidade em produção
+O estado permanece Em andamento [`In Progress`] enquanto faltar implementação
+ou validação obrigatória da etapa. Implementada [`Implemented`] exige código e
+validações automatizáveis obrigatórias. A promoção posterior para Validada
+[`Validated`] pertence ao Engenheiro Revisor com as evidências humanas
+requeridas.
 
-Antes de `Done`, uma especificação pode ser revisada e retornar a estados anteriores. Após `Done`, sua identidade de ID e versão é imutável. Mudanças posteriores exigem nova especificação relacionada como `Amends`, `Supersedes`, `Corrects` ou `Retires`.
+O Implementador registra na própria especificação o estado sustentado e entrega
+essa promoção com o restante da implementação.
 
-O mapa e o changelog registram eventos posteriores e determinam a composição normativa vigente sem reescrever a versão integrada. Cada projeto deve declarar sua referência de produção; ela não deve ser inferida pelo executor.
+### 7.4 Engenheiro Revisor, decisão e integração
 
-## 6. Technical Readiness Review e atomicidade
+O Revisor encerra o ciclo técnico quando existem revisão, validação e decisão
+humana a registrar. A profundidade da revisão é proporcional ao risco.
+Revisões independentes adicionais, inclusive auditoria de integridade EKM, são
+executadas somente quando o Arquiteto as solicitar.
 
-Antes de qualquer alteração de implementação, o executor deve analisar integralmente a especificação, as fontes relacionadas e o baseline. Deve verificar clareza, consistência, testabilidade, contratos, dependências, condições de borda, compatibilidade, validações e mudanças necessárias não autorizadas.
+O Revisor confronta comportamento, arquitetura, compatibilidade, testes,
+evidências e conhecimento sem corrigir a implementação na mesma atuação. Sem
+aprovação explícita do Arquiteto, registra achados e preserva estados
+compatíveis com as evidências.
 
-O resultado é binário:
+Quando a ordem contém validação suficiente do Tech Lead e aprovação explícita
+do Arquiteto, o Revisor registra essa evidência recebida e promove:
 
-- `Implementable`: o recorte inteiro pode ser executado sem inferência relevante;
-- `Needs Clarification`: ao menos um requisito obrigatório depende de decisão ausente, contraditória ou ambígua.
+- estado normativo para Vigente [`Active`];
+- implementação para Validada [`Validated`];
+- entrega para Pronta para integração [`Ready for Integration`];
+- transação para Fechada [`Closed`], quando suas condições estiverem
+  satisfeitas.
 
-Inferência relevante é uma escolha capaz de alterar comportamento observável, produto, arquitetura, API, protocolo, persistência, concorrência, segurança, compatibilidade, configuração operacional ou critério de aceite.
+O Revisor não produz aprovação própria. Quando o Arquiteto confirma que o
+resultado aceito foi integrado à referência de produção, o Revisor registra a
+evidência e promove a entrega para Concluída [`Done`]. Um pull request aberto,
+isoladamente, não comprova integração.
 
-### 6.1 Completude cumulativa
+## 8. Contrato Git de cada tarefa
 
-Encontrar uma lacuna bloqueia imediatamente qualquer intenção de implementação, mas não encerra a Technical Readiness Review. O revisor deve continuar até classificar todos os requisitos e dimensões obrigatórias do recorte.
+Toda tarefa de agente deve:
 
-A revisão deve verificar, além dos requisitos identificáveis:
+1. começar em uma branch de trabalho derivada da `main`, nunca diretamente na
+   `main`;
+2. começar com a árvore de trabalho limpa;
+3. produzir um resultado material e versionável;
+4. criar um commit ao fim da etapa;
+5. enviar o commit ao repositório remoto por push;
+6. terminar com a árvore de trabalho limpa.
 
-- precondições confrontadas com o baseline;
-- estados normativo, de implementação e de entrega;
-- APIs e ciclo de vida;
-- dependências e configuração;
-- compatibilidade e regressões;
-- viabilidade das validações e critérios de aceite.
+A branch pode atravessar as etapas autorizadas do mesmo recorte. A exigência é
+que o fluxo de trabalho tenha sido iniciado a partir da `main`; não é necessário
+criar uma nova branch para cada atuação, atualizar a branch com avanços
+posteriores da `main` nem copiar a branch de origem para os documentos EKM.
 
-O resultado deve ser sustentado por uma matriz com:
+Uma tarefa não usa commit vazio para simular entrega. Mesmo quando não houver
+mudança de código, a conclusão material da etapa deve atualizar o artefato EKM
+apropriado, como a especificação, a transação ou o registro de evidência.
 
-| Campo | Valores ou conteúdo |
-|---|---|
-| Requisito ou dimensão | Identificador ou aspecto transversal |
-| Resultado | `Supported`, `Gap`, `Conflict` ou `Not Applicable` |
-| Evidência | Fato verificável do baseline |
-| Lacuna ou impacto | Consequência técnica ou normativa |
-| Decisão necessária | Decisão humana pendente ou `None` |
+Falha no push significa que a etapa ainda não foi entregue para a próxima
+etapa. A ordem da tarefa autoriza commit e push normais na branch indicada, mas
+não autoriza force push, reescrita de histórico, merge, tag, release ou deploy
+sem ordem correspondente do Arquiteto.
 
-Nenhum requisito pode ficar sem classificação. Uma revisão encerrada no primeiro bloqueio não é integral.
+O próprio Git é a evidência desses atos. Não é obrigatório repetir hashes,
+branch ou mensagem do commit no `EKM-CHANGELOG.md`.
 
-### 6.2 Separação entre revisão, aprovação e implementação
+## 9. Transações e lacunas
 
-A Technical Readiness Review e a implementação devem ocorrer em execuções separadas, ainda que sejam realizadas pelo mesmo agente.
+`EKM-CHG-NNNN` identifica uma mudança de conhecimento ou implementação.
+`EKM-GAP-NNNN` identifica conhecimento ausente que precise sobreviver à tarefa.
 
-A execução da revisão deve registrar especificação, branch, commit e estado real do worktree, produzir a matriz completa e encerrar sem alterar implementação, inclusive quando o resultado for `Implementable`.
+Uma transação deve registrar somente:
 
-`Implementable` significa apto para aprovação humana; não constitui autorização autônoma. A implementação somente pode começar após aprovação explícita do responsável para a revisão e o baseline registrados.
+- objetivo e especificação relacionada;
+- decisões que alteram entendimento ou execução;
+- lacunas relevantes;
+- evidências materiais;
+- estado e resultado.
 
-Antes da primeira alteração, o executor deve reconfirmar que:
+Ela não deve funcionar como diário de comandos, espelho do histórico Git ou
+formulário de passagem entre agentes.
 
-- a especificação não sofreu mudança material;
-- branch, commit e worktree permanecem compatíveis com o baseline revisado;
-- a revisão aprovada permanece `Implementable`;
-- a transação aplicável está `Open`.
+Estados recomendados da transação:
 
-Mudança material invalida a autorização e exige nova revisão integral. `Needs Clarification` deve ser reportado como bloqueio, nunca como implementação concluída.
+- Aberta [`Open`]
+- Bloqueada [`Blocked`]
+- Substituída [`Superseded`]
+- Fechada [`Closed`]
 
-Esse controle é manual no modelo 1.6 e não depende de múltiplos agentes, CI/CD ou `EKM Gate`.
+O fechamento ocorre quando o recorte autorizado foi entregue por commit e push,
+as fontes afetadas estão atuais, as evidências materiais estão registradas e as
+lacunas restantes estão explícitas. Fechar a transação não significa que a
+especificação está Concluída [`Done`]; o estado da entrega informa separadamente
+se houve integração. Não se exige um commit posterior apenas para copiar
+metadados do Git.
 
-Em `Needs Clarification`:
+## 10. Adoção em legado
 
-1. nenhum item da especificação nem artefato de implementação é alterado;
-2. o executor registra requisito, evidência, lacuna, decisão ausente, impacto das alternativas e ajuste recomendado;
-3. o responsável corrige ou aprova a correção da especificação;
-4. a análise integral é repetida;
-5. somente o novo resultado `Implementable`, seguido de aprovação humana explícita e reconfirmação do baseline, autoriza a execução.
+A adoção começa pequena:
 
-Implementação parcial exige divisão explícita e aprovada da especificação. Decisões mecânicas privadas continuam permitidas apenas quando comprovadamente equivalentes e sem impacto normativo.
+1. inventariar o sistema e localizar fontes existentes;
+2. criar a fundação mínima;
+3. registrar lacunas que afetam decisões reais;
+4. especificar em profundidade somente o que for tocado;
+5. aumentar controles apenas quando a experiência demonstrar valor.
 
-Durante `Needs Clarification`, somente registros EKM e a correção normativa explicitamente aprovada podem ser alterados.
-
-## 7. Transações e lacunas
-
-Mudanças relevantes usam identificadores `EKM-CHG-NNNN`. Lacunas usam `EKM-GAP-NNNN`.
-
-Estados permitidos:
-
-- `Open`;
-- `Blocked`;
-- `Superseded`;
-- `Closed`.
-
-Uma transação deve registrar baseline, objetivo, requisitos, fontes afetadas, resultado da Technical Readiness Review, evidências, desvios e encerramento. Uma lacuna somente é fechada quando seu critério explícito de encerramento é comprovado.
-
-## 8. Proteção do conhecimento
-
-- Não remover decisões vigentes.
-- Não substituir documentos normativos por resumos.
-- Não condensar conteúdo de modo a perder obrigação, contexto, risco ou trade-off.
-- Não tratar limpeza editorial como autorização para mudança normativa.
-- Marcar substituição e preservar a relação histórica.
-- Declarar semanticamente toda mudança normativa no relatório.
-- Obter autorização humana para remover conhecimento vigente.
-
-## 9. Baseline e reconciliação
-
-Antes de alterar o repositório, registre:
-
-- branch e commit;
-- arquivos modificados, novos e não rastreados;
-- builds e testes relevantes conhecidos;
-- fontes normativas vigentes.
-
-No encerramento, reconcilie separadamente:
-
-1. código;
-2. build e automação;
-3. testes e evidências;
-4. documentação normativa;
-5. todas as diferenças em relação ao worktree inicial.
-
-## 10. Definition of Ready for Integration e Done
-
-`Ready for Integration` exige requisitos atendidos, validações obrigatórias aprovadas, implementação e conhecimento reconciliados, ausência de bloqueios e evidência auditável.
-
-`Done` exige ainda integração da versão normativa e da implementação à referência de produção declarada. Pendência obrigatória impede ambos os estados.
-
-## 11. Definition of Done da transação EKM
-
-Uma mudança só pode ser encerrada quando:
-
-- uma Technical Readiness Review válida autorizou a implementação antes da primeira alteração de implementação;
-- requisitos foram rastreados;
-- implementação e conhecimento estão reconciliados;
-- decisões não foram removidas silenciosamente;
-- validações foram executadas ou declaradas pendentes;
-- mapa e lacunas refletem o estado real;
-- o relatório permite auditoria;
-- operações Git e externas foram declaradas.
-
-Build aprovado, isoladamente, não comprova conformidade EKM.
-
-Mudanças funcionais sob o modelo 1.6 somente encerram a transação em `Done`. Investigações e governança podem possuir critério aprovado próprio sem declarar entrega funcional.
-
-## 12. Automação e garantias previstas
-
-A EKM prevê um futuro `EKM Gate` para verificar automaticamente regras comprováveis antes da integração, reduzindo dependência de disciplina individual. São candidatos: estrutura e metadados, relações normativas, imutabilidade em produção, evidência de Technical Readiness, rastreabilidade, estados e reconciliação.
-
-O Gate permanece `Planned / Not Defined`. Arquitetura, schema, ferramenta, política de bloqueio e implantação ainda exigem especificação própria e experimentos. Nenhum projeto pode alegar garantia automatizada apenas por adotar estas diretrizes. Completude semântica e intenção permanecem responsabilidade humana.
-
-## 13. Conjunto mínimo recomendado
+Fundação recomendada:
 
 ```text
 AGENTS.md
-docs/rfc/EKM-GUIDELINES.md
-docs/rfc/KNOWLEDGE-MAP.md
-docs/rfc/EKM-CHANGELOG.md
-docs/specs/SYSTEM-DOSSIER.md
-docs/specs/<especificações funcionais>.md
+docs/
+├── rfc/
+│   ├── KNOWLEDGE-MAP.md
+│   └── EKM-CHANGELOG.md
+└── specs/
+    └── SYSTEM-DOSSIER.md
 ```
 
-O conjunto pode crescer, mas cada novo ativo deve ter finalidade e autoridade claras.
+`EKM-GUIDELINES.md` local é necessário apenas quando o projeto não referencia
+uma diretriz externa aplicável ou precisa declarar regras próprias.
+
+## 11. Limites atuais
+
+A EKM 1.11 não define orquestração, concorrência, locks ou filas. Esses
+mecanismos não fazem parte do fluxo nem dos critérios dos experimentos atuais.
+
+O modelo também não afirma que documentação substitui código, testes,
+observabilidade ou julgamento humano. Sua utilidade deve ser medida pela
+capacidade de entregar e descartar hipóteses mais rapidamente, preservando
+conhecimento suficiente para compreender e verificar o resultado.

@@ -2,9 +2,14 @@
 
 ## Definição
 
-Engineering Knowledge Management (EKM) é uma abordagem para manter alinhados o comportamento desejado, as decisões de engenharia, a implementação e suas evidências.
+Gestão do Conhecimento de Engenharia (*Engineering Knowledge Management* —
+EKM) é uma abordagem de governança da
+engenharia assistida por IA para manter alinhados o comportamento desejado, as
+decisões de engenharia, a implementação e suas evidências.
 
-Seu objetivo é tornar o conhecimento do sistema localizável, auditável e reutilizável por pessoas e agentes de IA.
+Seu objetivo é acelerar entregas confiáveis, preservando autoridade humana,
+responsabilidades delimitadas e conhecimento localizável, auditável e
+reutilizável por pessoas e agentes de IA.
 
 ## Problema tratado
 
@@ -51,11 +56,57 @@ Isso inclui recuperar comportamentos, contratos, limites, decisões, falhas espe
 
 ## Relação entre humano e agente
 
-O agente pode localizar fatos, comparar fontes, implementar especificações e produzir evidências. O responsável humano continua decidindo intenção, prioridade, compatibilidade e trade-offs quando as fontes não forem inequívocas.
+O agente pode localizar fatos, comparar fontes, apoiar a especificação,
+implementar contratos aprovados e produzir evidências. O responsável humano
+continua decidindo intenção, prioridade, compatibilidade, relações de ganhos e
+perdas, arquitetura, risco aceito, autorização e decisão final de entrega.
+Quando houver conflito entre uma decisão do agente e uma decisão do Arquiteto,
+prevalece o Arquiteto.
 
-O ganho esperado é deslocar o esforço humano do trabalho repetitivo para decisões de maior impacto.
+A EKM busca autonomia governada, não autonomia máxima. Interação humana em
+decisões, aprovações e validações é parte do funcionamento esperado do método,
+não uma falha a ser eliminada.
 
-## Hipóteses atuais
+O ganho esperado é deslocar o esforço humano do trabalho repetitivo e da
+coordenação operacional para decisões de maior impacto. Reduzir interação é
+desejável quando ela representa retrabalho, ambiguidade ou operação repetitiva;
+não quando ela exerce governança.
+
+## Especificação, estado e ordem humana
+
+A EKM não determina como a especificação é confeccionada. Seu contrato começa
+no artefato resultante.
+
+Cada tarefa de agente nasce de uma ordem do Arquiteto, por prompt ou pipeline.
+Essa ordem autoriza a etapa solicitada, enquanto o estado da especificação
+indica se ela está pronta para a etapa. Não é necessário repetir a ordem em um
+parecer documental com metadados Git.
+
+Git preserva autoria técnica, diferenças e linhagem. As fontes EKM preservam o
+que Git não explica sozinho: intenção, decisão, lacuna, evidência material e
+resultado.
+
+## Modelo de atores
+
+A EKM organiza a execução por quatro atores:
+
+| Ator | Responsabilidade |
+|---|---|
+| Autor da Especificação | transformar intenção confirmada em contrato verificável |
+| Engenheiro Analista | determinar implementabilidade sem inventar decisões |
+| Engenheiro Implementador | implementar, validar e registrar o estado sustentado |
+| Engenheiro Revisor | revisar evidências e registrar decisões humanas recebidas |
+
+Uma ordem curta identifica papel, especificação e recorte. O `AGENTS.md` do
+projeto encaminha o agente para regras comuns e exatamente um perfil. Cada ator
+encerra a própria etapa atualizando conhecimento, promovendo estados, criando
+commit e realizando push.
+
+Não existe um ator dedicado apenas a reconciliar o resultado dos demais.
+Validação, aprovação e integração continuam decisões humanas; o Revisor apenas
+as registra quando fornecidas explicitamente.
+
+## Hipóteses e evidências
 
 A EKM parte de hipóteses ainda em validação:
 
@@ -66,10 +117,21 @@ A EKM parte de hipóteses ainda em validação:
 5. melhor contexto deve se converter em produtividade mensurável.
 6. análise técnica anterior à implementação reduz inferências, interrupções e retrabalho durante a execução.
 7. imutabilidade de versões em produção preserva a linhagem entre intenção e entrega.
-8. garantias automatizadas podem aumentar conformidade em aspectos verificáveis sem substituir decisão humana.
+8. governança explícita aumenta confiança e velocidade sem exigir redução da
+   participação humana decisória.
+9. usar o estado da especificação e a ordem do Arquiteto reduz passagens
+   documentais sem perder autoridade.
+10. manter a linhagem no Git reduz duplicação sem perder auditabilidade.
+11. perfis específicos por ator reduzem a necessidade de carregar e interpretar
+    a metodologia completa em cada tarefa.
+12. especificação, estados e Git permitem continuidade entre modelos e
+    ambientes diferentes.
 
-Os experimentos atuais sustentam essas hipóteses parcialmente, mas não demonstram aplicabilidade universal.
+O ciclo completo no aplicativo iotsmarthome sustentou a adoção do modelo de
+atores na EKM 1.11. Os experimentos não demonstram aplicabilidade universal nem
+garantem obediência de qualquer agente.
 
 ## Estado do método
 
-A EKM está em evolução. O modelo atual é utilizável para novos experimentos e adoção inicial, mas deve mudar quando evidências mostrarem lacunas, excesso de custo ou regras inadequadas.
+A EKM 1.11 está aprovada e vigente para adoção. O método continua evoluindo
+quando evidências mostrarem lacunas, excesso de custo ou regras inadequadas.

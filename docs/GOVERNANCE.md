@@ -2,81 +2,71 @@
 
 ## 1. Objetivo
 
-Permitir que o método evolua com evidências sem apagar sua história nem apresentar hipóteses como conclusões.
+Evoluir a EKM por evidência, com autoridade humana e com a menor carga
+operacional capaz de manter conhecimento, decisões, auditabilidade e
+verificabilidade.
 
-## 2. Estado atual
+**Modelo vigente:** 1.11.
 
-A EKM é experimental e utilizável. Não está concluída nem descartada. Cada versão representa o melhor modelo conhecido até aquele momento.
+## 2. Autoridade
 
-**Modelo vigente neste repositório:** 1.6.
+O Arquiteto humano decide intenção, prioridade e adoção das regras. Agentes
+podem propor mudanças e apresentar evidências, mas não tornam uma hipótese
+obrigatória por iniciativa própria.
 
-## 3. Fontes deste repositório
+## 3. Critério para adicionar governança
 
-| Fonte | Autoridade |
-|---|---|
-| `docs/EKM-CONCEPT.md` | Conceito e limites atuais |
-| `docs/EKM-METHOD.md` | Método de referência vigente |
-| `docs/DESIGN-DECISIONS.md` | Razões das decisões do método |
-| `docs/LEGACY-ADOPTION.md` | Processo recomendado para legados |
-| `templates/` | Ponto de partida operacional |
-| `docs/case-studies/` | Evidências e aprendizados, não regras universais |
+Uma nova obrigação deve demonstrar:
 
-## 4. Critérios para evolução
+- problema observado em execução real;
+- ganho esperado para entrega, conhecimento ou verificação;
+- custo operacional e cognitivo;
+- forma proporcional de aplicação;
+- evidência que permitirá mantê-la, reduzi-la ou descartá-la.
 
-Uma mudança na EKM deve indicar:
+Ideias ainda não aprovadas não entram no fluxo vigente, nos templates, nos
+critérios dos experimentos ou nas validações.
 
-- problema observado;
-- evidência ou experimento que o revelou;
-- regra ou modelo afetado;
-- impacto nos templates;
-- compatibilidade com adoções anteriores;
-- hipótese que ainda permanece aberta.
+## 4. Critério para reduzir governança
 
-Preferências editoriais isoladas não justificam expansão do método.
+Um controle deve ser simplificado ou removido quando:
+
+- repete informação já preservada por uma fonte confiável, como o Git;
+- exige preenchimento sem apoiar decisão humana;
+- cria etapas universais para um risco localizado;
+- atrasa o experimento sem evidência de ganho;
+- aumenta divergência entre documentos.
+
+Remover burocracia não autoriza perder decisão, lacuna ou evidência material.
 
 ## 5. Versionamento
 
-Usar versionamento semântico para versões publicadas do guideline:
+- **major:** mudança incompatível nos estados ou no modelo;
+- **minor:** mudança compatível de comportamento, regra ou capacidade;
+- **patch:** esclarecimento sem mudança operacional.
 
-- **major:** mudança incompatível no modelo ou nos estados;
-- **minor:** nova capacidade, regra ou template compatível;
-- **patch:** esclarecimento ou correção sem mudança de comportamento.
+Projetos adotantes migram deliberadamente. Registros históricos continuam
+válidos sob a versão usada em sua execução.
 
-Projetos adotantes não precisam atualizar automaticamente. A migração deve ser deliberada e registrar quais regras passaram a vigorar.
+## 6. Evolução
 
-## 6. Experimentos
+Para alterar o método:
 
-Estudos de caso devem separar:
+1. registrar o problema e a evidência;
+2. obter decisão do Arquiteto;
+3. atualizar método, decisões, templates e navegação afetados;
+4. preservar a compreensão dos experimentos anteriores;
+5. validar consistência textual e referências;
+6. entregar a mudança por commit e push.
 
-- contexto;
-- hipótese;
-- execução;
-- evidência;
-- resultado;
-- mudança introduzida no método;
-- limitações da conclusão.
+## 7. Medida de sucesso
 
-Resultados negativos são conhecimento válido e não devem ser omitidos.
+O sucesso não é quantidade de documentos ou controles. Avalie:
 
-## 7. Alterações nos modelos
-
-Ao modificar um template:
-
-1. atualizar a fonte conceitual ou decisão relacionada;
-2. verificar consistência entre todos os modelos;
-3. manter o template genérico;
-4. não incorporar regras específicas de um projeto;
-5. registrar impacto para usuários existentes.
-
-## 8. Critério de qualidade
-
-O sucesso da EKM não é medido pela quantidade de documentos. Deve ser avaliado por:
-
-- facilidade de localizar autoridade;
-- redução de perguntas repetidas e inferências;
-- preservação de contratos durante mudanças;
-- qualidade e autonomia segura da execução;
-- tempo entre especificação e validação;
-- custo de manutenção do próprio conhecimento.
-
-Essas métricas ainda precisam ser experimentadas de forma mais sistemática.
+- tempo entre intenção e entrega validada;
+- capacidade de experimentar e descartar ideias;
+- atualização do conhecimento;
+- decisões localizáveis;
+- evidências suficientes para verificar conclusões;
+- retrabalho e carga cognitiva;
+- confiança proporcional ao risco.

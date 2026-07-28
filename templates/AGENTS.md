@@ -1,36 +1,54 @@
-# Instruções para agentes
+# Instruções permanentes e roteamento EKM
 
-Este repositório adota Engineering Knowledge Management (EKM).
+**Modelo EKM:** 1.11
 
-Antes de alterar código, build, testes, automações ou documentação, leia nesta ordem:
+**Modalidade:** atores com perfis referenciados
 
-1. `docs/rfc/EKM-GUIDELINES.md`;
-2. `docs/rfc/KNOWLEDGE-MAP.md`;
-3. as especificações ativas relacionadas em `docs/specs/`;
-4. `docs/rfc/EKM-CHANGELOG.md` e a transação aberta.
+**Estado:** vigente
 
-## Regras obrigatórias
+## Autoridade
 
-- A especificação define o comportamento esperado; não invente contratos ausentes.
-- Antes de alterar qualquer artefato de implementação, execute a Technical Readiness Review integral e declare `Implementable` ou `Needs Clarification`.
-- Classifique individualmente todos os requisitos e dimensões obrigatórias em uma matriz de evidências. Um bloqueio interrompe a implementação, mas não encerra a análise restante.
-- Execute a Technical Readiness Review e a implementação em execuções separadas. A execução da revisão deve encerrar sem alterar implementação, inclusive com resultado `Implementable`.
-- Trate `Implementable` como apto para aprovação humana, não como autorização automática. Implemente somente após aprovação explícita do responsável para a revisão e o baseline registrados.
-- Antes da primeira alteração, reconfirme especificação, branch, commit, worktree, resultado aprovado e transação `Open`. Mudança material exige nova revisão integral.
-- Se qualquer requisito obrigatório exigir inferência relevante, não implemente nenhum item; registre a lacuna e proponha o ajuste na especificação.
-- Após ajuste aprovado da especificação, repita a análise integral antes de implementar.
-- Em `Needs Clarification`, altere somente registros EKM e a correção normativa explicitamente aprovada.
-- Reporte `Needs Clarification` como bloqueio, nunca como implementação concluída.
-- Preserve APIs, contratos e conhecimento normativo salvo autorização explícita.
-- Considere todo o worktree inicial como baseline.
-- Abra ou identifique uma transação EKM antes de mudança relevante.
-- Registre lacunas em vez de preenchê-las por suposição.
-- Não transforme descoberta em decisão de produto, arquitetura, contrato, persistência, segurança, compatibilidade ou comportamento.
-- Não reescreva versão de especificação já integrada à referência de produção; crie uma nova especificação relacionada.
-- Não presuma que exista `EKM Gate` ou garantia automatizada sem ferramenta e política explicitamente implantadas.
-- Não execute operações Git ou externas não autorizadas.
-- Preserve alterações preexistentes e fora do escopo.
+O Arquiteto humano tem autoridade final sobre intenção, prioridade, escopo,
+arquitetura, risco, autorização, validação e integração. A ordem recebida por
+prompt ou pipeline identifica papel, especificação e recorte autorizado.
 
-## Relatório obrigatório
+## Fonte dos perfis
 
-Informe resultado, requisitos, arquivos, contratos, conhecimento alterado, validações, pendências, desvios, revisão e aprovação que autorizaram a implementação, reconfirmação do baseline, estado EKM e operações externas.
+**Raiz da EKM:** `<CAMINHO_ACESSIVEL_DA_EKM>`
+
+Antes de qualquer atuação EKM:
+
+1. leia integralmente
+   `<CAMINHO_ACESSIVEL_DA_EKM>/roles/REGRAS-COMUNS.md`;
+2. leia integralmente somente o perfil correspondente ao papel recebido;
+3. leia a especificação indicada;
+4. leia apenas as fontes técnicas pertinentes ao recorte.
+
+| Papel recebido | Perfil |
+|---|---|
+| Autor da Especificação | `roles/AUTOR-DA-ESPECIFICACAO.md` |
+| Engenheiro Analista | `roles/ENGENHEIRO-ANALISTA.md` |
+| Engenheiro Implementador | `roles/ENGENHEIRO-IMPLEMENTADOR.md` |
+| Engenheiro Revisor | `roles/ENGENHEIRO-REVISOR.md` |
+
+Não carregue perfis de outros papéis nem a metodologia EKM completa. Se a ordem
+não identificar papel e especificação, ou se a fonte não estiver acessível, não
+inicie a tarefa; informe o impedimento ao Arquiteto.
+
+## Fontes locais do projeto
+
+- especificações: `<CAMINHO_DAS_ESPECIFICACOES>`;
+- decisões e evidências: `<CAMINHO_DO_CHANGELOG>`;
+- mapa de conhecimento: `<CAMINHO_DO_MAPA>`;
+- arquitetura e padrões: `<FONTES_TECNICAS_LOCAIS>`;
+- comandos canônicos: `<BUILD_TESTES_E_VALIDACOES>`.
+
+## Invariantes locais
+
+- `<REGRA_PERMANENTE_DO_PROJETO>`;
+- `<RESTRICAO_DE_SEGURANCA_OU_PLATAFORMA>`;
+- `<ARQUIVOS_OU_OPERACOES_PROIBIDAS>`.
+
+As regras comuns e o perfil selecionado definem condições de entrada, promoção
+de estados, evidência, Git e encerramento. Regras específicas da tarefa
+pertencem à especificação ou à ordem do Arquiteto, não a este arquivo.

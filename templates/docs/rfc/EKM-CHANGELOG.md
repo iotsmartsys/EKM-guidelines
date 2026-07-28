@@ -1,62 +1,37 @@
-# EKM — Histórico de mudanças
+# Histórico de mudanças EKM
 
-## EKM-CHG-0001 — Fundação EKM
+Registre decisões, lacunas, evidências e resultados materiais. O histórico Git
+já registra commits, autores, branches, diferenças e push; não copie esses dados
+para este documento.
 
-**Estado:** Open
+## EKM-CHG-0001 — `<TÍTULO>`
 
-**Data:** `<AAAA-MM-DD>`
+**Estado:** Aberta [`Open`] | Bloqueada [`Blocked`] | Substituída
+[`Superseded`] | Fechada [`Closed`]
 
-### Objetivo
+**Especificação relacionada:** `<ID@VERSÃO OU NÃO APLICÁVEL>`
 
-Adotar a fundação EKM e registrar o conhecimento inicial do sistema sem alterar comportamento.
+**Objetivo:** `<RESULTADO PRETENDIDO>`
 
-### Baseline
+### Decisões
 
-- Repositório: `<CAMINHO>`.
-- Branch: `<BRANCH>`.
-- Commit: `<COMMIT>`.
-- Worktree: `<ESTADO E ALTERAÇÕES PREEXISTENTES>`.
+- `<DECISÃO QUE ALTERA ENTENDIMENTO OU EXECUÇÃO>`
 
-### Escopo
+### Lacunas
 
-- criar governança, mapa, changelog e dossiê;
-- propor especificações prioritárias;
-- registrar decisões confirmadas, lacunas e desvios;
-- não alterar código ou automações.
+- `<EKM-GAP-NNNN E IMPACTO, OU NENHUMA>`
 
-### Ativos afetados
+### Evidências materiais
 
-`<LISTA>`
+- `<TESTE, BUILD, INSPEÇÃO, VALIDAÇÃO HUMANA OU LIMITAÇÃO>`
 
-### Decisões e requisitos
+### Resultado
 
-`<LISTA RASTREÁVEL>`
+`<O QUE FOI ENTREGUE, ACEITO, BLOQUEADO OU CANCELADO>`
 
-### Technical Readiness Review
-
-- Resultado: `<Implementable | Needs Clarification>`.
-- Baseline e fontes analisadas: `<LISTA>`.
-- Matriz integral de requisitos e dimensões: `<CAMINHO OU CONTEÚDO>`.
-- Lacunas ou decisões ausentes: `<NENHUMA OU LISTA>`.
-- Evidência de que a revisão encerrou sem alteração de implementação: `<EVIDÊNCIA>`.
-- Aprovação humana para implementar: `<RESPONSÁVEL, DATA E REFERÊNCIA OU PENDENTE>`.
-- Reconfirmação do baseline antes da primeira alteração: `<EVIDÊNCIA OU NÃO APLICÁVEL>`.
-
-### Estado da entrega
-
-- Referência de produção: `<BRANCH, TAG, RELEASE OU AMBIENTE>`.
-- Estado: `<Not Ready | Ready for Integration | Done>`.
-- Relações normativas criadas: `<NENHUMA OU LISTA>`.
-- Evidência de integração, quando `Done`: `<COMMIT, PR, TAG OU DEPLOY>`.
-
-### Validações
-
-`<VALIDAÇÕES E RESULTADOS>`
-
-### Pendências e desvios
-
-`<GAPS E DESVIOS>`
-
-### Encerramento
-
-`<CRITÉRIO, EVIDÊNCIA E DECISÃO DE FECHAMENTO>`
+Uma transação é fechada quando o recorte autorizado foi entregue por commit e
+push, o conhecimento afetado está atual, as evidências materiais foram
+registradas e as lacunas restantes estão explícitas. O estado da entrega da
+especificação registra separadamente se houve integração. Não é necessário
+registrar hashes de origem nem criar commit posterior para reconciliar o próprio
+histórico Git.

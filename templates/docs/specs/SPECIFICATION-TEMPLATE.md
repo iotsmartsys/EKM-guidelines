@@ -2,95 +2,80 @@
 
 **ID:** `<PROJETO-DOMÍNIO>`
 
-**Tipo:** Normativo
-
-**Estado normativo:** Draft
-
-**Estado da implementação:** Not Started
-
-**Estado da entrega:** Not Ready
-
-**Technical readiness:** Pending Review
+**Classe da fonte:** Normativa
 
 **Versão:** 0.1
 
-**Responsável:** `<RESPONSÁVEL>`
+**Estado normativo:** Rascunho [`Draft`]
 
-**Relação normativa:** `New | Amends <ID@VERSÃO> | Supersedes <ID@VERSÃO> | Corrects <ID@VERSÃO> | Retires <ID@VERSÃO>`
+**Estado da implementação:** Não iniciada [`Not Started`]
 
-## 1. Objetivo
+**Estado da entrega:** Não pronta [`Not Ready`]
 
-`<RESULTADO OBSERVÁVEL PRETENDIDO>`
+**Revisão de implementabilidade:** Pendente de revisão [`Pending Review`]
 
-## 2. Contexto e problema
+**Relação normativa:** Nova [`New`] | Altera [`Amends`] `<ID@VERSÃO>` |
+Substitui [`Supersedes`] `<ID@VERSÃO>` | Corrige [`Corrects`] `<ID@VERSÃO>` |
+Descontinua [`Retires`] `<ID@VERSÃO>`
 
-`<POR QUE A FUNCIONALIDADE EXISTE OU PRECISA MUDAR>`
+## 1. Objetivo e contexto
 
-## 3. Escopo
+`<RESULTADO OBSERVÁVEL E POR QUE ELE É NECESSÁRIO>`
+
+## 2. Escopo
 
 `<COMPORTAMENTOS ABRANGIDOS>`
 
-## 4. Requisitos
-
-- **`<PREFIXO>-001`:** `<REQUISITO TESTÁVEL>`.
-- **`<PREFIXO>-002`:** `<REQUISITO TESTÁVEL>`.
-
-## 5. Fluxos e estados
-
-`<FLUXOS NORMAIS, ALTERNATIVOS E TRANSIÇÕES>`
-
-## 6. Contratos e invariantes
-
-`<API, WIRE, PERSISTÊNCIA, CONCORRÊNCIA, SEGURANÇA, COMPATIBILIDADE>`
-
-## 7. Falhas e condições de borda
-
-`<COMPORTAMENTO ESPERADO DIANTE DE ERROS>`
-
-## 8. Fora de escopo
+## 3. Fora de escopo
 
 `<LIMITES EXPLÍCITOS>`
 
-## 9. Critérios de aceite
+## 4. Requisitos
 
-`<EVIDÊNCIA OBJETIVA PARA CADA REQUISITO>`
+- **`<PREFIXO>-001`:** `<REQUISITO VERIFICÁVEL>`.
+- **`<PREFIXO>-002`:** `<REQUISITO VERIFICÁVEL>`.
 
-## 10. Validações obrigatórias
+## 5. Fluxos, estados e contratos
 
-`<TESTES, BUILDS, HARDWARE, ANÁLISE ESTÁTICA OU AUDITORIA>`
+`<FLUXOS, TRANSIÇÕES, APIS, FORMATOS, PERSISTÊNCIA E INVARIANTES RELEVANTES>`
 
-## 11. Ativos de conhecimento afetados
+## 6. Falhas e condições de borda
 
-`<DOCUMENTOS QUE PODEM OU DEVEM MUDAR E O QUE PRESERVAR>`
+`<COMPORTAMENTO ESPERADO DIANTE DE ERROS>`
 
-## 12. Relações, desvios e lacunas
+## 7. Critérios de aceite e validações
 
-`<OUTRAS ESPECIFICAÇÕES, EKM-GAP, COMPORTAMENTO ATUAL DIVERGENTE>`
+| Requisito | Evidência esperada |
+|---|---|
+| `<ID>` | `<TESTE, INSPEÇÃO OU VALIDAÇÃO>` |
 
-## 13. Registro da Technical Readiness Review
+## 8. Conhecimento afetado
 
-**Resultado:** `Pending Review | Implementable | Needs Clarification`
+`<FONTES QUE DEVEM MUDAR OU SER PRESERVADAS>`
 
-**Baseline analisado:** `<BRANCH, COMMIT E WORKTREE>`
+## 9. Relações, decisões e lacunas
 
-**Requisitos analisados:** `<LISTA OU INTERVALO>`
+`<OUTRAS ESPECIFICAÇÕES, DECISÕES DO ARQUITETO E EKM-GAP RELACIONADAS>`
 
-**Dependências e fontes consultadas:** `<LISTA>`
+## 10. Revisão de implementabilidade
 
-| Requisito ou dimensão | Resultado | Evidência | Lacuna ou impacto | Decisão necessária |
-|---|---|---|---|---|
-| `<ID OU ASPECTO>` | `Supported`, `Gap`, `Conflict` ou `Not Applicable` | `<EVIDÊNCIA>` | `<IMPACTO OU NONE>` | `<DECISÃO OU NONE>` |
+**Resultado:** Pendente de revisão [`Pending Review`] | Implementável
+[`Implementable`] | Precisa de esclarecimento [`Needs Clarification`]
 
-**Lacunas ou decisões ausentes:** `<NENHUMA OU ITENS RASTREÁVEIS>`
+**Resumo da análise:** `<POR QUE O RECORTE PODE OU NÃO SER IMPLEMENTADO>`
 
-**Evidência do resultado:** `<COMANDOS, INSPEÇÕES E CONCLUSÃO>`
+**Decisões ausentes:** `<NENHUMA OU LISTA OBJETIVA>`
 
-**Aprovação humana para implementar:** `<RESPONSÁVEL, DATA E REFERÊNCIA OU PENDENTE>`
+**Evidências consultadas:** `<FONTES MATERIAIS>`
 
-**Reconfirmação do baseline:** `<EVIDÊNCIA OU NÃO APLICÁVEL>`
+A autoria deixa esta seção Pendente de revisão. Sob ordem do Arquiteto, o
+Analista atualiza o resultado sem alterar a implementação. Uma lacuna bloqueante
+permite concluir Precisa de esclarecimento sem matriz ou investigação
+exaustiva.
 
-A revisão deve continuar após o primeiro bloqueio até classificar todos os itens. Sua execução encerra sem alterar implementação, inclusive com `Implementable`.
+## 11. Evidências da implementação
 
-Uma especificação `Needs Clarification` não autoriza implementação parcial nem alteração de artefatos de implementação. Somente registros EKM e a correção normativa aprovada podem mudar. Após qualquer correção normativa, esta análise deve ser repetida integralmente.
+`<VALIDAÇÕES MATERIAIS, RESULTADOS E LIMITAÇÕES>`
 
-`Implementable` requer aprovação humana explícita e reconfirmação do baseline em uma execução posterior antes da primeira alteração de implementação.
+Esta seção é preenchida durante a implementação. Metadados de commit, branch e
+push permanecem no Git e não precisam ser copiados para a especificação.

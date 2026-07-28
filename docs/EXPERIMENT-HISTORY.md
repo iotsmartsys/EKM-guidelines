@@ -77,8 +77,184 @@ O resultado mostrou que:
 
 O modelo 1.6 introduziu esses controles manualmente, sem exigir múltiplos agentes, CI/CD ou `EKM Gate`.
 
+## 10. Papéis separados melhoram rastreabilidade, mas aumentam coordenação operacional
+
+O primeiro piloto de coordenação por atores aplicou Autor da Especificação,
+Engenheiro Analista, Engenheiro Implementador e Engenheiro Tech Lead a uma
+mudança real no SmartHome-DeviceApi.
+
+Os checkpoints tornaram os handoffs e desvios localizáveis. O Implementador
+permaneceu no recorte aprovado, e o Tech Lead confirmou aderência estática sem
+transformar uma falha de ambiente em falsa evidência operacional. O arquiteto
+validou manualmente e aceitou o código e a funcionalidade.
+
+O mesmo caso exigiu correções documentais, normalização do protocolo durante a
+transação e intervenções frequentes da Coordenação. Restore indisponível e
+ausência de banco isolado também impediram uma cadeia automatizada de
+evidências.
+
+O resultado parcial sustenta continuar o experimento, não incorporar o modelo
+como obrigação. Validador de Integridade, integração e retrospectiva final ainda
+precisam ser executados.
+
+A avaliação inicial tratou a quantidade de interações humanas como possível
+custo do modelo. A discussão posterior corrigiu essa expectativa: pareceres,
+aprovações, validações e decisões finais são governança esperada. O custo a
+reduzir é o de correções documentais, ambiguidades, preparação repetitiva e
+tratamento operacional de handoffs.
+
+Esse alinhamento motivou o modelo 1.7 e o protocolo 0.5: a especificação pode ser
+humana, assistida ou produzida por agente, mas deve receber parecer humano
+explícito antes da análise de implementabilidade.
+
+Detalhes:
+[`SMARTHOME-DEVICEAPI-COORDINATED-ACTORS.md`](case-studies/SMARTHOME-DEVICEAPI-COORDINATED-ACTORS.md).
+
+## 11. Vocabulário misto também é risco operacional
+
+A revisão do método e dos modelos encontrou três camadas misturadas sem
+distinção suficiente: prosa normativa em português, termos técnicos externos e
+identificadores de estados em inglês.
+
+O piloto de atores tornou o problema observável. `Accepted` representava tanto
+aceitação humana da intenção quanto admissão técnica de um marco; `Pending` e
+`Blocked` também apareciam em contextos distintos. Termos como `gate`,
+`handoff`, `checkpoint` e `Technical Readiness Review` eram usados como prosa
+normativa sem vocabulário canônico.
+
+O modelo 1.8 adotou português do Brasil como idioma normativo, definiu força
+controlada para obrigações e permissões, introduziu rótulos contextuais em
+português e preservou os valores ingleses como identificadores legados de
+compatibilidade. O objetivo não é traduzir comandos ou APIs, mas garantir um
+nome e um significado canônico para cada conceito.
+
+## 12. Rastreabilidade redundante pode ocultar o valor do método
+
+Ao preparar um novo experimento em um aplicativo Swift para iOS, iPadOS e
+watchOS, a aplicação do protocolo 0.6 tornou visível um custo subestimado:
+checkpoints, registros de SHA, pareceres intermediários, matrizes universais e
+papéis obrigatórios repetiam informações ou decisões já disponíveis no Git e na
+ordem do Arquiteto.
+
+A revisão concluiu que:
+
+- a autoridade do Arquiteto deve prevalecer explicitamente sobre os agentes;
+- o prompt ou comando do Arquiteto já autoriza a etapa solicitada;
+- o estado da especificação é suficiente para orientar a etapa seguinte;
+- o Git deve preservar a linhagem sem ser transcrito para documentos;
+- cada agente ainda deve entregar seu trabalho por commit e push;
+- análise e revisão devem ser proporcionais ao risco;
+- problemas não adotados não devem entrar preventivamente no fluxo.
+
+O modelo 1.9 e o protocolo 0.7 removem a passagem documental obrigatória entre
+papéis, preservando decisões, lacunas, evidências materiais e entrega
+versionada. A hipótese do novo experimento é que essa dose menor de governança
+permitirá testar e descartar ideias mais rapidamente sem perder
+auditabilidade.
+
+## 13. Resultado funcional e conformidade do agente são independentes
+
+No experimento com o aplicativo Swift, o Arquiteto validou a implementação e
+executou os testes integrados com resultado aprovado. Ao mesmo tempo, observou
+que agentes usados pelo chat do VS Code não cumpriram integralmente a EKM ou
+tomaram decisões incompatíveis com o método. Entre os executores experimentados,
+somente o Codex apresentou conformidade consistente segundo a avaliação humana.
+
+A boa assertividade do Codex também foi percebida em conversas novas. O
+experimento, porém, não isolou modelo, ambiente agente, hierarquia de
+instruções, ferramentas ou eventual contexto disponível. Portanto, não existe
+evidência para atribuir o resultado a memória entre conversas ou ao contexto do
+ChatGPT.
+
+O achado impede duas equivalências indevidas:
+
+- implementação funcionalmente aceita não comprova conformidade EKM;
+- conformidade observada em um executor não comprova independência do método
+  em relação a modelos e ambientes.
+
+A consequência atual não é adicionar controles. É manter as regras essenciais
+curtas, locais e verificáveis, para que não dependam de memória implícita nem
+compitam desnecessariamente pela atenção do agente.
+
+Detalhes:
+[`IOTSMARTHOME-MULTI-AGENT-OBSERVATION.md`](case-studies/IOTSMARTHOME-MULTI-AGENT-OBSERVATION.md).
+
+## 14. O fluxo precisa de uma origem comum e isolada
+
+O primeiro piloto de coordenação por atores iniciou a mudança em uma branch
+funcional derivada da `main`. Essa prática preservou a origem do trabalho e
+isolou especificação, análise e implementação até a decisão de integração, mas
+permanecia registrada apenas como característica daquela execução.
+
+O Arquiteto decidiu adotá-la como regra geral. A EKM 1.10 e o protocolo 0.8
+passaram a exigir que todo fluxo comece em uma branch de trabalho derivada da
+`main`, nunca diretamente nela. A mesma branch pode atravessar as etapas do
+recorte e não precisa incorporar avanços posteriores da `main`.
+
+## 15. A execução pode sobreviver à troca de agente e modelo
+
+A implementação da especificação `IOTSSC-GARAGE-CONTROL@0.1` foi conduzida em
+duas partes sequenciais com uma instrução autocontida para o Implementador.
+
+O Copilot com Kimi K2.7 Code produziu uma implementação parcial material e
+versionada. A execução consumiu aproximadamente 80 mil tokens e foi interrompida
+quando os créditos da conta se esgotaram. O Codex no ChatGPT retomou o trabalho,
+completou o recorte e reconciliou as fontes EKM sem compartilhar a conversa do
+primeiro ambiente.
+
+O environment automatizado canônico permaneceu bloqueado por configuração
+preexistente, e essa limitação não foi convertida em sucesso. Posteriormente, o
+Arquiteto executou os testes no dispositivo, validou a implementação e promoveu
+a especificação para `Active / Validated / Ready for Integration`.
+
+O caso demonstra que especificação, estado e Git podem funcionar como memória
+compartilhada entre executores heterogêneos. Também mostra que aderência técnica
+e viabilidade econômica são dimensões independentes: o resultado foi
+aproveitável, mas o consumo do primeiro executor foi material.
+
+A evidência favorece continuar testando prompts autocontidos por etapa. Um
+único caso não autoriza torná-los obrigatórios nem afirmar independência
+universal de modelo.
+
+Detalhes:
+
+- [`SELF-CONTAINED-IMPLEMENTER-RUN-001.md`](experiments/SELF-CONTAINED-IMPLEMENTER-RUN-001.md);
+- [`IOTSMARTSYSCORE-GARAGE-CONTROL-SEQUENTIAL-AGENTS.md`](case-studies/IOTSMARTSYSCORE-GARAGE-CONTROL-SEQUENTIAL-AGENTS.md).
+
+## 16. Perfis referenciados sustentaram um ciclo completo
+
+O experimento `AIOTSMARTHOME-MODULE-SETTINGS-RESET-001@0.1` percorreu autoria,
+duas análises, decisão do Arquiteto, implementação, revisão do Tech Lead,
+validação no dispositivo final, publicação e integração à `main`.
+
+Claude Sonnet 5, Gemini 3.6 Flash High no Google Antigravity e Codex atuaram em
+partes diferentes do percurso. O prompt mínimo identificava apenas papel e
+especificação; o `AGENTS.md` encaminhava o agente para regras comuns e um perfil
+fixo. A especificação, seus estados e o Git permitiram continuidade entre
+ambientes sem compartilhar conversas.
+
+O experimento também expôs dois desvios: uma interpretação parcial da exigência
+de árvore limpa e uma promoção incorreta quando foi selecionado um papel
+incompatível com a etapa. A correção não adicionou um reconciliador. Cada ator
+passou a registrar e promover o resultado que sua própria atuação sustenta.
+
+Após revisão do Tech Lead e aprovação do Arquiteto, a especificação atingiu
+`Active / Validated / Done`; a mudança foi integrada pelo PR #39.
+
+O Arquiteto aprovou a incorporação do modelo de atores ao fluxo oficial. A EKM
+1.11 torna normativos os perfis, o roteamento por `AGENTS.md` e a promoção de
+estado por etapa.
+
+Detalhes:
+[`IOTSMARTHOME-REFERENCED-ACTORS-LIFECYCLE.md`](case-studies/IOTSMARTHOME-REFERENCED-ACTORS-LIFECYCLE.md).
+
 ## Conclusão experimental
 
-A hipótese atual é que agentes conseguem executar mudanças com mais autonomia quando o repositório contém especificações, regras de preservação, mapa de autoridade e histórico transacional. A autonomia continua limitada onde existe julgamento de produto ou arquitetura.
+Os experimentos sustentam que agentes conseguem executar mudanças com autonomia
+governada quando o repositório contém especificações, estados, perfis de
+responsabilidade e histórico versionado. Julgamento de intenção, produto,
+arquitetura, validação e integração permanece humano.
 
-Este modelo ainda deve evoluir por meio de novas aplicações, auditorias e regressões observadas.
+A incorporação do modelo de atores à EKM 1.11 encerra sua condição de hipótese
+experimental. Sua eficácia universal não é presumida: novas aplicações,
+regressões e custos observados continuam orientando a evolução do método.
