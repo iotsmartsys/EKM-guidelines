@@ -269,11 +269,16 @@ não explicitava que a investigação e a proposição de solução pertenciam �
 autoria. Essa ambiguidade permitia tanto uma autoria superficial quanto a
 criação de decisões pendentes artificiais para escolhas opcionais. Um
 experimento anterior registrou sobreposição parcial da autoria com a revisão de
-implementabilidade e lacunas artificiais; o novo experimento de remoção de
-dados sensíveis mostrou que a autoria de um problema transversal precisa
-formular uma solução, não apenas reproduzir a intenção inicial.
+implementabilidade e lacunas artificiais; o início do experimento de remoção de
+dados sensíveis tornou explícita a hipótese de que a autoria de um problema
+transversal precisa formular uma solução, não apenas reproduzir a intenção
+inicial.
 
-**Riscos observados para reavaliação:**
+Essa primeira autoria ainda não foi avaliada pelo Arquiteto e não constitui
+evidência de sucesso da decisão. Ela motivou o esclarecimento normativo que será
+confrontado nas etapas seguintes.
+
+**Riscos para reavaliação:**
 
 - o Autor pode apresentar recomendação como decisão confirmada;
 - pode devolver escolhas técnicas resolvíveis como falsas decisões do
