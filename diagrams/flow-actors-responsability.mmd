@@ -1,0 +1,52 @@
+flowchart TD
+    A["Arquiteto<br/>intenção, decisões e ordem"] --> B
+
+    subgraph AUT["Autor da Especificação"]
+        B["Especifica o recorte"]
+        B --> B1["Proposed<br/>Not Started<br/>Not Ready<br/>Pending Review"]
+        B1 --> B2["Commit + push<br/>árvore limpa"]
+    end
+
+    B2 --> C["Ordem de análise"]
+
+    subgraph ANA["Engenheiro Analista"]
+        C --> D["Confronta requisitos e fontes"]
+        D --> E{"Falta decisão?"}
+        E -- "Sim" --> F["Needs Clarification"]
+        E -- "Não" --> G["Implementable"]
+        F --> H["Registra resultado<br/>commit + push"]
+        G --> H
+    end
+
+    H --> I{"Implementable?"}
+    I -- "Não" --> J["Arquiteto decide"]
+    J --> B
+    I -- "Sim" --> K["Ordem de implementação"]
+
+    subgraph IMP["Engenheiro Implementador"]
+        K --> L["Implementa e valida o recorte"]
+        L --> M["In Progress, Blocked<br/>ou Implemented"]
+        M --> N["Registra resultado<br/>commit + push"]
+    end
+
+    N --> O["Tech Lead / Engenheiro Revisor"]
+
+    subgraph REV["Revisão e decisão humana"]
+        O --> P["Revisa código e evidências"]
+        P --> Q{"Tech Lead validou e<br/>Arquiteto aprovou?"}
+        Q -- "Não" --> R["Registra achados<br/>commit + push"]
+        Q -- "Sim" --> S["Active<br/>Validated<br/>Ready for Integration"]
+        S --> T["Fecha a mudança<br/>commit + push"]
+    end
+
+    R --> K
+    T --> U["Integração autorizada separadamente"]
+
+    U --> V{"Integrada à referência<br/>de produção?"}
+    V -- "Não" --> W["Ready for Integration"]
+    V -- "Sim" --> X["Done"]
+
+    A -. "autoridade final" .-> C
+    A -.-> K
+    A -.-> Q
+    A -.-> U
