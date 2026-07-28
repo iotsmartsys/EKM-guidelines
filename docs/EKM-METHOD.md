@@ -1,8 +1,8 @@
 # Método EKM
 
-**Versão do documento:** 1.10
+**Versão do documento:** 1.11
 
-**Modelo EKM:** 1.13
+**Modelo EKM:** 1.14
 
 **Estado:** aprovado e vigente
 
@@ -146,7 +146,8 @@ autorizar a transição.
 Cada tarefa do ciclo de uma especificação é iniciada por uma ação do Arquiteto,
 diretamente por prompt ou por comando de pipeline. Essa ação:
 
-- identifica o papel, a especificação e o recorte autorizado;
+- identifica o papel, o resultado, o recorte autorizado e a especificação
+  quando a atuação pertencer ao ciclo funcional;
 - autoriza apenas as operações normais necessárias àquela etapa;
 - não concede liberdade para ampliar requisitos ou tomar decisões reservadas
   ao Arquiteto.
@@ -156,18 +157,23 @@ Antes de agir, o agente lê:
 1. o `AGENTS.md` do projeto;
 2. as regras comuns dos perfis;
 3. exatamente um perfil correspondente ao papel recebido;
-4. a especificação indicada;
+4. a especificação indicada, quando aplicável;
 5. somente as fontes técnicas pertinentes ao recorte.
 
 Não carrega perfis de outros papéis nem a metodologia completa, salvo ordem
-explícita de governança. Se a ordem não identificar papel e especificação, a
-tarefa não começa.
+explícita de governança. Se a ordem não identificar papel, resultado e recorte,
+a tarefa não começa. A especificação é obrigatória para o ciclo funcional; o
+Consultor pode receber Não se aplica [`Not Applicable`] em governança,
+arquitetura ou apoio fora desse ciclo.
 
 Tarefas de adoção inicial ou governança do próprio método ficam fora do ciclo
 funcional e exigem ordem explícita com seu recorte documental.
 
 Não é necessário criar um registro adicional de aprovação com nome, data, SHA
-ou assinatura para repetir a ordem recebida.
+ou assinatura para repetir a ordem recebida pelos atores do fluxo funcional.
+O Consultor de Arquitetura é a exceção proporcional definida na seção 7.5:
+devido ao seu recorte transversal, registra ao final a autorização e as
+decisões explicitamente confirmadas pelo Arquiteto, sem copiar metadados Git.
 
 Uma ordem de análise autoriza somente análise e atualização dos artefatos de
 conhecimento correspondentes. Uma ordem de implementação autoriza a
@@ -341,6 +347,48 @@ resultado aceito foi integrado à referência de produção, o Revisor registra 
 evidência e promove a entrega para Concluída [`Done`]. Um pull request aberto,
 isoladamente, não comprova integração.
 
+### 7.5 Consultor de Arquitetura — papel institucional fora do fluxo
+
+O Consultor de Arquitetura é um agente de IA que apoia o Arquiteto e o Tech
+Lead em investigação, desenho, governança EKM, especificação, análise,
+implementação, revisão e coordenação. Ele pode executar atividades materiais
+dessas naturezas somente quando a ordem do Arquiteto identificar:
+
+- objetivo e resultado esperado;
+- repositório ou contexto de entrega;
+- recorte e fontes aplicáveis;
+- operações autorizadas;
+- decisões já confirmadas e limites ainda pendentes.
+
+O Arquiteto permanece o ator principal e a autoridade sobre intenção,
+arquitetura, risco, autorização, validação e integração. O Tech Lead pode
+colaborar com o Consultor, mas não amplia seu recorte nem confirma decisões
+reservadas ao Arquiteto sem delegação humana explícita.
+
+O papel não concede autorização genérica. Uma nova operação material,
+ampliação de escopo, decisão arquitetural, implementação, ação destrutiva,
+integração ou publicação exige autorização correspondente antes da execução.
+Recomendações do Consultor não são decisões confirmadas.
+
+O Consultor não substitui os quatro atores oficiais nem promove estados que
+pertencem a uma etapa formal sem nova ordem que selecione o papel aplicável.
+Quando participa da solução, especificação ou implementação de um recorte, não
+pode alegar análise, revisão ou Gate independente desse mesmo recorte. Uma
+atuação posterior pode contribuir tecnicamente, mas deve registrar o conflito
+de independência.
+
+Antes do commit final, o Consultor apresenta ao Arquiteto um registro conciso
+com a ordem, o recorte, as operações, as decisões confirmadas, o resultado e
+as limitações. O commit só ocorre após confirmação explícita desse registro
+pelo Arquiteto. Essa confirmação possui apenas o significado declarado: não
+comprova aprovação técnica, validação ou integração sem texto humano
+específico.
+
+O registro fica na fonte materialmente apropriada — decisão de desenho,
+especificação, changelog ou relatório de governança — e não copia prompt,
+conversa, SHA, branch ou mensagem de commit. A entrega continua exigindo
+commit, push e árvore limpa.
+
 ## 8. Contrato Git de cada tarefa
 
 Toda tarefa de agente deve:
@@ -427,7 +475,7 @@ uma diretriz externa aplicável ou precisa declarar regras próprias.
 
 ## 11. Limites atuais
 
-A EKM 1.13 não define orquestração, concorrência, locks ou filas. Esses
+A EKM 1.14 não define orquestração, concorrência, locks ou filas. Esses
 mecanismos não fazem parte do fluxo nem dos critérios dos experimentos atuais.
 
 A coordenação multi-contexto organiza conhecimento, dependências e evidência;

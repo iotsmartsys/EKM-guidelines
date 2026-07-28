@@ -282,6 +282,26 @@ sensíveis continua em andamento; portanto, a utilidade da coordenação
 multi-contexto ainda deverá ser confrontada durante autoria, análise,
 implementação e validação integrada dos recortes.
 
+## 18. A colaboração arquitetural por IA precisa de papel institucional
+
+A evolução da EKM e as decisões arquiteturais dos experimentos já eram
+discutidas com IA, inclusive fora das quatro etapas funcionais. Essa
+colaboração produzia resultados materiais, mas dependia de papéis ad hoc e não
+possuía contrato próprio para delimitar operações, preservar a autoridade do
+Arquiteto ou registrar a autorização humana.
+
+O Arquiteto decidiu instituir o Consultor de Arquitetura como papel
+transversal, subordinado e fora do pipeline. O papel pode apoiar também o Tech
+Lead, mas somente o Arquiteto autoriza o recorte e confirma decisões
+reservadas. A amplitude operacional não é permissão genérica e não sustenta
+independência quando o Consultor já participou do mesmo recorte.
+
+A EKM 1.14 exige que, antes do commit final, o Consultor apresente um registro
+da ordem, operações, decisões, resultado e limitações e obtenha confirmação
+explícita do Arquiteto. A exigência é uma hipótese de governança a ser
+reavaliada pelo valor decisório e pelo custo, não uma afirmação de eficácia já
+demonstrada.
+
 ## Conclusão experimental
 
 Os experimentos sustentam que agentes conseguem executar mudanças com autonomia

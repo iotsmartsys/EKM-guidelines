@@ -1,6 +1,6 @@
 # EKM Guidelines
 
-**Modelo EKM vigente:** 1.13
+**Modelo EKM vigente:** 1.14
 
 **Estado:** aprovado e vigente
 
@@ -13,7 +13,7 @@ A EKM deve começar pequena. Governança é útil quando acelera decisões, redu
 retrabalho ou aumenta confiança; não quando apenas multiplica documentos e
 passagens operacionais.
 
-## Princípios da versão 1.13
+## Princípios da versão 1.14
 
 - O Arquiteto humano sempre tem autoridade final sobre decisões dos agentes.
 - Cada etapa de uma especificação nasce de uma ordem que identifica papel,
@@ -33,6 +33,8 @@ passagens operacionais.
   coordenadora e recortes executáveis junto a cada fonte responsável.
 - A conclusão local não comprova o objetivo multi-contexto sem evidência de
   integração ponta a ponta.
+- O Consultor de Arquitetura apoia transversalmente o Arquiteto e o Tech Lead
+  somente sob ordem, recorte e confirmação humana explícitos.
 - O fluxo atual não incorpora controles para problemas ainda não adotados.
 
 ## Fluxo vigente
@@ -47,7 +49,9 @@ Autor → Analista → Implementador → Revisor/Tech Lead
 
 Os atores oficiais são Autor da Especificação, Engenheiro Analista, Engenheiro
 Implementador e Engenheiro Revisor. O fluxo representa a ordem lógica das
-etapas. A EKM 1.13 não define orquestração, concorrência, locks ou filas, e
+etapas. O Consultor de Arquitetura é um papel institucional subordinado ao
+Arquiteto, não um quinto ator nem uma autoridade paralela. A EKM 1.14 não
+define orquestração, concorrência, locks ou filas, e
 esses temas não influenciam os trabalhos atuais.
 
 ## Responsabilidades das fontes
@@ -81,7 +85,7 @@ decisões confirmadas e funcionalidades tocadas.
 ## Conteúdo
 
 - [`docs/EKM-CONCEPT.md`](docs/EKM-CONCEPT.md): conceito, problema e limites.
-- [`docs/EKM-METHOD.md`](docs/EKM-METHOD.md): método de referência 1.13.
+- [`docs/EKM-METHOD.md`](docs/EKM-METHOD.md): método de referência 1.14.
 - [`docs/DESIGN-DECISIONS.md`](docs/DESIGN-DECISIONS.md): razões e evolução das decisões.
 - [`docs/LEGACY-ADOPTION.md`](docs/LEGACY-ADOPTION.md): adoção incremental.
 - [`docs/EXPERIMENT-HISTORY.md`](docs/EXPERIMENT-HISTORY.md): aprendizados dos experimentos.
@@ -100,6 +104,10 @@ decisões confirmadas e funcionalidades tocadas.
   ciclo completo que sustentou a aprovação do modelo de atores.
 - [`templates/prompts/ENGENHEIRO-IMPLEMENTADOR.md`](templates/prompts/ENGENHEIRO-IMPLEMENTADOR.md):
   modelo experimental de instrução autocontida para implementação.
+- [`roles/CONSULTOR-DE-ARQUITETURA.md`](roles/CONSULTOR-DE-ARQUITETURA.md):
+  papel institucional de apoio transversal ao Arquiteto e ao Tech Lead.
+- [`templates/prompts/CONSULTOR-DE-ARQUITETURA.md`](templates/prompts/CONSULTOR-DE-ARQUITETURA.md):
+  ordem e registro mínimo para a atuação do Consultor.
 - [`roles/`](roles/): regras comuns e perfis oficiais separados por
   responsabilidade.
 - [`templates/AGENTS.md`](templates/AGENTS.md):

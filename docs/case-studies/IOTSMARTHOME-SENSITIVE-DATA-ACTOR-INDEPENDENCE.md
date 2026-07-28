@@ -48,7 +48,8 @@ literais.
 Antes da avaliação humana da primeira etapa, surgiu a dúvida sobre criar um
 papel formal de coautoria da solução.
 
-O Arquiteto decidiu não criar um novo ator. A EKM 1.12 explicita que o Autor:
+O Arquiteto decidiu não criar um novo ator dentro da autoria funcional. A EKM
+1.12 explicita que o Autor:
 
 - pode investigar o problema e fontes técnicas;
 - pode comparar alternativas e propor arquitetura, fluxos e contratos;
@@ -59,6 +60,13 @@ O Arquiteto decidiu não criar um novo ator. A EKM 1.12 explicita que o Autor:
 
 A motivação, as alternativas rejeitadas e os critérios de reavaliação estão em
 `DD-024`. O perfil operacional contém somente a regra necessária ao Autor.
+
+Durante a evolução do mesmo experimento, o Arquiteto decidiu instituir um
+Consultor de Arquitetura para formalizar a colaboração transversal com IA. A
+decisão não cria um coautor nem um quinto ator do pipeline: o Consultor apoia o
+Arquiteto e o Tech Lead fora da sequência, sob autorização e confirmação
+humanas explícitas. Essa capacidade integra a EKM 1.14 e está registrada em
+`DD-026`.
 
 ## 4. Isolamento previsto
 
@@ -109,7 +117,8 @@ Consequências para a avaliação:
 | Autoria funcional | entregue; ainda não avaliada pelo Arquiteto |
 | Decisão sobre coautoria | tomada; nenhum ator adicional |
 | Descoberta multi-contexto | registrada; coordenação por especificações aprovada |
-| Atualização da EKM | capacidade incorporada ao modelo 1.13 nesta entrega |
+| Consultor de Arquitetura | papel institucional aprovado e registro inaugural confirmado pelo Arquiteto |
+| Atualização da EKM | autoria esclarecida em 1.12, coordenação multi-contexto em 1.13 e consultoria arquitetural preparada para entrega em 1.14 |
 | Análise independente | não iniciada |
 | Implementação independente | não iniciada |
 | Revisão sem contexto adicional | não iniciada |

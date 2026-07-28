@@ -97,14 +97,21 @@ A EKM organiza a execução por quatro atores:
 | Engenheiro Implementador | implementar, validar e registrar o estado sustentado |
 | Engenheiro Revisor | revisar evidências e registrar decisões humanas recebidas |
 
-Uma ordem curta identifica papel, especificação e recorte. O `AGENTS.md` do
-projeto encaminha o agente para regras comuns e exatamente um perfil. Cada ator
-encerra a própria etapa atualizando conhecimento, promovendo estados, criando
-commit e realizando push.
+Uma ordem curta identifica papel, resultado, recorte e, no ciclo funcional,
+especificação. O `AGENTS.md` do projeto encaminha o agente para regras comuns e
+exatamente um perfil. Cada ator encerra a própria etapa atualizando
+conhecimento, promovendo estados, criando commit e realizando push.
 
 Não existe um ator dedicado apenas a reconciliar o resultado dos demais.
 Validação, aprovação e integração continuam decisões humanas; o Revisor apenas
 as registra quando fornecidas explicitamente.
+
+A EKM também possui o Consultor de Arquitetura como papel institucional de
+apoio transversal. Ele pode investigar, propor e executar o recorte
+explicitamente solicitado pelo Arquiteto, mas não integra a sequência dos
+quatro atores, não recebe autoridade humana e não transforma participação em
+independência. Sua atuação termina com registro e confirmação explícita do
+Arquiteto antes do commit.
 
 ## Hipóteses e evidências
 
@@ -131,6 +138,8 @@ A EKM parte de hipóteses ainda em validação:
 14. coordenar especificações junto a fontes de implementação independentes
     preserva objetivos arquiteturais multi-contexto sem ampliar silenciosamente
     a autoridade de uma tarefa local.
+15. institucionalizar a consultoria arquitetural por IA torna a colaboração
+    transversal auditável sem transferir a autoridade principal do Arquiteto.
 
 O ciclo completo no aplicativo iotsmarthome sustentou a adoção do modelo de
 atores na EKM 1.11. Os experimentos não demonstram aplicabilidade universal nem
@@ -138,5 +147,5 @@ garantem obediência de qualquer agente.
 
 ## Estado do método
 
-A EKM 1.13 está aprovada e vigente para adoção. O método continua evoluindo
+A EKM 1.14 está aprovada e vigente para adoção. O método continua evoluindo
 quando evidências mostrarem lacunas, excesso de custo ou regras inadequadas.

@@ -1,6 +1,6 @@
 # Instruções permanentes e roteamento EKM
 
-**Modelo EKM:** 1.13
+**Modelo EKM:** 1.14
 
 **Modalidade:** atores com perfis referenciados
 
@@ -21,7 +21,7 @@ Antes de qualquer atuação EKM:
 1. leia integralmente
    `<CAMINHO_ACESSIVEL_DA_EKM>/roles/REGRAS-COMUNS.md`;
 2. leia integralmente somente o perfil correspondente ao papel recebido;
-3. leia a especificação indicada;
+3. leia a especificação indicada, quando aplicável;
 4. leia apenas as fontes técnicas pertinentes ao recorte.
 
 | Papel recebido | Perfil |
@@ -30,10 +30,13 @@ Antes de qualquer atuação EKM:
 | Engenheiro Analista | `roles/ENGENHEIRO-ANALISTA.md` |
 | Engenheiro Implementador | `roles/ENGENHEIRO-IMPLEMENTADOR.md` |
 | Engenheiro Revisor | `roles/ENGENHEIRO-REVISOR.md` |
+| Consultor de Arquitetura | `roles/CONSULTOR-DE-ARQUITETURA.md` |
 
 Não carregue perfis de outros papéis nem a metodologia EKM completa. Se a ordem
-não identificar papel e especificação, ou se a fonte não estiver acessível, não
-inicie a tarefa; informe o impedimento ao Arquiteto.
+não identificar papel, resultado e recorte, ou se a fonte não estiver
+acessível, não inicie a tarefa; informe o impedimento ao Arquiteto. A
+especificação é obrigatória no ciclo funcional; o Consultor pode receber
+Não se aplica [`Not Applicable`] em governança ou apoio fora desse ciclo.
 
 ## Fontes locais do projeto
 

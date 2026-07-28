@@ -1,6 +1,6 @@
 # Regras comuns dos perfis EKM
 
-**Modelo EKM aplicável:** 1.13
+**Modelo EKM aplicável:** 1.14
 
 **Versão do perfil:** 1.0
 
@@ -27,16 +27,22 @@ aceito, autorização, validação e integração.
 
 Antes de executar:
 
-1. confirme que a ordem identifica o papel e a especificação;
+1. confirme que a ordem identifica o papel, o resultado, o recorte e a
+   especificação quando a atuação pertencer ao ciclo funcional;
 2. confirme que o fluxo está em uma branch derivada da `main`, nunca na própria
    `main`;
 3. confirme que a árvore de trabalho está limpa;
-4. leia o `AGENTS.md` do projeto, este núcleo comum, o perfil recebido e a
-   especificação indicada;
-5. confirme que o estado da especificação permite a etapa.
+4. leia o `AGENTS.md` do projeto, este núcleo comum, o perfil recebido, a
+   especificação quando aplicável e somente as fontes autorizadas;
+5. confirme que o estado da especificação permite a etapa, quando aplicável.
 
 Se uma condição falhar, não inicie a atuação. Informe o impedimento sem assumir
 outro papel.
+
+Uma ordem do Consultor de Arquitetura pode declarar especificação Não se aplica
+[`Not Applicable`] quando o recorte for governança, arquitetura ou apoio fora
+do ciclo funcional. Nesse caso, deve identificar objetivo, repositório, fontes,
+operações autorizadas e registro material esperado.
 
 ## 3. Fontes e escopo
 

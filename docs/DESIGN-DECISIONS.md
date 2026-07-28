@@ -245,6 +245,10 @@ explícitas aumenta aderência sem criar um ator burocrático de reconciliação
 inspecionar fontes técnicas, comparar alternativas e propor uma solução
 arquitetural e implementável. Não é criado um papel adicional de coautoria.
 
+Essa decisão rejeita um coautor dentro do fluxo funcional. Ela não impede um
+papel institucional de apoio ao Arquiteto fora desse fluxo, posteriormente
+definido por `DD-026`.
+
 O Autor separa fatos observados, intenção e decisões confirmadas, solução
 proposta e decisões pendentes. Recomendações permanecem subordinadas ao
 Arquiteto. A própria autoria não produz `Implementable`: a revisão de
@@ -340,3 +344,101 @@ com uma única especificação e o fluxo normal.
 **Critérios de reavaliação:** reavaliar se a coordenação duplicar conhecimento,
 criar manutenção manual sem apoiar decisões, tornar ambígua a autoridade dos
 estados ou não permitir verificar a integração ponta a ponta.
+
+## DD-026 — Consultor de Arquitetura como apoio institucional subordinado
+
+**Decisão:** a EKM institui o Consultor de Arquitetura como papel de IA que
+apoia o Arquiteto e o Tech Lead em atividades transversais. O Arquiteto
+permanece o ator principal e a única autoridade final sobre intenção,
+arquitetura, risco, autorização, validação e integração.
+
+O Consultor pode investigar, propor e executar documentação, código, testes,
+configuração, análise, revisão ou coordenação somente dentro de ordem explícita
+do Arquiteto. O papel não concede permissão implícita para qualquer dessas
+operações e não transforma a IA em aprovadora das próprias recomendações.
+
+Antes do commit final, o Consultor apresenta e recebe confirmação explícita do
+Arquiteto sobre um registro que identifica ordem, recorte, operações, decisões
+confirmadas, resultado e limitações. Essa confirmação não equivale a aprovação
+técnica, validação ou integração, salvo quando o Arquiteto atribuir
+explicitamente esse significado.
+
+**Relação com decisões anteriores:**
+
+- `DD-018` continua válida para os atores funcionais; o registro adicional do
+  Consultor é uma exceção proporcional à amplitude de sua atuação;
+- `DD-023` continua definindo somente quatro atores no pipeline;
+- `DD-024` continua rejeitando um coautor dentro da autoria funcional;
+- `DD-025` continua coordenando objetivos multi-contexto por especificações,
+  sem transformar o Consultor em orquestrador ou fonte global de estado.
+
+**Salvaguardas:**
+
+- cada ordem identifica resultado, repositório, recorte e operações;
+- ampliações materiais exigem nova confirmação antes da ação;
+- decisões propostas só se tornam confirmadas por manifestação do Arquiteto;
+- o Tech Lead não delega autoridade reservada sem delegação explícita;
+- participação anterior impede alegação posterior de independência no mesmo
+  recorte;
+- ações destrutivas, merge, release e deploy mantêm autorização específica;
+- o registro final é confirmado antes do commit e preservado na fonte
+  materialmente apropriada.
+
+**Alternativas consideradas:**
+
+- manter a colaboração arquitetural apenas informal foi rejeitado porque
+  decisões e autorizações ficariam dependentes da conversa;
+- tornar o Consultor um quinto ator sequencial foi rejeitado porque apoio
+  transversal não corresponde a uma etapa única;
+- conceder autorização ampla por definição do papel foi rejeitado porque
+  inverteria a autoridade e ampliaria silenciosamente o escopo;
+- obrigar o Consultor a trocar de papel para toda contribuição foi rejeitado
+  porque impediria coautoria de governança e arquitetura, embora promoções
+  formais continuem pertencendo aos atores;
+- dispensar o registro final foi rejeitado porque a amplitude do papel exige
+  tornar localizável o que o Arquiteto efetivamente autorizou e confirmou.
+
+**Motivo:** decisões de arquitetura, evolução da EKM e apoio ao Tech Lead já
+são discutidos com IA, mas o modelo não possuía um papel institucional para
+essa colaboração. Ordens ad hoc tornavam ambíguos o recorte permitido, a
+autoridade humana preservada e o valor probatório da participação da IA.
+
+**Critérios de reavaliação:** reduzir ou retirar o papel se o registro final
+virar formalidade sem apoiar decisão, se surgir autorização genérica, se o
+Consultor obscurecer a responsabilidade dos atores, se a confirmação humana
+for confundida com validação ou se a participação transversal comprometer
+revisões independentes.
+
+### Registro inaugural da atuação
+
+**Estado da confirmação final:** Confirmada pelo Arquiteto.
+
+O Arquiteto confirmou o registro inaugural e autorizou o commit e o push do
+resultado preparado. A confirmação não declarou eficácia comprovada, validação
+experimental, integração à `main`, release ou deploy.
+
+- **Papel exercido:** Consultor de Arquitetura e par do Arquiteto na autoria da
+  EKM.
+- **Ordem autorizada:** criar um papel institucional de IA para apoiar
+  transversalmente o Arquiteto e o Tech Lead, preservando o Arquiteto como ator
+  principal.
+- **Repositório e recorte:** `EKM-guidelines`; método, perfil, regras comuns,
+  roteamento, templates, histórico, decisão de desenho e caso de estudo em
+  andamento.
+- **Operações autorizadas:** investigar as fontes vigentes, propor o contrato,
+  editar documentação e templates, validar a consistência e, após confirmação
+  final, criar commit e realizar push.
+- **Decisões explicitamente recebidas:** o Consultor pode atuar em todas as
+  naturezas de atividade quando solicitado pelo Arquiteto; cada atuação depende
+  de autorização e confirmação explícitas; a autorização deve ficar registrada
+  ao final; o Arquiteto continua sendo o ator principal.
+- **Resultado material preparado:** EKM 1.14 com perfil
+  `CONSULTOR-DE-ARQUITETURA`, comando reutilizável, salvaguardas de autoridade e
+  independência, atualização das fontes vigentes e registro no caso de estudo.
+- **Validações e limitações:** consistência textual, referências e versões
+  verificadas; nenhuma eficácia do papel foi ainda demonstrada; esta atuação
+  participou da solução e não pode constituir revisão independente dela.
+- **Significado solicitado para a confirmação final:** confirmar que este
+  registro representa a autorização e as decisões do Arquiteto e autorizar o
+  commit e o push do resultado preparado. A confirmação não declara eficácia,
+  validação experimental, integração à `main`, release ou deploy.

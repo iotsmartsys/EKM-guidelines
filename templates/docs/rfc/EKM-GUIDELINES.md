@@ -4,9 +4,9 @@
 
 **Estado da fonte:** Vigente
 
-**Versão do documento:** 1.9
+**Versão do documento:** 1.10
 
-**Versão do modelo EKM:** 1.13
+**Versão do modelo EKM:** 1.14
 
 **Escopo:** Todo o repositório
 
@@ -52,6 +52,12 @@ apenas para reconciliação.
 O `AGENTS.md` seleciona as regras comuns e exatamente um perfil oficial da EKM.
 O agente não carrega perfis de outros papéis nem a metodologia completa, salvo
 ordem explícita de governança.
+
+O Consultor de Arquitetura atua fora do pipeline, subordinado ao Arquiteto,
+somente no recorte e nas operações autorizadas. Antes do commit final, registra
+ordem, decisões, resultado e limitações e obtém confirmação explícita do
+Arquiteto. Participação anterior impede alegação posterior de independência no
+mesmo recorte.
 
 ## 4. Contrato Git
 
