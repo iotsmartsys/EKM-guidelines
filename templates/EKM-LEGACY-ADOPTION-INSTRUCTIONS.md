@@ -1,6 +1,6 @@
 # Instrução — Adoção inicial da EKM em repositório legado
 
-Adote a EKM 1.10 no repositório `<CAMINHO_DO_REPOSITORIO>`.
+Adote a EKM 1.11 no repositório `<CAMINHO_DO_REPOSITORIO>`.
 
 O Arquiteto autoriza nesta tarefa somente levantamento e fundação documental.
 Não altere código, testes, dependências, build, automações ou configuração.
@@ -13,7 +13,8 @@ Não altere código, testes, dependências, build, automações ou configuraçã
 3. Leia as instruções locais e preserve documentação existente.
 4. Produza uma fundação pequena e adaptada ao projeto.
 5. Não declare como requisito uma intenção que não esteja comprovada.
-6. Termine com commit, push e árvore de trabalho limpa.
+6. Instale o `AGENTS.md` com roteamento para os perfis oficiais da EKM.
+7. Termine com commit, push e árvore de trabalho limpa.
 
 Não copie branch, SHA, comandos de leitura ou mensagem de commit para os
 documentos. O Git mantém essa trilha. A ordem não autoriza force push, merge,

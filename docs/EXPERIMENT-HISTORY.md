@@ -221,11 +221,40 @@ Detalhes:
 - [`SELF-CONTAINED-IMPLEMENTER-RUN-001.md`](experiments/SELF-CONTAINED-IMPLEMENTER-RUN-001.md);
 - [`IOTSMARTSYSCORE-GARAGE-CONTROL-SEQUENTIAL-AGENTS.md`](case-studies/IOTSMARTSYSCORE-GARAGE-CONTROL-SEQUENTIAL-AGENTS.md).
 
+## 16. Perfis referenciados sustentaram um ciclo completo
+
+O experimento `AIOTSMARTHOME-MODULE-SETTINGS-RESET-001@0.1` percorreu autoria,
+duas análises, decisão do Arquiteto, implementação, revisão do Tech Lead,
+validação no dispositivo final, publicação e integração à `main`.
+
+Claude Sonnet 5, Gemini 3.6 Flash High no Google Antigravity e Codex atuaram em
+partes diferentes do percurso. O prompt mínimo identificava apenas papel e
+especificação; o `AGENTS.md` encaminhava o agente para regras comuns e um perfil
+fixo. A especificação, seus estados e o Git permitiram continuidade entre
+ambientes sem compartilhar conversas.
+
+O experimento também expôs dois desvios: uma interpretação parcial da exigência
+de árvore limpa e uma promoção incorreta quando foi selecionado um papel
+incompatível com a etapa. A correção não adicionou um reconciliador. Cada ator
+passou a registrar e promover o resultado que sua própria atuação sustenta.
+
+Após revisão do Tech Lead e aprovação do Arquiteto, a especificação atingiu
+`Active / Validated / Done`; a mudança foi integrada pelo PR #39.
+
+O Arquiteto aprovou a incorporação do modelo de atores ao fluxo oficial. A EKM
+1.11 torna normativos os perfis, o roteamento por `AGENTS.md` e a promoção de
+estado por etapa.
+
+Detalhes:
+[`IOTSMARTHOME-REFERENCED-ACTORS-LIFECYCLE.md`](case-studies/IOTSMARTHOME-REFERENCED-ACTORS-LIFECYCLE.md).
+
 ## Conclusão experimental
 
-A hipótese atual é que agentes conseguem executar mudanças com autonomia
-governada quando o repositório contém especificações, regras de preservação,
-mapa de autoridade e histórico transacional. Julgamento de intenção, produto,
-arquitetura e entrega permanece humano.
+Os experimentos sustentam que agentes conseguem executar mudanças com autonomia
+governada quando o repositório contém especificações, estados, perfis de
+responsabilidade e histórico versionado. Julgamento de intenção, produto,
+arquitetura, validação e integração permanece humano.
 
-Este modelo ainda deve evoluir por meio de novas aplicações, auditorias e regressões observadas.
+A incorporação do modelo de atores à EKM 1.11 encerra sua condição de hipótese
+experimental. Sua eficácia universal não é presumida: novas aplicações,
+regressões e custos observados continuam orientando a evolução do método.

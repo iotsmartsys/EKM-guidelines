@@ -1,10 +1,10 @@
 # Regras comuns dos perfis EKM
 
-**Modelo EKM aplicável:** 1.10
+**Modelo EKM aplicável:** 1.11
 
-**Versão do perfil:** 0.2
+**Versão do perfil:** 1.0
 
-**Estado:** experimental
+**Estado:** vigente
 
 Leia este arquivo integralmente antes do perfil específico recebido na ordem do
 Arquiteto. Não carregue os perfis dos demais papéis nem a metodologia EKM
@@ -86,7 +86,7 @@ não autoriza force push, reescrita de histórico, merge, tag, release ou deploy
 Não existe uma etapa autônoma de reconciliação destinada apenas a repetir ou
 versionar o resultado de outro ator.
 
-## 6. Limite desta modalidade
+## 6. Limite do modelo de atores
 
 Estes perfis organizam uma execução sequencial. Não definem coordenação,
 concorrência, locks, filas ou execução simultânea.

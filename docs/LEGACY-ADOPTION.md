@@ -12,6 +12,11 @@ O Arquiteto define o repositório, o recorte e se a tarefa é apenas documental.
 Essa ordem autoriza a etapa. O agente inicia o fluxo em uma branch derivada da
 `main`, com árvore de trabalho limpa, e termina com commit, push e árvore limpa.
 
+O projeto instala um `AGENTS.md` que aponta para os perfis oficiais da EKM
+1.11. Depois da fundação, cada tarefa funcional identifica papel e
+especificação. O agente lê regras comuns, exatamente um perfil e somente as
+fontes pertinentes ao recorte.
+
 ## 3. Fundação recomendada
 
 ```text
@@ -27,6 +32,10 @@ docs/
 Uma diretriz local é criada apenas quando não há diretriz externa aplicável ou
 existem regras próprias. Especificações são criadas para contratos confirmados
 ou funcionalidades que serão tocadas.
+
+O `AGENTS.md` deve substituir todos os placeholders do template por caminhos,
+fontes técnicas, validações e invariantes reais do projeto antes do primeiro
+trabalho regido pelos perfis.
 
 ## 4. Levantamento econômico
 

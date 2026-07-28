@@ -213,3 +213,28 @@ as etapas autorizadas do recorte; não se exige uma branch nova por atuação.
 **Motivo:** usar a `main` como origem comum torna explícito o baseline de
 produção, preserva a linhagem da mudança e mantém o trabalho isolado até a
 decisão humana de integração, sem duplicar metadados do Git nos documentos EKM.
+
+## DD-023 — Modelo de atores como fluxo oficial
+
+**Decisão:** a EKM 1.11 organiza cada tarefa por um papel explicitamente
+selecionado na ordem do Arquiteto. O agente lê as regras comuns, exatamente um
+perfil correspondente, a especificação indicada e somente as fontes técnicas
+pertinentes.
+
+Os atores oficiais são Autor da Especificação, Engenheiro Analista, Engenheiro
+Implementador e Engenheiro Revisor. Cada ator atualiza o conhecimento afetado,
+promove somente os estados sustentados por sua etapa e entrega o resultado por
+commit e push. Não existe um ator adicional destinado apenas a reconciliar ou
+versionar o trabalho dos demais.
+
+O Engenheiro Revisor pode registrar validação do Tech Lead, aprovação do
+Arquiteto e confirmação de integração quando essas decisões já tiverem sido
+fornecidas explicitamente. Ele não produz aprovação própria nem substitui a
+autoridade humana.
+
+**Motivo:** o ciclo completo no aplicativo iotsmarthome demonstrou que prompts
+curtos e perfis referenciados conseguem dirigir agentes e modelos diferentes,
+preservando continuidade por meio da especificação, dos estados e do Git. O
+mesmo caso mostrou que papéis incompatíveis e regras genéricas favorecem
+promoções incorretas e reinterpretações. Tornar responsabilidades e passagens
+explícitas aumenta aderência sem criar um ator burocrático de reconciliação.

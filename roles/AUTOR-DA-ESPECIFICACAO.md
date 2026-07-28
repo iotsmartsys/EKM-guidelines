@@ -1,8 +1,8 @@
 # Perfil EKM — Autor da Especificação
 
-**Versão do perfil:** 0.2
+**Versão do perfil:** 1.0
 
-**Estado:** experimental
+**Estado:** vigente
 
 Leia primeiro [`REGRAS-COMUNS.md`](REGRAS-COMUNS.md).
 

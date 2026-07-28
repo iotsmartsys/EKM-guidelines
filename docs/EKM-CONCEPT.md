@@ -86,7 +86,27 @@ Git preserva autoria técnica, diferenças e linhagem. As fontes EKM preservam o
 que Git não explica sozinho: intenção, decisão, lacuna, evidência material e
 resultado.
 
-## Hipóteses atuais
+## Modelo de atores
+
+A EKM organiza a execução por quatro atores:
+
+| Ator | Responsabilidade |
+|---|---|
+| Autor da Especificação | transformar intenção confirmada em contrato verificável |
+| Engenheiro Analista | determinar implementabilidade sem inventar decisões |
+| Engenheiro Implementador | implementar, validar e registrar o estado sustentado |
+| Engenheiro Revisor | revisar evidências e registrar decisões humanas recebidas |
+
+Uma ordem curta identifica papel, especificação e recorte. O `AGENTS.md` do
+projeto encaminha o agente para regras comuns e exatamente um perfil. Cada ator
+encerra a própria etapa atualizando conhecimento, promovendo estados, criando
+commit e realizando push.
+
+Não existe um ator dedicado apenas a reconciliar o resultado dos demais.
+Validação, aprovação e integração continuam decisões humanas; o Revisor apenas
+as registra quando fornecidas explicitamente.
+
+## Hipóteses e evidências
 
 A EKM parte de hipóteses ainda em validação:
 
@@ -102,9 +122,16 @@ A EKM parte de hipóteses ainda em validação:
 9. usar o estado da especificação e a ordem do Arquiteto reduz passagens
    documentais sem perder autoridade.
 10. manter a linhagem no Git reduz duplicação sem perder auditabilidade.
+11. perfis específicos por ator reduzem a necessidade de carregar e interpretar
+    a metodologia completa em cada tarefa.
+12. especificação, estados e Git permitem continuidade entre modelos e
+    ambientes diferentes.
 
-Os experimentos atuais sustentam essas hipóteses parcialmente, mas não demonstram aplicabilidade universal.
+O ciclo completo no aplicativo iotsmarthome sustentou a adoção do modelo de
+atores na EKM 1.11. Os experimentos não demonstram aplicabilidade universal nem
+garantem obediência de qualquer agente.
 
 ## Estado do método
 
-A EKM está em evolução. O modelo atual é utilizável para novos experimentos e adoção inicial, mas deve mudar quando evidências mostrarem lacunas, excesso de custo ou regras inadequadas.
+A EKM 1.11 está aprovada e vigente para adoção. O método continua evoluindo
+quando evidências mostrarem lacunas, excesso de custo ou regras inadequadas.

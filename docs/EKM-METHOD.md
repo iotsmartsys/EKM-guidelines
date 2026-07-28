@@ -1,10 +1,10 @@
 # Método EKM
 
-**Versão do documento:** 1.7
+**Versão do documento:** 1.8
 
-**Modelo EKM:** 1.10
+**Modelo EKM:** 1.11
 
-**Estado:** experimental e utilizável
+**Estado:** aprovado e vigente
 
 ## 1. Objetivo
 
@@ -110,14 +110,28 @@ autorizar a transição.
 
 ## 6. Ordem do Arquiteto
 
-Cada tarefa de agente é iniciada por uma ação do Arquiteto, diretamente por
-prompt ou por comando de pipeline. Essa ação:
+Cada tarefa do ciclo de uma especificação é iniciada por uma ação do Arquiteto,
+diretamente por prompt ou por comando de pipeline. Essa ação:
 
-- identifica a tarefa e o recorte autorizado;
-- seleciona a etapa a executar;
+- identifica o papel, a especificação e o recorte autorizado;
 - autoriza apenas as operações normais necessárias àquela etapa;
 - não concede liberdade para ampliar requisitos ou tomar decisões reservadas
   ao Arquiteto.
+
+Antes de agir, o agente lê:
+
+1. o `AGENTS.md` do projeto;
+2. as regras comuns dos perfis;
+3. exatamente um perfil correspondente ao papel recebido;
+4. a especificação indicada;
+5. somente as fontes técnicas pertinentes ao recorte.
+
+Não carrega perfis de outros papéis nem a metodologia completa, salvo ordem
+explícita de governança. Se a ordem não identificar papel e especificação, a
+tarefa não começa.
+
+Tarefas de adoção inicial ou governança do próprio método ficam fora do ciclo
+funcional e exigem ordem explícita com seu recorte documental.
 
 Não é necessário criar um registro adicional de aprovação com nome, data, SHA
 ou assinatura para repetir a ordem recebida.
@@ -127,30 +141,86 @@ conhecimento correspondentes. Uma ordem de implementação autoriza a
 implementação somente quando a especificação estiver Implementável
 [`Implementable`].
 
-## 7. Pipeline experimental
+## 7. Fluxo oficial por atores
 
-O pipeline é a ordem lógica das etapas, não uma infraestrutura de orquestração:
+Os atores oficiais são:
 
-```text
-especificar
-    ↓ ordem do Arquiteto
-analisar implementabilidade
-    ├─ Precisa de esclarecimento → corrigir a especificação
-    └─ Implementável
-          ↓ ordem do Arquiteto
-       implementar e validar
-          ↓ revisão proporcional, quando solicitada
-       decisão humana e integração
+| Ator | Perfil oficial |
+|---|---|
+| Autor da Especificação | `roles/AUTOR-DA-ESPECIFICACAO.md` |
+| Engenheiro Analista | `roles/ENGENHEIRO-ANALISTA.md` |
+| Engenheiro Implementador | `roles/ENGENHEIRO-IMPLEMENTADOR.md` |
+| Engenheiro Revisor, que pode corresponder ao Tech Lead humano | `roles/ENGENHEIRO-REVISOR.md` |
+
+O fluxo é uma ordem lógica de atuações sequenciais, não uma infraestrutura de
+orquestração:
+
+```mermaid
+flowchart TD
+    A["Arquiteto<br/>intenção, decisões e ordem"] --> B
+
+    subgraph AUT["Autor da Especificação"]
+        B["Especifica o recorte"] --> B1["Proposed<br/>Not Started<br/>Not Ready<br/>Pending Review"]
+        B1 --> B2["Commit + push<br/>árvore limpa"]
+    end
+
+    B2 --> C["Ordem de análise"]
+
+    subgraph ANA["Engenheiro Analista"]
+        C --> D["Confronta requisitos e fontes"]
+        D --> E{"Falta decisão?"}
+        E -- "Sim" --> F["Needs Clarification"]
+        E -- "Não" --> G["Implementable"]
+        F --> H["Registra resultado<br/>commit + push"]
+        G --> H
+    end
+
+    H --> I{"Implementable?"}
+    I -- "Não" --> J["Arquiteto decide"]
+    J --> B
+    I -- "Sim" --> K["Ordem de implementação"]
+
+    subgraph IMP["Engenheiro Implementador"]
+        K --> L["Implementa e valida o recorte"]
+        L --> M["In Progress, Blocked<br/>ou Implemented"]
+        M --> N["Registra resultado<br/>commit + push"]
+    end
+
+    N --> O["Tech Lead / Engenheiro Revisor"]
+
+    subgraph REV["Revisão e decisão humana"]
+        O --> P["Revisa código e evidências"]
+        P --> Q{"Tech Lead validou e<br/>Arquiteto aprovou?"}
+        Q -- "Não" --> R["Registra achados<br/>commit + push"]
+        Q -- "Sim" --> S["Active<br/>Validated<br/>Ready for Integration"]
+        S --> T["Fecha a mudança<br/>commit + push"]
+    end
+
+    R --> K
+    T --> U["Integração autorizada separadamente"]
+    U --> V{"Integrada à referência<br/>de produção?"}
+    V -- "Não" --> W["Ready for Integration"]
+    V -- "Sim" --> X["Done"]
+
+    A -. "autoridade final" .-> C
+    A -.-> K
+    A -.-> Q
+    A -.-> U
 ```
 
-### 7.1 Especificar
+Cada ator encerra a própria etapa: atualiza a especificação e o conhecimento
+materialmente afetado, promove somente os estados sustentados por sua atuação,
+cria commit, realiza push e termina com árvore limpa. Não existe um ator
+adicional destinado apenas a reconciliar ou versionar o resultado dos demais.
+
+### 7.1 Autor da Especificação
 
 O Autor registra comportamento, limites, decisões e critérios de aceite. Ao
 terminar, deixa a especificação como Proposta [`Proposed`], Não iniciada
 [`Not Started`], Não pronta [`Not Ready`] e Pendente de revisão
-[`Pending Review`].
+[`Pending Review`]. O próprio Autor registra e entrega essa promoção.
 
-### 7.2 Analisar implementabilidade
+### 7.2 Engenheiro Analista
 
 O Analista verifica se os requisitos podem ser implementados sem decisão
 normativa, de produto ou arquitetura não declarada. A análise deve cobrir o
@@ -168,9 +238,11 @@ O resultado é:
 - Precisa de esclarecimento [`Needs Clarification`], quando falta uma decisão
   necessária.
 
-O Analista não altera a implementação.
+O Analista não altera a implementação. Ele registra a revisão de
+implementabilidade, as decisões ausentes, as evidências e as lacunas
+relacionadas e entrega sua própria promoção.
 
-### 7.3 Implementar e validar
+### 7.3 Engenheiro Implementador
 
 O Implementador segue a especificação Implementável [`Implementable`], atualiza
 código, testes e conhecimento afetado e executa validações proporcionais ao
@@ -182,16 +254,40 @@ registrado quando for material para comprovar ou limitar a entrega. Não se
 registram comandos de leitura, arquivos temporários ou detalhes operacionais
 sem efeito sobre a conclusão.
 
-### 7.4 Revisar, decidir e integrar
+O estado permanece Em andamento [`In Progress`] enquanto faltar implementação
+ou validação obrigatória da etapa. Implementada [`Implemented`] exige código e
+validações automatizáveis obrigatórias. A promoção posterior para Validada
+[`Validated`] pertence ao Engenheiro Revisor com as evidências humanas
+requeridas.
 
-Revisões adicionais, inclusive liderança técnica ou integridade EKM, são
-executadas quando o Arquiteto as solicitar em razão do recorte ou do risco.
-Elas não são etapas universais.
+O Implementador registra na própria especificação o estado sustentado e entrega
+essa promoção com o restante da implementação.
 
-O Arquiteto avalia as evidências, aceita ou rejeita riscos e decide a integração.
-A entrega fica Concluída [`Done`] quando o comportamento aceito está integrado,
-as fontes de conhecimento afetadas estão atuais e não existe lacuna bloqueante
-ocultada.
+### 7.4 Engenheiro Revisor, decisão e integração
+
+O Revisor encerra o ciclo técnico quando existem revisão, validação e decisão
+humana a registrar. A profundidade da revisão é proporcional ao risco.
+Revisões independentes adicionais, inclusive auditoria de integridade EKM, são
+executadas somente quando o Arquiteto as solicitar.
+
+O Revisor confronta comportamento, arquitetura, compatibilidade, testes,
+evidências e conhecimento sem corrigir a implementação na mesma atuação. Sem
+aprovação explícita do Arquiteto, registra achados e preserva estados
+compatíveis com as evidências.
+
+Quando a ordem contém validação suficiente do Tech Lead e aprovação explícita
+do Arquiteto, o Revisor registra essa evidência recebida e promove:
+
+- estado normativo para Vigente [`Active`];
+- implementação para Validada [`Validated`];
+- entrega para Pronta para integração [`Ready for Integration`];
+- transação para Fechada [`Closed`], quando suas condições estiverem
+  satisfeitas.
+
+O Revisor não produz aprovação própria. Quando o Arquiteto confirma que o
+resultado aceito foi integrado à referência de produção, o Revisor registra a
+evidência e promove a entrega para Concluída [`Done`]. Um pull request aberto,
+isoladamente, não comprova integração.
 
 ## 8. Contrato Git de cada tarefa
 
@@ -279,7 +375,7 @@ uma diretriz externa aplicável ou precisa declarar regras próprias.
 
 ## 11. Limites atuais
 
-A EKM 1.10 não define orquestração, concorrência, locks ou filas. Esses
+A EKM 1.11 não define orquestração, concorrência, locks ou filas. Esses
 mecanismos não fazem parte do fluxo nem dos critérios dos experimentos atuais.
 
 O modelo também não afirma que documentação substitui código, testes,

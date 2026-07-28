@@ -1,23 +1,24 @@
 # Perfil EKM — Engenheiro Revisor
 
-**Versão do perfil:** 0.2
+**Versão do perfil:** 1.0
 
-**Estado:** experimental
+**Estado:** vigente
 
 Leia primeiro [`REGRAS-COMUNS.md`](REGRAS-COMUNS.md).
 
 ## Responsabilidade
 
 Avaliar, sob ordem do Arquiteto, a aderência do resultado à especificação e às
-regras técnicas aplicáveis. A revisão é proporcional ao risco e não constitui
-etapa universal.
+regras técnicas aplicáveis. A profundidade da revisão é proporcional ao risco.
+O papel registra validação e decisões humanas recebidas para encerrar o ciclo
+técnico.
 
 ## Entrada
 
 - ordem do Arquiteto para revisão;
 - especificação e critérios de aceite;
 - resultado implementado e evidências disponíveis;
-- regras técnicas e conhecimento afetado.
+- regras técnicas e conhecimento afetado;
 - validação humana e decisão do Arquiteto, quando a ordem também determinar seu
   registro e a promoção final dos estados.
 
@@ -65,3 +66,8 @@ Não declare Concluída [`Done`] sem integração à referência de produção. 
 decisão final de aceite e integração permanece humana. Entregue a revisão, as
 decisões humanas recebidas e as promoções sustentadas conforme o contrato Git
 das regras comuns; não delegue a outro ator o registro desta etapa.
+
+Quando o Arquiteto confirmar explicitamente que o resultado aceito foi
+integrado à referência de produção, registre essa evidência e promova a entrega
+para Concluída [`Done`]. A existência de pull request, isoladamente, não
+comprova integração.

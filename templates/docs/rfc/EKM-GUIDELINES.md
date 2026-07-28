@@ -4,9 +4,9 @@
 
 **Estado da fonte:** Vigente
 
-**Versão do documento:** 1.7
+**Versão do documento:** 1.8
 
-**Versão do modelo EKM:** 1.10
+**Versão do modelo EKM:** 1.11
 
 **Escopo:** Todo o repositório
 
@@ -14,7 +14,7 @@
 
 O Arquiteto humano tem autoridade final sobre intenção, prioridade, escopo,
 arquitetura, risco, autorização, validação e integração. A ordem recebida por
-prompt ou pipeline define a etapa autorizada.
+prompt ou pipeline identifica papel, especificação e recorte autorizado.
 
 Agentes não inventam requisitos nem expandem o recorte. Evidências factuais
 permanecem factuais mesmo quando o Arquiteto aceita o risco.
@@ -34,11 +34,10 @@ esses dados manualmente nas fontes EKM.
 ## 3. Fluxo
 
 ```text
-especificação
-→ ordem do Arquiteto
-→ análise de implementabilidade
-→ ordem do Arquiteto
-→ implementação e validação
+Autor da Especificação
+→ Engenheiro Analista
+→ Engenheiro Implementador
+→ Engenheiro Revisor / Tech Lead
 → decisão humana e integração
 ```
 
@@ -46,7 +45,13 @@ Implementação exige especificação Implementável [`Implementable`]. Precisa 
 esclarecimento [`Needs Clarification`] retorna a decisão ao Arquiteto sem
 alteração parcial da implementação.
 
-Revisões adicionais acontecem somente quando solicitadas.
+Cada ator atualiza a especificação, promove os estados sustentados pela própria
+etapa e entrega o resultado por commit e push. Não existe um ator separado
+apenas para reconciliação.
+
+O `AGENTS.md` seleciona as regras comuns e exatamente um perfil oficial da EKM.
+O agente não carrega perfis de outros papéis nem a metodologia completa, salvo
+ordem explícita de governança.
 
 ## 4. Contrato Git
 

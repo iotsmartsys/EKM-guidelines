@@ -4,7 +4,7 @@
 
 **Versão do protocolo:** 0.2
 
-**Estado:** experimental
+**Estado:** concluído; incorporado à EKM 1.11
 
 ## 1. Hipótese
 
@@ -168,8 +168,12 @@ modalidades:
 - o protocolo não garante aderência universal;
 - a execução permanece sequencial e não introduz controle de concorrência.
 
-## 10. Critério experimental
+## 10. Resultado
 
-Esta modalidade permanece experimental até ser exercida em tarefas reais. Sua
-existência não altera o modelo normativo 1.10 nem torna os perfis obrigatórios
-para projetos adotantes.
+A modalidade foi exercida durante o ciclo completo da especificação
+`AIOTSMARTHOME-MODULE-SETTINGS-RESET-001@0.1`. O resultado funcional foi
+validado no dispositivo final e integrado à `main`.
+
+O Arquiteto aprovou sua incorporação à EKM 1.11. Este documento permanece como
+registro do protocolo 0.2; as regras vigentes estão em `docs/EKM-METHOD.md` e
+nos perfis oficiais de `roles/`.

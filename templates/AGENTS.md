@@ -1,48 +1,54 @@
-# Instruções para agentes
+# Instruções permanentes e roteamento EKM
+
+**Modelo EKM:** 1.11
+
+**Modalidade:** atores com perfis referenciados
+
+**Estado:** vigente
 
 ## Autoridade
 
 O Arquiteto humano tem autoridade final sobre intenção, prioridade, escopo,
 arquitetura, risco, autorização, validação e integração. A ordem recebida por
-prompt ou pipeline define a etapa e o recorte autorizado.
+prompt ou pipeline identifica papel, especificação e recorte autorizado.
 
-Não invente requisitos, não amplie o escopo e não converta evidência falha em
-evidência aprovada. Quando faltar uma decisão, devolva-a ao Arquiteto.
+## Fonte dos perfis
 
-## Antes de começar
+**Raiz da EKM:** `<CAMINHO_ACESSIVEL_DA_EKM>`
 
-1. Confirme que a branch atual deriva da `main` e não é a própria `main`. Se
-   não derivar, pare e informe.
-2. Confirme que a árvore de trabalho está limpa. Se não estiver, pare e informe.
-3. Leia esta instrução, a especificação aplicável e a transação relacionada.
-4. Confirme que o estado da especificação permite a etapa solicitada.
+Antes de qualquer atuação EKM:
 
-Não é necessário registrar SHA, branch de origem, checkpoint ou declaração de
-prontidão em documentos EKM.
+1. leia integralmente
+   `<CAMINHO_ACESSIVEL_DA_EKM>/roles/REGRAS-COMUNS.md`;
+2. leia integralmente somente o perfil correspondente ao papel recebido;
+3. leia a especificação indicada;
+4. leia apenas as fontes técnicas pertinentes ao recorte.
 
-## Etapas
+| Papel recebido | Perfil |
+|---|---|
+| Autor da Especificação | `roles/AUTOR-DA-ESPECIFICACAO.md` |
+| Engenheiro Analista | `roles/ENGENHEIRO-ANALISTA.md` |
+| Engenheiro Implementador | `roles/ENGENHEIRO-IMPLEMENTADOR.md` |
+| Engenheiro Revisor | `roles/ENGENHEIRO-REVISOR.md` |
 
-- **Autoria:** produz especificação Proposta [`Proposed`] e Pendente de revisão
-  [`Pending Review`].
-- **Análise:** não altera implementação; produz Implementável
-  [`Implementable`] ou Precisa de esclarecimento [`Needs Clarification`].
-- **Implementação:** exige ordem do Arquiteto e especificação Implementável;
-  produz código, testes, conhecimento atualizado e evidências.
-- **Revisão:** ocorre somente quando solicitada; registra achados sem alterar
-  fatos nem requisitos.
+Não carregue perfis de outros papéis nem a metodologia EKM completa. Se a ordem
+não identificar papel e especificação, ou se a fonte não estiver acessível, não
+inicie a tarefa; informe o impedimento ao Arquiteto.
 
-Execute apenas a etapa solicitada.
+## Fontes locais do projeto
 
-## Evidência
+- especificações: `<CAMINHO_DAS_ESPECIFICACOES>`;
+- decisões e evidências: `<CAMINHO_DO_CHANGELOG>`;
+- mapa de conhecimento: `<CAMINHO_DO_MAPA>`;
+- arquitetura e padrões: `<FONTES_TECNICAS_LOCAIS>`;
+- comandos canônicos: `<BUILD_TESTES_E_VALIDACOES>`.
 
-Registre decisões, lacunas, validações materiais e limitações. Não transforme o
-changelog em diário de comandos e não copie para ele metadados que o Git já
-mantém.
+## Invariantes locais
 
-## Encerramento obrigatório
+- `<REGRA_PERMANENTE_DO_PROJETO>`;
+- `<RESTRICAO_DE_SEGURANCA_OU_PLATAFORMA>`;
+- `<ARQUIVOS_OU_OPERACOES_PROIBIDAS>`.
 
-Toda tarefa deve produzir mudança material, terminar com commit e push e deixar
-a árvore de trabalho limpa. Push com falha significa tarefa ainda não entregue.
-
-A ordem normal da tarefa não autoriza force push, reescrita de histórico,
-merge, tag, release ou deploy.
+As regras comuns e o perfil selecionado definem condições de entrada, promoção
+de estados, evidência, Git e encerramento. Regras específicas da tarefa
+pertencem à especificação ou à ordem do Arquiteto, não a este arquivo.

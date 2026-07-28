@@ -2,7 +2,10 @@
 
 **Modalidade:** perfis fixos referenciados
 
-**Estado:** experimental
+**Estado:** incorporado ao template oficial da EKM 1.11
+
+O template canônico vigente é [`AGENTS.md`](AGENTS.md). Este arquivo permanece
+como referência histórica compatível com o protocolo experimental 0.2.
 
 ## Autoridade
 

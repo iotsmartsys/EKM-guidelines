@@ -1,5 +1,9 @@
 # Comando mínimo — perfil EKM referenciado
 
+**Modelo EKM:** 1.11
+
+**Estado:** vigente
+
 Atue como **<PAPEL EKM>** na especificação **<CAMINHO OU ID DA
 ESPECIFICAÇÃO>**.
 

@@ -1,8 +1,8 @@
 # Perfil EKM — Engenheiro Implementador
 
-**Versão do perfil:** 0.2
+**Versão do perfil:** 1.0
 
-**Estado:** experimental
+**Estado:** vigente
 
 Leia primeiro [`REGRAS-COMUNS.md`](REGRAS-COMUNS.md).
 
@@ -50,8 +50,8 @@ Se a implementação exigir decisão não fornecida:
   obrigatória da etapa.
 - Use Implementada [`Implemented`] somente quando código e validações
   automatizáveis obrigatórias sustentarem esse resultado.
-- Use Validada [`Validated`] somente quando todas as evidências requeridas,
-  inclusive humanas ou em hardware quando aplicáveis, estiverem aprovadas.
+- Não promova para Validada [`Validated`]; essa passagem pertence ao Engenheiro
+  Revisor com as evidências humanas requeridas.
 - Não declare Concluída [`Done`] sem integração à referência de produção.
 - Preserve limitações históricas mesmo quando uma validação posterior permitir
   promover o estado.
