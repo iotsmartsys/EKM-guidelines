@@ -3,7 +3,7 @@
 **Estado:** Experimental
 
 Use somente quando o Arquiteto solicitar uma revisão independente. Esta não é
-uma etapa obrigatória do fluxo EKM 1.12.
+uma etapa obrigatória do fluxo EKM 1.13.
 
 ```text
 Revise a integridade EKM da mudança <EKM-CHG-NNNN> no repositório

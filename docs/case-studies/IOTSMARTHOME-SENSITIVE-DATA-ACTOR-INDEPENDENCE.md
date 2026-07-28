@@ -108,7 +108,8 @@ Consequências para a avaliação:
 |---|---|
 | Autoria funcional | entregue; ainda não avaliada pelo Arquiteto |
 | Decisão sobre coautoria | tomada; nenhum ator adicional |
-| Atualização da EKM | em preparação na branch de governança |
+| Descoberta multi-contexto | registrada; coordenação por especificações aprovada |
+| Atualização da EKM | capacidade incorporada ao modelo 1.13 nesta entrega |
 | Análise independente | não iniciada |
 | Implementação independente | não iniciada |
 | Revisão sem contexto adicional | não iniciada |
@@ -144,6 +145,36 @@ O aparecimento de valores na saída de ferramenta deve ser avaliado
 separadamente da persistência no Git: pode revelar uma limitação de
 confidencialidade do procedimento mesmo quando os artefatos entregues estejam
 redigidos.
+
+### 7.1 Descoberta de um objetivo multi-contexto
+
+Ao confrontar a proposta com a arquitetura atual, o Arquiteto concluiu que a
+remoção segura não começa por apagar configurações do aplicativo. O fluxo
+pretendido exige que o app se autentique pelo provedor OAuth/OIDC e recupere das
+APIs somente a configuração autorizada.
+
+A investigação localizou três contextos de entrega independentes:
+
+| Contexto | Responsabilidade no objetivo |
+|---|---|
+| Serviço OAuth/OIDC | autenticação interativa, cliente nativo público, Authorization Code com PKCE, sessão, renovação e revogação |
+| APIs SmartHome | validação e autorização do access token, scopes e bootstrap de configuração |
+| `iotsmarthome` | login por sessão web do sistema, Keychain, estado de sessão, configuração remota e remoção do modelo legado |
+
+Há capacidades OAuth já implementadas, mas também lacunas materiais antes que o
+fluxo do aplicativo possa ser executado ponta a ponta. A constatação não
+autoriza mudanças nesses repositórios nem promove a especificação funcional.
+Ela demonstra que uma única especificação local não consegue governar,
+implementar e validar todo o objetivo sem misturar fontes e responsabilidades.
+
+O Arquiteto decidiu usar uma especificação coordenadora para preservar o
+resultado ponta a ponta e especificações subordinadas junto a cada fonte
+responsável. Cada recorte deverá receber ordem própria, percorrer o fluxo de
+atores e produzir sua evidência local. A conclusão coordenada dependerá da
+integração entre os recortes, não apenas da soma de seus estados.
+
+Essa ocorrência motivou `DD-025` e a capacidade multi-contexto da EKM 1.13. Sua
+eficácia permanece hipótese a ser avaliada neste caso.
 
 ## 8. Perguntas reservadas à avaliação
 
@@ -214,9 +245,13 @@ agentes não devem ser incorporados aos artefatos entregues aos atores.
 
 ## 11. Próximas etapas
 
-1. concluir e entregar a EKM 1.12;
-2. avaliar a autoria funcional sem alterar retroativamente sua evidência;
-3. decidir e registrar as escolhas realmente reservadas ao Arquiteto;
-4. iniciar o Engenheiro Analista em contexto independente;
-5. prosseguir somente conforme os estados e ordens resultantes;
-6. atualizar este caso de estudo após cada etapa sem antecipar a conclusão.
+1. preservar a autoria funcional sem alterar retroativamente sua evidência;
+2. criar a especificação coordenadora do objetivo de identidade, configuração e
+   remoção de dados sensíveis;
+3. delimitar especificações subordinadas para OAuth/OIDC, APIs SmartHome e
+   `iotsmarthome`;
+4. decidir e registrar as escolhas realmente reservadas ao Arquiteto;
+5. iniciar as atuações seguintes em contextos independentes e somente por ordem
+   explícita;
+6. validar a integração ponta a ponta antes de concluir o objetivo coordenado;
+7. atualizar este caso de estudo após cada etapa sem antecipar a conclusão.

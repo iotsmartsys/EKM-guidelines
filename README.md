@@ -1,6 +1,6 @@
 # EKM Guidelines
 
-**Modelo EKM vigente:** 1.12
+**Modelo EKM vigente:** 1.13
 
 **Estado:** aprovado e vigente
 
@@ -13,7 +13,7 @@ A EKM deve começar pequena. Governança é útil quando acelera decisões, redu
 retrabalho ou aumenta confiança; não quando apenas multiplica documentos e
 passagens operacionais.
 
-## Princípios da versão 1.12
+## Princípios da versão 1.13
 
 - O Arquiteto humano sempre tem autoridade final sobre decisões dos agentes.
 - Cada etapa de uma especificação nasce de uma ordem que identifica papel,
@@ -29,6 +29,10 @@ passagens operacionais.
 - Toda tarefa começa com árvore limpa e termina com commit, push e árvore limpa.
 - Revisão e evidência são proporcionais ao risco e ao recorte.
 - Decisões, lacunas e conhecimento afetado continuam registrados.
+- Objetivos que atravessam repositórios ou serviços usam uma especificação
+  coordenadora e recortes executáveis junto a cada fonte responsável.
+- A conclusão local não comprova o objetivo multi-contexto sem evidência de
+  integração ponta a ponta.
 - O fluxo atual não incorpora controles para problemas ainda não adotados.
 
 ## Fluxo vigente
@@ -43,7 +47,7 @@ Autor → Analista → Implementador → Revisor/Tech Lead
 
 Os atores oficiais são Autor da Especificação, Engenheiro Analista, Engenheiro
 Implementador e Engenheiro Revisor. O fluxo representa a ordem lógica das
-etapas. A EKM 1.12 não define orquestração, concorrência, locks ou filas, e
+etapas. A EKM 1.13 não define orquestração, concorrência, locks ou filas, e
 esses temas não influenciam os trabalhos atuais.
 
 ## Responsabilidades das fontes
@@ -77,7 +81,7 @@ decisões confirmadas e funcionalidades tocadas.
 ## Conteúdo
 
 - [`docs/EKM-CONCEPT.md`](docs/EKM-CONCEPT.md): conceito, problema e limites.
-- [`docs/EKM-METHOD.md`](docs/EKM-METHOD.md): método de referência 1.12.
+- [`docs/EKM-METHOD.md`](docs/EKM-METHOD.md): método de referência 1.13.
 - [`docs/DESIGN-DECISIONS.md`](docs/DESIGN-DECISIONS.md): razões e evolução das decisões.
 - [`docs/LEGACY-ADOPTION.md`](docs/LEGACY-ADOPTION.md): adoção incremental.
 - [`docs/EXPERIMENT-HISTORY.md`](docs/EXPERIMENT-HISTORY.md): aprendizados dos experimentos.

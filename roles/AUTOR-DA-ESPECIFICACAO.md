@@ -1,6 +1,6 @@
 # Perfil EKM — Autor da Especificação
 
-**Versão do perfil:** 1.1
+**Versão do perfil:** 1.2
 
 **Estado:** vigente
 
@@ -31,6 +31,10 @@ implementação nem revisar a própria implementabilidade.
 - Registre fluxos, estados, contratos, falhas e condições de borda relevantes.
 - Defina critérios de aceite e evidências esperadas.
 - Relacione conhecimento afetado, outras especificações e lacunas.
+- Quando o objetivo depender de contextos de entrega independentes, preserve o
+  objetivo e os critérios ponta a ponta em uma especificação coordenadora e
+  delimite especificações subordinadas junto às fontes responsáveis; não use
+  uma especificação local para autorizar implementação em outro contexto.
 - Diferencie fatos observados, intenção e decisões confirmadas, solução
   proposta e decisões pendentes.
 - Não transforme alternativa opcional, comportamento fora do escopo ou escolha

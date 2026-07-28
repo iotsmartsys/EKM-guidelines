@@ -1,8 +1,8 @@
 # Método EKM
 
-**Versão do documento:** 1.9
+**Versão do documento:** 1.10
 
-**Modelo EKM:** 1.12
+**Modelo EKM:** 1.13
 
 **Estado:** aprovado e vigente
 
@@ -66,6 +66,39 @@ deve conter apenas o necessário para executar e verificar o recorte:
 
 Versões concluídas da especificação são preservadas. Mudanças posteriores usam
 uma nova versão relacionada por `Amends`, `Supersedes`, `Corrects` ou `Retires`.
+
+### 4.1 Objetivos que atravessam múltiplos contextos de entrega
+
+Um objetivo pode depender de mudanças em repositórios, serviços, aplicativos ou
+infraestruturas com fontes normativas e ciclos de integração independentes.
+Nessa situação, uma especificação local não deve absorver contratos alheios nem
+autorizar implicitamente alterações fora do próprio contexto.
+
+A coordenação usa a menor estrutura suficiente:
+
+- uma especificação coordenadora preserva o objetivo ponta a ponta, as decisões
+  de arquitetura, as relações entre os recortes e os critérios de integração;
+- cada contexto de entrega possui uma especificação subordinada executável,
+  mantida junto às próprias fontes e implementação;
+- as relações identificam a especificação, a fonte responsável, a dependência e
+  o estado material necessário, sem copiar commits ou o conteúdo integral da
+  outra fonte;
+- cada especificação percorre o fluxo normal de atores e promove somente seus
+  próprios estados;
+- o resultado coordenado só pode ser declarado quando as evidências dos
+  recortes obrigatórios e a validação de integração sustentarem o objetivo
+  ponta a ponta.
+
+Uma dependência externa sem contrato suficiente pode produzir Precisa de
+esclarecimento [`Needs Clarification`]. Quando o contrato necessário já está
+definido, mas sua entrega ainda está pendente, o Analista registra uma
+dependência de entrega; isso não deve ser convertido artificialmente em decisão
+arquitetural ausente.
+
+A coordenação não cria um ator central, uma branch comum entre repositórios nem
+um estado global que substitua os estados locais. O Arquiteto continua
+ordenando cada atuação e decidindo a integração. Concorrência, locks, filas e
+orquestração permanecem fora do método.
 
 ## 5. Estados
 
@@ -394,8 +427,13 @@ uma diretriz externa aplicável ou precisa declarar regras próprias.
 
 ## 11. Limites atuais
 
-A EKM 1.12 não define orquestração, concorrência, locks ou filas. Esses
+A EKM 1.13 não define orquestração, concorrência, locks ou filas. Esses
 mecanismos não fazem parte do fluxo nem dos critérios dos experimentos atuais.
+
+A coordenação multi-contexto organiza conhecimento, dependências e evidência;
+ela não executa publicação distribuída, não sincroniza automaticamente estados
+entre repositórios e não presume consistência apenas porque os recortes locais
+foram concluídos.
 
 O modelo também não afirma que documentação substitui código, testes,
 observabilidade ou julgamento humano. Sua utilidade deve ser medida pela

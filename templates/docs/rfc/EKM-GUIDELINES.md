@@ -6,7 +6,7 @@
 
 **Versão do documento:** 1.9
 
-**Versão do modelo EKM:** 1.12
+**Versão do modelo EKM:** 1.13
 
 **Escopo:** Todo o repositório
 

@@ -293,3 +293,50 @@ necessidade recorrente de um especialista com responsabilidade realmente
 distinta. A motivação e estes critérios permanecem neste registro de desenho,
 fora das fontes carregadas pelos atores em uma tarefa funcional normal; o
 perfil contém somente a regra operacional necessária.
+
+## DD-025 — Objetivos multi-contexto usam coordenação por especificações
+
+**Decisão:** quando um objetivo depende de fontes e implementações mantidas em
+repositórios, serviços, aplicativos ou infraestruturas independentes, a EKM usa
+uma especificação coordenadora para o resultado ponta a ponta e especificações
+subordinadas executáveis em cada contexto de entrega.
+
+A especificação coordenadora registra decisões arquiteturais, relações,
+dependências e critérios de integração. Cada especificação subordinada
+permanece junto às fontes que governam sua implementação, percorre o fluxo
+normal de atores e promove somente os próprios estados. A conclusão de um
+recorte não promove automaticamente os demais nem comprova o objetivo
+coordenado; este exige evidência de integração dos recortes obrigatórios.
+
+As relações registram identificadores, fontes responsáveis, dependências e
+estados materiais. Não duplicam especificações externas nem transcrevem a
+linhagem preservada pelo Git.
+
+**Motivo:** a análise da remoção de dados sensíveis do `iotsmarthome` mostrou
+que o resultado depende primeiro de mudanças no provedor OAuth/OIDC, nas APIs
+protegidas e no contrato de configuração, além da posterior migração do
+aplicativo. Tratar tudo como uma única especificação local permitiria que um
+ator do app inferisse contratos externos ou declarasse um resultado impossível
+de validar naquele repositório. Tratar cada mudança isoladamente, sem uma fonte
+coordenadora, perderia o objetivo arquitetural que dá sentido aos recortes.
+
+**Alternativas consideradas:**
+
+- ampliar a especificação do aplicativo para autorizar mudanças em todos os
+  repositórios foi rejeitado por misturar fontes, autoridades e ciclos de
+  integração independentes;
+- criar um novo Coordenador como ator obrigatório foi rejeitado porque o
+  Arquiteto já dirige as atuações e as especificações podem preservar as
+  relações materiais;
+- usar apenas uma lista informal de tarefas foi rejeitado porque não preserva
+  contratos, decisões nem critérios de conclusão ponta a ponta;
+- exigir sincronização automática, locks ou estado distribuído foi rejeitado
+  por antecipar mecanismos ainda não adotados.
+
+**Aplicação proporcional:** a estrutura só é usada quando existe dependência
+material entre contextos de entrega. Uma mudança inteiramente local continua
+com uma única especificação e o fluxo normal.
+
+**Critérios de reavaliação:** reavaliar se a coordenação duplicar conhecimento,
+criar manutenção manual sem apoiar decisões, tornar ambígua a autoridade dos
+estados ou não permitir verificar a integração ponta a ponta.

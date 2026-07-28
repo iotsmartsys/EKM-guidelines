@@ -13,7 +13,7 @@ Essa ordem autoriza a etapa. O agente inicia o fluxo em uma branch derivada da
 `main`, com árvore de trabalho limpa, e termina com commit, push e árvore limpa.
 
 O projeto instala um `AGENTS.md` que aponta para os perfis oficiais da EKM
-1.12. Depois da fundação, cada tarefa funcional identifica papel e
+1.13. Depois da fundação, cada tarefa funcional identifica papel e
 especificação. O agente lê regras comuns, exatamente um perfil e somente as
 fontes pertinentes ao recorte.
 

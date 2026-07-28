@@ -1,6 +1,6 @@
 # Instruções permanentes e roteamento EKM
 
-**Modelo EKM:** 1.12
+**Modelo EKM:** 1.13
 
 **Modalidade:** atores com perfis referenciados
 

@@ -1,6 +1,6 @@
 # Perfil EKM — Engenheiro Analista
 
-**Versão do perfil:** 1.0
+**Versão do perfil:** 1.1
 
 **Estado:** vigente
 
@@ -22,6 +22,9 @@ produto ou arquitetura ausente. Não alterar a implementação.
 
 - Confronte requisitos, contratos, dependências, compatibilidade, condições de
   borda, validações e conhecimento afetado.
+- Em objetivos multi-contexto, verifique se cada dependência externa possui
+  contrato e fonte responsáveis. Diferencie decisão ausente de contrato já
+  definido cuja implementação ou integração ainda está pendente.
 - Use código e testes para verificar fatos, nunca para inventar intenção.
 - Analise o necessário para sustentar o resultado, sem matriz universal.
 - Quando encontrar uma lacuna bloqueante clara, pode encerrar a análise após

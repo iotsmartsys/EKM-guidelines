@@ -248,6 +248,40 @@ estado por etapa.
 Detalhes:
 [`IOTSMARTHOME-REFERENCED-ACTORS-LIFECYCLE.md`](case-studies/IOTSMARTHOME-REFERENCED-ACTORS-LIFECYCLE.md).
 
+## 17. Uma especificação local revelou um objetivo multi-contexto
+
+Durante a análise arquitetural da especificação
+`AIOTSMARTHOME-SENSITIVE-DATA-REMOVAL-001@0.1`, a EKM tornou visível que remover
+dados sensíveis do aplicativo não é uma implementação autônoma do
+`iotsmarthome`.
+
+O fluxo seguro depende de pelo menos três contextos de entrega:
+
+- o provedor OAuth/OIDC precisa suportar autenticação interativa de usuário e o
+  fluxo adequado para cliente nativo público;
+- as APIs SmartHome precisam validar a autorização e fornecer configuração de
+  runtime com escopo;
+- o aplicativo precisa adotar sessão segura, recuperar a configuração
+  autorizada e remover o bootstrap compartilhado legado.
+
+O serviço OAuth existente já contém partes do contrato, como Authorization
+Code, PKCE, discovery, renovação e revogação, mas isso não torna prontas a
+experiência interativa, a proteção das APIs nem a integração do app. Promover a
+especificação local como implementável ocultaria dependências externas; reunir
+toda a implementação no documento do aplicativo misturaria fontes e
+autoridades.
+
+A descoberta mostrou uma função adicional do método: preservar um objetivo
+arquitetural enquanto cada fonte responsável evolui por especificações e
+evidências próprias. O Arquiteto aprovou a coordenação por uma especificação
+ponta a ponta e especificações subordinadas nos contextos de entrega, sem criar
+novo ator, orquestração ou rastreamento manual de commits entre repositórios.
+
+A EKM 1.13 incorpora essa capacidade de forma proporcional. O caso de dados
+sensíveis continua em andamento; portanto, a utilidade da coordenação
+multi-contexto ainda deverá ser confrontada durante autoria, análise,
+implementação e validação integrada dos recortes.
+
 ## Conclusão experimental
 
 Os experimentos sustentam que agentes conseguem executar mudanças com autonomia

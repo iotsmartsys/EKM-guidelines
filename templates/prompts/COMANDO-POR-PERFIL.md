@@ -1,6 +1,6 @@
 # Comando mínimo — perfil EKM referenciado
 
-**Modelo EKM:** 1.12
+**Modelo EKM:** 1.13
 
 **Estado:** vigente
 
