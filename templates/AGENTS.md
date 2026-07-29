@@ -1,6 +1,6 @@
 # Instruções permanentes e roteamento EKM
 
-**Modelo EKM:** 1.14
+**Modelo EKM:** 1.15
 
 **Modalidade:** atores com perfis referenciados
 
@@ -48,6 +48,9 @@ Não se aplica [`Not Applicable`] em governança ou apoio fora desse ciclo.
 
 ## Invariantes locais
 
+- Preserve arquitetura, organização e separação de responsabilidades vigentes;
+  use as fontes técnicas acima e o precedente equivalente mais próximo. Desvio
+  exige autorização arquitetural explícita na especificação.
 - `<REGRA_PERMANENTE_DO_PROJETO>`;
 - `<RESTRICAO_DE_SEGURANCA_OU_PLATAFORMA>`;
 - `<ARQUIVOS_OU_OPERACOES_PROIBIDAS>`.

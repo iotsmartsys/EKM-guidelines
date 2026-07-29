@@ -1,8 +1,8 @@
 # Método EKM
 
-**Versão do documento:** 1.11
+**Versão do documento:** 1.12
 
-**Modelo EKM:** 1.14
+**Modelo EKM:** 1.15
 
 **Estado:** aprovado e vigente
 
@@ -50,6 +50,37 @@ atualizada.
 Git registra autoria técnica, commits, diferenças, branches e linhagem. Esses
 dados não devem ser copiados manualmente para documentos EKM, salvo quando um
 dado Git for necessário para explicar uma decisão ou um desvio material.
+
+### 3.1 Preservação arquitetural local
+
+Cada repositório localiza no `AGENTS.md` suas fontes de arquitetura, padrões e
+restrições. Por padrão, toda implementação:
+
+- preserva a arquitetura, a organização e a separação de responsabilidades
+  vigentes;
+- coloca novos arquivos junto ao componente equivalente mais próximo;
+- segue os padrões de nomenclatura, dependência e estrutura do precedente
+  canônico aplicável;
+- não cria nova camada, pasta estrutural, abstração transversal ou padrão
+  arquitetural por preferência do agente.
+
+Uma especificação Implementável [`Implementable`] pode determinar uma evolução
+arquitetural. A exceção só é explícita e consciente quando identifica:
+
+1. o padrão, a restrição ou o precedente atual afetado;
+2. a mudança pretendida;
+3. o alcance da mudança;
+4. a justificativa ou decisão do Arquiteto que a sustenta.
+
+Ausência de orientação, necessidade técnica inferida, oportunidade de melhoria
+ou texto genérico não autorizam desvio. Quando não houver precedente claro ou
+existirem precedentes conflitantes, o conflito deve ser registrado e devolvido
+ao Arquiteto, em vez de resolvido pela criação incidental de uma nova
+arquitetura.
+
+Preservar o padrão vigente não transforma todo código legado em modelo
+normativo nem impede evolução. Significa apenas que mudanças arquiteturais são
+deliberadas, delimitadas e verificáveis.
 
 ## 4. Unidade de trabalho
 
@@ -475,7 +506,7 @@ uma diretriz externa aplicável ou precisa declarar regras próprias.
 
 ## 11. Limites atuais
 
-A EKM 1.14 não define orquestração, concorrência, locks ou filas. Esses
+A EKM 1.15 não define orquestração, concorrência, locks ou filas. Esses
 mecanismos não fazem parte do fluxo nem dos critérios dos experimentos atuais.
 
 A coordenação multi-contexto organiza conhecimento, dependências e evidência;

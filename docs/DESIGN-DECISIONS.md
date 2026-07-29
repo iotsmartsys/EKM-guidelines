@@ -442,3 +442,91 @@ experimental, integração à `main`, release ou deploy.
   registro representa a autorização e as decisões do Arquiteto e autorizar o
   commit e o push do resultado preparado. A confirmação não declara eficácia,
   validação experimental, integração à `main`, release ou deploy.
+
+## DD-027 — Preservação arquitetural local com evolução explícita
+
+**Decisão:** a EKM estabelece como comportamento padrão que implementações
+preservem a arquitetura, a organização e a separação de responsabilidades do
+repositório, usando o precedente equivalente mais próximo. Um agente não cria
+nova camada, pasta estrutural, abstração transversal ou padrão arquitetural por
+preferência própria.
+
+Uma especificação Implementável pode autorizar evolução arquitetural quando a
+mudança for consciente e delimitada. Para isso, ela identifica:
+
+1. o padrão, a restrição ou o precedente atual afetado;
+2. a mudança pretendida;
+3. o alcance da mudança;
+4. a justificativa ou decisão do Arquiteto que a sustenta.
+
+Ausência de orientação, necessidade técnica inferida, oportunidade de melhoria
+ou redação genérica não constituem autorização. Ausência ou conflito de
+precedentes devolve a decisão ao Arquiteto.
+
+**Aplicação por ator:**
+
+- o Autor localiza o precedente e torna qualquer desvio explícito;
+- o Analista verifica se a mudança pode ser executada sem inferência
+  arquitetural;
+- o Implementador preserva o precedente ou executa somente o desvio
+  delimitado;
+- o Revisor confronta organização, responsabilidades e autorização do desvio.
+
+**Aplicação proporcional:** a EKM central define o comportamento, mas a
+arquitetura concreta permanece no repositório. O `AGENTS.md` apenas localiza as
+fontes técnicas e declara invariantes locais. Não é criado um documento
+arquitetural obrigatório; a especificação detalha os quatro elementos somente
+quando existir desvio.
+
+**Alternativas consideradas:**
+
+- congelar todo padrão existente foi rejeitado porque transformaria legado em
+  norma e impediria evolução intencional;
+- permitir que o agente reorganize o projeto quando julgar tecnicamente melhor
+  foi rejeitado porque transfere decisão arquitetural e amplia escopo;
+- exigir aprovação externa para todo novo arquivo foi rejeitado por adicionar
+  custo sem distinguir manutenção comum de mudança estrutural;
+- criar um manual arquitetural universal na EKM foi rejeitado porque padrões
+  pertencem ao contexto de cada repositório.
+
+**Motivo:** uma regra curta e localizável reduz a criação incidental de
+estruturas desconhecidas e a mistura de responsabilidades, preservando uma
+válvula de escape para mudanças conscientemente conduzidas pela especificação.
+
+**Caráter experimental:** a regra será inicialmente observada no ciclo da
+especificação `OAUTH-END-USER-AUTHORIZATION-001`. Ela ainda não comprova
+redução de retrabalho ou aumento de aderência entre modelos. A adoção da EKM
+1.15 nesse repositório permanece uma mudança local separada.
+
+**Critérios de reavaliação:** simplificar, retirar ou especializar a regra se
+ela congelar código inadequado, gerar consultas frequentes sem valor, permitir
+interpretações divergentes de “precedente equivalente” ou não reduzir desvios
+arquiteturais materiais.
+
+**Estado da decisão:** confirmada pelo Arquiteto para incorporação à EKM 1.15.
+
+### Registro da atuação
+
+**Estado da confirmação final:** Confirmada pelo Arquiteto.
+
+- **Papel exercido:** Consultor de Arquitetura e par do Arquiteto.
+- **Ordem autorizada:** incorporar à EKM a preservação arquitetural local com
+  uma exceção consciente e explícita pela especificação.
+- **Repositório e recorte:** `EKM-guidelines`; método, regras comuns, perfis dos
+  quatro atores, templates, governança, conceito e decisão de desenho.
+- **Operações autorizadas:** editar as fontes afetadas, validar consistência,
+  criar commit e realizar push.
+- **Decisões confirmadas:** preservar arquitetura, organização e separação de
+  responsabilidades por padrão; autorizar desvios somente quando a
+  especificação identificar padrão atual, mudança, alcance e justificativa ou
+  decisão do Arquiteto.
+- **Resultado material:** EKM 1.15 preparada sem novo documento obrigatório,
+  com responsabilidades distribuídas pelos atores e observação inicial
+  prevista no ciclo `OAUTH-END-USER-AUTHORIZATION-001`.
+- **Validações e limitações:** consistência textual e de versões verificada;
+  eficácia ainda não demonstrada. O Consultor participou da criação e não pode
+  atuar como revisor independente dessa regra.
+- **Significado da confirmação:** o Arquiteto confirmou que o registro
+  representa a discussão e autorizou commit e push. A confirmação não declara
+  eficácia experimental, validação funcional, integração à `main`, release ou
+  deploy.

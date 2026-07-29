@@ -30,6 +30,18 @@ Descontinua [`Retires`] `<ID@VERSÃO>`
 
 `<LIMITES EXPLÍCITOS>`
 
+### 3.1 Arquitetura e organização
+
+**Precedente aplicável:** `<FONTE E COMPONENTE EQUIVALENTE MAIS PRÓXIMO>`
+
+**Elementos preservados:** `<ARQUITETURA, ORGANIZAÇÃO E RESPONSABILIDADES QUE
+NÃO DEVEM MUDAR>`
+
+**Desvio arquitetural explícito:** Nenhum | `<PADRÃO ATUAL AFETADO; MUDANÇA
+PRETENDIDA; ALCANCE; JUSTIFICATIVA OU DECISÃO DO ARQUITETO>`
+
+A ausência de desvio explícito determina preservação do precedente aplicável.
+
 ## 4. Requisitos
 
 - **`<PREFIXO>-001`:** `<REQUISITO VERIFICÁVEL>`.

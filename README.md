@@ -1,6 +1,6 @@
 # EKM Guidelines
 
-**Modelo EKM vigente:** 1.14
+**Modelo EKM vigente:** 1.15
 
 **Estado:** aprovado e vigente
 
@@ -13,13 +13,15 @@ A EKM deve começar pequena. Governança é útil quando acelera decisões, redu
 retrabalho ou aumenta confiança; não quando apenas multiplica documentos e
 passagens operacionais.
 
-## Princípios da versão 1.14
+## Princípios da versão 1.15
 
 - O Arquiteto humano sempre tem autoridade final sobre decisões dos agentes.
 - Cada etapa de uma especificação nasce de uma ordem que identifica papel,
   especificação e recorte.
 - O agente lê regras comuns, exatamente um perfil e somente as fontes
   pertinentes à sua atuação.
+- Implementações preservam a arquitetura e o precedente local por padrão;
+  desvios exigem determinação consciente e delimitada na especificação.
 - O Autor pode investigar o problema e propor uma solução; o Analista valida
   sua implementabilidade em atuação independente.
 - O estado da especificação informa se a próxima etapa está pronta.
@@ -50,7 +52,7 @@ Autor → Analista → Implementador → Revisor/Tech Lead
 Os atores oficiais são Autor da Especificação, Engenheiro Analista, Engenheiro
 Implementador e Engenheiro Revisor. O fluxo representa a ordem lógica das
 etapas. O Consultor de Arquitetura é um papel institucional subordinado ao
-Arquiteto, não um quinto ator nem uma autoridade paralela. A EKM 1.14 não
+Arquiteto, não um quinto ator nem uma autoridade paralela. A EKM 1.15 não
 define orquestração, concorrência, locks ou filas, e
 esses temas não influenciam os trabalhos atuais.
 
@@ -85,7 +87,7 @@ decisões confirmadas e funcionalidades tocadas.
 ## Conteúdo
 
 - [`docs/EKM-CONCEPT.md`](docs/EKM-CONCEPT.md): conceito, problema e limites.
-- [`docs/EKM-METHOD.md`](docs/EKM-METHOD.md): método de referência 1.14.
+- [`docs/EKM-METHOD.md`](docs/EKM-METHOD.md): método de referência 1.15.
 - [`docs/DESIGN-DECISIONS.md`](docs/DESIGN-DECISIONS.md): razões e evolução das decisões.
 - [`docs/LEGACY-ADOPTION.md`](docs/LEGACY-ADOPTION.md): adoção incremental.
 - [`docs/EXPERIMENT-HISTORY.md`](docs/EXPERIMENT-HISTORY.md): aprendizados dos experimentos.

@@ -4,9 +4,9 @@
 
 **Estado da fonte:** Vigente
 
-**Versão do documento:** 1.10
+**Versão do documento:** 1.11
 
-**Versão do modelo EKM:** 1.14
+**Versão do modelo EKM:** 1.15
 
 **Escopo:** Todo o repositório
 
@@ -74,6 +74,12 @@ deploy sem ordem específica.
 - Não remover ou enfraquecer decisão vigente silenciosamente.
 - Não substituir fonte normativa por resumo incompleto.
 - Não resolver conflito normativo por preferência do agente.
+- Preservar arquitetura, organização e separação de responsabilidades e usar o
+  precedente equivalente mais próximo.
+- Não criar camada, pasta estrutural, abstração transversal ou padrão
+  arquitetural sem especificação Implementável que identifique o padrão atual,
+  a mudança, o alcance e a justificativa ou decisão do Arquiteto.
+- Na ausência ou conflito de precedentes, devolver a decisão ao Arquiteto.
 - Atualizar conhecimento afetado na mesma mudança.
 - Registrar lacunas que precisem sobreviver à tarefa.
 

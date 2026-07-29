@@ -55,6 +55,16 @@ Se alguma condição não for verdadeira, não inicie a implementação.
 
 <ARQUITETURA, PADRÕES, SOLID, CONCORRÊNCIA, ESTILO E RESTRIÇÕES DO PROJETO>
 
+- Preserve arquitetura, organização e separação de responsabilidades vigentes.
+- Coloque novos arquivos junto ao componente equivalente mais próximo e siga
+  seus padrões de nomenclatura, dependência e estrutura.
+- Não crie camada, pasta estrutural, abstração transversal ou padrão
+  arquitetural, salvo quando a especificação identificar explicitamente o
+  padrão atual afetado, a mudança, o alcance e a justificativa ou decisão do
+  Arquiteto.
+- Na ausência ou conflito de precedentes, interrompa o recorte e devolva a
+  decisão ao Arquiteto.
+
 ## 9. Referências canônicas
 
 - <COMPONENTE EXISTENTE A SER USADO COMO REFERÊNCIA>

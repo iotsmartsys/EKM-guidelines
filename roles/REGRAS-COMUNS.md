@@ -1,8 +1,8 @@
 # Regras comuns dos perfis EKM
 
-**Modelo EKM aplicável:** 1.14
+**Modelo EKM aplicável:** 1.15
 
-**Versão do perfil:** 1.0
+**Versão do perfil:** 1.1
 
 **Estado:** vigente
 
@@ -53,6 +53,21 @@ operações autorizadas e registro material esperado.
 - A ordem do Arquiteto delimita o recorte atual e eventuais exceções.
 - Código e testes são implementação e evidência executável, não criam
   requisitos por inferência.
+
+## 3.1 Preservação arquitetural
+
+Por padrão, preserve a arquitetura, a organização e a separação de
+responsabilidades vigentes no repositório. Use o precedente equivalente mais
+próximo indicado pelas fontes locais antes de criar arquivos ou componentes.
+
+Não crie nova camada, pasta estrutural, abstração transversal ou padrão
+arquitetural, salvo quando a especificação Implementável determinar a mudança
+explicitamente. Essa determinação deve identificar o padrão atual afetado, a
+mudança pretendida, seu alcance e a justificativa ou decisão do Arquiteto.
+
+Ausência de orientação, necessidade inferida ou oportunidade de melhoria não
+constituem autorização. Se não houver precedente claro ou os precedentes forem
+conflitantes, registre o conflito e devolva a decisão ao Arquiteto.
 
 Se as fontes entrarem em conflito material, não escolha uma interpretação por
 conveniência. Registre o conflito e devolva a decisão ao Arquiteto.

@@ -140,6 +140,9 @@ A EKM parte de hipóteses ainda em validação:
     a autoridade de uma tarefa local.
 15. institucionalizar a consultoria arquitetural por IA torna a colaboração
     transversal auditável sem transferir a autoridade principal do Arquiteto.
+16. preservar o precedente arquitetural local por padrão e exigir autorização
+    explícita para desvios reduz reorganizações incidentais e violações de
+    responsabilidade sem impedir evolução deliberada.
 
 O ciclo completo no aplicativo iotsmarthome sustentou a adoção do modelo de
 atores na EKM 1.11. Os experimentos não demonstram aplicabilidade universal nem
@@ -147,5 +150,5 @@ garantem obediência de qualquer agente.
 
 ## Estado do método
 
-A EKM 1.14 está aprovada e vigente para adoção. O método continua evoluindo
+A EKM 1.15 está aprovada e vigente para adoção. O método continua evoluindo
 quando evidências mostrarem lacunas, excesso de custo ou regras inadequadas.

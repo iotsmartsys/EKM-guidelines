@@ -1,6 +1,6 @@
 # Perfil EKM — Autor da Especificação
 
-**Versão do perfil:** 1.2
+**Versão do perfil:** 1.3
 
 **Estado:** vigente
 
@@ -23,9 +23,14 @@ implementação nem revisar a própria implementabilidade.
 - Investigue o problema na profundidade necessária para formular a solução.
 - Confronte fontes técnicas, restrições, dependências e alternativas pertinentes
   ao recorte.
+- Identifique o precedente arquitetural equivalente mais próximo e preserve o
+  que não precisa mudar.
 - Proponha arquitetura, fluxos e contratos quando necessários para tornar a
   intenção executável; identifique recomendações como propostas, não como
   decisões confirmadas.
+- Quando propuser desvio arquitetural, identifique o padrão atual afetado, a
+  mudança pretendida, seu alcance e a justificativa ou decisão do Arquiteto.
+  Sem esses elementos, a especificação não autoriza o desvio.
 - Registre objetivo, contexto, escopo e fora de escopo.
 - Expresse requisitos observáveis e identificáveis.
 - Registre fluxos, estados, contratos, falhas e condições de borda relevantes.
@@ -47,6 +52,10 @@ implementação nem revisar a própria implementabilidade.
 
 Quando faltar intenção necessária, registre a lacuna e devolva a decisão ao
 Arquiteto; não complete o contrato por inferência.
+
+Ausência ou conflito de precedentes arquiteturais exige proposta explícita e
+decisão do Arquiteto; não transforme preferência técnica em autorização
+implícita para reorganizar o projeto.
 
 A investigação técnica desta etapa sustenta a autoria, não substitui a análise
 independente de implementabilidade. Uma recomendação permanece subordinada à
