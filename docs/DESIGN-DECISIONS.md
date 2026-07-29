@@ -589,6 +589,14 @@ uma conclusão de implementabilidade defensável, mas encerrou antes das tasks,
 omitiu uma falha de teste e misturou prontidão com estado normativo no mapa. A
 decomposição resultou em 60/100 e tornou visíveis os descontos materiais.
 
+**Evidência adicional:** duas execuções do Claude Sonnet 5 no Claude Code sem
+adaptador explícito para `AGENTS.md` foram Reprovadas com 61/100 e 67/100 por
+encerramento Git incompleto. Mantidos modelo, ambiente, papel, especificação e
+prompt mínimo, a inclusão de `CLAUDE.md` como roteador das fontes EKM produziu
+uma execução Aceitável de 89/100, sem eliminatório. O resultado confirma que o
+mecanismo de carregamento das instruções integra a configuração avaliada e que
+perfis com e sem o adaptador não devem ser tratados como equivalentes.
+
 **Proporcionalidade:** a métrica permanece experimental e não cria uma etapa
 obrigatória em toda tarefa. Ela é aplicada quando o Arquiteto avaliar perfis,
 experimentos ou decisões de autonomia.

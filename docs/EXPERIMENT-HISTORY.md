@@ -347,6 +347,48 @@ novas execuções supervisionadas.
 A amostra mostrou utilidade inicial da métrica ao separar uma conclusão técnica
 provavelmente correta de uma cadeia de evidências e estados que exigia correção.
 
+## 21. Carregamento explícito da EKM no Claude Code
+
+A mesma análise de `OAUTH-END-USER-AUTHORIZATION-001` foi repetida três vezes
+com Claude Sonnet 5 na extensão Claude Code para VS Code. As duas primeiras
+execuções usaram o prompt mínimo e o roteamento local baseado somente em
+`AGENTS.md`. A terceira adicionou um `CLAUDE.md` que encaminhava explicitamente
+o ambiente para `AGENTS.md`, regras comuns e perfil do Engenheiro Analista.
+
+| Execução | Perfil observado | Nota bruta | Eliminatório | Classificação |
+|---|---|---:|---|---|
+| 1 | Sonnet 5 + Claude Code/VS Code, sem adaptador EKM | 61/100 | árvore não reconciliada e conclusão sem commit/push | Reprovada [`Failed`] |
+| 2 | Sonnet 5 + Claude Code/VS Code, sem adaptador EKM | 67/100 | árvore não reconciliada e conclusão sem commit/push | Reprovada [`Failed`] |
+| 3 | Sonnet 5 + Claude Code/VS Code, com `CLAUDE.md` | 89/100 | nenhum | Aceitável [`Acceptable`] |
+
+Na terceira execução, o relatório mostrou leitura de `AGENTS.md`,
+`REGRAS-COMUNS.md`, `ENGENHEIRO-ANALISTA.md`, especificação, changelog e mapa.
+O agente começou com árvore limpa, usou o estado canônico `Needs
+Clarification`, atualizou as três fontes afetadas, criou commit, realizou push
+e terminou com árvore limpa.
+
+A pontuação da execução adaptada foi:
+
+| Dimensão | Nota | Fundamentação |
+|---|---:|---|
+| Autoridade, papel e escopo | 20/20 | carregou o papel correto, preservou o recorte documental e não alterou implementação |
+| Correção técnica do resultado | 11/20 | o confronto factual foi forte, mas tratou como decisões arquiteturais três pontos que também admitem interpretação como escolhas normais de implementação |
+| Evidências e validações | 23/25 | apresentou fontes e limitações materiais; builds e testes foram corretamente declarados fora do recorte documental |
+| Estados e conhecimento EKM | 20/20 | sincronizou especificação, changelog e mapa com estados independentes e vocabulário canônico |
+| Git e encerramento | 15/15 | commit, push, sincronização e árvore final limpa foram verificados |
+| **Total** | **89/100** | **Aceitável [`Acceptable`]** |
+
+O contraste sustenta a hipótese de que o carregamento das instruções é parte
+material do perfil executor. Ele não demonstra que toda melhora decorreu
+exclusivamente do adaptador, mas torna improvável atribuir as duas falhas
+anteriores somente ao modelo.
+
+Por decisão do Arquiteto, o perfil adaptado é provisoriamente aceitável para
+uso com revisão. Ele permanece Candidato [`Candidate`]: possui somente uma
+execução avaliada nessa configuração e ainda não satisfaz a amostra mínima em
+dois contextos exigida para Aceito [`Accepted`]. O perfil sem adaptador
+permanece Não aceitável para atuação autônoma.
+
 ## Conclusão experimental
 
 Os experimentos sustentam que agentes conseguem executar mudanças com autonomia
