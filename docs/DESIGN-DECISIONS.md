@@ -567,3 +567,47 @@ especializar a regra se ela bloquear trabalho sem relação com evidência ou
 entrega.
 
 **Estado da decisão:** confirmada pelo Arquiteto para incorporação à EKM 1.16.
+
+## DD-029 — Adequação é medida por perfil executor, papel e amostra
+
+**Decisão:** a EKM adota experimentalmente uma métrica de zero a cem para
+avaliar autoridade e escopo, correção técnica, evidências, conhecimento EKM e
+encerramento Git. Desvios críticos são eliminatórios e não podem ser compensados
+pela soma.
+
+A unidade avaliada combina modelo, ambiente agente, configuração, instruções,
+versão EKM e papel. Aceitação para um papel exige ao menos três execuções em
+dois contextos, média mínima de 85, nenhuma nota abaixo de 75 e nenhum desvio
+eliminatório.
+
+**Motivo:** uma nota intuitiva isolada não explica por que uma execução foi
+aceitável, mistura resultado técnico com conformidade e pode atribuir ao modelo
+um comportamento causado pelo ambiente ou pelas ferramentas.
+
+**Evidência inicial:** a análise de `OAUTH-END-USER-AUTHORIZATION-001` produziu
+uma conclusão de implementabilidade defensável, mas encerrou antes das tasks,
+omitiu uma falha de teste e misturou prontidão com estado normativo no mapa. A
+decomposição resultou em 60/100 e tornou visíveis os descontos materiais.
+
+**Proporcionalidade:** a métrica permanece experimental e não cria uma etapa
+obrigatória em toda tarefa. Ela é aplicada quando o Arquiteto avaliar perfis,
+experimentos ou decisões de autonomia.
+
+**Alternativas rejeitadas:**
+
+- classificar somente pelo nome do modelo foi rejeitado porque ambiente e
+  configuração alteram o comportamento;
+- aceitar por uma única execução foi rejeitado porque não demonstra
+  repetibilidade;
+- usar apenas eliminatórios foi rejeitado porque não diferencia qualidade entre
+  execuções válidas;
+- usar apenas média foi rejeitado porque permitiria compensar falha crítica com
+  pontos em dimensões menos relevantes.
+
+**Critérios de reavaliação:** após cinco a dez execuções, revisar pesos,
+limiares, consistência entre avaliadores, custo do registro e poder de prever
+retrabalho. Simplificar ou retirar a métrica se ela gerar falsa precisão ou
+burocracia sem ganho decisório.
+
+**Estado da decisão:** confirmada pelo Arquiteto para incorporação experimental
+à EKM 1.17.

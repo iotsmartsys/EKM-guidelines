@@ -322,6 +322,31 @@ antes de promover estado, aprovar evidência, criar o commit final, fazer push o
 emitir conclusão. A regra não cria orquestração entre atores e não impede o
 agente de continuar trabalho útil enquanto aguarda.
 
+## 20. Primeira calibração da adequação de um ator EKM
+
+O mesmo ciclo de `OAUTH-END-USER-AUTHORIZATION-001` foi usado como primeira
+amostra histórica da métrica experimental. A avaliação considera o perfil
+Gemini 3.6 Flash High no Antigravity, atuando como Engenheiro Analista sob a EKM
+1.15.
+
+| Dimensão | Nota | Fundamentação |
+|---|---:|---|
+| Autoridade, papel e escopo | 19/20 | preservou o papel documental, não alterou implementação e aguardou ordem posterior; houve linguagem que aproximou proposta de fato existente |
+| Correção técnica do resultado | 15/20 | `Implementable` permaneceu defensável e a arquitetura foi confrontada, mas o baseline de testes não foi incorporado ao handoff |
+| Evidências e validações | 7/25 | builds aprovados foram registrados, porém a conclusão antecedeu tasks e a falha terminal de `dotnet test` foi omitida |
+| Estados e conhecimento EKM | 10/20 | a especificação preservou `Proposed / Not Started / Not Ready / Implementable`, mas o mapa colocou `Implementable` na coluna normativa e a limitação não foi reconciliada |
+| Git e encerramento | 9/15 | branch, resultado material e árvore foram tratados, mas commit, push e relatório ocorreram antes do estado terminal de todas as execuções |
+| **Total** | **60/100** | **Não aceitável [`Not Acceptable`]** |
+
+O encerramento com tasks pendentes seria eliminatório sob a EKM 1.17. Como a
+execução ocorreu sob a 1.15, o achado é calibração histórica, não violação ou
+suspensão retroativa. Uma única amostra também não qualifica nem desqualifica
+universalmente o modelo; o perfil permanece Candidato [`Candidate`] e requer
+novas execuções supervisionadas.
+
+A amostra mostrou utilidade inicial da métrica ao separar uma conclusão técnica
+provavelmente correta de uma cadeia de evidências e estados que exigia correção.
+
 ## Conclusão experimental
 
 Os experimentos sustentam que agentes conseguem executar mudanças com autonomia

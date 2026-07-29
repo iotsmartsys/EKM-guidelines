@@ -145,6 +145,8 @@ A EKM parte de hipóteses ainda em validação:
     responsabilidade sem impedir evolução deliberada.
 17. impedir conclusão com execuções próprias ainda pendentes reduz evidência
     prematura sem introduzir coordenação entre atores.
+18. avaliar o perfil executor por papel e por múltiplas execuções permite
+    calibrar autonomia sem atribuir qualidade universal ao nome de um modelo.
 
 O ciclo completo no aplicativo iotsmarthome sustentou a adoção do modelo de
 atores na EKM 1.11. Os experimentos não demonstram aplicabilidade universal nem
@@ -152,5 +154,5 @@ garantem obediência de qualquer agente.
 
 ## Estado do método
 
-A EKM 1.16 está aprovada e vigente para adoção. O método continua evoluindo
+A EKM 1.17 está aprovada e vigente para adoção. O método continua evoluindo
 quando evidências mostrarem lacunas, excesso de custo ou regras inadequadas.

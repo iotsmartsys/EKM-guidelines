@@ -1,8 +1,8 @@
 # Método EKM
 
-**Versão do documento:** 1.12
+**Versão do documento:** 1.13
 
-**Modelo EKM:** 1.16
+**Modelo EKM:** 1.17
 
 **Estado:** aprovado e vigente
 
@@ -521,9 +521,25 @@ docs/
 `EKM-GUIDELINES.md` local é necessário apenas quando o projeto não referencia
 uma diretriz externa aplicável ou precisa declarar regras próprias.
 
-## 11. Limites atuais
+## 11. Avaliação experimental dos atores
 
-A EKM 1.16 não define orquestração, concorrência, locks ou filas entre atores. O
+A adequação é atribuída ao perfil executor — modelo, ambiente, configuração,
+instruções e versão EKM — para um papel específico. Ela não é inferida apenas
+do nome do modelo nem de uma única execução bem-sucedida.
+
+A métrica experimental combina pontuação de autoridade e escopo, correção
+técnica, evidências, conhecimento EKM e encerramento Git com desvios
+eliminatórios que não podem ser compensados pela soma. Aceitação exige amostra
+de múltiplas execuções e contextos.
+
+O protocolo, os limiares e o registro mínimo estão em
+[`ACTOR-EVALUATION.md`](ACTOR-EVALUATION.md). Durante a fase experimental, a
+avaliação não é uma etapa obrigatória de toda tarefa nem substitui decisão do
+Arquiteto.
+
+## 12. Limites atuais
+
+A EKM 1.17 não define orquestração, concorrência, locks ou filas entre atores. O
 gate de encerramento controla somente execuções iniciadas pelo próprio agente e
 não constitui um mecanismo de coordenação. Esses mecanismos não fazem parte do
 fluxo nem dos critérios dos experimentos atuais.

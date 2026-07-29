@@ -1,6 +1,6 @@
 # EKM Guidelines
 
-**Modelo EKM vigente:** 1.16
+**Modelo EKM vigente:** 1.17
 
 **Estado:** aprovado e vigente
 
@@ -13,7 +13,7 @@ A EKM deve começar pequena. Governança é útil quando acelera decisões, redu
 retrabalho ou aumenta confiança; não quando apenas multiplica documentos e
 passagens operacionais.
 
-## Princípios da versão 1.16
+## Princípios da versão 1.17
 
 - O Arquiteto humano sempre tem autoridade final sobre decisões dos agentes.
 - Cada etapa de uma especificação nasce de uma ordem que identifica papel,
@@ -31,6 +31,8 @@ passagens operacionais.
 - Toda tarefa começa com árvore limpa e termina com commit, push e árvore limpa.
 - Nenhum agente conclui a etapa enquanto execução iniciada por ele permanecer
   em estado não terminal ou desconhecido.
+- A adequação de um ator é avaliada por perfil executor e papel, com evidência
+  de múltiplas execuções, não pelo nome isolado do modelo.
 - Revisão e evidência são proporcionais ao risco e ao recorte.
 - Decisões, lacunas e conhecimento afetado continuam registrados.
 - Objetivos que atravessam repositórios ou serviços usam uma especificação
@@ -54,7 +56,7 @@ Autor → Analista → Implementador → Revisor/Tech Lead
 Os atores oficiais são Autor da Especificação, Engenheiro Analista, Engenheiro
 Implementador e Engenheiro Revisor. O fluxo representa a ordem lógica das
 etapas. O Consultor de Arquitetura é um papel institucional subordinado ao
-Arquiteto, não um quinto ator nem uma autoridade paralela. A EKM 1.16 não
+Arquiteto, não um quinto ator nem uma autoridade paralela. A EKM 1.17 não
 define orquestração, concorrência, locks ou filas, e
 esses temas não influenciam os trabalhos atuais.
 
@@ -89,7 +91,9 @@ decisões confirmadas e funcionalidades tocadas.
 ## Conteúdo
 
 - [`docs/EKM-CONCEPT.md`](docs/EKM-CONCEPT.md): conceito, problema e limites.
-- [`docs/EKM-METHOD.md`](docs/EKM-METHOD.md): método de referência 1.16.
+- [`docs/EKM-METHOD.md`](docs/EKM-METHOD.md): método de referência 1.17.
+- [`docs/ACTOR-EVALUATION.md`](docs/ACTOR-EVALUATION.md): métrica experimental
+  de adequação de perfis executores por papel.
 - [`docs/DESIGN-DECISIONS.md`](docs/DESIGN-DECISIONS.md): razões e evolução das decisões.
 - [`docs/LEGACY-ADOPTION.md`](docs/LEGACY-ADOPTION.md): adoção incremental.
 - [`docs/EXPERIMENT-HISTORY.md`](docs/EXPERIMENT-HISTORY.md): aprendizados dos experimentos.
