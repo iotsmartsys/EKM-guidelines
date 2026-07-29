@@ -4,9 +4,9 @@
 
 **Estado da fonte:** Vigente
 
-**Versão do documento:** 1.11
+**Versão do documento:** 1.12
 
-**Versão do modelo EKM:** 1.15
+**Versão do modelo EKM:** 1.16
 
 **Escopo:** Todo o repositório
 
@@ -65,6 +65,12 @@ Todo fluxo começa em uma branch de trabalho derivada da `main`, nunca
 diretamente na `main`. Toda tarefa de agente começa com árvore limpa, produz
 resultado material, termina com commit e push e deixa a árvore limpa. Push com
 falha significa etapa não entregue.
+
+Antes de promover estado, declarar validação aprovada, criar o commit final,
+realizar push ou emitir resposta conclusiva, o agente confirma que toda tarefa,
+comando, processo, build, teste, upload ou execução delegada que iniciou chegou
+a estado terminal e registra seu resultado ou limitação. Estado não terminal ou
+desconhecido bloqueia o encerramento.
 
 A tarefa não autoriza force push, reescrita de histórico, merge, tag, release ou
 deploy sem ordem específica.

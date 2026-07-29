@@ -1,8 +1,8 @@
 # Regras comuns dos perfis EKM
 
-**Modelo EKM aplicável:** 1.15
+**Modelo EKM aplicável:** 1.16
 
-**Versão do perfil:** 1.1
+**Versão do perfil:** 1.2
 
 **Estado:** vigente
 
@@ -107,7 +107,27 @@ não autoriza force push, reescrita de histórico, merge, tag, release ou deploy
 Não existe uma etapa autônoma de reconciliação destinada apenas a repetir ou
 versionar o resultado de outro ator.
 
+### 5.1 Gate de encerramento de execuções iniciadas
+
+Antes de promover estado, registrar validação como aprovada, criar o commit
+final, realizar push ou emitir resposta conclusiva, o agente deve:
+
+1. identificar toda tarefa, comando, processo, build, teste, upload ou execução
+   delegada que tenha iniciado no recorte;
+2. confirmar que cada execução chegou a estado terminal;
+3. capturar o resultado, o código de saída ou a limitação material aplicável.
+
+Estados `running`, `queued`, `pending`, `waiting`, desconhecidos ou equivalentes
+bloqueiam o encerramento. O agente pode continuar outro trabalho autorizado
+enquanto aguarda, mas não pode tratar execução pendente como sucesso nem deixar
+trabalho próprio sobreviver à resposta final.
+
+Se uma execução não puder terminar ou ser observada, registre a limitação real
+e não alegue a evidência correspondente. Cancelamento somente é permitido
+quando estiver no recorte e não transforma trabalho incompleto em validação.
+
 ## 6. Limite do modelo de atores
 
 Estes perfis organizam uma execução sequencial. Não definem coordenação,
-concorrência, locks, filas ou execução simultânea.
+concorrência, locks, filas ou execução simultânea entre atores. O gate da seção
+5.1 controla somente execuções iniciadas pelo próprio agente.

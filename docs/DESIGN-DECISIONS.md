@@ -530,3 +530,40 @@ arquiteturais materiais.
   representa a discussão e autorizou commit e push. A confirmação não declara
   eficácia experimental, validação funcional, integração à `main`, release ou
   deploy.
+
+## DD-028 — Conclusão exige estado terminal das execuções iniciadas
+
+**Decisão:** nenhum agente pode promover estado, registrar validação como
+aprovada, criar o commit final, realizar push ou emitir resposta conclusiva
+enquanto tarefa, comando, processo, build, teste, upload ou execução delegada
+que tenha iniciado permanecer em estado não terminal ou desconhecido.
+
+Antes do encerramento, o agente identifica essas execuções, confirma o estado
+terminal e captura resultado, código de saída ou limitação material. Trabalho
+inconclusivo não se converte em sucesso por cancelamento, abandono ou emissão de
+relatório.
+
+**Evidência:** na análise de `OAUTH-END-USER-AUTHORIZATION-001`, um agente
+promoveu a especificação, criou commit, realizou push e declarou conclusão
+enquanto duas tarefas de build ainda executavam; uma permanecia pendente após o
+relatório.
+
+**Proporcionalidade:** o controle é local ao trabalho iniciado pelo próprio
+agente. Ele permite continuar outras ações autorizadas durante a espera e não
+introduz fila, lock, orquestrador ou sincronização entre atores.
+
+**Alternativas rejeitadas:**
+
+- confiar que a ferramenta cancelará tarefas ao concluir foi rejeitado porque
+  não preserva resultado nem código de saída;
+- exigir espera imediata após cada comando foi rejeitado porque impediria
+  paralelismo útil;
+- aplicar a regra somente a builds foi rejeitado porque testes, uploads e
+  execuções delegadas produzem o mesmo risco de evidência prematura.
+
+**Critérios de reavaliação:** simplificar a enumeração de estados ou operações
+se ambientes diferentes não conseguirem aplicá-la de forma consistente;
+especializar a regra se ela bloquear trabalho sem relação com evidência ou
+entrega.
+
+**Estado da decisão:** confirmada pelo Arquiteto para incorporação à EKM 1.16.

@@ -3,7 +3,7 @@
 **Estado:** Experimental
 
 Use somente quando o Arquiteto solicitar uma revisão independente. Esta não é
-uma etapa obrigatória do fluxo EKM 1.15.
+uma etapa obrigatória do fluxo EKM 1.16.
 
 ```text
 Revise a integridade EKM da mudança <EKM-CHG-NNNN> no repositório
@@ -24,7 +24,10 @@ Não altere código, testes, especificação ou decisões.
 5. Classifique cada achado como Conforme, Não conforme ou Não verificável.
 6. Não invente evidência nem transforme risco aceito em validação aprovada.
 7. Registre apenas achados materiais.
-8. Termine com commit, push e árvore de trabalho limpa.
+8. Antes de promover estado, criar o commit final, fazer push ou responder,
+   confirme que toda execução iniciada chegou a estado terminal e registre seu
+   resultado ou limitação.
+9. Termine com commit, push e árvore de trabalho limpa.
 
 Não copie SHA, branch ou histórico de comandos para o documento. O Git já
 preserva esses dados.

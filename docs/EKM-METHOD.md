@@ -2,7 +2,7 @@
 
 **Versão do documento:** 1.12
 
-**Modelo EKM:** 1.15
+**Modelo EKM:** 1.16
 
 **Estado:** aprovado e vigente
 
@@ -449,6 +449,23 @@ sem ordem correspondente do Arquiteto.
 O próprio Git é a evidência desses atos. Não é obrigatório repetir hashes,
 branch ou mensagem do commit no `EKM-CHANGELOG.md`.
 
+### 8.1 Gate de encerramento de execuções iniciadas
+
+Uma etapa não está pronta para conclusão enquanto tarefa, comando, processo,
+build, teste, upload ou execução delegada iniciada pelo agente permanecer em
+estado não terminal ou desconhecido.
+
+Antes de promover estados, declarar evidência aprovada, criar o commit final,
+realizar push ou responder conclusivamente, o agente identifica as execuções
+que iniciou, confirma seus estados terminais e captura resultados, códigos de
+saída e limitações materiais. `Running`, `queued`, `pending`, `waiting`, estado
+desconhecido ou equivalente bloqueia essas ações.
+
+O agente pode realizar outro trabalho autorizado enquanto aguarda. Se não for
+possível observar ou concluir uma execução, registra a limitação sem fabricar
+sucesso. Cancelar trabalho dentro do recorte não converte resultado incompleto
+em evidência aprovada.
+
 ## 9. Transações e lacunas
 
 `EKM-CHG-NNNN` identifica uma mudança de conhecimento ou implementação.
@@ -506,8 +523,10 @@ uma diretriz externa aplicável ou precisa declarar regras próprias.
 
 ## 11. Limites atuais
 
-A EKM 1.15 não define orquestração, concorrência, locks ou filas. Esses
-mecanismos não fazem parte do fluxo nem dos critérios dos experimentos atuais.
+A EKM 1.16 não define orquestração, concorrência, locks ou filas entre atores. O
+gate de encerramento controla somente execuções iniciadas pelo próprio agente e
+não constitui um mecanismo de coordenação. Esses mecanismos não fazem parte do
+fluxo nem dos critérios dos experimentos atuais.
 
 A coordenação multi-contexto organiza conhecimento, dependências e evidência;
 ela não executa publicação distribuída, não sincroniza automaticamente estados

@@ -302,6 +302,26 @@ explícita do Arquiteto. A exigência é uma hipótese de governança a ser
 reavaliada pelo valor decisório e pelo custo, não uma afirmação de eficácia já
 demonstrada.
 
+## 19. Trabalho assíncrono pendente invalida conclusão antecipada
+
+Na análise da especificação `OAUTH-END-USER-AUTHORIZATION-001`, um Engenheiro
+Analista executado no Antigravity com Gemini 3.6 Flash High promoveu a prontidão,
+atualizou conhecimento, criou commit, realizou push e emitiu relatório de
+conclusão enquanto duas tarefas de build ainda estavam em execução. Após o
+relatório, uma delas continuava pendente.
+
+O desvio mostrou que iniciar um comando não comprova seu resultado e que uma
+resposta conclusiva pode competir com ferramentas assíncronas do próprio
+agente. A evidência de build e teste não era terminal no instante em que foi
+registrada, mesmo que a análise de implementabilidade pudesse permanecer
+tecnicamente correta por outras fontes.
+
+O Arquiteto decidiu tornar universal um gate local de encerramento. A EKM 1.16
+exige que cada agente confirme estado terminal e resultado de tudo que iniciou
+antes de promover estado, aprovar evidência, criar o commit final, fazer push ou
+emitir conclusão. A regra não cria orquestração entre atores e não impede o
+agente de continuar trabalho útil enquanto aguarda.
+
 ## Conclusão experimental
 
 Os experimentos sustentam que agentes conseguem executar mudanças com autonomia

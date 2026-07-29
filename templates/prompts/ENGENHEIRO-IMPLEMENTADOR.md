@@ -89,6 +89,9 @@ Se a implementação exigir uma decisão não fornecida:
 
 - Atualize código, testes e conhecimento afetado.
 - Registre somente evidências materiais.
+- Antes de promover estado, criar o commit final, fazer push ou responder,
+  confirme que toda execução iniciada chegou a estado terminal e registre seu
+  resultado ou limitação.
 - Crie um commit com o resultado da tarefa.
 - Faça push para a branch designada.
 - Termine com árvore de trabalho limpa.

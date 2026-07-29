@@ -143,6 +143,8 @@ A EKM parte de hipóteses ainda em validação:
 16. preservar o precedente arquitetural local por padrão e exigir autorização
     explícita para desvios reduz reorganizações incidentais e violações de
     responsabilidade sem impedir evolução deliberada.
+17. impedir conclusão com execuções próprias ainda pendentes reduz evidência
+    prematura sem introduzir coordenação entre atores.
 
 O ciclo completo no aplicativo iotsmarthome sustentou a adoção do modelo de
 atores na EKM 1.11. Os experimentos não demonstram aplicabilidade universal nem
@@ -150,5 +152,5 @@ garantem obediência de qualquer agente.
 
 ## Estado do método
 
-A EKM 1.15 está aprovada e vigente para adoção. O método continua evoluindo
+A EKM 1.16 está aprovada e vigente para adoção. O método continua evoluindo
 quando evidências mostrarem lacunas, excesso de custo ou regras inadequadas.

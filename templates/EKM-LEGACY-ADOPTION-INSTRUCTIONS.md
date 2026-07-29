@@ -1,6 +1,6 @@
 # Instrução — Adoção inicial da EKM em repositório legado
 
-Adote a EKM 1.15 no repositório `<CAMINHO_DO_REPOSITORIO>`.
+Adote a EKM 1.16 no repositório `<CAMINHO_DO_REPOSITORIO>`.
 
 O Arquiteto autoriza nesta tarefa somente levantamento e fundação documental.
 Não altere código, testes, dependências, build, automações ou configuração.
@@ -78,6 +78,8 @@ Antes de encerrar:
 - valide caminhos e links;
 - confira estados entre especificações, mapa e changelog;
 - execute `git diff --check` ou equivalente;
+- confirme que toda execução iniciada chegou a estado terminal e registre seu
+  resultado ou limitação antes do commit, push e resposta conclusiva;
 - declare validações não executadas;
 - confirme que não houve mudança funcional.
 
