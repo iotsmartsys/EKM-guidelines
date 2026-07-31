@@ -45,6 +45,11 @@ O objetivo mais forte da EKM é permitir que uma equipe competente reconstrua um
 
 Isso inclui recuperar comportamentos, contratos, limites, decisões, falhas esperadas e critérios de aceite. Não significa reproduzir a mesma estrutura interna ou o mesmo binário.
 
+Critérios de aceite devem permitir uma asserção objetiva do resultado. Um
+executor precisa conseguir distinguir sucesso, falha e ausência de evidência a
+partir do cenário, do resultado observável e do meio de validação, sem criar o
+oráculo durante a implementação.
+
 ## O que a EKM não é
 
 - documentação de cada linha de código;
@@ -147,6 +152,8 @@ A EKM parte de hipóteses ainda em validação:
     prematura sem introduzir coordenação entre atores.
 18. avaliar o perfil executor por papel e por múltiplas execuções permite
     calibrar autonomia sem atribuir qualidade universal ao nome de um modelo.
+19. critérios de aceite assertáveis reduzem falso sucesso causado por mocks
+    incompatíveis, cobertura parcial e confusão entre compilação e execução.
 
 O ciclo completo no aplicativo iotsmarthome sustentou a adoção do modelo de
 atores na EKM 1.11. Os experimentos não demonstram aplicabilidade universal nem
@@ -154,5 +161,5 @@ garantem obediência de qualquer agente.
 
 ## Estado do método
 
-A EKM 1.17 está aprovada e vigente para adoção. O método continua evoluindo
+A EKM 1.18 está aprovada e vigente para adoção. O método continua evoluindo
 quando evidências mostrarem lacunas, excesso de custo ou regras inadequadas.

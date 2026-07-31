@@ -1,8 +1,8 @@
 # Regras comuns dos perfis EKM
 
-**Modelo EKM aplicável:** 1.17
+**Modelo EKM aplicável:** 1.18
 
-**Versão do perfil:** 1.2
+**Versão do perfil:** 1.3
 
 **Estado:** vigente
 
@@ -71,6 +71,27 @@ conflitantes, registre o conflito e devolva a decisão ao Arquiteto.
 
 Se as fontes entrarem em conflito material, não escolha uma interpretação por
 conveniência. Registre o conflito e devolva a decisão ao Arquiteto.
+
+## 3.2 Critérios de aceite assertáveis
+
+Cada requisito obrigatório deve possuir critério que permita afirmar, sem
+inventar o comportamento esperado:
+
+- cenário ou condição inicial relevante;
+- ação, entrada ou evento;
+- resultado observável esperado;
+- evidência que distingue aprovação, reprovação e ausência de execução.
+
+Agrupe requisitos somente quando uma única evidência e um único oráculo
+comprovarem todos. Mock, fake, emulador ou fixture deve preservar a semântica
+material do componente substituído. Compilação não comprova execução; quando o
+critério exigir comportamento executado, zero casos, execução não iniciada,
+erro de infraestrutura ou estado desconhecido não constituem aprovação.
+
+O Autor torna os critérios assertáveis; o Analista verifica sua suficiência e
+viabilidade; o Implementador avalia todos eles com evidência terminal; o
+Revisor confronta evidência e oráculo. Critério obrigatório falho, não executado
+ou não verificável impede `Implemented` e permanece explícito.
 
 ## 4. Conhecimento e evidência
 

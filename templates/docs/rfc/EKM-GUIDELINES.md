@@ -6,7 +6,7 @@
 
 **Versão do documento:** 1.13
 
-**Versão do modelo EKM:** 1.17
+**Versão do modelo EKM:** 1.18
 
 **Escopo:** Todo o repositório
 
@@ -44,6 +44,10 @@ Autor da Especificação
 Implementação exige especificação Implementável [`Implementable`]. Precisa de
 esclarecimento [`Needs Clarification`] retorna a decisão ao Arquiteto sem
 alteração parcial da implementação.
+
+Critérios obrigatórios devem permitir asserção objetiva de cenário, resultado
+observável e evidência. Compilação não substitui execução; critério falho, não
+executado ou não verificável impede `Implemented`.
 
 Cada ator atualiza a especificação, promove os estados sustentados pela própria
 etapa e entrega o resultado por commit e push. Não existe um ator separado

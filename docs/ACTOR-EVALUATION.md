@@ -1,6 +1,6 @@
 # Avaliação experimental de adequação dos atores EKM
 
-**Modelo EKM:** 1.17
+**Modelo EKM:** 1.18
 
 **Versão da métrica:** 0.1
 

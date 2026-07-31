@@ -389,6 +389,43 @@ execução avaliada nessa configuração e ainda não satisfaz a amostra mínima
 dois contextos exigida para Aceito [`Accepted`]. O perfil sem adaptador
 permanece Não aceitável para atuação autônoma.
 
+## 22. Critérios listados não garantem um oráculo executável
+
+A implementação experimental de
+`IOTSSC-BINARY-COMMAND-STATE@0.1` no IoTSmartSysCore foi executada por Claude
+Sonnet 5 no Claude Code com o adaptador EKM que havia produzido resultado
+Aceitável no experimento anterior. O agente respeitou o fluxo documental,
+implementou a fronteira de storage, criou testes, compilou o runtime, registrou
+limitações, criou commit e realizou push.
+
+A revisão do Tech Lead, porém, encontrou falso sucesso funcional:
+
+- o caminho comum presumido não alcançava o override de LED;
+- a válvula passava em mock que aceitava diretamente um vocabulário rejeitado
+  pelo adapter real;
+- corrupção havia sido reduzida a tamanho ou versão incompatível;
+- falhas NVS exigidas não possuíam injeção separada;
+- a compilação dos testes reportava zero casos executados, mas ainda sustentou
+  a promoção para `Implemented`.
+
+A especificação possuía requisitos e uma tabela de evidências, inclusive
+menções aos tipos concretos e às falhas. O problema não foi ausência total de
+critérios, mas falta de oráculos explícitos que permitissem ao executor
+reprovar a própria solução. “Testes com valve”, “testes de corrupção” e
+“injeção de falhas” admitiram evidências estruturalmente presentes, mas
+semanticamente insuficientes.
+
+O Arquiteto decidiu experimentar uma regra menor que “mais testes” ou uma
+matriz universal: cada requisito obrigatório deve tornar observáveis cenário,
+ação, resultado e evidência suficiente para distinguir aprovação, reprovação e
+ausência de execução. Doubles preservam a semântica material substituída, e
+compilação não comprova teste comportamental executado.
+
+A EKM 1.18 incorpora a regra em caráter vigente. O caso ainda não demonstra
+que ela evita o mesmo desvio; a especificação será restaurada ao estado anterior
+à implementação, receberá critérios assertáveis e será submetida a uma nova
+execução para comparação.
+
 ## Conclusão experimental
 
 Os experimentos sustentam que agentes conseguem executar mudanças com autonomia

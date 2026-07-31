@@ -1,8 +1,8 @@
 # Método EKM
 
-**Versão do documento:** 1.13
+**Versão do documento:** 1.14
 
-**Modelo EKM:** 1.17
+**Modelo EKM:** 1.18
 
 **Estado:** aprovado e vigente
 
@@ -98,7 +98,35 @@ deve conter apenas o necessário para executar e verificar o recorte:
 Versões concluídas da especificação são preservadas. Mudanças posteriores usam
 uma nova versão relacionada por `Amends`, `Supersedes`, `Corrects` ou `Retires`.
 
-### 4.1 Objetivos que atravessam múltiplos contextos de entrega
+### 4.1 Critérios de aceite assertáveis
+
+Cada requisito obrigatório deve possuir critério de aceite suficiente para que
+o executor determine, sem inventar o comportamento esperado, se a evidência
+aprova, reprova ou não permite verificar o requisito.
+
+Um critério assertável identifica, na menor forma adequada ao risco:
+
+1. o cenário ou condição inicial relevante;
+2. a ação, entrada ou evento observado;
+3. o resultado observável esperado;
+4. a evidência capaz de distinguir sucesso, falha e ausência de execução.
+
+Pode referenciar teste, inspeção, análise estática, observabilidade ou validação
+humana. Não precisa repetir o requisito nem impor formato universal. Agrupar
+requisitos é permitido somente quando a mesma evidência e o mesmo oráculo
+comprovarem todos eles sem ocultar comportamento específico.
+
+Critérios como “adicionar testes”, “validar o fluxo” ou “build aprovado” são
+insuficientes quando não definem o que deve ser afirmado. Mocks, fakes,
+emuladores e fixtures devem preservar as semânticas materiais do componente
+substituído; caso contrário, a evidência deve usar a integração real.
+
+Compilação comprova compilabilidade, não execução. Quando o critério exigir
+comportamento executado, a evidência registra casos executados e resultado
+terminal; zero casos, execução não iniciada, erro de infraestrutura ou estado
+desconhecido não aprovam o critério.
+
+### 4.2 Objetivos que atravessam múltiplos contextos de entrega
 
 Um objetivo pode depender de mudanças em repositórios, serviços, aplicativos ou
 infraestruturas com fontes normativas e ciclos de integração independentes.
@@ -290,6 +318,11 @@ intenção recebida em uma solução proposta, implementável e verificável. Po
 inspecionar fontes técnicas, confrontar restrições, comparar alternativas e
 propor arquitetura, fluxos, contratos e critérios de aceite.
 
+Para cada requisito obrigatório, o Autor define critério assertável ou registra
+a decisão ausente que impede fazê-lo. O critério não antecipa estrutura interna
+desnecessária, mas torna explícito o resultado observável e a evidência capaz de
+reprová-lo.
+
 A autoria deve distinguir:
 
 - fatos observados nas fontes;
@@ -314,6 +347,12 @@ registra e entrega essa promoção.
 O Analista verifica se os requisitos podem ser implementados sem decisão
 normativa, de produto ou arquitetura não declarada. A análise deve cobrir o
 recorte necessário para sustentar o resultado, sem exigir uma matriz universal.
+
+Declarar `Implementable` exige também confirmar que os critérios obrigatórios
+possuem oráculos assertáveis e meios de evidência viáveis. Critério que apenas
+nomeia uma validação, depende de mock semanticamente incompatível ou não
+distingue execução de compilação constitui decisão ou contrato ainda
+insuficiente.
 
 Se encontrar uma lacuna bloqueante, pode encerrar a análise assim que a decisão
 necessária estiver clara. Deve registrar os demais bloqueios materiais já
@@ -349,6 +388,10 @@ validações automatizáveis obrigatórias. A promoção posterior para Validada
 [`Validated`] pertence ao Engenheiro Revisor com as evidências humanas
 requeridas.
 
+O Implementador avalia cada critério obrigatório contra evidência terminal.
+Critério falho, não executado ou não verificável mantém a implementação Em
+andamento [`In Progress`], ainda que código e testes compilem.
+
 O Implementador registra na própria especificação o estado sustentado e entrega
 essa promoção com o restante da implementação.
 
@@ -363,6 +406,10 @@ O Revisor confronta comportamento, arquitetura, compatibilidade, testes,
 evidências e conhecimento sem corrigir a implementação na mesma atuação. Sem
 aprovação explícita do Arquiteto, registra achados e preserva estados
 compatíveis com as evidências.
+
+O confronto verifica se a evidência usa o oráculo definido, preserva as
+semânticas materiais de integrações substituídas e distingue compilação,
+execução, falha e limitação de ambiente.
 
 Quando a ordem contém validação suficiente do Tech Lead e aprovação explícita
 do Arquiteto, o Revisor registra essa evidência recebida e promove:
@@ -539,7 +586,7 @@ Arquiteto.
 
 ## 12. Limites atuais
 
-A EKM 1.17 não define orquestração, concorrência, locks ou filas entre atores. O
+A EKM 1.18 não define orquestração, concorrência, locks ou filas entre atores. O
 gate de encerramento controla somente execuções iniciadas pelo próprio agente e
 não constitui um mecanismo de coordenação. Esses mecanismos não fazem parte do
 fluxo nem dos critérios dos experimentos atuais.

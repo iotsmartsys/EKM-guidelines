@@ -619,3 +619,86 @@ burocracia sem ganho decisório.
 
 **Estado da decisão:** confirmada pelo Arquiteto para incorporação experimental
 à EKM 1.17.
+
+## DD-030 — Critérios de aceite precisam permitir asserção objetiva
+
+**Decisão:** cada requisito obrigatório possui critério suficiente para que o
+executor classifique a evidência como aprovação, reprovação ou ausência de
+verificação sem inventar o comportamento esperado durante a implementação.
+
+O critério identifica, proporcionalmente ao risco, cenário ou condição inicial,
+ação ou evento, resultado observável e evidência. Agrupamento só é válido quando
+um mesmo oráculo comprova todos os requisitos agrupados. Mocks, fakes,
+emuladores e fixtures preservam as semânticas materiais substituídas.
+Compilação não é execução; quando o comportamento precisar ser executado, zero
+casos ou falha de infraestrutura não aprovam o critério.
+
+**Problema observado:** na implementação experimental de persistência binária
+do IoTSmartSysCore, uma especificação listava testes esperados, mas não tornava
+explícitos os oráculos. O executor:
+
+- declarou que todas as classes derivadas passavam por um caminho comum sem
+  confrontar o override de LED;
+- testou a válvula com mock que aceitava `open`/`closed`, embora o adapter real
+  exigisse conversão para `on`/`off`;
+- tratou tamanho e versão como evidência suficiente de corrupção;
+- registrou compilação com zero casos executados como suporte a `Implemented`;
+- não produziu a injeção separada de falhas NVS exigida.
+
+**Aplicação por ator:** o Autor define critérios assertáveis; o Analista
+confirma suficiência e viabilidade; o Implementador confronta todos com
+evidência terminal; o Revisor verifica a correspondência entre oráculo,
+evidência e integração real.
+
+**Proporcionalidade:** a regra não exige linguagem Gherkin, matriz universal,
+um teste por requisito nem execução em hardware para todo recorte. Critérios
+podem compartilhar evidência e usar inspeção ou validação humana quando isso
+for suficiente, desde que ainda distingam os três resultados.
+
+**Alternativas rejeitadas:**
+
+- exigir apenas “mais testes” foi rejeitado porque quantidade não corrige
+  oráculo incompatível;
+- tornar integração real obrigatória em todos os testes foi rejeitado porque
+  doubles semanticamente fiéis continuam úteis;
+- impor formato universal detalhado foi rejeitado porque aumentaria carga
+  cognitiva sem ganho proporcional em recortes simples;
+- confiar que o Revisor descobrirá critérios implícitos foi rejeitado porque
+  transfere ao fim do ciclo uma ambiguidade que deveria limitar a implementação.
+
+**Critérios de reavaliação:** simplificar se a regra produzir repetição
+editorial; especializar se agentes continuarem criando mocks incompatíveis ou
+promovendo estados com zero execução; retirar se não reduzir falso sucesso e
+retrabalho em novos experimentos.
+
+**Estado da decisão:** confirmada pelo Arquiteto para incorporação à EKM 1.18.
+
+### Registro da atuação
+
+**Estado da confirmação final:** Confirmada pelo Arquiteto.
+
+- **Papel exercido:** Consultor de Arquitetura e par do Arquiteto.
+- **Ordem autorizada:** transformar o problema observado no experimento de
+  persistência binária em critérios de aceite claros, simples e assertáveis na
+  EKM.
+- **Repositórios e recorte:** `EKM-guidelines` e adoção local no
+  IoTSmartSysCore; método, regras comuns, decisão de desenho, histórico
+  experimental, navegação e templates afetados.
+- **Operações autorizadas:** investigar as fontes vigentes, editar governança e
+  templates, reconciliar a adoção local, validar consistência e, após
+  confirmação final, criar commits e realizar push.
+- **Decisões confirmadas:** restaurar posteriormente o projeto ao estado
+  anterior à implementação; adicionar critérios suficientes para o agente
+  afirmar conformidade; tornar a diretiva explícita na EKM oficial.
+- **Resultado material preparado:** EKM 1.18 com critérios assertáveis por
+  cenário, resultado observável e evidência, fidelidade semântica de doubles,
+  distinção entre compilação e execução e gate de `Implemented`.
+- **Validações e limitações:** integridade textual e versões verificadas; a
+  eficácia da regra ainda não foi demonstrada e será confrontada pela nova
+  execução do experimento. O Consultor participou desta solução e não poderá
+  alegar revisão independente dela.
+- **Significado solicitado para a confirmação final:** confirmar que este
+  registro representa a ordem, as decisões e o resultado preparados e
+  autorizar commit e push nos dois repositórios. A confirmação não declara
+  eficácia da EKM 1.18, validação funcional, integração à `main`, release ou
+  deploy.

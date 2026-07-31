@@ -57,9 +57,25 @@ A ausência de desvio explícito determina preservação do precedente aplicáve
 
 ## 7. Critérios de aceite e validações
 
-| Requisito | Evidência esperada |
-|---|---|
-| `<ID>` | `<TESTE, INSPEÇÃO OU VALIDAÇÃO>` |
+| Requisito | Cenário e ação | Resultado observável | Evidência |
+|---|---|---|---|
+| `<ID>` | `<CONDIÇÃO INICIAL + EVENTO OU ENTRADA>` | `<ASSERÇÃO QUE APROVA OU REPROVA>` | `<TESTE, INSPEÇÃO OU VALIDAÇÃO TERMINAL>` |
+
+Cada requisito obrigatório deve poder ser classificado como aprovado,
+reprovado ou não verificável sem o executor inventar o oráculo. Agrupe
+requisitos somente quando o mesmo cenário, resultado e evidência comprovarem
+todos. Mocks e emulações preservam as semânticas materiais substituídas.
+Compilação não comprova execução; quando houver teste comportamental, zero casos
+executados não constitui aprovação.
+
+### 7.1 Gate da implementação
+
+- `<COMANDOS E EVIDÊNCIAS AUTOMATIZÁVEIS OBRIGATÓRIAS>`;
+- `<CONDIÇÃO OBJETIVA DE SUCESSO, INCLUSIVE CASOS EXECUTADOS QUANDO APLICÁVEL>`;
+- `<VALIDAÇÕES HUMANAS OU DE HARDWARE RESERVADAS À ETAPA POSTERIOR>`.
+
+`Implemented` exige todos os critérios automatizáveis obrigatórios aprovados.
+Critério falho, não executado ou não verificável mantém `In Progress`.
 
 ## 8. Conhecimento afetado
 
