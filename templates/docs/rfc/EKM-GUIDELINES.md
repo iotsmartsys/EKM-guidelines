@@ -4,9 +4,9 @@
 
 **Estado da fonte:** Vigente
 
-**Versão do documento:** 1.13
+**Versão do documento:** 1.14
 
-**Versão do modelo EKM:** 1.18
+**Versão do modelo EKM:** 1.19
 
 **Escopo:** Todo o repositório
 

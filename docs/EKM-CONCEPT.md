@@ -161,5 +161,5 @@ garantem obediência de qualquer agente.
 
 ## Estado do método
 
-A EKM 1.18 está aprovada e vigente para adoção. O método continua evoluindo
+A EKM 1.19 está aprovada e vigente para adoção. O método continua evoluindo
 quando evidências mostrarem lacunas, excesso de custo ou regras inadequadas.

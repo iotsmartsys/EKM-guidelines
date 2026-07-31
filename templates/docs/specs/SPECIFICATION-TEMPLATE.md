@@ -68,7 +68,23 @@ todos. Mocks e emulações preservam as semânticas materiais substituídas.
 Compilação não comprova execução; quando houver teste comportamental, zero casos
 executados não constitui aprovação.
 
-### 7.1 Gate da implementação
+### 7.1 Checklist de autoria
+
+- [ ] Cada requisito obrigatório está relacionado a pelo menos um critério.
+- [ ] Cada critério identifica condição inicial, ação ou evento, resultado
+  observável e evidência terminal.
+- [ ] O resultado pode ser convertido em asserção sem nova decisão funcional
+  ou arquitetural.
+- [ ] A evidência reprova uma implementação incompatível plausível; não
+  confirma apenas existência, compilação ou chamada.
+- [ ] Doubles preservam as semânticas materiais da integração substituída.
+- [ ] Testes comportamentais exigem execução terminal e mais de zero casos
+  executados.
+- [ ] Validações posteriores humanas, físicas ou de integração estão separadas
+  do gate automatizável.
+- [ ] Ambiguidades restantes estão registradas como decisões ausentes.
+
+### 7.2 Gate da implementação
 
 - `<COMANDOS E EVIDÊNCIAS AUTOMATIZÁVEIS OBRIGATÓRIAS>`;
 - `<CONDIÇÃO OBJETIVA DE SUCESSO, INCLUSIVE CASOS EXECUTADOS QUANDO APLICÁVEL>`;

@@ -426,6 +426,27 @@ que ela evita o mesmo desvio; a especificação será restaurada ao estado anter
 à implementação, receberá critérios assertáveis e será submetida a uma nova
 execução para comparação.
 
+### Refinamento do perfil do Autor
+
+Ao preparar a repetição, o Arquiteto identificou que a regra transversal da EKM
+1.18 ainda não orientava suficientemente a atuação concreta do Autor. O perfil
+mandava “definir critérios de aceite e evidências esperadas”, mas não dizia como
+demonstrar completude, falsificabilidade e independência do oráculo antes da
+análise.
+
+A EKM 1.19 torna o procedimento explícito no perfil e no template: inventariar
+requisitos obrigatórios, relacioná-los aos critérios, descrever condição
+inicial, ação, resultado observável e evidência terminal, confrontar uma
+implementação incorreta plausível e separar o gate automatizável das validações
+posteriores. O teste de suficiência é operacional: um executor independente
+deve conseguir converter o resultado em asserção sem tomar nova decisão
+funcional ou arquitetural.
+
+O refinamento não é evidência de eficácia. A repetição do experimento permanece
+necessária para observar se o Autor produz uma especificação mais assertável e
+se o Implementador identifica incompatibilidades que antes passaram como
+sucesso.
+
 ## Conclusão experimental
 
 Os experimentos sustentam que agentes conseguem executar mudanças com autonomia

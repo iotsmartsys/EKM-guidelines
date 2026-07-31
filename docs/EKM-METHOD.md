@@ -1,8 +1,8 @@
 # Método EKM
 
-**Versão do documento:** 1.14
+**Versão do documento:** 1.15
 
-**Modelo EKM:** 1.18
+**Modelo EKM:** 1.19
 
 **Estado:** aprovado e vigente
 
@@ -125,6 +125,31 @@ Compilação comprova compilabilidade, não execução. Quando o critério exigi
 comportamento executado, a evidência registra casos executados e resultado
 terminal; zero casos, execução não iniciada, erro de infraestrutura ou estado
 desconhecido não aprovam o critério.
+
+#### Procedimento do Autor
+
+O Autor mantém uma relação rastreável entre requisitos obrigatórios e critérios
+de aceite. Para cada requisito, identifica os cenários nominais, falhas e
+condições de borda expressamente requeridos e descreve condição inicial, ação,
+resultado observável e evidência terminal.
+
+Antes de encaminhar a especificação ao Analista, o Autor confirma que:
+
+- nenhum requisito obrigatório depende apenas de objetivo ou narrativa;
+- um executor independente pode converter o resultado em asserção sem escolher
+  o comportamento esperado;
+- a evidência consegue reprovar uma implementação plausível, não apenas
+  confirmar presença de código, teste ou build;
+- doubles preservam as semânticas materiais relevantes da integração
+  substituída;
+- validações automatizáveis estão separadas das validações humanas, físicas ou
+  de integração posteriores;
+- ambiguidades funcionais ou arquiteturais restantes estão registradas como
+  decisões ausentes.
+
+O procedimento não exige um teste por requisito, formato universal ou desenho
+interno antecipado. Um critério pode cobrir mais de um requisito somente quando
+o mesmo cenário, resultado e evidência os comprovarem integralmente.
 
 ### 4.2 Objetivos que atravessam múltiplos contextos de entrega
 
@@ -586,7 +611,7 @@ Arquiteto.
 
 ## 12. Limites atuais
 
-A EKM 1.18 não define orquestração, concorrência, locks ou filas entre atores. O
+A EKM 1.19 não define orquestração, concorrência, locks ou filas entre atores. O
 gate de encerramento controla somente execuções iniciadas pelo próprio agente e
 não constitui um mecanismo de coordenação. Esses mecanismos não fazem parte do
 fluxo nem dos critérios dos experimentos atuais.

@@ -1,6 +1,6 @@
 # EKM Guidelines
 
-**Modelo EKM vigente:** 1.18
+**Modelo EKM vigente:** 1.19
 
 **Estado:** aprovado e vigente
 
@@ -13,7 +13,7 @@ A EKM deve começar pequena. Governança é útil quando acelera decisões, redu
 retrabalho ou aumenta confiança; não quando apenas multiplica documentos e
 passagens operacionais.
 
-## Princípios da versão 1.18
+## Princípios da versão 1.19
 
 - O Arquiteto humano sempre tem autoridade final sobre decisões dos agentes.
 - Cada etapa de uma especificação nasce de uma ordem que identifica papel,
@@ -27,6 +27,9 @@ passagens operacionais.
 - Critérios de aceite obrigatórios devem permitir uma asserção objetiva:
   cenário, resultado observável e evidência suficiente para distinguir
   aprovação, reprovação e ausência de execução.
+- O Autor verifica a rastreabilidade dos requisitos e se um executor
+  independente consegue converter cada resultado esperado em asserção sem
+  tomar nova decisão funcional ou arquitetural.
 - O estado da especificação informa se a próxima etapa está pronta.
 - Cada ator promove e registra os estados sustentados por sua própria etapa.
 - Git mantém a linhagem técnica; documentos não repetem SHAs e commits.
@@ -59,7 +62,7 @@ Autor → Analista → Implementador → Revisor/Tech Lead
 Os atores oficiais são Autor da Especificação, Engenheiro Analista, Engenheiro
 Implementador e Engenheiro Revisor. O fluxo representa a ordem lógica das
 etapas. O Consultor de Arquitetura é um papel institucional subordinado ao
-Arquiteto, não um quinto ator nem uma autoridade paralela. A EKM 1.18 não
+Arquiteto, não um quinto ator nem uma autoridade paralela. A EKM 1.19 não
 define orquestração, concorrência, locks ou filas, e
 esses temas não influenciam os trabalhos atuais.
 
@@ -94,7 +97,7 @@ decisões confirmadas e funcionalidades tocadas.
 ## Conteúdo
 
 - [`docs/EKM-CONCEPT.md`](docs/EKM-CONCEPT.md): conceito, problema e limites.
-- [`docs/EKM-METHOD.md`](docs/EKM-METHOD.md): método de referência 1.18.
+- [`docs/EKM-METHOD.md`](docs/EKM-METHOD.md): método de referência 1.19.
 - [`docs/ACTOR-EVALUATION.md`](docs/ACTOR-EVALUATION.md): métrica experimental
   de adequação de perfis executores por papel.
 - [`docs/DESIGN-DECISIONS.md`](docs/DESIGN-DECISIONS.md): razões e evolução das decisões.

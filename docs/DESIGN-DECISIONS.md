@@ -505,7 +505,7 @@ arquiteturais materiais.
 
 **Estado da decisão:** confirmada pelo Arquiteto para incorporação à EKM 1.15.
 
-### Registro da atuação
+### Registro da atuação EKM 1.18
 
 **Estado da confirmação final:** Confirmada pelo Arquiteto.
 
@@ -673,6 +673,17 @@ retrabalho em novos experimentos.
 
 **Estado da decisão:** confirmada pelo Arquiteto para incorporação à EKM 1.18.
 
+**Operacionalização na EKM 1.19:** o perfil do Autor passa a exigir inventário
+rastreável dos requisitos, escrita explícita de condição inicial, ação,
+resultado e evidência, confronto com uma implementação incorreta plausível,
+fidelidade semântica dos doubles e separação entre gate automatizável e
+validações posteriores. A especificação só segue para análise quando um
+executor independente consegue transformar o resultado em asserção sem tomar
+nova decisão funcional ou arquitetural.
+
+Esse detalhamento preserva a proporcionalidade da decisão: não exige Gherkin,
+um teste por requisito, matriz universal nem antecipação da estrutura interna.
+
 ### Registro da atuação
 
 **Estado da confirmação final:** Confirmada pelo Arquiteto.
@@ -702,3 +713,29 @@ retrabalho em novos experimentos.
   autorizar commit e push nos dois repositórios. A confirmação não declara
   eficácia da EKM 1.18, validação funcional, integração à `main`, release ou
   deploy.
+
+### Registro da operacionalização EKM 1.19
+
+**Estado da confirmação final:** Confirmada pelo Arquiteto.
+
+- **Papel exercido:** Consultor de Arquitetura.
+- **Ordem autorizada:** criar diretrizes claras para que o Autor da
+  Especificação elabore critérios de aceite assertáveis.
+- **Repositório e recorte:** `EKM-guidelines`; perfil do Autor, método,
+  template de especificação, decisão de desenho, histórico experimental,
+  navegação e referências de versão afetadas.
+- **Operações autorizadas:** investigar as fontes vigentes, editar a governança,
+  validar consistência e, após confirmação final, criar commit e realizar push.
+- **Decisões confirmadas:** operacionalizar a regra transversal da EKM 1.18 no
+  perfil do Autor e adotá-la como evolução compatível EKM 1.19.
+- **Resultado material produzido:** procedimento rastreável de autoria, teste
+  de suficiência independente, falsificabilidade da evidência, fidelidade
+  semântica dos doubles, separação dos gates e checklist no template.
+- **Validações e limitações:** integridade textual verificada; a eficácia será
+  confrontada na repetição do experimento. O IoTSmartSysCore ainda não adotou a
+  EKM 1.19. O Consultor participou da formulação e não poderá alegar revisão
+  independente dela.
+- **Significado da confirmação final:** aprovar a formulação como EKM 1.19 e
+  autorizar commit e push no repositório oficial. A confirmação não declara
+  eficácia, não atualiza o projeto adotante e não aprova a especificação
+  funcional.
