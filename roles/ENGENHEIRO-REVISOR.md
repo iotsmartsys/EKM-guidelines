@@ -1,4 +1,4 @@
-# Perfil EKM — Engenheiro Revisor
+# Perfil EKOM — Engenheiro Revisor
 
 **Versão do perfil:** 1.1
 

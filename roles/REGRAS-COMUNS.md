@@ -1,13 +1,13 @@
-# Regras comuns dos perfis EKM
+# Regras comuns dos perfis EKOM
 
-**Modelo EKM aplicável:** 1.19
+**Modelo EKOM aplicável:** 2.0
 
 **Versão do perfil:** 1.3
 
 **Estado:** vigente
 
 Leia este arquivo integralmente antes do perfil específico recebido na ordem do
-Arquiteto. Não carregue os perfis dos demais papéis nem a metodologia EKM
+Arquiteto. Não carregue os perfis dos demais papéis nem a metodologia EKOM
 completa, salvo ordem explícita de governança.
 
 ## 1. Autoridade
@@ -46,13 +46,18 @@ operações autorizadas e registro material esperado.
 
 ## 3. Fontes e escopo
 
-- A especificação define comportamento, limites e aceite.
+- A especificação é a fonte única da verdade para comportamento, limites,
+  estados e aceite e o principal objeto que orquestra a atuação.
 - O `AGENTS.md` define invariantes permanentes do projeto e localiza fontes
   técnicas.
 - O perfil específico define a responsabilidade da etapa.
 - A ordem do Arquiteto delimita o recorte atual e eventuais exceções.
 - Código e testes são implementação e evidência executável, não criam
   requisitos por inferência.
+- Prompts e automações acionam etapas autorizadas; não criam fonte normativa
+  concorrente.
+
+> **Specifications orchestrate. Code implements.**
 
 ## 3.1 Preservação arquitetural
 
@@ -99,7 +104,7 @@ ou não verificável impede `Implemented` e permanece explícito.
 - Atualize somente o conhecimento afetado pela atuação.
 - Registre decisões, lacunas, validações materiais, limitações e resultado.
 - Não transforme o changelog em diário de comandos.
-- Não copie para documentos EKM a linhagem que o Git já mantém, salvo quando um
+- Não copie para documentos EKOM a linhagem que o Git já mantém, salvo quando um
   dado Git for material para explicar um desvio ou experimento.
 
 ## 5. Git e entrega
@@ -149,6 +154,7 @@ quando estiver no recorte e não transforma trabalho incompleto em validação.
 
 ## 6. Limite do modelo de atores
 
-Estes perfis organizam uma execução sequencial. Não definem coordenação,
-concorrência, locks, filas ou execução simultânea entre atores. O gate da seção
-5.1 controla somente execuções iniciadas pelo próprio agente.
+Estes perfis materializam a orquestração lógica pela especificação. Não
+definem concorrência, locks, filas, escalonadores ou execução simultânea entre
+atores. O gate da seção 5.1 controla somente execuções iniciadas pelo próprio
+agente.

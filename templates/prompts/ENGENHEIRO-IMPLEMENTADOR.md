@@ -41,7 +41,7 @@ Se alguma condição não for verdadeira, não inicie a implementação.
 
 - <COMPORTAMENTOS E ÁREAS QUE NÃO DEVEM SER ALTERADOS>
 
-## 7. Regras EKM aplicáveis
+## 7. Regras EKOM aplicáveis
 
 - Não invente comportamento, requisito ou decisão arquitetural.
 - Não substitua decisão do Arquiteto.

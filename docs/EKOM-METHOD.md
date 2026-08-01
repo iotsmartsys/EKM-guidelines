@@ -1,16 +1,22 @@
-# Método EKM
+# Método EKOM
 
-**Versão do documento:** 1.15
+**Versão do documento:** 2.0
 
-**Modelo EKM:** 1.19
+**Modelo EKOM:** 2.0
 
 **Estado:** aprovado e vigente
 
 ## 1. Objetivo
 
-A EKM organiza intenção, execução e evidência para acelerar a entrega de
-software sem transferir decisões de produto ou arquitetura aos agentes. O
-método deve começar com a menor dose de governança capaz de manter:
+O EKOM usa a especificação como plano de controle para orquestrar intenção,
+execução e evidência. A especificação é a fonte única da verdade para o
+comportamento pretendido e o principal objeto do pipeline que coordena humanos,
+agentes de IA, automações, implementação, validação, evidências e evolução.
+
+> **Specifications orchestrate. Code implements.**
+
+O método acelera a entrega sem transferir decisões de produto ou arquitetura
+aos agentes. Deve começar com a menor dose de governança capaz de manter:
 
 - conhecimento vigente;
 - decisões relevantes registradas;
@@ -35,20 +41,26 @@ mas não converter a evidência em aprovação técnica inexistente. Quando uma
 decisão humana muda o comportamento esperado, a especificação deve ser
 atualizada.
 
-## 3. Fontes de conhecimento
+## 3. Especificação e fontes relacionadas
 
 | Fonte | Responsabilidade |
 |---|---|
-| Especificação | comportamento, limites e critérios de aceite |
+| Especificação | fonte normativa do comportamento, limites, estados e critérios de aceite |
+| ADR ou RFC | razão de uma decisão e relação com a especificação afetada |
 | Diretriz | regras locais de trabalho e preservação |
 | Mapa de conhecimento | localização das fontes e lacunas |
-| Changelog EKM | decisões, lacunas, evidências e resultado das mudanças |
+| Changelog EKOM | decisões, lacunas, evidências e resultado das mudanças |
 | Dossiê | visão geral e navegação do sistema |
 | Código e testes | implementação e evidência executável |
 | Relatório | evidência de uma execução; não cria requisito |
 
+Para cada comportamento, uma especificação é a autoridade normativa. As demais
+fontes explicam, localizam, implementam, verificam ou registram sua evolução;
+não criam requisitos concorrentes. "Fonte única da verdade" não exige um
+arquivo monolítico: especificações podem se relacionar sem duplicar contratos.
+
 Git registra autoria técnica, commits, diferenças, branches e linhagem. Esses
-dados não devem ser copiados manualmente para documentos EKM, salvo quando um
+dados não devem ser copiados manualmente para documentos EKOM, salvo quando um
 dado Git for necessário para explicar uma decisão ou um desvio material.
 
 ### 3.1 Preservação arquitetural local
@@ -84,7 +96,8 @@ deliberadas, delimitadas e verificáveis.
 
 ## 4. Unidade de trabalho
 
-Uma especificação incremental é a unidade de comportamento e delegação. Ela
+Uma especificação incremental é a unidade de comportamento, delegação e
+orquestração. Ela
 deve conter apenas o necessário para executar e verificar o recorte:
 
 - objetivo e contexto;
@@ -137,7 +150,6 @@ Antes de encaminhar a especificação ao Analista, o Autor confirma que:
 
 - nenhum requisito obrigatório depende apenas de objetivo ou narrativa;
 - um executor independente pode converter o resultado em asserção sem escolher
-  o comportamento esperado;
 - a evidência consegue reprovar uma implementação plausível, não apenas
   confirmar presença de código, teste ou build;
 - doubles preservam as semânticas materiais relevantes da integração
@@ -179,10 +191,11 @@ definido, mas sua entrega ainda está pendente, o Analista registra uma
 dependência de entrega; isso não deve ser convertido artificialmente em decisão
 arquitetural ausente.
 
-A coordenação não cria um ator central, uma branch comum entre repositórios nem
-um estado global que substitua os estados locais. O Arquiteto continua
-ordenando cada atuação e decidindo a integração. Concorrência, locks, filas e
-orquestração permanecem fora do método.
+A orquestração pela especificação não cria um ator central, uma branch comum
+entre repositórios nem um estado global que substitua os estados locais. O
+Arquiteto continua ordenando cada atuação e decidindo a integração. Mecanismos
+de execução como concorrência, locks, filas e escalonadores são opcionais e
+permanecem fora do núcleo normativo.
 
 ## 5. Estados
 
@@ -221,14 +234,16 @@ Os estados permanecem independentes:
 - Precisa de esclarecimento [`Needs Clarification`]
 
 O estado declarado na especificação, combinado com a ordem do Arquiteto,
-determina se a próxima etapa pode começar. Não é obrigatório registrar
+determina se a próxima etapa pode começar. A especificação orquestra a passagem;
+a ordem autoriza a atuação humana ou automatizada no recorte. Não é obrigatório registrar
 manualmente SHA, branch de origem, checkpoint ou cadeia de commits para
 autorizar a transição.
 
 ## 6. Ordem do Arquiteto
 
 Cada tarefa do ciclo de uma especificação é iniciada por uma ação do Arquiteto,
-diretamente por prompt ou por comando de pipeline. Essa ação:
+diretamente por prompt, automação ou comando de pipeline. Essa ação consome a
+especificação aplicável; não se torna fonte normativa paralela. A ação:
 
 - identifica o papel, o resultado, o recorte autorizado e a especificação
   quando a atuação pertencer ao ciclo funcional;
@@ -275,12 +290,13 @@ Os atores oficiais são:
 | Engenheiro Implementador | `roles/ENGENHEIRO-IMPLEMENTADOR.md` |
 | Engenheiro Revisor, que pode corresponder ao Tech Lead humano | `roles/ENGENHEIRO-REVISOR.md` |
 
-O fluxo é uma ordem lógica de atuações sequenciais, não uma infraestrutura de
-orquestração:
+O fluxo é a orquestração lógica das atuações pela especificação. Ele não
+prescreve uma infraestrutura de workflow:
 
 ```mermaid
 flowchart TD
-    A["Arquiteto<br/>intenção, decisões e ordem"] --> B
+    S["Especificação EKOM<br/>fonte única da verdade"] --> B
+    A["Arquiteto<br/>intenção, decisões e ordem"] --> S
 
     subgraph AUT["Autor da Especificação"]
         B["Especifica o recorte"] --> B1["Proposed<br/>Not Started<br/>Not Ready<br/>Pending Review"]
@@ -325,13 +341,17 @@ flowchart TD
     V -- "Não" --> W["Ready for Integration"]
     V -- "Sim" --> X["Done"]
 
+    S -. "orquestra" .-> C
+    S -.-> K
+    S -.-> Q
     A -. "autoridade final" .-> C
     A -.-> K
     A -.-> Q
     A -.-> U
 ```
 
-Cada ator encerra a própria etapa: atualiza a especificação e o conhecimento
+Cada ator encerra a própria etapa: devolve à especificação e às fontes
+explicitamente relacionadas os estados, evidências e conhecimento
 materialmente afetado, promove somente os estados sustentados por sua atuação,
 cria commit, realiza push e termina com árvore limpa. Não existe um ator
 adicional destinado apenas a reconciliar ou versionar o resultado dos demais.
@@ -424,7 +444,7 @@ essa promoção com o restante da implementação.
 
 O Revisor encerra o ciclo técnico quando existem revisão, validação e decisão
 humana a registrar. A profundidade da revisão é proporcional ao risco.
-Revisões independentes adicionais, inclusive auditoria de integridade EKM, são
+Revisões independentes adicionais, inclusive auditoria de integridade EKOM, são
 executadas somente quando o Arquiteto as solicitar.
 
 O Revisor confronta comportamento, arquitetura, compatibilidade, testes,
@@ -453,7 +473,7 @@ isoladamente, não comprova integração.
 ### 7.5 Consultor de Arquitetura — papel institucional fora do fluxo
 
 O Consultor de Arquitetura é um agente de IA que apoia o Arquiteto e o Tech
-Lead em investigação, desenho, governança EKM, especificação, análise,
+Lead em investigação, desenho, governança EKOM, especificação, análise,
 implementação, revisão e coordenação. Ele pode executar atividades materiais
 dessas naturezas somente quando a ordem do Arquiteto identificar:
 
@@ -507,10 +527,10 @@ Toda tarefa de agente deve:
 A branch pode atravessar as etapas autorizadas do mesmo recorte. A exigência é
 que o fluxo de trabalho tenha sido iniciado a partir da `main`; não é necessário
 criar uma nova branch para cada atuação, atualizar a branch com avanços
-posteriores da `main` nem copiar a branch de origem para os documentos EKM.
+posteriores da `main` nem copiar a branch de origem para os documentos EKOM.
 
 Uma tarefa não usa commit vazio para simular entrega. Mesmo quando não houver
-mudança de código, a conclusão material da etapa deve atualizar o artefato EKM
+mudança de código, a conclusão material da etapa deve atualizar o artefato EKOM
 apropriado, como a especificação, a transação ou o registro de evidência.
 
 Falha no push significa que a etapa ainda não foi entregue para a próxima
@@ -519,7 +539,7 @@ não autoriza force push, reescrita de histórico, merge, tag, release ou deploy
 sem ordem correspondente do Arquiteto.
 
 O próprio Git é a evidência desses atos. Não é obrigatório repetir hashes,
-branch ou mensagem do commit no `EKM-CHANGELOG.md`.
+branch ou mensagem do commit no `EKOM-CHANGELOG.md`.
 
 ### 8.1 Gate de encerramento de execuções iniciadas
 
@@ -540,8 +560,11 @@ em evidência aprovada.
 
 ## 9. Transações e lacunas
 
-`EKM-CHG-NNNN` identifica uma mudança de conhecimento ou implementação.
-`EKM-GAP-NNNN` identifica conhecimento ausente que precise sobreviver à tarefa.
+`EKOM-CHG-NNNN` identifica uma mudança de conhecimento ou implementação.
+`EKOM-GAP-NNNN` identifica conhecimento ausente que precise sobreviver à
+tarefa. Projetos adotantes da EKM 1.x podem manter `EKM-CHG-NNNN` e
+`EKM-GAP-NNNN`. O mapa declara um único namespace para novas entradas do
+projeto; identificadores existentes nunca são renumerados.
 
 Uma transação deve registrar somente:
 
@@ -585,22 +608,22 @@ AGENTS.md
 docs/
 ├── rfc/
 │   ├── KNOWLEDGE-MAP.md
-│   └── EKM-CHANGELOG.md
+│   └── EKOM-CHANGELOG.md
 └── specs/
     └── SYSTEM-DOSSIER.md
 ```
 
-`EKM-GUIDELINES.md` local é necessário apenas quando o projeto não referencia
+`EKOM-GUIDELINES.md` local é necessário apenas quando o projeto não referencia
 uma diretriz externa aplicável ou precisa declarar regras próprias.
 
 ## 11. Avaliação experimental dos atores
 
 A adequação é atribuída ao perfil executor — modelo, ambiente, configuração,
-instruções e versão EKM — para um papel específico. Ela não é inferida apenas
+instruções e versão EKOM — para um papel específico. Ela não é inferida apenas
 do nome do modelo nem de uma única execução bem-sucedida.
 
 A métrica experimental combina pontuação de autoridade e escopo, correção
-técnica, evidências, conhecimento EKM e encerramento Git com desvios
+técnica, evidências, conhecimento EKOM e encerramento Git com desvios
 eliminatórios que não podem ser compensados pela soma. Aceitação exige amostra
 de múltiplas execuções e contextos.
 
@@ -611,10 +634,10 @@ Arquiteto.
 
 ## 12. Limites atuais
 
-A EKM 1.19 não define orquestração, concorrência, locks ou filas entre atores. O
-gate de encerramento controla somente execuções iniciadas pelo próprio agente e
-não constitui um mecanismo de coordenação. Esses mecanismos não fazem parte do
-fluxo nem dos critérios dos experimentos atuais.
+O EKOM 2.0 define orquestração como coordenação normativa pela especificação.
+Não define concorrência, locks, filas ou escalonadores entre atores. O gate de
+encerramento controla somente execuções iniciadas pelo próprio agente e não
+constitui infraestrutura de coordenação distribuída.
 
 A coordenação multi-contexto organiza conhecimento, dependências e evidência;
 ela não executa publicação distribuída, não sincroniza automaticamente estados

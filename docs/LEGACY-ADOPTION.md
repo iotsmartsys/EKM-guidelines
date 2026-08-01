@@ -1,4 +1,4 @@
-# Adoção da EKM em projetos legados
+# Adoção do EKOM em projetos legados
 
 ## 1. Princípio
 
@@ -12,10 +12,14 @@ O Arquiteto define o repositório, o recorte e se a tarefa é apenas documental.
 Essa ordem autoriza a etapa. O agente inicia o fluxo em uma branch derivada da
 `main`, com árvore de trabalho limpa, e termina com commit, push e árvore limpa.
 
-O projeto instala um `AGENTS.md` que aponta para os perfis oficiais da EKM
-1.19. Depois da fundação, cada tarefa funcional identifica papel e
+O projeto instala um `AGENTS.md` que aponta para os perfis oficiais do EKOM
+2.0. Depois da fundação, cada tarefa funcional identifica papel e
 especificação. O agente lê regras comuns, exatamente um perfil e somente as
 fontes pertinentes ao recorte.
+
+A especificação aplicável torna-se a fonte única da verdade para o
+comportamento e o principal objeto que orquestra a tarefa. Código, testes,
+automações e relatórios permanecem fontes derivadas.
 
 ## 3. Fundação recomendada
 
@@ -24,7 +28,7 @@ AGENTS.md
 docs/
 ├── rfc/
 │   ├── KNOWLEDGE-MAP.md
-│   └── EKM-CHANGELOG.md
+│   └── EKOM-CHANGELOG.md
 └── specs/
     └── SYSTEM-DOSSIER.md
 ```

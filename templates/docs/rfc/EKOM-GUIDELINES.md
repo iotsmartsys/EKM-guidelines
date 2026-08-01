@@ -1,12 +1,12 @@
-# EKM — Diretrizes locais
+# EKOM — Diretrizes locais
 
 **Classe da fonte:** Normativa
 
 **Estado da fonte:** Vigente
 
-**Versão do documento:** 1.14
+**Versão do documento:** 2.0
 
-**Versão do modelo EKM:** 1.19
+**Versão do modelo EKOM:** 2.0
 
 **Escopo:** Todo o repositório
 
@@ -14,14 +14,16 @@
 
 O Arquiteto humano tem autoridade final sobre intenção, prioridade, escopo,
 arquitetura, risco, autorização, validação e integração. A ordem recebida por
-prompt ou pipeline identifica papel, especificação e recorte autorizado.
+prompt, automação ou pipeline identifica papel, especificação e recorte
+autorizado sem criar autoridade normativa paralela.
 
 Agentes não inventam requisitos nem expandem o recorte. Evidências factuais
 permanecem factuais mesmo quando o Arquiteto aceita o risco.
 
 ## 2. Fontes
 
-- especificações definem comportamento e aceite;
+- a especificação é a fonte única da verdade para comportamento, estados e
+  aceite e o principal objeto do pipeline;
 - estas diretrizes definem regras locais;
 - o mapa localiza fontes e lacunas;
 - o changelog registra decisões, lacunas, evidências e resultados;
@@ -29,7 +31,9 @@ permanecem factuais mesmo quando o Arquiteto aceita o risco.
 - relatórios não criam requisitos.
 
 Git registra commits, autoria, diferenças, branches e linhagem. Não duplique
-esses dados manualmente nas fontes EKM.
+esses dados manualmente nas fontes EKOM.
+
+> **Specifications orchestrate. Code implements.**
 
 ## 3. Fluxo
 
@@ -40,6 +44,9 @@ Autor da Especificação
 → Engenheiro Revisor / Tech Lead
 → decisão humana e integração
 ```
+
+A especificação orquestra as passagens e recebe os estados e evidências
+produzidos em cada etapa.
 
 Implementação exige especificação Implementável [`Implementable`]. Precisa de
 esclarecimento [`Needs Clarification`] retorna a decisão ao Arquiteto sem
@@ -53,7 +60,7 @@ Cada ator atualiza a especificação, promove os estados sustentados pela própr
 etapa e entrega o resultado por commit e push. Não existe um ator separado
 apenas para reconciliação.
 
-O `AGENTS.md` seleciona as regras comuns e exatamente um perfil oficial da EKM.
+O `AGENTS.md` seleciona as regras comuns e exatamente um perfil oficial do EKOM.
 O agente não carrega perfis de outros papéis nem a metodologia completa, salvo
 ordem explícita de governança.
 
@@ -95,7 +102,9 @@ deploy sem ordem específica.
 
 ## 6. Transações
 
-Mudanças usam `EKM-CHG-NNNN`; lacunas usam `EKM-GAP-NNNN`.
+Novas adoções usam `EKOM-CHG-NNNN` e `EKOM-GAP-NNNN`. Projetos migrados podem
+manter `EKM-CHG-NNNN` e `EKM-GAP-NNNN`; o namespace escolhido é declarado no
+mapa e não muda identificadores existentes.
 
 Uma transação registra somente objetivo, decisões, lacunas, evidências materiais
 e resultado. Ela é concluída quando o resultado aceito foi integrado ou, em

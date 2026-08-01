@@ -1,6 +1,8 @@
-# Decisões de desenho da EKM
+# Decisões de desenho do EKOM
 
-Este documento registra as razões das principais escolhas do modelo atual. Não substitui as diretrizes operacionais.
+Este documento registra as razões das principais escolhas do modelo,
+incluindo as decisões históricas da EKM 1.x. Não substitui as diretrizes
+operacionais vigentes do EKOM.
 
 ## DD-001 — Especificação como unidade de comportamento
 
@@ -9,6 +11,8 @@ Este documento registra as razões das principais escolhas do modelo atual. Não
 **Motivo:** comportamentos surgem em momentos diferentes; um documento monolítico seria difícil de manter e incentivaria inferências.
 
 ## DD-002 — Não existe um único documento da verdade
+
+**Estado:** substituída por DD-031 e ADR-0001 no EKOM 2.0.
 
 **Decisão:** a verdade é distribuída por fontes com responsabilidades explícitas e conectadas por um mapa.
 
@@ -196,6 +200,10 @@ proporcional. A dose inicial deve proteger conhecimento e decisão enquanto
 permite experimentar, entregar e descartar hipóteses rapidamente.
 
 ## DD-021 — Pipeline somente como ordem lógica
+
+**Estado:** substituída em parte por DD-031 e ADR-0001 no EKOM 2.0. A exclusão
+de filas, locks e infraestrutura universal continua vigente; a exclusão de
+orquestração não continua.
 
 **Decisão:** o fluxo atual é uma sequência de etapas comandadas pelo Arquiteto.
 O modelo 1.9 não incorpora concorrência, locks, filas ou mecanismos de
@@ -739,3 +747,31 @@ um teste por requisito, matriz universal nem antecipação da estrutura interna.
   autorizar commit e push no repositório oficial. A confirmação não declara
   eficácia, não atualiza o projeto adotante e não aprova a especificação
   funcional.
+
+## DD-031 — Especificações orquestram; código implementa
+
+**Decisão:** o Engineering Knowledge Orchestration Model (EKOM) 2.0 sucede a
+formulação Engineering Knowledge Model (EKM) 1.x. A especificação é a fonte
+única da verdade para o comportamento pretendido e o principal objeto do
+pipeline. Ela atua como plano de controle que coordena humanos, agentes de IA,
+automações, implementação, validação, evidências e evolução.
+
+> **Specifications orchestrate. Code implements.**
+
+Fontes permanecem separadas por responsabilidade, mas não por autoridade
+normativa concorrente. ADRs explicam decisões; diretrizes governam o método;
+mapas localizam; código e testes implementam e comprovam; Git preserva linhagem;
+relatórios registram execuções. Cada fonte referencia a especificação aplicável.
+
+**Motivo:** a evolução do modelo de atores demonstrou que a especificação não
+apenas armazena conhecimento. Ela determina recorte, estados, passagens e
+evidências, coordenando participantes sem criar um chefe entre eles. Tornar
+essa função explícita reduz interpretações concorrentes entre documentos,
+prompts, automações e implementação.
+
+**Compatibilidade:** registros EKM 1.x permanecem históricos. Os identificadores
+`EKM-CHG` e `EKM-GAP` continuam aceitos em projetos adotantes; novos projetos
+podem usar `EKOM-CHG` e `EKOM-GAP`, conforme o namespace declarado no mapa.
+
+**Registro completo:**
+[`ADR-0001 — Evolução de EKM para EKOM`](adr/ADR-0001-EKM-TO-EKOM.md).

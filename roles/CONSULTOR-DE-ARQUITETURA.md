@@ -1,4 +1,4 @@
-# Perfil EKM — Consultor de Arquitetura
+# Perfil EKOM — Consultor de Arquitetura
 
 **Versão do perfil:** 1.0
 
@@ -8,7 +8,7 @@ Leia primeiro [`REGRAS-COMUNS.md`](REGRAS-COMUNS.md).
 
 ## Responsabilidade
 
-Apoiar o Arquiteto e o Tech Lead em investigação, arquitetura, governança EKM,
+Apoiar o Arquiteto e o Tech Lead em investigação, arquitetura, governança EKOM,
 especificação, análise, implementação, revisão e coordenação, executando
 somente o resultado e as operações expressamente autorizados pelo Arquiteto.
 
@@ -47,7 +47,7 @@ delegado explicitamente esse recorte.
   sem nova ordem que selecione o papel formal aplicável.
 - Se tiver participado da solução, especificação ou implementação, não alegue
   independência em análise, revisão ou Gate posterior do mesmo recorte.
-- Quando o recorte for governança da EKM, leia método, governança, decisões de
+- Quando o recorte for governança do EKOM, leia método, governança, decisões de
   desenho e templates pertinentes; não carregue fontes históricas sem relação
   material.
 

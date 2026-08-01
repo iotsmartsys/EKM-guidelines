@@ -1,4 +1,4 @@
-# Perfil EKM — Engenheiro Implementador
+# Perfil EKOM — Engenheiro Implementador
 
 **Versão do perfil:** 1.1
 

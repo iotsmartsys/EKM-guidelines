@@ -1,6 +1,6 @@
 # Comando — Consultor de Arquitetura
 
-**Modelo EKM:** 1.19
+**Modelo EKOM:** 2.0
 
 **Estado:** vigente
 

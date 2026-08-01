@@ -1,12 +1,16 @@
-# Governança da EKM
+# Governança do EKOM
 
 ## 1. Objetivo
 
-Evoluir a EKM por evidência, com autoridade humana e com a menor carga
+Evoluir o EKOM por evidência, com autoridade humana e com a menor carga
 operacional capaz de manter conhecimento, decisões, auditabilidade e
 verificabilidade.
 
-**Modelo vigente:** 1.19.
+**Modelo vigente:** EKOM 2.0.
+
+A especificação é a fonte única da verdade para o comportamento pretendido e
+o principal objeto do pipeline. Mudanças no método não podem criar em prompts,
+automações, relatórios ou código uma autoridade normativa concorrente.
 
 ## 2. Autoridade
 
@@ -55,7 +59,7 @@ Para alterar o método:
 1. registrar o problema e a evidência;
 2. obter decisão do Arquiteto;
 3. atualizar método, decisões, templates e navegação afetados;
-4. preservar a compreensão dos experimentos anteriores;
+4. preservar a compreensão dos experimentos EKM e versões anteriores;
 5. validar consistência textual e referências;
 6. entregar a mudança por commit e push.
 

@@ -1,4 +1,4 @@
-# Perfil EKM — Engenheiro Analista
+# Perfil EKOM — Engenheiro Analista
 
 **Versão do perfil:** 1.2
 

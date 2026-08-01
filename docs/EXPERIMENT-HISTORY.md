@@ -1,8 +1,11 @@
-# Como chegamos ao modelo atual
+# Como chegamos da EKM ao EKOM
 
 ## Contexto
 
-A EKM surgiu durante experimentos de engenharia assistida por IA em projetos reais. A intenção inicial era aumentar produtividade mantendo o arquiteto humano responsável pelas decisões.
+A EKM surgiu durante experimentos de engenharia assistida por IA em projetos
+reais. A intenção inicial era aumentar produtividade mantendo o arquiteto
+humano responsável pelas decisões. Este documento preserva a nomenclatura e as
+versões EKM usadas em cada experimento; o modelo vigente evoluiu para EKOM 2.0.
 
 ## 1. Especificações melhoraram a execução
 
@@ -531,3 +534,9 @@ arquitetura, validação e integração permanece humano.
 A incorporação do modelo de atores à EKM 1.11 encerra sua condição de hipótese
 experimental. Sua eficácia universal não é presumida: novas aplicações,
 regressões e custos observados continuam orientando a evolução do método.
+
+A sequência revelou que a especificação não apenas organiza conhecimento: ela
+coordena atores, estados, implementação e evidências. Essa leitura sustenta a
+evolução para Engineering Knowledge Orchestration Model (EKOM), registrada em
+[`ADR-0001`](adr/ADR-0001-EKM-TO-EKOM.md), sem reinterpretar retroativamente os
+resultados EKM 1.x.

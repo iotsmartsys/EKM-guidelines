@@ -1,12 +1,12 @@
-# Prompt opcional — Revisão de integridade da EKM
+# Prompt opcional — Revisão de integridade do EKOM
 
 **Estado:** Experimental
 
 Use somente quando o Arquiteto solicitar uma revisão independente. Esta não é
-uma etapa obrigatória do fluxo EKM 1.19.
+uma etapa obrigatória do fluxo EKOM 2.0.
 
 ```text
-Revise a integridade EKM da mudança <EKM-CHG-NNNN> no repositório
+Revise a integridade EKOM da mudança <EKOM-CHG-NNNN> no repositório
 <CAMINHO_DO_REPOSITORIO>.
 
 O Arquiteto autoriza somente revisão e atualização do registro de evidência.

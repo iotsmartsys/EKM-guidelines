@@ -1,6 +1,6 @@
-# Instruções permanentes e roteamento EKM
+# Instruções permanentes e roteamento EKOM
 
-**Modelo EKM:** 1.19
+**Modelo EKOM:** 2.0
 
 **Modalidade:** atores com perfis referenciados
 
@@ -9,17 +9,19 @@
 ## Autoridade
 
 O Arquiteto humano tem autoridade final sobre intenção, prioridade, escopo,
-arquitetura, risco, autorização, validação e integração. A ordem recebida por
-prompt ou pipeline identifica papel, especificação e recorte autorizado.
+arquitetura, risco, autorização, validação e integração. A especificação é a
+fonte única da verdade para o comportamento e orquestra o pipeline. A ordem
+recebida por prompt, automação ou pipeline identifica papel, especificação e
+recorte autorizado sem criar autoridade normativa paralela.
 
 ## Fonte dos perfis
 
-**Raiz da EKM:** `<CAMINHO_ACESSIVEL_DA_EKM>`
+**Raiz do EKOM:** `<CAMINHO_ACESSIVEL_DO_EKOM>`
 
-Antes de qualquer atuação EKM:
+Antes de qualquer atuação EKOM:
 
 1. leia integralmente
-   `<CAMINHO_ACESSIVEL_DA_EKM>/roles/REGRAS-COMUNS.md`;
+   `<CAMINHO_ACESSIVEL_DO_EKOM>/roles/REGRAS-COMUNS.md`;
 2. leia integralmente somente o perfil correspondente ao papel recebido;
 3. leia a especificação indicada, quando aplicável;
 4. leia apenas as fontes técnicas pertinentes ao recorte.
@@ -32,7 +34,7 @@ Antes de qualquer atuação EKM:
 | Engenheiro Revisor | `roles/ENGENHEIRO-REVISOR.md` |
 | Consultor de Arquitetura | `roles/CONSULTOR-DE-ARQUITETURA.md` |
 
-Não carregue perfis de outros papéis nem a metodologia EKM completa. Se a ordem
+Não carregue perfis de outros papéis nem a metodologia EKOM completa. Se a ordem
 não identificar papel, resultado e recorte, ou se a fonte não estiver
 acessível, não inicie a tarefa; informe o impedimento ao Arquiteto. A
 especificação é obrigatória no ciclo funcional; o Consultor pode receber

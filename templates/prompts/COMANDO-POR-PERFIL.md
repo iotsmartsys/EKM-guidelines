@@ -1,10 +1,10 @@
-# Comando mínimo — perfil EKM referenciado
+# Comando mínimo — perfil EKOM referenciado
 
-**Modelo EKM:** 1.19
+**Modelo EKOM:** 2.0
 
 **Estado:** vigente
 
-Atue como **<PAPEL EKM>** para produzir **<RESULTADO ESPERADO>** na
+Atue como **<PAPEL EKOM>** para produzir **<RESULTADO ESPERADO>** na
 especificação **<CAMINHO OU ID, OU NÃO SE APLICA>**.
 
 Siga o roteamento definido no `AGENTS.md` do projeto. Leia somente as regras

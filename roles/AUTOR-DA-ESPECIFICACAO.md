@@ -1,4 +1,4 @@
-# Perfil EKM — Autor da Especificação
+# Perfil EKOM — Autor da Especificação
 
 **Versão do perfil:** 1.4
 
