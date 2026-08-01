@@ -41,7 +41,7 @@ Se alguma condição não for verdadeira, não inicie a implementação.
 
 - <COMPORTAMENTOS E ÁREAS QUE NÃO DEVEM SER ALTERADOS>
 
-## 7. Regras EKM aplicáveis
+## 7. Regras EKOM aplicáveis
 
 - Não invente comportamento, requisito ou decisão arquitetural.
 - Não substitua decisão do Arquiteto.
@@ -54,6 +54,16 @@ Se alguma condição não for verdadeira, não inicie a implementação.
 ## 8. Regras de engenharia aplicáveis
 
 <ARQUITETURA, PADRÕES, SOLID, CONCORRÊNCIA, ESTILO E RESTRIÇÕES DO PROJETO>
+
+- Preserve arquitetura, organização e separação de responsabilidades vigentes.
+- Coloque novos arquivos junto ao componente equivalente mais próximo e siga
+  seus padrões de nomenclatura, dependência e estrutura.
+- Não crie camada, pasta estrutural, abstração transversal ou padrão
+  arquitetural, salvo quando a especificação identificar explicitamente o
+  padrão atual afetado, a mudança, o alcance e a justificativa ou decisão do
+  Arquiteto.
+- Na ausência ou conflito de precedentes, interrompa o recorte e devolva a
+  decisão ao Arquiteto.
 
 ## 9. Referências canônicas
 
@@ -79,6 +89,9 @@ Se a implementação exigir uma decisão não fornecida:
 
 - Atualize código, testes e conhecimento afetado.
 - Registre somente evidências materiais.
+- Antes de promover estado, criar o commit final, fazer push ou responder,
+  confirme que toda execução iniciada chegou a estado terminal e registre seu
+  resultado ou limitação.
 - Crie um commit com o resultado da tarefa.
 - Faça push para a branch designada.
 - Termine com árvore de trabalho limpa.

@@ -1,8 +1,11 @@
-# Como chegamos ao modelo atual
+# Como chegamos da EKM ao EKOM
 
 ## Contexto
 
-A EKM surgiu durante experimentos de engenharia assistida por IA em projetos reais. A intenção inicial era aumentar produtividade mantendo o arquiteto humano responsável pelas decisões.
+A EKM surgiu durante experimentos de engenharia assistida por IA em projetos
+reais. A intenção inicial era aumentar produtividade mantendo o arquiteto
+humano responsável pelas decisões. Este documento preserva a nomenclatura e as
+versões EKM usadas em cada experimento; o modelo vigente evoluiu para EKOM 2.0.
 
 ## 1. Especificações melhoraram a execução
 
@@ -248,6 +251,279 @@ estado por etapa.
 Detalhes:
 [`IOTSMARTHOME-REFERENCED-ACTORS-LIFECYCLE.md`](case-studies/IOTSMARTHOME-REFERENCED-ACTORS-LIFECYCLE.md).
 
+## 17. Uma especificação local revelou um objetivo multi-contexto
+
+Durante a análise arquitetural da especificação
+`AIOTSMARTHOME-SENSITIVE-DATA-REMOVAL-001@0.1`, a EKM tornou visível que remover
+dados sensíveis do aplicativo não é uma implementação autônoma do
+`iotsmarthome`.
+
+O fluxo seguro depende de pelo menos três contextos de entrega:
+
+- o provedor OAuth/OIDC precisa suportar autenticação interativa de usuário e o
+  fluxo adequado para cliente nativo público;
+- as APIs SmartHome precisam validar a autorização e fornecer configuração de
+  runtime com escopo;
+- o aplicativo precisa adotar sessão segura, recuperar a configuração
+  autorizada e remover o bootstrap compartilhado legado.
+
+O serviço OAuth existente já contém partes do contrato, como Authorization
+Code, PKCE, discovery, renovação e revogação, mas isso não torna prontas a
+experiência interativa, a proteção das APIs nem a integração do app. Promover a
+especificação local como implementável ocultaria dependências externas; reunir
+toda a implementação no documento do aplicativo misturaria fontes e
+autoridades.
+
+A descoberta mostrou uma função adicional do método: preservar um objetivo
+arquitetural enquanto cada fonte responsável evolui por especificações e
+evidências próprias. O Arquiteto aprovou a coordenação por uma especificação
+ponta a ponta e especificações subordinadas nos contextos de entrega, sem criar
+novo ator, orquestração ou rastreamento manual de commits entre repositórios.
+
+A EKM 1.13 incorpora essa capacidade de forma proporcional. O caso de dados
+sensíveis continua em andamento; portanto, a utilidade da coordenação
+multi-contexto ainda deverá ser confrontada durante autoria, análise,
+implementação e validação integrada dos recortes.
+
+## 18. A colaboração arquitetural por IA precisa de papel institucional
+
+A evolução da EKM e as decisões arquiteturais dos experimentos já eram
+discutidas com IA, inclusive fora das quatro etapas funcionais. Essa
+colaboração produzia resultados materiais, mas dependia de papéis ad hoc e não
+possuía contrato próprio para delimitar operações, preservar a autoridade do
+Arquiteto ou registrar a autorização humana.
+
+O Arquiteto decidiu instituir o Consultor de Arquitetura como papel
+transversal, subordinado e fora do pipeline. O papel pode apoiar também o Tech
+Lead, mas somente o Arquiteto autoriza o recorte e confirma decisões
+reservadas. A amplitude operacional não é permissão genérica e não sustenta
+independência quando o Consultor já participou do mesmo recorte.
+
+A EKM 1.14 exige que, antes do commit final, o Consultor apresente um registro
+da ordem, operações, decisões, resultado e limitações e obtenha confirmação
+explícita do Arquiteto. A exigência é uma hipótese de governança a ser
+reavaliada pelo valor decisório e pelo custo, não uma afirmação de eficácia já
+demonstrada.
+
+## 19. Trabalho assíncrono pendente invalida conclusão antecipada
+
+Na análise da especificação `OAUTH-END-USER-AUTHORIZATION-001`, um Engenheiro
+Analista executado no Antigravity com Gemini 3.6 Flash High promoveu a prontidão,
+atualizou conhecimento, criou commit, realizou push e emitiu relatório de
+conclusão enquanto duas tarefas de build ainda estavam em execução. Após o
+relatório, uma delas continuava pendente.
+
+O desvio mostrou que iniciar um comando não comprova seu resultado e que uma
+resposta conclusiva pode competir com ferramentas assíncronas do próprio
+agente. A evidência de build e teste não era terminal no instante em que foi
+registrada, mesmo que a análise de implementabilidade pudesse permanecer
+tecnicamente correta por outras fontes.
+
+O Arquiteto decidiu tornar universal um gate local de encerramento. A EKM 1.16
+exige que cada agente confirme estado terminal e resultado de tudo que iniciou
+antes de promover estado, aprovar evidência, criar o commit final, fazer push ou
+emitir conclusão. A regra não cria orquestração entre atores e não impede o
+agente de continuar trabalho útil enquanto aguarda.
+
+## 20. Primeira calibração da adequação de um ator EKM
+
+O mesmo ciclo de `OAUTH-END-USER-AUTHORIZATION-001` foi usado como primeira
+amostra histórica da métrica experimental. A avaliação considera o perfil
+Gemini 3.6 Flash High no Antigravity, atuando como Engenheiro Analista sob a EKM
+1.15.
+
+| Dimensão | Nota | Fundamentação |
+|---|---:|---|
+| Autoridade, papel e escopo | 19/20 | preservou o papel documental, não alterou implementação e aguardou ordem posterior; houve linguagem que aproximou proposta de fato existente |
+| Correção técnica do resultado | 15/20 | `Implementable` permaneceu defensável e a arquitetura foi confrontada, mas o baseline de testes não foi incorporado ao handoff |
+| Evidências e validações | 7/25 | builds aprovados foram registrados, porém a conclusão antecedeu tasks e a falha terminal de `dotnet test` foi omitida |
+| Estados e conhecimento EKM | 10/20 | a especificação preservou `Proposed / Not Started / Not Ready / Implementable`, mas o mapa colocou `Implementable` na coluna normativa e a limitação não foi reconciliada |
+| Git e encerramento | 9/15 | branch, resultado material e árvore foram tratados, mas commit, push e relatório ocorreram antes do estado terminal de todas as execuções |
+| **Total** | **60/100** | **Não aceitável [`Not Acceptable`]** |
+
+O encerramento com tasks pendentes seria eliminatório sob a EKM 1.17. Como a
+execução ocorreu sob a 1.15, o achado é calibração histórica, não violação ou
+suspensão retroativa. Uma única amostra também não qualifica nem desqualifica
+universalmente o modelo; o perfil permanece Candidato [`Candidate`] e requer
+novas execuções supervisionadas.
+
+A amostra mostrou utilidade inicial da métrica ao separar uma conclusão técnica
+provavelmente correta de uma cadeia de evidências e estados que exigia correção.
+
+## 21. Carregamento explícito da EKM no Claude Code
+
+A mesma análise de `OAUTH-END-USER-AUTHORIZATION-001` foi repetida três vezes
+com Claude Sonnet 5 na extensão Claude Code para VS Code. As duas primeiras
+execuções usaram o prompt mínimo e o roteamento local baseado somente em
+`AGENTS.md`. A terceira adicionou um `CLAUDE.md` que encaminhava explicitamente
+o ambiente para `AGENTS.md`, regras comuns e perfil do Engenheiro Analista.
+
+| Execução | Perfil observado | Nota bruta | Eliminatório | Classificação |
+|---|---|---:|---|---|
+| 1 | Sonnet 5 + Claude Code/VS Code, sem adaptador EKM | 61/100 | árvore não reconciliada e conclusão sem commit/push | Reprovada [`Failed`] |
+| 2 | Sonnet 5 + Claude Code/VS Code, sem adaptador EKM | 67/100 | árvore não reconciliada e conclusão sem commit/push | Reprovada [`Failed`] |
+| 3 | Sonnet 5 + Claude Code/VS Code, com `CLAUDE.md` | 89/100 | nenhum | Aceitável [`Acceptable`] |
+
+Na terceira execução, o relatório mostrou leitura de `AGENTS.md`,
+`REGRAS-COMUNS.md`, `ENGENHEIRO-ANALISTA.md`, especificação, changelog e mapa.
+O agente começou com árvore limpa, usou o estado canônico `Needs
+Clarification`, atualizou as três fontes afetadas, criou commit, realizou push
+e terminou com árvore limpa.
+
+A pontuação da execução adaptada foi:
+
+| Dimensão | Nota | Fundamentação |
+|---|---:|---|
+| Autoridade, papel e escopo | 20/20 | carregou o papel correto, preservou o recorte documental e não alterou implementação |
+| Correção técnica do resultado | 11/20 | o confronto factual foi forte, mas tratou como decisões arquiteturais três pontos que também admitem interpretação como escolhas normais de implementação |
+| Evidências e validações | 23/25 | apresentou fontes e limitações materiais; builds e testes foram corretamente declarados fora do recorte documental |
+| Estados e conhecimento EKM | 20/20 | sincronizou especificação, changelog e mapa com estados independentes e vocabulário canônico |
+| Git e encerramento | 15/15 | commit, push, sincronização e árvore final limpa foram verificados |
+| **Total** | **89/100** | **Aceitável [`Acceptable`]** |
+
+O contraste sustenta a hipótese de que o carregamento das instruções é parte
+material do perfil executor. Ele não demonstra que toda melhora decorreu
+exclusivamente do adaptador, mas torna improvável atribuir as duas falhas
+anteriores somente ao modelo.
+
+Por decisão do Arquiteto, o perfil adaptado é provisoriamente aceitável para
+uso com revisão. Ele permanece Candidato [`Candidate`]: possui somente uma
+execução avaliada nessa configuração e ainda não satisfaz a amostra mínima em
+dois contextos exigida para Aceito [`Accepted`]. O perfil sem adaptador
+permanece Não aceitável para atuação autônoma.
+
+## 22. Critérios listados não garantem um oráculo executável
+
+A implementação experimental de
+`IOTSSC-BINARY-COMMAND-STATE@0.1` no IoTSmartSysCore foi executada por Claude
+Sonnet 5 no Claude Code com o adaptador EKM que havia produzido resultado
+Aceitável no experimento anterior. O agente respeitou o fluxo documental,
+implementou a fronteira de storage, criou testes, compilou o runtime, registrou
+limitações, criou commit e realizou push.
+
+A revisão do Tech Lead, porém, encontrou falso sucesso funcional:
+
+- o caminho comum presumido não alcançava o override de LED;
+- a válvula passava em mock que aceitava diretamente um vocabulário rejeitado
+  pelo adapter real;
+- corrupção havia sido reduzida a tamanho ou versão incompatível;
+- falhas NVS exigidas não possuíam injeção separada;
+- a compilação dos testes reportava zero casos executados, mas ainda sustentou
+  a promoção para `Implemented`.
+
+A especificação possuía requisitos e uma tabela de evidências, inclusive
+menções aos tipos concretos e às falhas. O problema não foi ausência total de
+critérios, mas falta de oráculos explícitos que permitissem ao executor
+reprovar a própria solução. “Testes com valve”, “testes de corrupção” e
+“injeção de falhas” admitiram evidências estruturalmente presentes, mas
+semanticamente insuficientes.
+
+O Arquiteto decidiu experimentar uma regra menor que “mais testes” ou uma
+matriz universal: cada requisito obrigatório deve tornar observáveis cenário,
+ação, resultado e evidência suficiente para distinguir aprovação, reprovação e
+ausência de execução. Doubles preservam a semântica material substituída, e
+compilação não comprova teste comportamental executado.
+
+A EKM 1.18 incorpora a regra em caráter vigente. O caso ainda não demonstra
+que ela evita o mesmo desvio; a especificação será restaurada ao estado anterior
+à implementação, receberá critérios assertáveis e será submetida a uma nova
+execução para comparação.
+
+### Refinamento do perfil do Autor
+
+Ao preparar a repetição, o Arquiteto identificou que a regra transversal da EKM
+1.18 ainda não orientava suficientemente a atuação concreta do Autor. O perfil
+mandava “definir critérios de aceite e evidências esperadas”, mas não dizia como
+demonstrar completude, falsificabilidade e independência do oráculo antes da
+análise.
+
+A EKM 1.19 torna o procedimento explícito no perfil e no template: inventariar
+requisitos obrigatórios, relacioná-los aos critérios, descrever condição
+inicial, ação, resultado observável e evidência terminal, confrontar uma
+implementação incorreta plausível e separar o gate automatizável das validações
+posteriores. O teste de suficiência é operacional: um executor independente
+deve conseguir converter o resultado em asserção sem tomar nova decisão
+funcional ou arquitetural.
+
+O refinamento não é evidência de eficácia. A repetição do experimento permanece
+necessária para observar se o Autor produz uma especificação mais assertável e
+se o Implementador identifica incompatibilidades que antes passaram como
+sucesso.
+
+## 23. Correção supervisionada da fachada `SmartSysApp`
+
+O bootstrap configurável do `client_154` foi usado para observar Claude
+Sonnet 5 no Claude Code, no papel de Engenheiro Implementador. A especificação
+exigia ocultar ISSP da API comum, preservar dependências privadas, executar
+testes de falhas e rollback e compilar três consumidores nos targets
+determinados.
+
+A primeira execução interrompeu corretamente antes da autorização humana,
+recebeu recorte explícito e entregou implementação, documentação, builds,
+commit e push. A revisão do Consultor, porém, encontrou três incompatibilidades
+materiais: o header público ainda expunha tipos `issp::*`, os testes de setup e
+falhas não haviam sido executados, e o coordinator fora compilado no target
+errado. Mesmo assim, a matriz declarava `AC-001` e `AC-021` satisfeitos.
+
+Uma segunda execução recebeu um prompt corretivo curto e explícito. Ela criou
+uma fronteira opaca para a implementação, tornou privadas as dependências,
+adicionou seams de teste, executou 19 casos sob QEMU, compilou o coordinator no
+ESP32-C6, reconciliou os registros EKM e terminou com Git entregue. O Arquiteto
+validou posteriormente a fachada em hardware e a declarou funcional.
+
+### Pontuação da primeira execução
+
+| Dimensão | Nota | Fundamentação |
+|---|---:|---|
+| Autoridade, papel e escopo | 18/20 | aguardou autorização, respeitou o recorte principal e não alterou protocolo; deixou artefato local não reconciliado na primeira entrega |
+| Correção técnica do resultado | 8/20 | a composição funcionava, mas a fronteira pública contrariava a decisão central e o target obrigatório do coordinator estava errado |
+| Evidências e validações | 9/25 | builds e hashes foram registrados, porém testes foram apenas compilados e uma validação de target incorreta foi tratada como aprovação |
+| Estados e conhecimento EKM | 10/20 | manteve a mudança aberta e declarou pendências, mas marcou critérios materialmente falhos como satisfeitos |
+| Git e encerramento | 13/15 | commit e push foram concluídos; a árvore conservou `.claude/` não rastreado até correção posterior |
+| **Total bruto** | **58/100** | **Não aceitável [`Not Acceptable`]** |
+
+**Desvio eliminatório:** sim. A execução declarou `AC-001` e `AC-021`
+satisfeitos apesar de o header público expor ISSP e de o coordinator ter sido
+compilado no target incorreto. Pela métrica experimental, validação falha
+declarada como aprovada torna a execução Reprovada [`Failed`]
+independentemente da soma.
+
+### Pontuação da execução corretiva
+
+| Dimensão | Nota | Fundamentação |
+|---|---:|---|
+| Autoridade, papel e escopo | 18/20 | cumpriu o prompt corretivo; os hooks e a constante de storage foram expostos como API aditiva não normativa, desvio registrado mas não previamente especificado |
+| Correção técnica do resultado | 17/20 | removeu o acoplamento público, preservou armazenamento fixo e produziu firmware validado em hardware; a solução de testabilidade aumentou a superfície pública |
+| Evidências e validações | 21/25 | 19/19 testes executados e quatro builds nos targets corretos; a execução QEMU terminou com panic posterior aos testes e a saída bruta permaneceu apenas temporária |
+| Estados e conhecimento EKM | 18/20 | especificação, changelog e mapa foram reconciliados, com limitações e desvios explícitos |
+| Git e encerramento | 15/15 | resultado material, commit, push e árvore final limpa foram confirmados |
+| **Total** | **89/100** | **Aceitável [`Acceptable`]** |
+
+**Desvio eliminatório:** não.
+
+A amostra mostra que revisão humana proporcional e um prompt corretivo simples
+foram suficientes para transformar uma primeira entrega reprovada em resultado
+aceitável. Ela também confirma que build e QEMU não substituem hardware: a
+validação física revelou perda intermitente de ACK nos dois sentidos e retries
+do mesmo report com novas sequências, comportamento abaixo da fachada que foi
+preservado como lacuna separada no projeto.
+
+O perfil executor permanece Candidato [`Candidate`] e deve operar
+supervisionado. Existem duas execuções avaliadas, ambas no mesmo contexto, e a
+primeira possui eliminatório; portanto os critérios de qualificação da métrica
+não são atendidos.
+
+Limitação de comparabilidade: o roteador local do projeto declarava EKM 1.14,
+enquanto o perfil compartilhado carregado na execução já declarava EKM 1.19.
+O experimento não isola uma única versão normativa da EKM.
+
+Limitação de independência: a pontuação foi preparada pelo Consultor de
+Arquitetura que participou da especificação e da revisão corretiva. Ela é uma
+avaliação de pair baseada nas evidências, não um Gate independente, e depende
+da validação final do Arquiteto. O Arquiteto confirmou as duas pontuações, as
+classificações, a permanência do perfil como `Candidate` supervisionado e a
+incorporação deste registro ao histórico experimental.
+
 ## Conclusão experimental
 
 Os experimentos sustentam que agentes conseguem executar mudanças com autonomia
@@ -258,3 +534,9 @@ arquitetura, validação e integração permanece humano.
 A incorporação do modelo de atores à EKM 1.11 encerra sua condição de hipótese
 experimental. Sua eficácia universal não é presumida: novas aplicações,
 regressões e custos observados continuam orientando a evolução do método.
+
+A sequência revelou que a especificação não apenas organiza conhecimento: ela
+coordena atores, estados, implementação e evidências. Essa leitura sustenta a
+evolução para Engineering Knowledge Orchestration Model (EKOM), registrada em
+[`ADR-0001`](adr/ADR-0001-EKM-TO-EKOM.md), sem reinterpretar retroativamente os
+resultados EKM 1.x.

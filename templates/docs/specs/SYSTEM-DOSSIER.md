@@ -44,7 +44,7 @@
 
 `<AMBIENTES, COMANDOS, CI/CD, HARDWARE E RELEASE>`
 
-## 10. Domínios e fontes de verdade
+## 10. Domínios e especificações normativas
 
 | Domínio | Fonte | Cobertura | Observação |
 |---|---|---|---|
@@ -58,8 +58,9 @@
 
 | ID | Questão | Impacto | Destino |
 |---|---|---|---|
-| `EKM-GAP-NNNN` | `<PERGUNTA OU AUSÊNCIA>` | `<RISCO>` | `<DECISÃO/ESPECIFICAÇÃO>` |
+| `EKOM-GAP-NNNN` | `<PERGUNTA OU AUSÊNCIA>` | `<RISCO>` | `<DECISÃO/ESPECIFICAÇÃO>` |
 
 ## Regra de manutenção
 
-Este dossiê oferece navegação e visão geral. Não deve duplicar integralmente especificações nem substituir fontes normativas especializadas.
+Este dossiê oferece navegação e visão geral. Não deve duplicar integralmente
+especificações nem substituir a especificação normativa de cada domínio.

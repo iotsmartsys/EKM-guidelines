@@ -1,10 +1,10 @@
-# Histórico de mudanças EKM
+# Histórico de mudanças EKOM
 
 Registre decisões, lacunas, evidências e resultados materiais. O histórico Git
 já registra commits, autores, branches, diferenças e push; não copie esses dados
 para este documento.
 
-## EKM-CHG-0001 — `<TÍTULO>`
+## EKOM-CHG-0001 — `<TÍTULO>`
 
 **Estado:** Aberta [`Open`] | Bloqueada [`Blocked`] | Substituída
 [`Superseded`] | Fechada [`Closed`]
@@ -19,7 +19,7 @@ para este documento.
 
 ### Lacunas
 
-- `<EKM-GAP-NNNN E IMPACTO, OU NENHUMA>`
+- `<EKOM-GAP-NNNN E IMPACTO, OU NENHUMA>`
 
 ### Evidências materiais
 

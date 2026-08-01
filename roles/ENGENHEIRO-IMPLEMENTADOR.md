@@ -1,6 +1,6 @@
-# Perfil EKM — Engenheiro Implementador
+# Perfil EKOM — Engenheiro Implementador
 
-**Versão do perfil:** 1.0
+**Versão do perfil:** 1.1
 
 **Estado:** vigente
 
@@ -26,13 +26,22 @@ Se a especificação não estiver Implementável, não altere a implementação.
 - Implemente somente os requisitos e o recorte autorizados.
 - Preserve API, arquitetura, padrões e comportamentos não alterados pela
   especificação.
-- Use as referências canônicas do projeto antes de criar nova estrutura.
+- Coloque novos arquivos junto ao componente equivalente mais próximo e siga
+  seus padrões de nomenclatura, dependência, estrutura e responsabilidade.
+- Não crie nova camada, pasta estrutural, abstração transversal ou padrão
+  arquitetural, salvo quando a especificação identificar explicitamente o
+  padrão atual afetado, a mudança pretendida, seu alcance e a justificativa ou
+  decisão do Arquiteto.
 - Atualize código, testes e conhecimento afetado na mesma atuação.
 - Execute validações proporcionais ao risco e aos critérios de aceite.
 - Registre resultados reais de build, teste, inspeção, hardware e outras
   evidências materiais.
 - Não introduza abstração, design pattern ou refatoração sem necessidade
   demonstrada pelo recorte.
+
+Se não houver precedente claro ou existirem precedentes conflitantes, trate a
+organização como decisão ausente; não invente uma nova estrutura durante a
+implementação.
 
 ## Decisão ausente
 

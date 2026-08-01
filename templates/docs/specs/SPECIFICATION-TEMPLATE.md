@@ -6,7 +6,7 @@
 
 **Versão:** 0.1
 
-**Estado normativo:** Rascunho [`Draft`]
+**Estado normativo:** Proposta [`Proposed`]
 
 **Estado da implementação:** Não iniciada [`Not Started`]
 
@@ -30,6 +30,18 @@ Descontinua [`Retires`] `<ID@VERSÃO>`
 
 `<LIMITES EXPLÍCITOS>`
 
+### 3.1 Arquitetura e organização
+
+**Precedente aplicável:** `<FONTE E COMPONENTE EQUIVALENTE MAIS PRÓXIMO>`
+
+**Elementos preservados:** `<ARQUITETURA, ORGANIZAÇÃO E RESPONSABILIDADES QUE
+NÃO DEVEM MUDAR>`
+
+**Desvio arquitetural explícito:** Nenhum | `<PADRÃO ATUAL AFETADO; MUDANÇA
+PRETENDIDA; ALCANCE; JUSTIFICATIVA OU DECISÃO DO ARQUITETO>`
+
+A ausência de desvio explícito determina preservação do precedente aplicável.
+
 ## 4. Requisitos
 
 - **`<PREFIXO>-001`:** `<REQUISITO VERIFICÁVEL>`.
@@ -45,9 +57,41 @@ Descontinua [`Retires`] `<ID@VERSÃO>`
 
 ## 7. Critérios de aceite e validações
 
-| Requisito | Evidência esperada |
-|---|---|
-| `<ID>` | `<TESTE, INSPEÇÃO OU VALIDAÇÃO>` |
+| Requisito | Cenário e ação | Resultado observável | Evidência |
+|---|---|---|---|
+| `<ID>` | `<CONDIÇÃO INICIAL + EVENTO OU ENTRADA>` | `<ASSERÇÃO QUE APROVA OU REPROVA>` | `<TESTE, INSPEÇÃO OU VALIDAÇÃO TERMINAL>` |
+
+Cada requisito obrigatório deve poder ser classificado como aprovado,
+reprovado ou não verificável sem o executor inventar o oráculo. Agrupe
+requisitos somente quando o mesmo cenário, resultado e evidência comprovarem
+todos. Mocks e emulações preservam as semânticas materiais substituídas.
+Compilação não comprova execução; quando houver teste comportamental, zero casos
+executados não constitui aprovação.
+
+### 7.1 Checklist de autoria
+
+- [ ] Cada requisito obrigatório está relacionado a pelo menos um critério.
+- [ ] Cada critério identifica condição inicial, ação ou evento, resultado
+  observável e evidência terminal.
+- [ ] O resultado pode ser convertido em asserção sem nova decisão funcional
+  ou arquitetural.
+- [ ] A evidência reprova uma implementação incompatível plausível; não
+  confirma apenas existência, compilação ou chamada.
+- [ ] Doubles preservam as semânticas materiais da integração substituída.
+- [ ] Testes comportamentais exigem execução terminal e mais de zero casos
+  executados.
+- [ ] Validações posteriores humanas, físicas ou de integração estão separadas
+  do gate automatizável.
+- [ ] Ambiguidades restantes estão registradas como decisões ausentes.
+
+### 7.2 Gate da implementação
+
+- `<COMANDOS E EVIDÊNCIAS AUTOMATIZÁVEIS OBRIGATÓRIAS>`;
+- `<CONDIÇÃO OBJETIVA DE SUCESSO, INCLUSIVE CASOS EXECUTADOS QUANDO APLICÁVEL>`;
+- `<VALIDAÇÕES HUMANAS OU DE HARDWARE RESERVADAS À ETAPA POSTERIOR>`.
+
+`Implemented` exige todos os critérios automatizáveis obrigatórios aprovados.
+Critério falho, não executado ou não verificável mantém `In Progress`.
 
 ## 8. Conhecimento afetado
 
@@ -55,7 +99,18 @@ Descontinua [`Retires`] `<ID@VERSÃO>`
 
 ## 9. Relações, decisões e lacunas
 
-`<OUTRAS ESPECIFICAÇÕES, DECISÕES DO ARQUITETO E EKM-GAP RELACIONADAS>`
+**Fatos observados:** `<EVIDÊNCIAS QUE LIMITAM OU SUSTENTAM A PROPOSTA>`
+
+**Intenção e decisões confirmadas:** `<ORDEM E DECISÕES DO ARQUITETO>`
+
+**Solução proposta:** `<RECOMENDAÇÕES DO AUTOR AINDA SUBORDINADAS AO ARQUITETO>`
+
+**Decisões pendentes:** `<SOMENTE ESCOLHAS NECESSÁRIAS QUE EXIGEM AUTORIDADE
+HUMANA, OU NENHUMA>`
+
+**Relações:** `<OUTRAS ESPECIFICAÇÕES E EKOM-GAP RELACIONADAS; QUANDO O
+OBJETIVO FOR MULTI-CONTEXTO, IDENTIFIQUE A FONTE RESPONSÁVEL, A DEPENDÊNCIA E O
+ESTADO MATERIAL NECESSÁRIO SEM DUPLICAR O CONTEÚDO EXTERNO>`
 
 ## 10. Revisão de implementabilidade
 

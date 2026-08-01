@@ -1,6 +1,6 @@
-# Instrução — Adoção inicial da EKM em repositório legado
+# Instrução — Adoção inicial do EKOM em repositório legado
 
-Adote a EKM 1.11 no repositório `<CAMINHO_DO_REPOSITORIO>`.
+Adote o EKOM 2.0 no repositório `<CAMINHO_DO_REPOSITORIO>`.
 
 O Arquiteto autoriza nesta tarefa somente levantamento e fundação documental.
 Não altere código, testes, dependências, build, automações ou configuração.
@@ -13,7 +13,7 @@ Não altere código, testes, dependências, build, automações ou configuraçã
 3. Leia as instruções locais e preserve documentação existente.
 4. Produza uma fundação pequena e adaptada ao projeto.
 5. Não declare como requisito uma intenção que não esteja comprovada.
-6. Instale o `AGENTS.md` com roteamento para os perfis oficiais da EKM.
+6. Instale o `AGENTS.md` com roteamento para os perfis oficiais do EKOM.
 7. Termine com commit, push e árvore de trabalho limpa.
 
 Não copie branch, SHA, comandos de leitura ou mensagem de commit para os
@@ -25,12 +25,12 @@ tag, release ou deploy.
 ```text
 AGENTS.md
 docs/rfc/KNOWLEDGE-MAP.md
-docs/rfc/EKM-CHANGELOG.md
+docs/rfc/EKOM-CHANGELOG.md
 docs/specs/SYSTEM-DOSSIER.md
 ```
 
-Crie `docs/rfc/EKM-GUIDELINES.md` somente se o projeto não puder referenciar a
-diretriz EKM aplicável ou precisar de regras locais. Crie especificações
+Crie `docs/rfc/EKOM-GUIDELINES.md` somente se o projeto não puder referenciar a
+diretriz EKOM aplicável ou precisar de regras locais. Crie especificações
 incrementais somente para decisões confirmadas ou domínios que serão tocados.
 
 ## Levantamento
@@ -63,7 +63,7 @@ resposta mudar a interpretação ou o trabalho.
 - `AGENTS.md`: porta de entrada curta para agentes.
 - `KNOWLEDGE-MAP.md`: fontes, domínios, evidências e lacunas, sem duplicar
   especificações.
-- `EKM-CHANGELOG.md`: abra `EKM-CHG-0001` e registre objetivo, decisões,
+- `EKOM-CHANGELOG.md`: abra `EKOM-CHG-0001` e registre objetivo, decisões,
   lacunas, evidências materiais e resultado.
 - `SYSTEM-DOSSIER.md`: visão factual do propósito, arquitetura, runtime, APIs,
   dados, integrações, qualidade e operação.
@@ -78,6 +78,8 @@ Antes de encerrar:
 - valide caminhos e links;
 - confira estados entre especificações, mapa e changelog;
 - execute `git diff --check` ou equivalente;
+- confirme que toda execução iniciada chegou a estado terminal e registre seu
+  resultado ou limitação antes do commit, push e resposta conclusiva;
 - declare validações não executadas;
 - confirme que não houve mudança funcional.
 

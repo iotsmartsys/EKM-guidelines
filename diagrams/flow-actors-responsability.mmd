@@ -1,5 +1,6 @@
 flowchart TD
-    A["Arquiteto<br/>intenção, decisões e ordem"] --> B
+    S["Especificação EKOM<br/>fonte única da verdade"] --> B
+    A["Arquiteto<br/>intenção, decisões e ordem"] --> S
 
     subgraph AUT["Autor da Especificação"]
         B["Especifica o recorte"]
@@ -46,6 +47,9 @@ flowchart TD
     V -- "Não" --> W["Ready for Integration"]
     V -- "Sim" --> X["Done"]
 
+    S -. "orquestra" .-> C
+    S -.-> K
+    S -.-> Q
     A -. "autoridade final" .-> C
     A -.-> K
     A -.-> Q

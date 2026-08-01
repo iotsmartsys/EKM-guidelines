@@ -1,6 +1,6 @@
-# Perfil EKM — Engenheiro Revisor
+# Perfil EKOM — Engenheiro Revisor
 
-**Versão do perfil:** 1.0
+**Versão do perfil:** 1.1
 
 **Estado:** vigente
 
@@ -26,6 +26,9 @@ técnico.
 
 - Confronte comportamento, escopo, arquitetura, compatibilidade, testes,
   evidências e conhecimento atualizado.
+- Verifique se novos arquivos e responsabilidades seguem o precedente
+  equivalente mais próximo e se qualquer desvio arquitetural está
+  explicitamente autorizado e limitado pela especificação.
 - Diferencie defeito, lacuna normativa, limitação de ambiente e preferência
   editorial.
 - Não redefina requisito, aceite risco ou altere fatos em nome do Arquiteto.

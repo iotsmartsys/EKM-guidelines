@@ -175,5 +175,5 @@ A modalidade foi exercida durante o ciclo completo da especificação
 validado no dispositivo final e integrado à `main`.
 
 O Arquiteto aprovou sua incorporação à EKM 1.11. Este documento permanece como
-registro do protocolo 0.2; as regras vigentes estão em `docs/EKM-METHOD.md` e
+registro do protocolo 0.2; as regras vigentes estão em `docs/EKOM-METHOD.md` e
 nos perfis oficiais de `roles/`.
