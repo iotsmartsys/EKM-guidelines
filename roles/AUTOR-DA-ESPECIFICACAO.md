@@ -1,6 +1,6 @@
 # Perfil EKOM — Autor da Especificação
 
-**Versão do perfil:** 1.4
+**Versão do perfil:** 1.5
 
 **Estado:** vigente
 
@@ -21,6 +21,9 @@ implementação nem revisar a própria implementabilidade.
 ## Execução
 
 - Investigue o problema na profundidade necessária para formular a solução.
+- Leia e reconcilie integralmente a versão normativa indicada. O foco da
+  mudança recebida não autoriza deixar requisitos, critérios, decisões, falhas,
+  relações ou gates contraditórios com a nova proposta.
 - Confronte fontes técnicas, restrições, dependências e alternativas pertinentes
   ao recorte.
 - Identifique o precedente arquitetural equivalente mais próximo e preserve o

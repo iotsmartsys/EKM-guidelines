@@ -117,10 +117,12 @@ O EKOM organiza a execução por quatro atores oficiais:
 | Engenheiro Implementador | implementar, validar e registrar o estado sustentado |
 | Engenheiro Revisor | confrontar contrato, implementação e evidências e registrar decisões humanas recebidas |
 
-Uma ordem curta identifica papel, resultado, recorte e especificação. O
-`AGENTS.md` encaminha o agente para regras comuns e exatamente um perfil. Cada
-ator encerra a etapa atualizando o conhecimento afetado e promovendo somente os
-estados sustentados por sua atuação.
+Uma ordem funcional curta identifica papel e especificação. O perfil e o estado
+vigente determinam o resultado canônico; um foco adicional é opcional e não
+reduz a versão normativa integral. O `AGENTS.md` encaminha o agente para regras
+comuns e exatamente um perfil. Cada ator encerra a etapa atualizando o
+conhecimento afetado e promovendo somente os estados sustentados por sua
+atuação sobre a especificação inteira.
 
 Não existe um ator dedicado a comandar os demais. A especificação orquestra as
 passagens; o Arquiteto mantém a autoridade. Validação, aprovação e integração
@@ -149,16 +151,19 @@ perfis delimitados sustentam continuidade entre agentes; coordenação por
 especificações preserva objetivos multi-contexto; e critérios assertáveis
 reduzem falso sucesso.
 
-A versão 2.0 adiciona a hipótese explícita de que tratar a especificação como
+A versão 2.0 adicionou a hipótese explícita de que tratar a especificação como
 plano de controle reduz divergência entre humanos, agentes, automações, código
-e evidências sem introduzir uma plataforma central obrigatória.
+e evidências sem introduzir uma plataforma central obrigatória. A versão 2.1
+torna a versão normativa integral a unidade atômica dos resultados formais e
+trata recortes recebidos como focos adicionais, salvo atuação parcial
+explicitamente ordenada e sem promoção global.
 
 Os casos de estudo sustentam decisões específicas, mas não demonstram
 aplicabilidade universal nem garantem obediência de qualquer agente.
 
 ## Estado do método
 
-O EKOM 2.0 está aprovado e vigente para adoção. A transição desde a EKM está
+O EKOM 2.1 está aprovado e vigente para adoção. A transição desde a EKM está
 registrada em [`ADR-0001`](adr/ADR-0001-EKM-TO-EKOM.md). O método continua
 evoluindo quando evidências mostrarem lacunas, excesso de custo ou regras
 inadequadas.

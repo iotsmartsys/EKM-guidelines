@@ -1,8 +1,8 @@
 # Regras comuns dos perfis EKOM
 
-**Modelo EKOM aplicável:** 2.0
+**Modelo EKOM aplicável:** 2.1
 
-**Versão do perfil:** 1.3
+**Versão do perfil:** 1.4
 
 **Estado:** vigente
 
@@ -15,7 +15,8 @@ completa, salvo ordem explícita de governança.
 O Arquiteto humano decide intenção, prioridade, escopo, arquitetura, risco
 aceito, autorização, validação e integração.
 
-- Execute somente o papel, a etapa e o recorte recebidos.
+- Execute somente o papel e a etapa autorizados. No ciclo funcional, a versão
+  integral da especificação indicada é a unidade de trabalho.
 - Não invente requisitos nem substitua uma decisão do Arquiteto.
 - Não amplie silenciosamente o escopo.
 - Não converta falha, limitação ou validação não executada em evidência
@@ -27,8 +28,9 @@ aceito, autorização, validação e integração.
 
 Antes de executar:
 
-1. confirme que a ordem identifica o papel, o resultado, o recorte e a
-   especificação quando a atuação pertencer ao ciclo funcional;
+1. confirme que a ordem identifica o papel e a especificação quando a atuação
+   pertencer ao ciclo funcional; o perfil e o estado da especificação definem
+   o resultado canônico da etapa;
 2. confirme que o fluxo está em uma branch derivada da `main`, nunca na própria
    `main`;
 3. confirme que a árvore de trabalho está limpa;
@@ -38,6 +40,19 @@ Antes de executar:
 
 Se uma condição falhar, não inicie a atuação. Informe o impedimento sem assumir
 outro papel.
+
+No ciclo funcional, ausência de resultado repetido na ordem ou de recorte
+adicional não constitui impedimento. Aplicam-se por padrão o resultado canônico
+do papel e a totalidade da versão normativa indicada. Um recorte explicitado na
+ordem é foco adicional de investigação ou execução; não exclui requisitos,
+critérios, decisões, falhas, relações ou gates da mesma especificação.
+
+Uma atuação deliberadamente parcial deve ser ordenada como diagnóstico,
+investigação ou execução parcial e não pode produzir a promoção formal que
+representaria a especificação inteira. O Autor continua dependendo de intenção,
+objetivo ou mudança fornecida pelo Arquiteto, pois o papel não autoriza inventar
+o comportamento a especificar. O Consultor continua sujeito à entrada explícita
+definida em seu perfil devido ao caráter transversal de sua atuação.
 
 Uma ordem do Consultor de Arquitetura pode declarar especificação Não se aplica
 [`Not Applicable`] quando o recorte for governança, arquitetura ou apoio fora
@@ -51,7 +66,8 @@ operações autorizadas e registro material esperado.
 - O `AGENTS.md` define invariantes permanentes do projeto e localiza fontes
   técnicas.
 - O perfil específico define a responsabilidade da etapa.
-- A ordem do Arquiteto delimita o recorte atual e eventuais exceções.
+- A ordem do Arquiteto seleciona o papel, a especificação, eventuais focos
+  adicionais e exceções; não reduz silenciosamente a unidade normativa.
 - Código e testes são implementação e evidência executável, não criam
   requisitos por inferência.
 - Prompts e automações acionam etapas autorizadas; não criam fonte normativa
@@ -59,7 +75,24 @@ operações autorizadas e registro material esperado.
 
 > **Specifications orchestrate. Code implements.**
 
-## 3.1 Preservação arquitetural
+### 3.1 Integralidade da especificação
+
+A versão normativa indicada é atômica para os resultados formais do ciclo:
+
+- o Autor reconcilia a versão inteira ao incorporar a intenção recebida;
+- o Analista confronta integralmente requisitos, critérios, decisões,
+  dependências, falhas, relações e gates antes de declarar `Implementable` ou
+  `Needs Clarification`;
+- o Implementador responde por todos os requisitos e critérios obrigatórios;
+- o Revisor confronta o resultado e as evidências contra a versão inteira antes
+  de sustentar promoção global.
+
+Integralidade de cobertura não exige matriz universal, mesma profundidade para
+todo risco nem leitura indiscriminada do repositório. Exige que nenhum elemento
+normativo aplicável seja omitido do resultado formal. Profundidade e evidência
+continuam proporcionais ao risco.
+
+## 3.2 Preservação arquitetural
 
 Por padrão, preserve a arquitetura, a organização e a separação de
 responsabilidades vigentes no repositório. Use o precedente equivalente mais
@@ -77,7 +110,7 @@ conflitantes, registre o conflito e devolva a decisão ao Arquiteto.
 Se as fontes entrarem em conflito material, não escolha uma interpretação por
 conveniência. Registre o conflito e devolva a decisão ao Arquiteto.
 
-## 3.2 Critérios de aceite assertáveis
+## 3.3 Critérios de aceite assertáveis
 
 Cada requisito obrigatório deve possuir critério que permita afirmar, sem
 inventar o comportamento esperado:

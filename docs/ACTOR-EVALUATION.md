@@ -1,6 +1,6 @@
 # Avaliação experimental de adequação dos atores EKOM
 
-**Modelo EKOM:** 2.0
+**Modelo EKOM:** 2.1
 
 **Versão da métrica:** 0.1
 
@@ -18,7 +18,7 @@ A métrica não classifica um modelo de forma universal. A unidade avaliada é o
 ```text
 Gemini 3.6 Flash High + Antigravity
 Papel: Engenheiro Analista
-EKOM aplicado: 2.0
+EKOM aplicado: 2.1
 ```
 
 ## 2. Condições da avaliação

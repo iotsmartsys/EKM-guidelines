@@ -117,7 +117,7 @@ ESTADO MATERIAL NECESSÁRIO SEM DUPLICAR O CONTEÚDO EXTERNO>`
 **Resultado:** Pendente de revisão [`Pending Review`] | Implementável
 [`Implementable`] | Precisa de esclarecimento [`Needs Clarification`]
 
-**Resumo da análise:** `<POR QUE O RECORTE PODE OU NÃO SER IMPLEMENTADO>`
+**Resumo da análise:** `<POR QUE A VERSÃO INTEGRAL PODE OU NÃO SER IMPLEMENTADA>`
 
 **Decisões ausentes:** `<NENHUMA OU LISTA OBJETIVA>`
 
@@ -125,8 +125,9 @@ ESTADO MATERIAL NECESSÁRIO SEM DUPLICAR O CONTEÚDO EXTERNO>`
 
 A autoria deixa esta seção Pendente de revisão. Sob ordem do Arquiteto, o
 Analista atualiza o resultado sem alterar a implementação. Uma lacuna bloqueante
-permite concluir Precisa de esclarecimento sem matriz ou investigação
-exaustiva.
+permite concluir Precisa de esclarecimento, mas a análise formal ainda confronta
+todos os elementos normativos da versão, sem exigir matriz universal ou leitura
+indiscriminada do repositório.
 
 ## 11. Evidências da implementação
 

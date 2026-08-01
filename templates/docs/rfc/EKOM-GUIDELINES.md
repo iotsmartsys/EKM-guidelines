@@ -4,21 +4,22 @@
 
 **Estado da fonte:** Vigente
 
-**Versão do documento:** 2.0
+**Versão do documento:** 2.1
 
-**Versão do modelo EKOM:** 2.0
+**Versão do modelo EKOM:** 2.1
 
 **Escopo:** Todo o repositório
 
 ## 1. Autoridade
 
 O Arquiteto humano tem autoridade final sobre intenção, prioridade, escopo,
-arquitetura, risco, autorização, validação e integração. A ordem recebida por
-prompt, automação ou pipeline identifica papel, especificação e recorte
-autorizado sem criar autoridade normativa paralela.
+arquitetura, risco, autorização, validação e integração. No ciclo funcional, a
+ordem recebida por prompt, automação ou pipeline identifica papel e
+especificação. O resultado canônico vem do perfil e eventual foco adicional não
+reduz a versão normativa integral nem cria autoridade normativa paralela.
 
-Agentes não inventam requisitos nem expandem o recorte. Evidências factuais
-permanecem factuais mesmo quando o Arquiteto aceita o risco.
+Agentes não inventam requisitos nem expandem o escopo normativo. Evidências
+factuais permanecem factuais mesmo quando o Arquiteto aceita o risco.
 
 ## 2. Fontes
 
@@ -47,6 +48,11 @@ Autor da Especificação
 
 A especificação orquestra as passagens e recebe os estados e evidências
 produzidos em cada etapa.
+
+Cada versão normativa é a unidade atômica dos resultados formais. Autor,
+Analista, Implementador e Revisor cobrem integralmente a especificação para
+promover seus estados. Um foco adicional orienta atenção, não exclui obrigações;
+trabalho parcial explicitamente ordenado não promove estado global.
 
 Implementação exige especificação Implementável [`Implementable`]. Precisa de
 esclarecimento [`Needs Clarification`] retorna a decisão ao Arquiteto sem
