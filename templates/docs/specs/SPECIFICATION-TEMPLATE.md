@@ -57,34 +57,27 @@ A ausência de desvio explícito determina preservação do precedente aplicáve
 
 ## 7. Critérios de aceite e validações
 
-| Requisito | Cenário e ação | Resultado observável | Evidência |
-|---|---|---|---|
-| `<ID>` | `<CONDIÇÃO INICIAL + EVENTO OU ENTRADA>` | `<ASSERÇÃO QUE APROVA OU REPROVA>` | `<TESTE, INSPEÇÃO OU VALIDAÇÃO TERMINAL>` |
+### `<AC-001>` — `<COMPORTAMENTO OBSERVÁVEL>`
+
+**Cobre:** `<REQUISITO(S)>`
+
+- **Dado que** `<CONDIÇÃO INICIAL MATERIAL>`;
+- **Quando** `<AÇÃO, ENTRADA OU EVENTO>`;
+- **Então** `<RESULTADO OBSERVÁVEL QUE APROVA O CENÁRIO>`;
+- **Evidência:** `<TESTE, INSPEÇÃO OU VALIDAÇÃO TERMINAL>`.
 
 Cada requisito obrigatório deve poder ser classificado como aprovado,
-reprovado ou não verificável sem o executor inventar o oráculo. Agrupe
-requisitos somente quando o mesmo cenário, resultado e evidência comprovarem
-todos. Mocks e emulações preservam as semânticas materiais substituídas.
-Compilação não comprova execução; quando houver teste comportamental, zero casos
-executados não constitui aprovação.
+reprovado ou não verificável sem o executor inventar o oráculo. `Dado / Quando /
+Então` aproxima o contrato da linguagem BDD, mas não exige Gherkin nem uma
+ferramenta específica. Em recortes simples, texto equivalente é suficiente.
 
-### 7.1 Checklist de autoria
+Agrupe requisitos somente quando o mesmo cenário, resultado e evidência
+comprovarem todos. Evidência parcial deve ser identificada como parcial e não
+aprova o critério completo. Doubles preservam as semânticas materiais
+substituídas. Compilação não comprova execução; zero casos executados não
+constitui aprovação de comportamento.
 
-- [ ] Cada requisito obrigatório está relacionado a pelo menos um critério.
-- [ ] Cada critério identifica condição inicial, ação ou evento, resultado
-  observável e evidência terminal.
-- [ ] O resultado pode ser convertido em asserção sem nova decisão funcional
-  ou arquitetural.
-- [ ] A evidência reprova uma implementação incompatível plausível; não
-  confirma apenas existência, compilação ou chamada.
-- [ ] Doubles preservam as semânticas materiais da integração substituída.
-- [ ] Testes comportamentais exigem execução terminal e mais de zero casos
-  executados.
-- [ ] Validações posteriores humanas, físicas ou de integração estão separadas
-  do gate automatizável.
-- [ ] Ambiguidades restantes estão registradas como decisões ausentes.
-
-### 7.2 Gate da implementação
+### 7.1 Gate da implementação
 
 - `<COMANDOS E EVIDÊNCIAS AUTOMATIZÁVEIS OBRIGATÓRIAS>`;
 - `<CONDIÇÃO OBJETIVA DE SUCESSO, INCLUSIVE CASOS EXECUTADOS QUANDO APLICÁVEL>`;
@@ -117,7 +110,7 @@ ESTADO MATERIAL NECESSÁRIO SEM DUPLICAR O CONTEÚDO EXTERNO>`
 **Resultado:** Pendente de revisão [`Pending Review`] | Implementável
 [`Implementable`] | Precisa de esclarecimento [`Needs Clarification`]
 
-**Resumo da análise:** `<POR QUE O RECORTE PODE OU NÃO SER IMPLEMENTADO>`
+**Resumo da análise:** `<POR QUE A VERSÃO INTEGRAL PODE OU NÃO SER IMPLEMENTADA>`
 
 **Decisões ausentes:** `<NENHUMA OU LISTA OBJETIVA>`
 
@@ -125,8 +118,9 @@ ESTADO MATERIAL NECESSÁRIO SEM DUPLICAR O CONTEÚDO EXTERNO>`
 
 A autoria deixa esta seção Pendente de revisão. Sob ordem do Arquiteto, o
 Analista atualiza o resultado sem alterar a implementação. Uma lacuna bloqueante
-permite concluir Precisa de esclarecimento sem matriz ou investigação
-exaustiva.
+permite concluir Precisa de esclarecimento, mas a análise formal ainda confronta
+todos os elementos normativos da versão, sem exigir matriz universal ou leitura
+indiscriminada do repositório.
 
 ## 11. Evidências da implementação
 

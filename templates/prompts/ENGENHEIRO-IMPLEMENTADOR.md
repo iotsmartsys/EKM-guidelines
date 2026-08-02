@@ -31,11 +31,12 @@ Se alguma condição não for verdadeira, não inicie a implementação.
 
 ## 4. Especificação aplicável
 
-<CONTEÚDO INTEGRAL OU RECORTE AUTOSSUFICIENTE DA ESPECIFICAÇÃO>
+<CONTEÚDO INTEGRAL DA VERSÃO DA ESPECIFICAÇÃO>
 
-## 5. Escopo autorizado
+## 5. Foco adicional, se houver
 
-- <MÓDULOS, COMPONENTES E COMPORTAMENTOS>
+- <MÓDULOS, COMPONENTES OU RISCOS PRIORITÁRIOS, SEM EXCLUIR O RESTANTE DA
+  ESPECIFICAÇÃO>
 
 ## 6. Fora de escopo
 
@@ -83,7 +84,7 @@ Se a implementação exigir uma decisão não fornecida:
 1. não escolha uma alternativa por conveniência;
 2. preserve o trabalho válido já realizado somente se ele não depender da decisão;
 3. registre a decisão ausente e seu impacto;
-4. devolva o recorte ao Arquiteto.
+4. devolva a decisão ao Arquiteto.
 
 ## 12. Entrega obrigatória
 

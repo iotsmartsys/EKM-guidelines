@@ -1,8 +1,8 @@
 # Método EKOM
 
-**Versão do documento:** 2.0
+**Versão do documento:** 2.1
 
-**Modelo EKOM:** 2.0
+**Modelo EKOM:** 2.1
 
 **Estado:** aprovado e vigente
 
@@ -111,7 +111,34 @@ deve conter apenas o necessário para executar e verificar o recorte:
 Versões concluídas da especificação são preservadas. Mudanças posteriores usam
 uma nova versão relacionada por `Amends`, `Supersedes`, `Corrects` ou `Retires`.
 
-### 4.1 Critérios de aceite assertáveis
+### 4.1 Atomicidade operacional da versão
+
+Cada versão normativa é a unidade atômica dos resultados formais do ciclo. Ao
+receber papel e especificação, o ator trabalha por padrão sobre a totalidade da
+versão indicada para a responsabilidade daquele papel. A ordem pode indicar um
+foco adicional, uma dúvida ou uma prioridade de investigação, mas isso não
+retira da versão requisitos, critérios, decisões, falhas, relações ou gates.
+
+Por consequência:
+
+- autoria localizada reconcilia a coerência da versão inteira;
+- `Implementable` e `Needs Clarification` são conclusões sobre a versão inteira;
+- `Implemented` exige todos os requisitos e critérios automatizáveis
+  obrigatórios da versão;
+- promoções de revisão e validação confrontam contrato e evidências integrais.
+
+Integralidade não significa documento monolítico, matriz universal, mesma
+profundidade para todo risco nem leitura indiscriminada do repositório. Cada
+especificação continua incremental e pode relacionar contratos externos. A
+profundidade da análise e da evidência permanece proporcional ao risco, mas a
+cobertura normativa não pode ser reduzida silenciosamente.
+
+Uma atuação parcial continua possível quando o Arquiteto a ordenar
+explicitamente como diagnóstico, investigação ou execução parcial. Seu
+resultado não promove o estado formal que representa a versão inteira; na
+implementação, permanece `In Progress` enquanto faltar qualquer obrigação.
+
+### 4.2 Critérios de aceite assertáveis
 
 Cada requisito obrigatório deve possuir critério de aceite suficiente para que
 o executor determine, sem inventar o comportamento esperado, se a evidência
@@ -123,6 +150,11 @@ Um critério assertável identifica, na menor forma adequada ao risco:
 2. a ação, entrada ou evento observado;
 3. o resultado observável esperado;
 4. a evidência capaz de distinguir sucesso, falha e ausência de execução.
+
+A forma `Dado / Quando / Então` é preferida quando melhora a leitura do cenário
+e aproxima negócio, engenharia e validação. Ela é uma linguagem comum, não uma
+obrigação de usar Gherkin, ferramenta BDD ou estrutura universal. Texto
+equivalente permanece válido em recortes simples.
 
 Pode referenciar teste, inspeção, análise estática, observabilidade ou validação
 humana. Não precisa repetir o requisito nem impor formato universal. Agrupar
@@ -139,6 +171,9 @@ comportamento executado, a evidência registra casos executados e resultado
 terminal; zero casos, execução não iniciada, erro de infraestrutura ou estado
 desconhecido não aprovam o critério.
 
+Cobertura parcial continua útil como diagnóstico, mas deve ser identificada
+como parcial e não pode sustentar aprovação do critério completo.
+
 #### Procedimento do Autor
 
 O Autor mantém uma relação rastreável entre requisitos obrigatórios e critérios
@@ -150,6 +185,7 @@ Antes de encaminhar a especificação ao Analista, o Autor confirma que:
 
 - nenhum requisito obrigatório depende apenas de objetivo ou narrativa;
 - um executor independente pode converter o resultado em asserção sem escolher
+  novo comportamento funcional ou arquitetural;
 - a evidência consegue reprovar uma implementação plausível, não apenas
   confirmar presença de código, teste ou build;
 - doubles preservam as semânticas materiais relevantes da integração
@@ -163,7 +199,7 @@ O procedimento não exige um teste por requisito, formato universal ou desenho
 interno antecipado. Um critério pode cobrir mais de um requisito somente quando
 o mesmo cenário, resultado e evidência os comprovarem integralmente.
 
-### 4.2 Objetivos que atravessam múltiplos contextos de entrega
+### 4.3 Objetivos que atravessam múltiplos contextos de entrega
 
 Um objetivo pode depender de mudanças em repositórios, serviços, aplicativos ou
 infraestruturas com fontes normativas e ciclos de integração independentes.
@@ -235,7 +271,7 @@ Os estados permanecem independentes:
 
 O estado declarado na especificação, combinado com a ordem do Arquiteto,
 determina se a próxima etapa pode começar. A especificação orquestra a passagem;
-a ordem autoriza a atuação humana ou automatizada no recorte. Não é obrigatório registrar
+a ordem autoriza a atuação humana ou automatizada na versão. Não é obrigatório registrar
 manualmente SHA, branch de origem, checkpoint ou cadeia de commits para
 autorizar a transição.
 
@@ -245,8 +281,10 @@ Cada tarefa do ciclo de uma especificação é iniciada por uma ação do Arquit
 diretamente por prompt, automação ou comando de pipeline. Essa ação consome a
 especificação aplicável; não se torna fonte normativa paralela. A ação:
 
-- identifica o papel, o resultado, o recorte autorizado e a especificação
-  quando a atuação pertencer ao ciclo funcional;
+- identifica o papel e a especificação quando a atuação pertencer ao ciclo
+  funcional; o perfil e o estado vigente determinam o resultado canônico;
+- pode identificar foco adicional, prioridade, exceção ou resultado compatível
+  sem reduzir a unidade normativa;
 - autoriza apenas as operações normais necessárias àquela etapa;
 - não concede liberdade para ampliar requisitos ou tomar decisões reservadas
   ao Arquiteto.
@@ -257,13 +295,20 @@ Antes de agir, o agente lê:
 2. as regras comuns dos perfis;
 3. exatamente um perfil correspondente ao papel recebido;
 4. a especificação indicada, quando aplicável;
-5. somente as fontes técnicas pertinentes ao recorte.
+5. somente as fontes técnicas pertinentes à especificação e ao foco adicional.
 
 Não carrega perfis de outros papéis nem a metodologia completa, salvo ordem
-explícita de governança. Se a ordem não identificar papel, resultado e recorte,
-a tarefa não começa. A especificação é obrigatória para o ciclo funcional; o
-Consultor pode receber Não se aplica [`Not Applicable`] em governança,
-arquitetura ou apoio fora desse ciclo.
+explícita de governança. No ciclo funcional, a ordem mínima identifica papel e
+especificação; ausência de resultado repetido ou foco adicional não bloqueia a
+tarefa. O Autor também precisa receber intenção, objetivo ou mudança, pois não
+pode inventar o comportamento. O Consultor pode receber Não se aplica [`Not
+Applicable`] em governança, arquitetura ou apoio fora desse ciclo e continua
+sujeito à entrada explícita de seu perfil.
+
+Se a ordem funcional declarar um recorte, ele é interpretado como foco
+adicional, não como exclusão. Trabalho intencionalmente parcial deve ser
+declarado como diagnóstico, investigação ou execução parcial e não promove o
+estado formal da versão inteira.
 
 Tarefas de adoção inicial ou governança do próprio método ficam fora do ciclo
 funcional e exigem ordem explícita com seu recorte documental.
@@ -306,7 +351,7 @@ flowchart TD
     B2 --> C["Ordem de análise"]
 
     subgraph ANA["Engenheiro Analista"]
-        C --> D["Confronta requisitos e fontes"]
+        C --> D["Confronta integralmente<br/>requisitos e fontes"]
         D --> E{"Falta decisão?"}
         E -- "Sim" --> F["Needs Clarification"]
         E -- "Não" --> G["Implementable"]
@@ -320,7 +365,7 @@ flowchart TD
     I -- "Sim" --> K["Ordem de implementação"]
 
     subgraph IMP["Engenheiro Implementador"]
-        K --> L["Implementa e valida o recorte"]
+        K --> L["Implementa e valida<br/>a versão integral"]
         L --> M["In Progress, Blocked<br/>ou Implemented"]
         M --> N["Registra resultado<br/>commit + push"]
     end
@@ -363,6 +408,10 @@ intenção recebida em uma solução proposta, implementável e verificável. Po
 inspecionar fontes técnicas, confrontar restrições, comparar alternativas e
 propor arquitetura, fluxos, contratos e critérios de aceite.
 
+Mesmo quando a intenção recebida altera somente uma parte do comportamento, o
+Autor reconcilia a versão inteira para não preservar contradições entre escopo,
+requisitos, critérios, decisões, falhas e gates.
+
 Para cada requisito obrigatório, o Autor define critério assertável ou registra
 a decisão ausente que impede fazê-lo. O critério não antecipa estrutura interna
 desnecessária, mas torna explícito o resultado observável e a evidência capaz de
@@ -389,9 +438,10 @@ registra e entrega essa promoção.
 
 ### 7.2 Engenheiro Analista
 
-O Analista verifica se os requisitos podem ser implementados sem decisão
-normativa, de produto ou arquitetura não declarada. A análise deve cobrir o
-recorte necessário para sustentar o resultado, sem exigir uma matriz universal.
+O Analista verifica se a versão integral pode ser implementada sem decisão
+normativa, de produto ou arquitetura não declarada. A análise cobre todos os
+elementos normativos aplicáveis, com rastreabilidade suficiente para sustentar
+o resultado, sem exigir matriz universal nem profundidade uniforme.
 
 Declarar `Implementable` exige também confirmar que os critérios obrigatórios
 possuem oráculos assertáveis e meios de evidência viáveis. Critério que apenas
@@ -399,14 +449,14 @@ nomeia uma validação, depende de mock semanticamente incompatível ou não
 distingue execução de compilação constitui decisão ou contrato ainda
 insuficiente.
 
-Se encontrar uma lacuna bloqueante, pode encerrar a análise assim que a decisão
-necessária estiver clara. Deve registrar os demais bloqueios materiais já
-observados, mas não é obrigado a continuar uma inspeção sem valor para obter uma
-lista exaustiva.
+Uma lacuna bloqueante permite concluir `Needs Clarification`, mas não autoriza
+encerrar antes de confrontar os demais elementos normativos da versão. Isso não
+exige investigação indiscriminada fora das fontes pertinentes; exige impedir
+que um primeiro bloqueio oculte outros conflitos materiais do mesmo contrato.
 
 O resultado é:
 
-- Implementável [`Implementable`], quando o recorte pode ser executado sem
+- Implementável [`Implementable`], quando a versão pode ser executada sem
   inferência relevante; ou
 - Precisa de esclarecimento [`Needs Clarification`], quando falta uma decisão
   necessária.
@@ -421,6 +471,10 @@ O Implementador segue a especificação Implementável [`Implementable`], atuali
 código, testes e conhecimento afetado e executa validações proporcionais ao
 risco. Decisões ausentes interrompem a implementação e retornam ao Arquiteto;
 não são preenchidas por conveniência técnica.
+
+O resultado formal abrange a versão inteira. Um foco adicional pode orientar a
+ordem do trabalho, mas não exclui obrigações; entrega parcial permanece `In
+Progress` e não pode ser apresentada como `Implemented`.
 
 Resultado de build, teste, inspeção, hardware ou outra validação deve ser
 registrado quando for material para comprovar ou limitar a entrega. Não se
@@ -446,6 +500,10 @@ O Revisor encerra o ciclo técnico quando existem revisão, validação e decis�
 humana a registrar. A profundidade da revisão é proporcional ao risco.
 Revisões independentes adicionais, inclusive auditoria de integridade EKOM, são
 executadas somente quando o Arquiteto as solicitar.
+
+A proporcionalidade regula profundidade e meios de evidência, não a cobertura
+normativa. Promoção global exige confronto da versão integral; foco adicional
+não exclui qualquer requisito, critério, decisão, falha, relação ou gate.
 
 O Revisor confronta comportamento, arquitetura, compatibilidade, testes,
 evidências e conhecimento sem corrigir a implementação na mesma atuação. Sem
@@ -634,7 +692,7 @@ Arquiteto.
 
 ## 12. Limites atuais
 
-O EKOM 2.0 define orquestração como coordenação normativa pela especificação.
+O EKOM 2.1 define orquestração como coordenação normativa pela especificação.
 Não define concorrência, locks, filas ou escalonadores entre atores. O gate de
 encerramento controla somente execuções iniciadas pelo próprio agente e não
 constitui infraestrutura de coordenação distribuída.

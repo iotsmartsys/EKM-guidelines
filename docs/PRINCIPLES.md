@@ -12,6 +12,12 @@ Para cada comportamento existe uma especificação com autoridade normativa
 identificável. Fontes relacionadas podem explicar, implementar, verificar ou
 registrar a evolução; não criam contratos concorrentes.
 
+## Atomic Specification
+
+Cada versão normativa é a unidade integral dos resultados formais de autoria,
+análise, implementação e revisão. Focos adicionais orientam atenção, mas não
+excluem partes do contrato nem sustentam promoção global por trabalho parcial.
+
 ## Knowledge over Code
 
 Código preserva a implementação atual, não necessariamente a intenção. Em

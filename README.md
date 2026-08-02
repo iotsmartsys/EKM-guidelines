@@ -1,6 +1,6 @@
 # EKOM Guidelines
 
-**Modelo EKOM vigente:** 2.0
+**Modelo EKOM vigente:** 2.1
 
 **Estado:** aprovado e vigente
 
@@ -23,11 +23,13 @@ O EKOM deve começar pequeno. Governança é útil quando acelera decisões, red
 retrabalho ou aumenta confiança; não quando apenas multiplica documentos e
 passagens operacionais.
 
-## Princípios da versão 2.0
+## Princípios da versão 2.1
 
 - Specification First: nenhuma implementação precede um contrato suficiente.
 - Single Source of Truth: a especificação governa o comportamento pretendido;
   as demais fontes a explicam, implementam, verificam ou registram sua evolução.
+- Atomic Specification: a versão normativa inteira é a unidade dos resultados
+  formais; foco adicional não autoriza promoção por cobertura parcial.
 - Knowledge over Code: intenção e decisão não são inferidas do código quando
   existe autoridade normativa aplicável.
 - Humans and AI as First-class Collaborators: ambos atuam sobre a mesma
@@ -67,7 +69,9 @@ Os princípios normativos completos estão em
 ```
 
 A especificação determina o recorte, os estados, as passagens permitidas e os
-critérios de aceite. Prompts, comandos e automações acionam etapas autorizadas;
+critérios de aceite. Papel e especificação bastam para acionar o resultado
+canônico da etapa; focos adicionais não reduzem a cobertura normativa. Prompts,
+comandos e automações acionam etapas autorizadas;
 não se tornam fontes normativas paralelas. Código e testes implementam e
 demonstram o contrato. Evidências promovem estados e alimentam a próxima
 evolução da especificação.
@@ -132,7 +136,7 @@ decisões confirmadas e funcionalidades tocadas.
 ## Conteúdo
 
 - [`docs/EKOM-CONCEPT.md`](docs/EKOM-CONCEPT.md): definição, visão, problema e limites.
-- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 2.0.
+- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 2.1.
 - [`docs/VISION.md`](docs/VISION.md): estado futuro orientado por especificações.
 - [`docs/PRINCIPLES.md`](docs/PRINCIPLES.md): princípios normativos do EKOM.
 - [`docs/GLOSSARY.md`](docs/GLOSSARY.md): vocabulário canônico e termos legados.

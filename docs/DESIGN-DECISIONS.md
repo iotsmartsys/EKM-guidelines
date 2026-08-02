@@ -154,6 +154,9 @@ identificador preserva clareza e migração gradual.
 
 ## DD-018 — Autoridade do Arquiteto e ordem como autorização
 
+**Estado:** esclarecida por DD-032 no EKOM 2.1 quanto à ordem mínima e ao
+significado de recorte no ciclo funcional.
+
 **Decisão:** o Arquiteto humano sempre prevalece sobre decisões e recomendações
 dos agentes. Cada tarefa é iniciada por ordem do Arquiteto, por prompt ou
 pipeline, e essa ordem autoriza a etapa e o recorte solicitados. Não se exige um
@@ -185,6 +188,10 @@ são necessários para que o resultado do agente exista de forma versionada e
 possa alimentar a próxima etapa.
 
 ## DD-020 — Governança proporcional e estado como passagem
+
+**Estado:** parcialmente substituída por DD-032 no EKOM 2.1. A dispensa de
+matriz universal e a proporcionalidade continuam vigentes; a permissão de
+encerrar a análise formal no primeiro bloqueio não continua.
 
 **Decisão:** a especificação contém o estado necessário para a etapa seguinte.
 O changelog registra apenas decisões, lacunas, evidências materiais e resultado.
@@ -692,6 +699,15 @@ nova decisão funcional ou arquitetural.
 Esse detalhamento preserva a proporcionalidade da decisão: não exige Gherkin,
 um teste por requisito, matriz universal nem antecipação da estrutura interna.
 
+**Refinamento no EKOM 2.1:** o experimento do registry de dispositivos pareados
+em NVS confirmou que a utilidade vinha dos cenários explícitos, não do volume de
+campos. A escrita `Dado / Quando / Então` passa a ser a forma preferida quando
+melhora a leitura, sem obrigatoriedade de Gherkin. Evidência parcial deve ser
+nomeada como parcial e nunca sustenta aprovação do critério completo. O template
+deixa de repetir um checklist de autoria com oito itens; as regras continuam no
+perfil e no método, enquanto a especificação preserva apenas o contrato útil à
+implementação e à validação.
+
 ### Registro da atuação
 
 **Estado da confirmação final:** Confirmada pelo Arquiteto.
@@ -775,3 +791,93 @@ podem usar `EKOM-CHG` e `EKOM-GAP`, conforme o namespace declarado no mapa.
 
 **Registro completo:**
 [`ADR-0001 — Evolução de EKM para EKOM`](adr/ADR-0001-EKM-TO-EKOM.md).
+
+## DD-032 — A versão normativa é integral e atômica para os atores
+
+**Problema observado:** ao receber uma ordem que identificava o papel
+Engenheiro Analista e `IOTSSC-BINARY-COMMAND-STATE@0.5`, um executor recusou a
+etapa porque o prompt não repetia o resultado `Implementable` ou `Needs
+Clarification` nem declarava recorte. A especificação estava `Proposed` e
+`Pending Review`, de modo que perfil, objeto e estado já determinavam
+inequivocamente o resultado canônico. Exigir os campos repetidos fez o prompt
+competir com a função de orquestração da especificação.
+
+**Decisão:** no ciclo funcional, papel e especificação formam a ordem mínima. O
+perfil e o estado vigente determinam o resultado canônico da etapa. Ausência de
+resultado repetido ou de recorte adicional não bloqueia a entrada.
+
+Cada versão normativa é a unidade integral e atômica dos resultados formais. Se
+a ordem indicar um recorte, ele é interpretado como foco adicional de atenção,
+prioridade ou profundidade; não exclui requisitos, critérios, decisões, falhas,
+relações ou gates da mesma versão.
+
+Uma atuação parcial continua permitida quando explicitamente ordenada como
+diagnóstico, investigação ou execução parcial. Ela não produz promoção formal
+representativa da versão inteira. O Autor permanece dependente de intenção,
+objetivo ou mudança fornecida pelo Arquiteto, e o Consultor permanece sujeito à
+entrada explícita de seu perfil transversal.
+
+**Aplicação por ator:**
+
+- o Autor reconcilia a versão inteira mesmo quando a intenção altera apenas um
+  ponto;
+- o Analista confronta a totalidade da versão antes de declarar
+  `Implementable` ou `Needs Clarification`; um primeiro bloqueio não pode
+  ocultar outros conflitos materiais do mesmo contrato;
+- o Implementador responde por todos os requisitos e critérios obrigatórios;
+  trabalho parcial permanece `In Progress`;
+- o Revisor cobre a versão inteira antes de sustentar promoção global; risco
+  regula profundidade e evidência, não cobertura normativa.
+
+**Proporcionalidade:** integralidade não exige matriz universal, documento
+monolítico, mesma profundidade para todo risco ou leitura indiscriminada do
+repositório. Especificações continuam incrementais e relacionadas; apenas não
+podem ser subdivididas silenciosamente dentro de uma promoção formal.
+
+**Alternativas rejeitadas:**
+
+- exigir que toda ordem repita resultado e recorte foi rejeitado por duplicar
+  informação já determinada pelo perfil, estado e especificação;
+- permitir análise formal parcial foi rejeitado porque uma conclusão global
+  poderia ignorar requisitos não confrontados;
+- tratar recorte explícito como exclusão foi rejeitado porque transforma foco
+  operacional em redução normativa concorrente;
+- proibir qualquer trabalho parcial foi rejeitado porque diagnóstico e
+  investigação localizada continuam úteis quando não promovem estado global.
+
+**Critérios de reavaliação:** revisar a regra se atores não conseguirem inferir
+o resultado canônico a partir do perfil e do estado, se a integralidade induzir
+leitura indiscriminada sem ganho ou se focos adicionais deixarem de orientar
+adequadamente tarefas de alto risco.
+
+**Estado da decisão:** confirmada pelo Arquiteto para incorporação ao EKOM 2.1.
+
+### Registro da atuação EKOM 2.1
+
+**Estado da confirmação final:** Confirmada pelo Arquiteto.
+
+- **Papel exercido:** Consultor de Arquitetura e par do Arquiteto.
+- **Ordem autorizada:** tornar a versão normativa integral a unidade padrão dos
+  atores e remover a exigência redundante de resultado e recorte explícitos no
+  ciclo funcional.
+- **Repositório e recorte:** `EKM-guidelines`; método, regras comuns, perfis dos
+  quatro atores, princípios, conceito, glossário, templates, navegação, versão
+  do modelo e decisão de desenho.
+- **Operações autorizadas:** investigar as fontes vigentes, editar governança e
+  templates, validar consistência e, após confirmação final, criar commit e
+  realizar push.
+- **Decisões confirmadas:** papel e especificação acionam o resultado canônico;
+  ausência de recorte significa versão integral; recorte explícito é foco
+  adicional; atuação parcial não promove estado global; Autor e Consultor
+  preservam suas entradas específicas.
+- **Resultado material preparado:** EKOM 2.1 com atomicidade operacional,
+  cobertura integral distribuída pelos atores e comando mínimo simplificado.
+- **Validações e limitações:** integridade do diff, referências de versão e
+  ausência das regras operacionais contraditórias verificadas; nenhuma
+  validação funcional se aplica à mudança documental. A eficácia será observada
+  em novas execuções. O Consultor participou da solução e não pode alegar
+  revisão independente dela.
+- **Significado da confirmação final:** o registro representa a decisão e o
+  EKOM 2.1 permanece vigente. A ordem posterior de promoção autoriza sua
+  integração à `main`; não declara eficácia universal, adoção automática por
+  projetos existentes, release ou deploy.

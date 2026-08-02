@@ -524,6 +524,26 @@ da validação final do Arquiteto. O Arquiteto confirmou as duas pontuações, a
 classificações, a permanência do perfil como `Candidate` supervisionado e a
 incorporação deste registro ao histórico experimental.
 
+## 24. Cenários explícitos aumentaram a confiança no registry NVS
+
+Na implementação do registry de dispositivos pareados do coordinator, critérios
+associados apenas a rótulos de testes ocultaram cobertura parcial: faltavam
+combinações de estado do registry, janela e identidade; o fake não preservava
+staging e commit; e a presença de um ramo no código foi confundida com cenário
+executado. A revisão encontrou comportamentos incompatíveis mesmo com build e
+testes existentes aprovados.
+
+A reautoria preservou o escopo e tornou explícitos condição inicial, estímulo,
+resultado observável e evidência. Cenários parciais deixaram de sustentar o
+rótulo do critério completo, e os gates passaram a distinguir política pura,
+adaptador de produção e validações posteriores. Isso permitiu reprovar soluções
+plausíveis que antes passavam pela descrição genérica.
+
+O aprendizado incorporado ao template é deliberadamente menor que o aparato do
+experimento: preferir `Dado / Quando / Então` quando melhorar a leitura, exigir
+um oráculo observável e nomear cobertura parcial. Matrizes extensas, manifesto
+universal, Gherkin e ferramentas BDD não se tornam obrigações do EKOM.
+
 ## Conclusão experimental
 
 Os experimentos sustentam que agentes conseguem executar mudanças com autonomia

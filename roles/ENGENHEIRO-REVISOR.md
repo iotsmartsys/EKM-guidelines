@@ -1,6 +1,6 @@
 # Perfil EKOM — Engenheiro Revisor
 
-**Versão do perfil:** 1.1
+**Versão do perfil:** 1.2
 
 **Estado:** vigente
 
@@ -26,6 +26,9 @@ técnico.
 
 - Confronte comportamento, escopo, arquitetura, compatibilidade, testes,
   evidências e conhecimento atualizado.
+- Cubra integralmente requisitos, critérios, decisões, falhas, relações e gates
+  da versão indicada. Um foco adicional aumenta a atenção naquele ponto, mas
+  não reduz a cobertura necessária para uma promoção global.
 - Verifique se novos arquivos e responsabilidades seguem o precedente
   equivalente mais próximo e se qualquer desvio arquitetural está
   explicitamente autorizado e limitado pela especificação.

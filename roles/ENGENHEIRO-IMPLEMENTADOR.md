@@ -1,6 +1,6 @@
 # Perfil EKOM — Engenheiro Implementador
 
-**Versão do perfil:** 1.1
+**Versão do perfil:** 1.2
 
 **Estado:** vigente
 
@@ -23,7 +23,8 @@ Se a especificação não estiver Implementável, não altere a implementação.
 
 ## Execução
 
-- Implemente somente os requisitos e o recorte autorizados.
+- Implemente todos os requisitos da versão autorizada. Um foco adicional pode
+  orientar a ordem ou a investigação, mas não exclui o restante do contrato.
 - Preserve API, arquitetura, padrões e comportamentos não alterados pela
   especificação.
 - Coloque novos arquivos junto ao componente equivalente mais próximo e siga
@@ -37,7 +38,7 @@ Se a especificação não estiver Implementável, não altere a implementação.
 - Registre resultados reais de build, teste, inspeção, hardware e outras
   evidências materiais.
 - Não introduza abstração, design pattern ou refatoração sem necessidade
-  demonstrada pelo recorte.
+  demonstrada pela especificação.
 
 Se não houver precedente claro ou existirem precedentes conflitantes, trate a
 organização como decisão ausente; não invente uma nova estrutura durante a
@@ -48,7 +49,7 @@ implementação.
 Se a implementação exigir decisão não fornecida:
 
 1. não escolha uma alternativa por conveniência;
-2. interrompa o recorte afetado;
+2. interrompa a obrigação afetada;
 3. preserve somente trabalho válido que não dependa da decisão;
 4. registre lacuna, evidência e impacto;
 5. devolva a decisão ao Arquiteto.
@@ -57,6 +58,8 @@ Se a implementação exigir decisão não fornecida:
 
 - Use Em andamento [`In Progress`] enquanto faltar implementação ou validação
   obrigatória da etapa.
+- Uma entrega deliberadamente parcial permanece Em andamento [`In Progress`] e
+  não pode representar a especificação integral como Implementada.
 - Use Implementada [`Implemented`] somente quando código e validações
   automatizáveis obrigatórias sustentarem esse resultado.
 - Não promova para Validada [`Validated`]; essa passagem pertence ao Engenheiro

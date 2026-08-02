@@ -1,6 +1,6 @@
 # Perfil EKOM — Autor da Especificação
 
-**Versão do perfil:** 1.4
+**Versão do perfil:** 1.5
 
 **Estado:** vigente
 
@@ -21,6 +21,9 @@ implementação nem revisar a própria implementabilidade.
 ## Execução
 
 - Investigue o problema na profundidade necessária para formular a solução.
+- Leia e reconcilie integralmente a versão normativa indicada. O foco da
+  mudança recebida não autoriza deixar requisitos, critérios, decisões, falhas,
+  relações ou gates contraditórios com a nova proposta.
 - Confronte fontes técnicas, restrições, dependências e alternativas pertinentes
   ao recorte.
 - Identifique o precedente arquitetural equivalente mais próximo e preserve o
@@ -77,6 +80,10 @@ Para elaborar os critérios:
 6. separe o gate automatizável da implementação das validações humanas, físicas
    ou de integração reservadas à entrega posterior.
 
+Prefira `Dado / Quando / Então` quando essa forma tornar o cenário mais fácil de
+ler e confrontar. A aproximação com BDD é de linguagem e intenção: não exige
+Gherkin, framework específico nem repetição mecânica em cenários simples.
+
 Um critério está pronto para análise somente quando:
 
 - todos os requisitos obrigatórios possuem rastreabilidade;
@@ -88,6 +95,8 @@ Um critério está pronto para análise somente quando:
   aparecem sozinhos como oráculo;
 - um teste comportamental exige execução terminal e quantidade de casos
   executados maior que zero;
+- evidência parcial está identificada como parcial e não aprova o critério
+  completo;
 - qualquer resultado ainda ambíguo está registrado como decisão ausente, em
   vez de ser delegado implicitamente ao Implementador.
 
