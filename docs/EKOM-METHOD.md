@@ -151,6 +151,11 @@ Um critério assertável identifica, na menor forma adequada ao risco:
 3. o resultado observável esperado;
 4. a evidência capaz de distinguir sucesso, falha e ausência de execução.
 
+A forma `Dado / Quando / Então` é preferida quando melhora a leitura do cenário
+e aproxima negócio, engenharia e validação. Ela é uma linguagem comum, não uma
+obrigação de usar Gherkin, ferramenta BDD ou estrutura universal. Texto
+equivalente permanece válido em recortes simples.
+
 Pode referenciar teste, inspeção, análise estática, observabilidade ou validação
 humana. Não precisa repetir o requisito nem impor formato universal. Agrupar
 requisitos é permitido somente quando a mesma evidência e o mesmo oráculo
@@ -166,6 +171,9 @@ comportamento executado, a evidência registra casos executados e resultado
 terminal; zero casos, execução não iniciada, erro de infraestrutura ou estado
 desconhecido não aprovam o critério.
 
+Cobertura parcial continua útil como diagnóstico, mas deve ser identificada
+como parcial e não pode sustentar aprovação do critério completo.
+
 #### Procedimento do Autor
 
 O Autor mantém uma relação rastreável entre requisitos obrigatórios e critérios
@@ -177,6 +185,7 @@ Antes de encaminhar a especificação ao Analista, o Autor confirma que:
 
 - nenhum requisito obrigatório depende apenas de objetivo ou narrativa;
 - um executor independente pode converter o resultado em asserção sem escolher
+  novo comportamento funcional ou arquitetural;
 - a evidência consegue reprovar uma implementação plausível, não apenas
   confirmar presença de código, teste ou build;
 - doubles preservam as semânticas materiais relevantes da integração

@@ -80,6 +80,10 @@ Para elaborar os critérios:
 6. separe o gate automatizável da implementação das validações humanas, físicas
    ou de integração reservadas à entrega posterior.
 
+Prefira `Dado / Quando / Então` quando essa forma tornar o cenário mais fácil de
+ler e confrontar. A aproximação com BDD é de linguagem e intenção: não exige
+Gherkin, framework específico nem repetição mecânica em cenários simples.
+
 Um critério está pronto para análise somente quando:
 
 - todos os requisitos obrigatórios possuem rastreabilidade;
@@ -91,6 +95,8 @@ Um critério está pronto para análise somente quando:
   aparecem sozinhos como oráculo;
 - um teste comportamental exige execução terminal e quantidade de casos
   executados maior que zero;
+- evidência parcial está identificada como parcial e não aprova o critério
+  completo;
 - qualquer resultado ainda ambíguo está registrado como decisão ausente, em
   vez de ser delegado implicitamente ao Implementador.
 

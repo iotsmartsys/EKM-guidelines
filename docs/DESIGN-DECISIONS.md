@@ -699,6 +699,15 @@ nova decisão funcional ou arquitetural.
 Esse detalhamento preserva a proporcionalidade da decisão: não exige Gherkin,
 um teste por requisito, matriz universal nem antecipação da estrutura interna.
 
+**Refinamento no EKOM 2.1:** o experimento do registry de dispositivos pareados
+em NVS confirmou que a utilidade vinha dos cenários explícitos, não do volume de
+campos. A escrita `Dado / Quando / Então` passa a ser a forma preferida quando
+melhora a leitura, sem obrigatoriedade de Gherkin. Evidência parcial deve ser
+nomeada como parcial e nunca sustenta aprovação do critério completo. O template
+deixa de repetir um checklist de autoria com oito itens; as regras continuam no
+perfil e no método, enquanto a especificação preserva apenas o contrato útil à
+implementação e à validação.
+
 ### Registro da atuação
 
 **Estado da confirmação final:** Confirmada pelo Arquiteto.
@@ -845,7 +854,7 @@ adequadamente tarefas de alto risco.
 
 ### Registro da atuação EKOM 2.1
 
-**Estado da confirmação final:** Pendente.
+**Estado da confirmação final:** Confirmada pelo Arquiteto.
 
 - **Papel exercido:** Consultor de Arquitetura e par do Arquiteto.
 - **Ordem autorizada:** tornar a versão normativa integral a unidade padrão dos
@@ -868,7 +877,7 @@ adequadamente tarefas de alto risco.
   validação funcional se aplica à mudança documental. A eficácia será observada
   em novas execuções. O Consultor participou da solução e não pode alegar
   revisão independente dela.
-- **Significado solicitado para a confirmação final:** confirmar que o registro
-  representa a decisão e autorizar a marcação como confirmada, o commit e o
-  push. A confirmação não declara eficácia experimental, adoção automática por
-  projetos existentes, integração à `main`, release ou deploy.
+- **Significado da confirmação final:** o registro representa a decisão e o
+  EKOM 2.1 permanece vigente. A ordem posterior de promoção autoriza sua
+  integração à `main`; não declara eficácia universal, adoção automática por
+  projetos existentes, release ou deploy.
