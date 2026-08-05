@@ -1,31 +1,43 @@
 # Visão do EKOM
 
-## Estado futuro
+## Propósito operacional
 
-Engenharia de software em que cada comportamento relevante possui uma
-especificação normativa localizável, capaz de orientar pessoas, agentes de IA
-e automações desde a intenção até a evolução em produção.
+Permitir que uma solução seja especificada, implementada, documentada e
+entregue sem que o Arquiteto precise executar diretamente o desenvolvimento.
 
-A especificação funciona como plano de controle. Ela declara o que deve ser
-verdade, quais decisões sustentam o contrato, quem pode executar cada etapa,
-quais estados permitem avançar e que evidência comprova o resultado.
+A especificação governa a execução dos agentes de IA. O Arquiteto governa o
+sentido do trabalho: decisões, prioridades, arquitetura, risco aceitável,
+validação e conclusão.
 
 > **Specifications orchestrate. Code implements.**
 
 ## Resultado esperado
 
-- humanos concentram-se em intenção, arquitetura, risco e decisões de maior
-  impacto;
-- agentes de IA investigam, implementam e revisam dentro de autoridade e
-  recortes explícitos;
-- automações executam gates derivados de critérios verificáveis;
-- código e testes permanecem alinhados ao contrato normativo;
-- evidências promovem estados sem fabricar sucesso;
-- novas decisões evoluem o conhecimento sem apagar a história.
+- agentes assumem amplamente investigação, implementação, verificação,
+  documentação e produção de evidências;
+- o Arquiteto concentra-se em intenção, crítica arquitetural, risco e decisões;
+- o conhecimento sobrevive a agentes, ferramentas e conversas;
+- evidências do repositório e do ambiente real orientam aceitação e evolução;
+- retornos no workflow alimentam a especificação sem apagar a história;
+- uma solução funcional pode ser concluída sem o Arquiteto desenvolver.
+
+## Autoridade preservada
+
+O Arquiteto não é aprovador formal de decisões produzidas pela IA. Ele é a
+autoridade substantiva sobre arquitetura, risco aceitável, relevância das
+críticas, suficiência das evidências, aprovação e conclusão ou reabertura do
+workflow. Agentes aconselham e executam; não transferem essa responsabilidade.
+
+## Horizonte evolutivo
+
+Autonomia completa de julgamento permanece hipótese de futuro. O estado atual
+do EKOM não promete substituir o Arquiteto nem demonstra engenharia autônoma de
+ponta a ponta sem supervisão e autoridade humanas. Cada expansão de autonomia
+depende de experimentos e evidências materiais rastreáveis.
 
 ## Fronteira
 
-O EKOM orquestra conhecimento e passagens do ciclo de engenharia. Ele não
-prescreve uma plataforma universal de agentes, um motor de workflow, CI/CD,
-locks ou filas. Essas tecnologias podem consumir a especificação, desde que
-não substituam sua autoridade nem a decisão humana reservada.
+O EKOM orquestra conhecimento e passagens do ciclo de engenharia. Não prescreve
+plataforma universal de agentes, motor de workflow, CI/CD, locks ou filas. Essas
+tecnologias podem consumir a especificação, desde que não substituam sua
+autoridade normativa nem a decisão humana reservada.

@@ -1,0 +1,11 @@
+flowchart LR
+    A["Rascunho e análise"] -->|"Arquiteto considera suficiente"| P["Pronta"]
+    P --> I["Implementação"]
+    I --> V["Validação"]
+    V -->|"somente o Arquiteto conclui"| C["Concluída"]
+
+    A -->|"lacunas: permanece"| A
+    I -->|"restrição ou ambiguidade"| A
+    V -->|"defeito de implementação"| I
+    V -->|"problema na especificação"| A
+    C -->|"nova necessidade ou evidência material; Arquiteto reabre"| A

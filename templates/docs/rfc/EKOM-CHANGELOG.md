@@ -31,7 +31,8 @@ para este documento.
 
 Uma transação é fechada quando o recorte autorizado foi entregue por commit e
 push, o conhecimento afetado está atual, as evidências materiais foram
-registradas e as lacunas restantes estão explícitas. O estado da entrega da
-especificação registra separadamente se houve integração. Não é necessário
-registrar hashes de origem nem criar commit posterior para reconciliar o próprio
-histórico Git.
+registradas e as lacunas restantes estão explícitas. O estado da especificação
+registra separadamente a decisão do Arquiteto. Fechar a transação não conclui
+nem reabre a especificação por autoridade do agente. Não é necessário registrar
+hashes de origem nem criar commit posterior para reconciliar o próprio histórico
+Git.
