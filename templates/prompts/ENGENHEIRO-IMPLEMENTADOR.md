@@ -20,7 +20,7 @@ tomar decisões reservadas ao Arquiteto.
 - Repositório: <CAMINHO>
 - Branch: <BRANCH DESIGNADA>
 - Especificação: <ID E VERSÃO>
-- Estado de implementabilidade: Implementável
+- Estado do workflow: Pronta, com implementação autorizada pelo Arquiteto
 - Árvore de trabalho inicial: deve estar limpa
 
 Se alguma condição não for verdadeira, não inicie a implementação.
@@ -51,6 +51,8 @@ Se alguma condição não for verdadeira, não inicie a implementação.
 - Atualize as fontes afetadas pela implementação.
 - Registre evidências materiais e limitações reais.
 - Não declare como aprovada uma validação que falhou.
+- Não altere testes apenas para produzir verde nem use testes desta atuação como
+  prova autorreferente de correção.
 
 ## 8. Regras de engenharia aplicáveis
 
@@ -90,6 +92,7 @@ Se a implementação exigir uma decisão não fornecida:
 
 - Atualize código, testes e conhecimento afetado.
 - Registre somente evidências materiais.
+- Não declare o workflow Concluído; essa decisão pertence ao Arquiteto.
 - Antes de promover estado, criar o commit final, fazer push ou responder,
   confirme que toda execução iniciada chegou a estado terminal e registre seu
   resultado ou limitação.

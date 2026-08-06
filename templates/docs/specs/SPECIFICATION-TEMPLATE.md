@@ -6,13 +6,10 @@
 
 **Versão:** 0.1
 
-**Estado normativo:** Proposta [`Proposed`]
+**Estado do workflow:** Rascunho e análise [`Draft and Analysis`]
 
-**Estado da implementação:** Não iniciada [`Not Started`]
-
-**Estado da entrega:** Não pronta [`Not Ready`]
-
-**Revisão de implementabilidade:** Pendente de revisão [`Pending Review`]
+**Decisão do Arquiteto:** Em análise | Pronta para implementação | Em
+validação | Concluída | Reaberta
 
 **Relação normativa:** Nova [`New`] | Altera [`Amends`] `<ID@VERSÃO>` |
 Substitui [`Supersedes`] `<ID@VERSÃO>` | Corrige [`Corrects`] `<ID@VERSÃO>` |
@@ -77,14 +74,15 @@ aprova o critério completo. Doubles preservam as semânticas materiais
 substituídas. Compilação não comprova execução; zero casos executados não
 constitui aprovação de comportamento.
 
-### 7.1 Gate da implementação
+### 7.1 Evidências planejadas
 
-- `<COMANDOS E EVIDÊNCIAS AUTOMATIZÁVEIS OBRIGATÓRIAS>`;
+- `<TESTES, BUILDS E OUTRAS EVIDÊNCIAS PROPORCIONAIS>`;
 - `<CONDIÇÃO OBJETIVA DE SUCESSO, INCLUSIVE CASOS EXECUTADOS QUANDO APLICÁVEL>`;
 - `<VALIDAÇÕES HUMANAS OU DE HARDWARE RESERVADAS À ETAPA POSTERIOR>`.
 
-`Implemented` exige todos os critérios automatizáveis obrigatórios aprovados.
-Critério falho, não executado ou não verificável mantém `In Progress`.
+Testes automatizados são evidências, não prova absoluta. Não devem ser alterados
+apenas para produzir verde. O conjunto e o risco residual são avaliados pelo
+Arquiteto.
 
 ## 8. Conhecimento afetado
 
@@ -105,22 +103,30 @@ HUMANA, OU NENHUMA>`
 OBJETIVO FOR MULTI-CONTEXTO, IDENTIFIQUE A FONTE RESPONSÁVEL, A DEPENDÊNCIA E O
 ESTADO MATERIAL NECESSÁRIO SEM DUPLICAR O CONTEÚDO EXTERNO>`
 
-## 10. Revisão de implementabilidade
+## 10. Análise de implementabilidade
 
-**Resultado:** Pendente de revisão [`Pending Review`] | Implementável
-[`Implementable`] | Precisa de esclarecimento [`Needs Clarification`]
+**Executor da função:** Autor | Autor apoiado por IA | Agente especializado |
+Especialista separado
 
-**Resumo da análise:** `<POR QUE A VERSÃO INTEGRAL PODE OU NÃO SER IMPLEMENTADA>`
+**Recomendação:** Prontidão | Retorno ao rascunho/análise
+
+**Evidências encontradas:** `<FONTES MATERIAIS DO REPOSITÓRIO>`
+
+**Componentes impactados:** `<LISTA OBJETIVA>`
+
+**Restrições conhecidas:** `<LISTA OBJETIVA>`
+
+**Incertezas:** `<LISTA OBJETIVA OU NENHUMA>`
+
+**Experimentos necessários:** `<BUILD, PROTÓTIPO, API, BANCO, HARDWARE OU
+NENHUM>`
+
+**Bloqueadores:** `<LISTA OBJETIVA OU NENHUM>`
 
 **Decisões ausentes:** `<NENHUMA OU LISTA OBJETIVA>`
 
-**Evidências consultadas:** `<FONTES MATERIAIS>`
-
-A autoria deixa esta seção Pendente de revisão. Sob ordem do Arquiteto, o
-Analista atualiza o resultado sem alterar a implementação. Uma lacuna bloqueante
-permite concluir Precisa de esclarecimento, mas a análise formal ainda confronta
-todos os elementos normativos da versão, sem exigir matriz universal ou leitura
-indiscriminada do repositório.
+A análise é obrigatória antes da implementação; ator separado não é. Somente o
+Arquiteto considera a especificação Pronta e autoriza execução.
 
 ## 11. Evidências da implementação
 
@@ -128,3 +134,17 @@ indiscriminada do repositório.
 
 Esta seção é preenchida durante a implementação. Metadados de commit, branch e
 push permanecem no Git e não precisam ser copiados para a especificação.
+
+## 12. Validação e decisão do Arquiteto
+
+**Evidências confrontadas:** `<CONJUNTO MATERIAL>`
+
+**Challenge consultivo, se acionado:** `<ACHADOS, AUSÊNCIA DE RISCO ADICIONAL
+RELEVANTE OU NÃO SOLICITADO>`
+
+**Risco residual:** `<RISCO E TRATAMENTO>`
+
+**Decisão:** Retornar à implementação | Retornar ao rascunho/análise |
+Concluir | Reabrir
+
+Somente o Arquiteto determina conclusão ou reabertura.

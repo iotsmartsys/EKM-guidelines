@@ -11,11 +11,16 @@
 | Fonte única da verdade | Autoridade normativa única por comportamento; não exige que todo conhecimento esteja em um único arquivo. |
 | Plano de controle | Função exercida pela especificação ao determinar recorte, passagens, critérios e relações do pipeline. |
 | Orquestração | Coordenação do ciclo de engenharia pela especificação entre humanos, agentes de IA, automações, implementação, validação, evidências e evolução. |
-| Pipeline | Sequência governada de autoria, análise, implementação, revisão, validação, integração e aprendizado. |
-| Fonte derivada | Código, teste, relatório ou automação que implementa, comprova ou consome uma especificação sem criar requisito. |
+| Pipeline | Ciclo governado de rascunho e análise, prontidão, implementação, validação, conclusão e aprendizado; challenge é consultivo. |
+| Fonte derivada | Código, teste, relatório ou automação que implementa, evidencia ou consome uma especificação sem criar requisito. |
 | Evidência | Resultado observável e terminal capaz de sustentar ou limitar uma conclusão. |
-| Ator | Papel delimitado que promove apenas os estados sustentados por sua atuação. |
-| Arquiteto | Autoridade humana final sobre intenção, arquitetura, risco, autorização, aprovação e integração. |
-| `EKOM-CHG` | Namespace recomendado para novas transações de mudança no EKOM 2.x. |
-| `EKOM-GAP` | Namespace recomendado para novas lacunas de conhecimento no EKOM 2.x. |
+| Ator | Pessoa ou agente que executa uma capacidade delimitada e registra fatos e evidências sem assumir autoridade do Arquiteto. |
+| Arquiteto | Autoridade humana final sobre intenção, arquitetura, risco aceitável, relevância das críticas, suficiência das evidências, aprovação, conclusão ou reabertura e integração. |
+| Análise de implementabilidade | Função obrigatória anterior à implementação; registra evidências, impactos, restrições, incertezas, experimentos e bloqueadores, sem exigir ator separado. |
+| Challenge | Crítica consultiva e proporcional ao risco; informa o Arquiteto sem aprovar ou reprovar o workflow. |
+| Evidência material | Fato observável como diff, build, execução, log, teste, integração real, relatório, decisão humana ou defeito posterior. |
+| Concluída [`Done`] | Estado determinado exclusivamente pelo Arquiteto quando evidências e risco residual são considerados suficientes. |
+| Reaberta [`Reopened`] | Especificação concluída devolvida ao ciclo pelo Arquiteto diante de nova necessidade ou evidência material. |
+| `EKOM-CHG` | Namespace recomendado para novas transações de mudança desde o EKOM 2.0. |
+| `EKOM-GAP` | Namespace recomendado para novas lacunas de conhecimento desde o EKOM 2.0. |
 | `EKM-CHG` / `EKM-GAP` | Namespaces legados aceitos para compatibilidade com adoções EKM 1.x. |

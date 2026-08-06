@@ -560,3 +560,41 @@ coordena atores, estados, implementação e evidências. Essa leitura sustenta a
 evolução para Engineering Knowledge Orchestration Model (EKOM), registrada em
 [`ADR-0001`](adr/ADR-0001-EKM-TO-EKOM.md), sem reinterpretar retroativamente os
 resultados EKM 1.x.
+
+## 25. Revisão transversal dos experimentos — autoridade e proporcionalidade
+
+A leitura conjunta dos experimentos posteriores mostrou um padrão mais forte
+que a sequência formal dos atores. Implementações chegaram com frequência a
+resultados funcionais no ambiente real sem o Arquiteto assumir o
+desenvolvimento. Sua participação concentrou-se em esclarecer intenção,
+avaliar risco, validar comportamento e decidir conclusão.
+
+Os mesmos casos mostraram limites da delegação do julgamento. Revisores
+obrigatórios ampliaram discussões sobre testes e riscos teóricos sem ganho
+funcional proporcional; agentes diferentes puderam compartilhar capacidades,
+contexto e vieses; testes verdes coexistiram com contratos, targets e
+integrações incorretos; hardware e integrações reais revelaram fatos que builds,
+mocks e QEMU não demonstraram.
+
+### Hipóteses sustentadas
+
+- execução amplamente delegada;
+- especificação como mecanismo de coordenação e continuidade;
+- preservação do Arquiteto como autoridade substantiva;
+- conclusão funcional sem desenvolvimento direto pelo Arquiteto;
+- alto valor da validação no ambiente real;
+- utilidade da IA para ampliar investigação e execução.
+
+### Hipóteses revisadas ou refutadas
+
+- Revisor separado como gate universal;
+- múltiplos agentes como revisão necessariamente independente;
+- testes verdes como prova suficiente;
+- Engenheiro Analista obrigatoriamente separado;
+- autonomia completa como capacidade atual.
+
+O EKOM 3.0 incorpora essa conclusão sem invalidar retroativamente os
+experimentos. Análise de implementabilidade permanece obrigatória como função;
+challenge torna-se consultivo e proporcional; somente o Arquiteto conclui ou
+reabre. A decisão completa está no
+[`ADR-0002`](adr/ADR-0002-EKOM-3-OPERATIONAL-AUTHORITY.md).

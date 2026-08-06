@@ -1,19 +1,17 @@
 # Instruções permanentes e roteamento EKOM
 
-**Modelo EKOM:** 2.1
+**Modelo EKOM:** 3.0
 
-**Modalidade:** atores com perfis referenciados
+**Modalidade:** capacidades referenciadas e governança proporcional
 
 **Estado:** vigente
 
 ## Autoridade
 
 O Arquiteto humano tem autoridade final sobre intenção, prioridade, escopo,
-arquitetura, risco, autorização, validação e integração. A especificação é a
-fonte única da verdade para o comportamento e orquestra o pipeline. A ordem
-recebida por prompt, automação ou pipeline identifica papel e especificação;
-eventual foco adicional não reduz a versão normativa integral nem cria
-autoridade normativa paralela.
+arquitetura, risco aceitável, relevância das críticas, suficiência das
+evidências, aprovação, conclusão ou reabertura e integração. A especificação é
+a fonte da verdade para comportamento e governa a execução dos agentes.
 
 ## Fonte dos perfis
 
@@ -21,29 +19,24 @@ autoridade normativa paralela.
 
 Antes de qualquer atuação EKOM:
 
-1. leia integralmente
-   `<CAMINHO_ACESSIVEL_DO_EKOM>/roles/REGRAS-COMUNS.md`;
-2. leia integralmente somente o perfil correspondente ao papel recebido;
+1. leia integralmente `roles/REGRAS-COMUNS.md`;
+2. leia o perfil correspondente à capacidade recebida;
 3. leia a especificação indicada, quando aplicável;
-4. leia apenas as fontes técnicas pertinentes à especificação e ao foco
-   adicional.
+4. leia somente as fontes técnicas pertinentes.
 
-| Papel recebido | Perfil |
+| Capacidade recebida | Perfil |
 |---|---|
 | Autor da Especificação | `roles/AUTOR-DA-ESPECIFICACAO.md` |
 | Engenheiro Analista | `roles/ENGENHEIRO-ANALISTA.md` |
 | Engenheiro Implementador | `roles/ENGENHEIRO-IMPLEMENTADOR.md` |
-| Engenheiro Revisor | `roles/ENGENHEIRO-REVISOR.md` |
+| Crítico ou Engenheiro Revisor | `roles/ENGENHEIRO-REVISOR.md` |
 | Consultor de Arquitetura | `roles/CONSULTOR-DE-ARQUITETURA.md` |
 
-Não carregue perfis de outros papéis nem a metodologia EKOM completa. No ciclo
-funcional, papel e especificação acionam o resultado canônico do perfil sobre a
-versão integral; ausência de resultado repetido ou foco adicional não constitui
-impedimento. O Autor também precisa receber intenção, objetivo ou mudança. Se o
-papel, a especificação ou a fonte não estiver acessível, não inicie a tarefa;
-informe o impedimento ao Arquiteto. O Consultor pode receber Não se aplica
-[`Not Applicable`] em governança ou apoio fora desse ciclo e segue sua entrada
-explícita própria.
+Análise de implementabilidade é obrigatória antes da implementação, mas pode
+ser feita pelo Autor, pelo Autor apoiado por IA, por agente especializado ou
+por especialista separado. Challenge/revisão é consultivo e acionado pelo
+Arquiteto ou pelo risco; não é gate universal. A ordem pode combinar autoria e
+análise, mas deve declarar segregação quando ela for necessária.
 
 ## Fontes locais do projeto
 
@@ -55,13 +48,14 @@ explícita própria.
 
 ## Invariantes locais
 
-- Preserve arquitetura, organização e separação de responsabilidades vigentes;
-  use as fontes técnicas acima e o precedente equivalente mais próximo. Desvio
-  exige autorização arquitetural explícita na especificação.
+- Preserve arquitetura, organização e separação de responsabilidades; desvio
+  exige decisão arquitetural explícita.
+- Testes são evidências, não prova absoluta; não os altere apenas para obter
+  verde nem os use como argumento autorreferente.
+- Agentes registram fatos, decisões locais, dúvidas, limitações e desvios.
+- Somente o Arquiteto determina conclusão ou reabertura do workflow.
 - `<REGRA_PERMANENTE_DO_PROJETO>`;
 - `<RESTRICAO_DE_SEGURANCA_OU_PLATAFORMA>`;
 - `<ARQUIVOS_OU_OPERACOES_PROIBIDAS>`.
 
-As regras comuns e o perfil selecionado definem condições de entrada, promoção
-de estados, evidência, Git e encerramento. Regras específicas da tarefa
-pertencem à especificação ou à ordem do Arquiteto, não a este arquivo.
+> **Specifications orchestrate. Code implements.**
