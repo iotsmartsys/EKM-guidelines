@@ -117,6 +117,75 @@ limitações e defeitos posteriores. A evolução do modelo permanece rastreáve
 ADRs, decisões de desenho, histórico experimental e Git, sem reinterpretar
 retroativamente experimentos executados sob versões anteriores.
 
+## Fluxo de desenvolvimento ponta a ponta
+
+O diagrama abaixo mostra o caminho de uma funcionalidade da User Story até a
+integração na referência de produção, com os pontos de decisão e os retornos.
+A fonte está em
+[`diagrams/flow-ekom-end-to-end.mmd`](diagrams/flow-ekom-end-to-end.mmd).
+
+```mermaid
+flowchart LR
+    US["Analista de Negócio<br/>User Story com as funcionalidades"] --> ARQ
+
+    subgraph ARQFASE["Arquiteto"]
+        ARQ["Analisa a User Story"]
+        ARQ --> ARQD{"Há dúvidas ou<br/>pendências?"}
+        ARQD -- "Sim" --> ARQN["Trata com o Negócio<br/>esclarecimentos e apoio"]
+        ARQN --> ARQ
+    end
+
+    ARQD -- "Não" --> AUTOR
+
+    subgraph AUTFASE["Autor da Especificação"]
+        AUTOR["Especifica no modelo EKOM<br/>o que implementar no repositório"]
+        AUTOR --> AUTFIM["Encerra a autoria<br/>e submete à análise"]
+    end
+
+    AUTFIM --> ANALISTA
+
+    subgraph ANAFASE["Engenheiro Analista<br/>agente de IA ou o próprio Arquiteto"]
+        ANALISTA["Análise de Implementabilidade"]
+        ANALISTA --> ANAD{"Implementável no<br/>repositório/código?"}
+    end
+
+    ANAD -- "Não: devolve para<br/>esclarecer e corrigir" --> AUTOR
+    ANAD -- "Sim" --> IMPL
+
+    subgraph IMPFASE["Engenheiro Implementador"]
+        IMPL["Implementa o código"]
+        IMPL --> BUILD["Executa builds"]
+        BUILD --> TEST["Executa testes,<br/>quando aplicáveis"]
+        TEST --> IMPFIM["Submete ao<br/>Tech Lead / Revisor"]
+    end
+
+    IMPFIM --> REV
+
+    subgraph REVFASE["Tech Lead / Engenheiro Revisor"]
+        REV["Revisa toda a implementação"]
+        REV --> REVD{"Está de acordo?"}
+    end
+
+    REVD -- "Não: ajustes na<br/>implementação" --> IMPL
+    REVD -- "Sim" --> PR["Abre PR do repositório"]
+    PR --> DEV["Integra na<br/>branch de desenvolvimento"]
+
+    DEV --> VAL["Validação pelo Desenvolvedor<br/>e pelo Analista de Negócio"]
+    VAL --> VALD{"Tudo de acordo?"}
+    VALD -- "Não: problemas<br/>de especificação" --> AUTOR
+    VALD -- "Sim" --> HOM["Homologação"]
+
+    HOM --> HOMD{"OK da área<br/>responsável?"}
+    HOMD -- "Não" --> AUTOR
+    HOMD -- "Sim" --> MAIN["Integra na branch main"]
+    MAIN --> FIM["Especificação encerrada<br/>Done"]
+```
+
+Reprovações não avançam o estado da especificação: falha de
+implementabilidade, de validação ou de homologação devolve o recorte ao Autor
+da Especificação; achados de revisão voltam ao Engenheiro Implementador. A
+integração na referência de produção permanece autorizada por decisão humana.
+
 ## Responsabilidades das fontes
 
 ```text
@@ -148,6 +217,40 @@ docs/
 
 ## Conteúdo
 
+- [`docs/EKOM-CONCEPT.md`](docs/EKOM-CONCEPT.md): definição, visão, problema e limites.
+- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 2.1.
+- [`docs/VISION.md`](docs/VISION.md): estado futuro orientado por especificações.
+- [`docs/PRINCIPLES.md`](docs/PRINCIPLES.md): princípios normativos do EKOM.
+- [`docs/GLOSSARY.md`](docs/GLOSSARY.md): vocabulário canônico e termos legados.
+- [`docs/adr/ADR-0001-EKM-TO-EKOM.md`](docs/adr/ADR-0001-EKM-TO-EKOM.md): decisão de evolução de EKM para EKOM.
+- [`docs/ACTOR-EVALUATION.md`](docs/ACTOR-EVALUATION.md): avaliação experimental dos atores.
+- [`docs/DESIGN-DECISIONS.md`](docs/DESIGN-DECISIONS.md): razões e evolução das decisões.
+- [`docs/LEGACY-ADOPTION.md`](docs/LEGACY-ADOPTION.md): adoção incremental.
+- [`docs/EXPERIMENT-HISTORY.md`](docs/EXPERIMENT-HISTORY.md): história EKM 1.x e aprendizados.
+- [`docs/case-studies/`](docs/case-studies/): evidências históricas, não regras universais.
+- [`diagrams/`](diagrams/): diagramas Mermaid do fluxo e das responsabilidades.
+- [`roles/`](roles/): regras comuns e perfis oficiais separados por responsabilidade.
+- [`templates/AGENTS.md`](templates/AGENTS.md): roteador oficial para projetos adotantes.
+- [`templates/`](templates/): ativos reutilizáveis.
+
+## Adoção rápida
+
+1. O Arquiteto delimita repositório, escopo e restrições.
+2. O agente confirma branch de trabalho e árvore limpa.
+3. O agente aplica
+   [`EKOM-LEGACY-ADOPTION-INSTRUCTIONS.md`](templates/EKOM-LEGACY-ADOPTION-INSTRUCTIONS.md).
+4. A fundação instala o roteador `AGENTS.md` e aponta para os perfis EKOM.
+5. A especificação aplicável torna-se a autoridade do pipeline.
+6. Cada ator promove somente estados sustentados por sua etapa e registra as
+   evidências correspondentes.
+7. A entrega termina com fontes reconciliadas, commit, push e árvore limpa.
+
+## Limite
+
+O EKOM não substitui testes, revisão, observabilidade, infraestrutura de CI/CD
+ou julgamento humano. Orquestração é a coordenação normativa do trabalho pela
+especificação, não uma alegação de automação total. Qualidade e aceleração
+continuam hipóteses a demonstrar em casos reais.
 - [`docs/EKOM-CONCEPT.md`](docs/EKOM-CONCEPT.md): definição, objetivo e limites.
 - [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 3.0.
 - [`docs/VISION.md`](docs/VISION.md): visão e horizonte evolutivo.
