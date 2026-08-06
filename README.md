@@ -99,6 +99,75 @@ paralela. O EKOM define a orquestração lógica por especificações; mecanismo
 execução distribuída como filas, locks e escalonadores continuam opcionais e
 fora do núcleo normativo.
 
+## Fluxo de desenvolvimento ponta a ponta
+
+O diagrama abaixo mostra o caminho de uma funcionalidade da User Story até a
+integração na referência de produção, com os pontos de decisão e os retornos.
+A fonte está em
+[`diagrams/flow-ekom-end-to-end.mmd`](diagrams/flow-ekom-end-to-end.mmd).
+
+```mermaid
+flowchart LR
+    US["Analista de Negócio<br/>User Story com as funcionalidades"] --> ARQ
+
+    subgraph ARQFASE["Arquiteto"]
+        ARQ["Analisa a User Story"]
+        ARQ --> ARQD{"Há dúvidas ou<br/>pendências?"}
+        ARQD -- "Sim" --> ARQN["Trata com o Negócio<br/>esclarecimentos e apoio"]
+        ARQN --> ARQ
+    end
+
+    ARQD -- "Não" --> AUTOR
+
+    subgraph AUTFASE["Autor da Especificação"]
+        AUTOR["Especifica no modelo EKOM<br/>o que implementar no repositório"]
+        AUTOR --> AUTFIM["Encerra a autoria<br/>e submete à análise"]
+    end
+
+    AUTFIM --> ANALISTA
+
+    subgraph ANAFASE["Engenheiro Analista<br/>agente de IA ou o próprio Arquiteto"]
+        ANALISTA["Análise de Implementabilidade"]
+        ANALISTA --> ANAD{"Implementável no<br/>repositório/código?"}
+    end
+
+    ANAD -- "Não: devolve para<br/>esclarecer e corrigir" --> AUTOR
+    ANAD -- "Sim" --> IMPL
+
+    subgraph IMPFASE["Engenheiro Implementador"]
+        IMPL["Implementa o código"]
+        IMPL --> BUILD["Executa builds"]
+        BUILD --> TEST["Executa testes,<br/>quando aplicáveis"]
+        TEST --> IMPFIM["Submete ao<br/>Tech Lead / Revisor"]
+    end
+
+    IMPFIM --> REV
+
+    subgraph REVFASE["Tech Lead / Engenheiro Revisor"]
+        REV["Revisa toda a implementação"]
+        REV --> REVD{"Está de acordo?"}
+    end
+
+    REVD -- "Não: ajustes na<br/>implementação" --> IMPL
+    REVD -- "Sim" --> PR["Abre PR do repositório"]
+    PR --> DEV["Integra na<br/>branch de desenvolvimento"]
+
+    DEV --> VAL["Validação pelo Desenvolvedor<br/>e pelo Analista de Negócio"]
+    VAL --> VALD{"Tudo de acordo?"}
+    VALD -- "Não: problemas<br/>de especificação" --> AUTOR
+    VALD -- "Sim" --> HOM["Homologação"]
+
+    HOM --> HOMD{"OK da área<br/>responsável?"}
+    HOMD -- "Não" --> AUTOR
+    HOMD -- "Sim" --> MAIN["Integra na branch main"]
+    MAIN --> FIM["Especificação encerrada<br/>Done"]
+```
+
+Reprovações não avançam o estado da especificação: falha de
+implementabilidade, de validação ou de homologação devolve o recorte ao Autor
+da Especificação; achados de revisão voltam ao Engenheiro Implementador. A
+integração na referência de produção permanece autorizada por decisão humana.
+
 ## Responsabilidades das fontes
 
 ```text
@@ -146,6 +215,7 @@ decisões confirmadas e funcionalidades tocadas.
 - [`docs/LEGACY-ADOPTION.md`](docs/LEGACY-ADOPTION.md): adoção incremental.
 - [`docs/EXPERIMENT-HISTORY.md`](docs/EXPERIMENT-HISTORY.md): história EKM 1.x e aprendizados.
 - [`docs/case-studies/`](docs/case-studies/): evidências históricas, não regras universais.
+- [`diagrams/`](diagrams/): diagramas Mermaid do fluxo e das responsabilidades.
 - [`roles/`](roles/): regras comuns e perfis oficiais separados por responsabilidade.
 - [`templates/AGENTS.md`](templates/AGENTS.md): roteador oficial para projetos adotantes.
 - [`templates/`](templates/): ativos reutilizáveis.

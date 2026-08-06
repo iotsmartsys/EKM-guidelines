@@ -1,0 +1,55 @@
+%% EKOM - fluxo ponta a ponta: da User Story à integração na main
+flowchart LR
+    US["Analista de Negócio<br/>User Story com as funcionalidades"] --> ARQ
+
+    subgraph ARQFASE["Arquiteto"]
+        ARQ["Analisa a User Story"]
+        ARQ --> ARQD{"Há dúvidas ou<br/>pendências?"}
+        ARQD -- "Sim" --> ARQN["Trata com o Negócio<br/>esclarecimentos e apoio"]
+        ARQN --> ARQ
+    end
+
+    ARQD -- "Não" --> AUTOR
+
+    subgraph AUTFASE["Autor da Especificação"]
+        AUTOR["Especifica no modelo EKOM<br/>o que implementar no repositório"]
+        AUTOR --> AUTFIM["Encerra a autoria<br/>e submete à análise"]
+    end
+
+    AUTFIM --> ANALISTA
+
+    subgraph ANAFASE["Engenheiro Analista<br/>agente de IA ou o próprio Arquiteto"]
+        ANALISTA["Análise de Implementabilidade"]
+        ANALISTA --> ANAD{"Implementável no<br/>repositório/código?"}
+    end
+
+    ANAD -- "Não: devolve para<br/>esclarecer e corrigir" --> AUTOR
+    ANAD -- "Sim" --> IMPL
+
+    subgraph IMPFASE["Engenheiro Implementador"]
+        IMPL["Implementa o código"]
+        IMPL --> BUILD["Executa builds"]
+        BUILD --> TEST["Executa testes,<br/>quando aplicáveis"]
+        TEST --> IMPFIM["Submete ao<br/>Tech Lead / Revisor"]
+    end
+
+    IMPFIM --> REV
+
+    subgraph REVFASE["Tech Lead / Engenheiro Revisor"]
+        REV["Revisa toda a implementação"]
+        REV --> REVD{"Está de acordo?"}
+    end
+
+    REVD -- "Não: ajustes na<br/>implementação" --> IMPL
+    REVD -- "Sim" --> PR["Abre PR do repositório"]
+    PR --> DEV["Integra na<br/>branch de desenvolvimento"]
+
+    DEV --> VAL["Validação pelo Desenvolvedor<br/>e pelo Analista de Negócio"]
+    VAL --> VALD{"Tudo de acordo?"}
+    VALD -- "Não: problemas<br/>de especificação" --> AUTOR
+    VALD -- "Sim" --> HOM["Homologação"]
+
+    HOM --> HOMD{"OK da área<br/>responsável?"}
+    HOMD -- "Não" --> AUTOR
+    HOMD -- "Sim" --> MAIN["Integra na branch main"]
+    MAIN --> FIM["Especificação encerrada<br/>Done"]
