@@ -881,3 +881,49 @@ adequadamente tarefas de alto risco.
   EKOM 2.1 permanece vigente. A ordem posterior de promoção autoriza sua
   integração à `main`; não declara eficácia universal, adoção automática por
   projetos existentes, release ou deploy.
+
+## DD-033 — EKOM 3.0 preserva execução delegada e devolve julgamento ao Arquiteto
+
+**Problema observado:** os experimentos produziram implementações geralmente
+funcionais sem desenvolvimento direto pelo Arquiteto, mas a sequência universal
+de quatro atores gerou handoffs, disputas sobre testes e riscos teóricos e
+pretensão de independência sem ganho funcional proporcional. Testes verdes e
+revisão por agente semelhante não provaram correção.
+
+**Decisão:** adotar o
+[`ADR-0002`](adr/ADR-0002-EKOM-3-OPERATIONAL-AUTHORITY.md) e promover o modelo
+para EKOM 3.0.
+
+- a especificação governa a execução;
+- o Arquiteto mantém decisões, risco, validação e conclusão;
+- análise de implementabilidade continua obrigatória, mas pode ser realizada
+  pelo Autor ou por capacidade especializada;
+- Crítico/Revisor torna-se challenge consultivo acionado por risco ou ordem;
+- testes são evidências proporcionais, não prova absoluta;
+- evidência de ambiente real pode prevalecer na aceitação funcional;
+- somente o Arquiteto conclui ou reabre o workflow;
+- autonomia completa permanece horizonte, não capacidade atual.
+
+**Hipóteses sustentadas:** execução amplamente delegada, especificação como
+coordenação, preservação do Arquiteto como autoridade, conclusão funcional sem
+desenvolvimento direto, valor do ambiente real e IA como ampliação da
+investigação e execução.
+
+**Hipóteses revisadas ou refutadas:** Revisor separado universal, Analista
+obrigatoriamente separado, múltiplos agentes como independência, teste verde
+como prova suficiente e autonomia completa como capacidade atual.
+
+**Compatibilidade:** a decisão substitui a sequência operacional universal da
+DD-023 e as promoções reservadas ao Revisor na DD-032. Perfis permanecem
+disponíveis como capacidades acionáveis. Experimentos e registros anteriores
+continuam válidos sob suas versões originais.
+
+**Versionamento:** `major`, pois altera de forma incompatível o modelo de
+atores, os gates e a autoridade de conclusão. Versão anterior: EKOM 2.1; versão
+vigente: EKOM 3.0.
+
+**Limitações:** julgamento humano continua necessário; evidência real pode ser
+cara ou incompleta; risco elevado ainda pode exigir segregação e revisão
+independente desenhada conscientemente.
+
+**Estado da decisão:** confirmada pelo Arquiteto para incorporação ao EKOM 3.0.

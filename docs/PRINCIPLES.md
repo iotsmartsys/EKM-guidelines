@@ -2,53 +2,66 @@
 
 ## Specification First
 
-A especificação antecede e governa a implementação. Trabalho exploratório pode
-produzir conhecimento para especificá-la, mas não transforma inferência em
-requisito vigente.
+A especificação antecede e governa a implementação e possui ciclo de vida
+próprio. Exploração pode produzir conhecimento para especificá-la, mas não
+transforma inferência em requisito vigente.
 
 ## Single Source of Truth
 
 Para cada comportamento existe uma especificação com autoridade normativa
-identificável. Fontes relacionadas podem explicar, implementar, verificar ou
-registrar a evolução; não criam contratos concorrentes.
-
-## Atomic Specification
-
-Cada versão normativa é a unidade integral dos resultados formais de autoria,
-análise, implementação e revisão. Focos adicionais orientam atenção, mas não
-excluem partes do contrato nem sustentam promoção global por trabalho parcial.
+identificável. Fontes relacionadas explicam, implementam, verificam ou
+registram a evolução; não criam contratos concorrentes.
 
 ## Knowledge over Code
 
-Código preserva a implementação atual, não necessariamente a intenção. Em
-conflito com uma especificação vigente, a divergência deve ser resolvida por
-implementação corrigida ou evolução autorizada do contrato.
+Código preserva a implementação atual, não necessariamente a intenção.
+Conhecimento, decisões e evidências permanecem persistentes, rastreáveis e
+evolutivos. Conflitos são resolvidos por implementação corrigida ou evolução
+autorizada da especificação.
 
-## Humans and AI as First-class Collaborators
+## Delegated Execution, Human Authority
 
-Humanos e agentes de IA trabalham sobre a mesma especificação. Responsabilidade
-e capacidade não transferem autoridade: o Arquiteto humano mantém as decisões
-reservadas de intenção, arquitetura, risco, aprovação e integração.
+Agentes podem assumir amplamente investigação, implementação, verificação e
+documentação. O Arquiteto mantém julgamento, prioridade, responsabilidade e
+autoridade sobre arquitetura, risco, relevância das críticas, suficiência das
+evidências, aprovação, conclusão e reabertura. A IA amplia sua capacidade; não
+o substitui.
 
-## Traceability by Design
+## Implementability before Implementation
 
-Requisitos, decisões, recortes de implementação, critérios de aceite,
-evidências e estados permanecem relacionados por desenho, sem duplicar a
-linhagem que o Git já preserva.
+Toda especificação é analisada antes de implementar. A função é obrigatória; um
+Engenheiro Analista separado não é. Segregação é escolhida quando risco,
+incerteza ou necessidade de especialização justificarem seu custo.
+
+## Consultative Challenge
+
+Crítica e revisão são capacidades consultivas, proporcionais ao risco. Outro
+agente não constitui automaticamente validação independente. O challenge
+informa a decisão do Arquiteto e não recebe autoridade para redefinir aceite ou
+controlar universalmente o workflow.
 
 ## Evidence-based Validation
 
-Estados só avançam com evidência terminal, observável e proporcional ao risco.
-Compilação, execução, validação e integração são fatos distintos.
+Testes automatizados, builds, inspeções, logs e execução real são evidências,
+não provas absolutas. Evidência deve ser terminal, observável e proporcional ao
+risco; sua suficiência é decidida pelo Arquiteto. Testes não são alterados
+apenas para produzir verde nem usados como argumento autorreferente.
 
 ## Continuous Knowledge Evolution
 
-Conhecimento acompanha a mudança. Novas decisões emendam ou substituem versões
-anteriores sem reescrever especificações concluídas nem registros históricos.
+Novas decisões emendam ou substituem versões anteriores sem reescrever
+especificações concluídas nem registros históricos. Nova necessidade, defeito
+posterior ou evidência material pode justificar reabertura pelo Arquiteto.
+
+## Experimental Learning
+
+As hipóteses do próprio EKOM são confrontadas com experimentos reais. Papéis,
+teorias e mecanismos podem ser sustentados, ajustados ou refutados; não são
+dogmas.
 
 ## Governança proporcional
 
-O EKOM começa com o menor conjunto de controles capaz de preservar autoridade,
+O EKOM usa o menor conjunto de controles capaz de preservar autoridade,
 conhecimento, rastreabilidade e verificabilidade. Obrigações sem ganho
 demonstrável devem ser reduzidas.
 

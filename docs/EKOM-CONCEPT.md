@@ -1,169 +1,154 @@
 # O que é o EKOM
 
-## Definição
+## Definição operacional
 
-Engineering Knowledge Orchestration Model (EKOM) é um framework de
-orquestração *specification-first* no qual o conhecimento de engenharia atua
-como plano de controle da engenharia de software, coordenando humanos, agentes
-de IA, automações, implementação, validação, evidências e evolução a partir de
-uma única fonte da verdade.
+Engineering Knowledge Orchestration Model (EKOM) é um modelo de orquestração
+de engenharia no qual a especificação governa a execução dos agentes de IA,
+enquanto o Arquiteto mantém autoridade sobre decisões, riscos, validação e
+conclusão do workflow.
 
 > **Specifications orchestrate. Code implements.**
 
-A especificação é a autoridade normativa do comportamento pretendido e o
-principal objeto do pipeline. Seu objetivo é acelerar entregas confiáveis,
-preservando autoridade humana, responsabilidades delimitadas e conhecimento
-localizável, auditável e reutilizável.
-
-O EKOM sucede o Engineering Knowledge Model (EKM) 1.x. A formulação anterior
-organizou o conhecimento e estabeleceu as bases do método; a versão 2.0 torna
-explícita a função de orquestração revelada por sua evolução. O histórico e os
-experimentos EKM permanecem válidos no contexto em que foram realizados.
+Seu objetivo é permitir que uma solução seja especificada, implementada,
+documentada e entregue sem que o Arquiteto precise executar diretamente o
+desenvolvimento. Isso é execução amplamente delegada, não delegação do
+julgamento arquitetural.
 
 ## Problema tratado
 
-Projetos frequentemente preservam o código, mas perdem:
+Projetos preservam código com mais facilidade que intenção, decisões, limites,
+riscos aceitos e evidências. Git recupera versões de arquivos, mas não garante
+a recuperação do porquê. Conversas, prompts, relatórios e testes ajudam, porém
+não são fontes normativas estáveis por si sós.
 
-- por que uma funcionalidade existe;
-- quais contratos não podem mudar;
-- se uma limitação é intencional;
-- quais decisões foram substituídas;
-- quem ou o que pode promover a próxima etapa;
-- como comprovar que o comportamento continua correto.
-
-Git recupera versões de arquivos, mas não garante a recuperação da intenção.
-Conversas, prompts, pipelines e relatórios ajudam, porém não são fontes
-normativas estáveis. Código mostra o que existe; não decide sozinho o que deve
-existir.
-
-## Especificação como plano de controle
-
-A especificação governa o ciclo ao declarar:
+O EKOM torna a especificação o plano de controle capaz de declarar:
 
 - comportamento, escopo, limites e critérios de aceite;
-- decisões confirmadas e lacunas ainda abertas;
-- atores e recortes autorizados;
-- estados atuais e condições para transição;
-- relações com outras especificações e fontes derivadas;
-- evidências necessárias para implementação, validação e integração;
-- como uma mudança futura emenda, substitui ou retira o contrato.
+- decisões confirmadas, incertezas e lacunas;
+- componentes impactados e restrições conhecidas;
+- estados e condições para avançar ou retornar;
+- evidências e experimentos necessários;
+- como o contrato será emendado, substituído, concluído ou reaberto.
 
-Ordens humanas, prompts e automações acionam etapas. Código e testes implementam
-e comprovam o contrato. Evidências sustentam as promoções de estado. Nenhuma
-dessas fontes cria silenciosamente um requisito concorrente.
+## Autoridade e execução
 
-## Uma única verdade, várias fontes responsáveis
+Agentes podem consultar o repositório, localizar impactos, revelar incertezas,
+propor soluções, implementar contratos e produzir evidências. Automações podem
+executar verificações derivadas. Nenhum deles recebe, por capacidade técnica,
+autoridade sobre intenção, arquitetura ou risco.
 
-"Fonte única da verdade" não significa armazenar todo o conhecimento em um
-documento monolítico. Significa que cada comportamento possui uma especificação
-normativa identificável. Os demais ativos têm responsabilidades derivadas ou
-complementares:
+O Arquiteto decide:
 
-| Ativo | Responsabilidade |
-|---|---|
-| Especificação | O que deve ser verdade, quem pode avançar e como verificar? |
-| RFC ou ADR | Por que uma decisão foi tomada e qual especificação afeta? |
-| Diretriz | Como o método e o conhecimento devem ser tratados? |
-| Mapa | Onde estão a especificação, suas fontes derivadas e lacunas? |
-| Changelog EKOM | Como o conhecimento e o resultado da mudança evoluíram? |
-| Código e testes | Como o contrato está implementado e comprovado? |
-| Git | Qual é a linhagem técnica da alteração? |
-| Relatório | O que ocorreu nesta execução, sem criar requisito? |
+- decisões arquiteturais e prioridade;
+- risco aceitável;
+- relevância das críticas;
+- suficiência das evidências;
+- aprovação da solução;
+- conclusão ou reabertura do workflow.
 
-Especificações podem se relacionar e se coordenar sem copiar contratos. Para
-cada responsabilidade normativa, a autoridade continua inequívoca.
+Ele não carimba decisões da IA: confronta evidência, assume responsabilidade e
+decide. Autoridade humana também não altera fatos; falha registrada permanece
+falha, ainda que o Arquiteto aceite conscientemente o risco residual.
 
-## Reconstruibilidade
+## Funções do workflow
 
-O objetivo mais forte do EKOM é permitir que uma equipe competente reconstrua
-uma implementação funcionalmente equivalente usando as especificações e fontes
-relacionadas, sem depender do código atual como única explicação.
+### Autoria da especificação
 
-Isso inclui recuperar comportamentos, contratos, limites, decisões, falhas
-esperadas e critérios de aceite. Não significa reproduzir a mesma estrutura
-interna ou o mesmo binário.
+O Autor transforma intenção em contrato verificável. Consulta repositório,
+arquitetura, conhecimento e precedentes para fundamentar a proposta e sua
+implementabilidade. IA pode ampliar a investigação sem converter inferência em
+decisão.
 
-Critérios de aceite devem permitir uma asserção objetiva do resultado. Um
-executor precisa distinguir sucesso, falha e ausência de evidência a partir do
-cenário, do resultado observável e do meio de validação, sem criar o oráculo
-durante a implementação.
+### Análise de implementabilidade
 
-## Relação entre humanos, agentes e automações
+A análise anterior à implementação permanece obrigatória, mas não requer ator
+separado. Pode ser realizada pelo próprio Autor, pelo Autor apoiado por IA, por
+agente especializado ou por especialista separado quando risco e incerteza
+justificarem segregação.
 
-Todos trabalham sobre a mesma especificação, mas não possuem a mesma
-autoridade. Agentes podem localizar fatos, comparar fontes, apoiar a autoria,
-implementar contratos aprovados e produzir evidências. Automações podem
-executar validações e gates derivados. O Arquiteto humano continua decidindo
-intenção, prioridade, arquitetura, risco aceito, autorização, aprovação e
-integração.
+Ela não certifica o futuro apenas pela leitura do código. Registra evidências
+encontradas, componentes impactados, restrições, incertezas, experimentos
+necessários e bloqueadores. Compilação, protótipo, consulta a API ou banco e
+hardware real são experimentos quando a confirmação depende deles.
 
-Quando houver conflito entre recomendação de agente e decisão do Arquiteto,
-prevalece o Arquiteto. Quando houver conflito entre implementação e
-especificação vigente, a divergência é explícita: corrige-se a implementação ou
-evolui-se a especificação mediante decisão autorizada. Autoridade humana não
-converte evidência falha em aprovação técnica inexistente.
+### Implementação
 
-O EKOM busca autonomia governada, não autonomia máxima. Interação humana em
-decisões e aprovações é parte do funcionamento esperado.
+O Implementador executa a especificação, faz verificações técnicas, registra
+decisões locais e produz relatório e evidências. Dúvidas, limitações e desvios
+são declarados, não preenchidos silenciosamente.
 
-## Modelo de atores
+### Challenge ou revisão
 
-O EKOM organiza a execução por quatro atores oficiais:
+O Crítico ou Revisor oferece uma segunda perspectiva quando acionado pelo
+Arquiteto ou pelo risco. Segurança, autorização, corrupção de dados,
+concorrência, operações irreversíveis e falhas recorrentes são sinais fortes.
 
-| Ator | Responsabilidade perante a especificação |
-|---|---|
-| Autor da Especificação | transformar intenção confirmada em solução proposta e contrato verificável |
-| Engenheiro Analista | determinar implementabilidade sem inventar decisões |
-| Engenheiro Implementador | implementar, validar e registrar o estado sustentado |
-| Engenheiro Revisor | confrontar contrato, implementação e evidências e registrar decisões humanas recebidas |
+O crítico pode localizar inconsistências e pontos cegos, ou concluir que não
+encontrou risco adicional relevante. Não substitui o Arquiteto, não aprova ou
+reprova o workflow, não redefine unilateralmente critérios, não obriga uma
+narrativa de testes e não reabre decisão registrada sem nova evidência.
 
-Uma ordem funcional curta identifica papel e especificação. O perfil e o estado
-vigente determinam o resultado canônico; um foco adicional é opcional e não
-reduz a versão normativa integral. O `AGENTS.md` encaminha o agente para regras
-comuns e exatamente um perfil. Cada ator encerra a etapa atualizando o
-conhecimento afetado e promovendo somente os estados sustentados por sua
-atuação sobre a especificação inteira.
+Agentes com capacidades, contexto e vieses semelhantes não constituem
+necessariamente validação independente, mesmo quando ocupam sessões distintas.
 
-Não existe um ator dedicado a comandar os demais. A especificação orquestra as
-passagens; o Arquiteto mantém a autoridade. Validação, aprovação e integração
-continuam decisões humanas, registradas pelo Revisor quando fornecidas.
+## Validação e evidências
 
-O Consultor de Arquitetura é um papel institucional de apoio transversal. Ele
-não integra a sequência dos quatro atores, não recebe autoridade humana e não
-transforma participação em independência.
+Testes automatizados são evidências limitadas, não prova absoluta. São
+especialmente valiosos para regressões, regras complexas, casos limítrofes,
+segurança e contratos estáveis. Devem ser exigidos conforme risco e valor e
+nunca alterados apenas para produzir resultado verde.
+
+O Implementador não usa testes que ele mesmo selecionou ou escreveu como
+argumento autorreferente de correção. O conjunto de aceitação pode incluir:
+
+- código e diffs;
+- builds e execução;
+- logs e testes;
+- hardware, APIs, bancos e infraestrutura reais;
+- relatórios dos atores;
+- decisões e observações do Arquiteto;
+- defeitos encontrados posteriormente.
+
+Em firmware e integrações, execução no ambiente real pode ser a evidência
+funcional mais forte. O Arquiteto decide a suficiência do conjunto e o risco
+residual aceito.
+
+## Especificação como conhecimento evolutivo
+
+Uma especificação nasce antes do código, avança e retorna durante investigação,
+implementação e validação e permanece rastreável após a conclusão. Retornos
+registram aprendizado controlado, não necessariamente fracasso. Apenas o
+Arquiteto determina conclusão ou reabertura.
+
+"Fonte da verdade" não significa documento monolítico. ADRs explicam decisões;
+diretrizes governam o método; mapas localizam; código e testes implementam e
+evidenciam; Git preserva linhagem; relatórios registram execuções. Para cada
+comportamento, a autoridade normativa continua inequívoca.
+
+## Modelo experimental
+
+As hipóteses da EKOM são continuamente confrontadas com experimentos reais.
+Teorias, papéis e mecanismos podem ser confirmados, ajustados ou refutados
+conforme evidências materiais. O próprio modelo faz parte do objeto de
+aprendizado, e seu histórico não é reescrito para acomodar conclusões novas.
+
+A versão 3.0 preserva especificação como coordenação e execução amplamente
+delegada, mas refuta como regras universais a segregação obrigatória do
+Analista, o Revisor obrigatório, agentes múltiplos como revisão independente,
+testes verdes como prova suficiente e autonomia completa como capacidade atual.
 
 ## O que o EKOM não é
 
+- substituição do Arquiteto;
+- promessa de autonomia completa ou automação de ponta a ponta;
 - documentação de cada linha de código;
-- geração indiscriminada de arquivos Markdown;
-- substituição de Git, testes, RFCs, ADRs, observabilidade ou julgamento humano;
-- autorização para agentes decidirem requisitos;
-- motor universal de workflow, fila ou escalonador;
-- promessa de autonomia ou automação total;
-- processo rígido ou completo.
-
-## Hipóteses e evidências
-
-O EKOM preserva as hipóteses verificadas e ainda abertas da EKM 1.x: que
-especificações autocontidas aumentam autonomia segura; fontes normativas reduzem
-perda de conhecimento; análise anterior à implementação reduz inferências;
-perfis delimitados sustentam continuidade entre agentes; coordenação por
-especificações preserva objetivos multi-contexto; e critérios assertáveis
-reduzem falso sucesso.
-
-A versão 2.0 adicionou a hipótese explícita de que tratar a especificação como
-plano de controle reduz divergência entre humanos, agentes, automações, código
-e evidências sem introduzir uma plataforma central obrigatória. A versão 2.1
-torna a versão normativa integral a unidade atômica dos resultados formais e
-trata recortes recebidos como focos adicionais, salvo atuação parcial
-explicitamente ordenada e sem promoção global.
-
-Os casos de estudo sustentam decisões específicas, mas não demonstram
-aplicabilidade universal nem garantem obediência de qualquer agente.
+- substituição de Git, testes, ADRs, observabilidade ou CI/CD;
+- autorização para agentes decidirem requisitos ou risco;
+- motor universal de agentes, filas ou escalonamento;
+- processo rígido ou dogma imune a evidências.
 
 ## Estado do método
 
-O EKOM 2.1 está aprovado e vigente para adoção. A transição desde a EKM está
-registrada em [`ADR-0001`](adr/ADR-0001-EKM-TO-EKOM.md). O método continua
-evoluindo quando evidências mostrarem lacunas, excesso de custo ou regras
-inadequadas.
+O EKOM 3.0 está aprovado e vigente para adoção. Autonomia completa permanece
+horizonte evolutivo, não capacidade comprovada. A decisão está registrada no
+[`ADR-0002`](adr/ADR-0002-EKOM-3-OPERATIONAL-AUTHORITY.md).

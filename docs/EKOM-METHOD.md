@@ -1,662 +1,311 @@
 # Método EKOM
 
-**Versão do documento:** 2.1
+**Versão do documento:** 3.0
 
-**Modelo EKOM:** 2.1
+**Modelo EKOM:** 3.0
 
 **Estado:** aprovado e vigente
 
-## 1. Objetivo
+## 1. Objetivo operacional
 
-O EKOM usa a especificação como plano de controle para orquestrar intenção,
-execução e evidência. A especificação é a fonte única da verdade para o
-comportamento pretendido e o principal objeto do pipeline que coordena humanos,
-agentes de IA, automações, implementação, validação, evidências e evolução.
+O EKOM permite que uma solução seja especificada, implementada, documentada e
+entregue sem que o Arquiteto precise executar diretamente o desenvolvimento.
+A especificação governa a execução dos agentes de IA; o Arquiteto mantém
+autoridade sobre decisões, riscos, validação e conclusão do workflow.
 
 > **Specifications orchestrate. Code implements.**
 
-O método acelera a entrega sem transferir decisões de produto ou arquitetura
-aos agentes. Deve começar com a menor dose de governança capaz de manter:
+O método usa a menor dose de governança capaz de manter conhecimento vigente,
+decisões relevantes registradas, execução auditável e resultados verificáveis.
+Um controle sem ganho proporcional não é universalizado.
 
-- conhecimento vigente;
-- decisões relevantes registradas;
-- execução auditável;
-- resultados verificáveis.
+## 2. Autoridade do Arquiteto
 
-Um controle que não melhora essas quatro propriedades ou a velocidade e a
-qualidade da entrega não deve ser obrigatório.
+O Arquiteto humano é a autoridade final sobre:
 
-## 2. Autoridade
+- intenção, prioridade e escopo;
+- decisões arquiteturais;
+- risco aceitável;
+- relevância das críticas;
+- suficiência das evidências;
+- aprovação da solução;
+- conclusão ou reabertura do workflow;
+- integração, publicação e operação quando aplicável.
 
-O Arquiteto humano é a autoridade final sobre intenção, prioridade, escopo,
-arquitetura, risco aceito, autorização, validação e integração.
+O Arquiteto não é um aprovador formal de decisões da IA. Ele confronta
+recomendações e fatos, decide e assume responsabilidade pelo risco. Agentes
+podem apontar conflitos, consequências e alternativas, mas não substituem essa
+decisão nem expandem silenciosamente o escopo.
 
-Decisões e recomendações de agentes são subordinadas às decisões do Arquiteto.
-O agente deve apontar conflitos e consequências observáveis, mas não pode
-substituir uma decisão humana nem expandir silenciosamente o escopo recebido.
-
-A autoridade humana não altera fatos. Uma validação que falhou continua
-registrada como falha; o Arquiteto pode aceitar o risco ou decidir prosseguir,
-mas não converter a evidência em aprovação técnica inexistente. Quando uma
-decisão humana muda o comportamento esperado, a especificação deve ser
-atualizada.
+Autoridade humana não modifica evidência. Uma validação falha continua
+registrada como falha. O Arquiteto pode aceitar risco residual, pedir nova
+evidência, corrigir a implementação ou evoluir a especificação.
 
 ## 3. Especificação e fontes relacionadas
 
 | Fonte | Responsabilidade |
 |---|---|
-| Especificação | fonte normativa do comportamento, limites, estados e critérios de aceite |
-| ADR ou RFC | razão de uma decisão e relação com a especificação afetada |
-| Diretriz | regras locais de trabalho e preservação |
-| Mapa de conhecimento | localização das fontes e lacunas |
+| Especificação | comportamento, limites, estados e critérios de aceite |
+| ADR ou RFC | razão de decisão e relação com a especificação afetada |
+| Diretriz | regras do método e preservação local |
+| Mapa de conhecimento | localização de fontes e lacunas |
 | Changelog EKOM | decisões, lacunas, evidências e resultado das mudanças |
-| Dossiê | visão geral e navegação do sistema |
-| Código e testes | implementação e evidência executável |
+| Dossiê | visão factual e navegação do sistema |
+| Código e testes | implementação e evidências técnicas |
 | Relatório | evidência de uma execução; não cria requisito |
 
-Para cada comportamento, uma especificação é a autoridade normativa. As demais
-fontes explicam, localizam, implementam, verificam ou registram sua evolução;
-não criam requisitos concorrentes. "Fonte única da verdade" não exige um
-arquivo monolítico: especificações podem se relacionar sem duplicar contratos.
+Para cada comportamento existe uma autoridade normativa identificável.
+"Fonte da verdade" não exige arquivo monolítico: especificações podem se
+relacionar sem duplicar contratos.
 
-Git registra autoria técnica, commits, diferenças, branches e linhagem. Esses
-dados não devem ser copiados manualmente para documentos EKOM, salvo quando um
-dado Git for necessário para explicar uma decisão ou um desvio material.
+Git registra autoria, branches, diferenças e linhagem. Esses dados não são
+copiados manualmente para documentos, salvo quando necessários para explicar
+decisão ou desvio material.
 
 ### 3.1 Preservação arquitetural local
 
-Cada repositório localiza no `AGENTS.md` suas fontes de arquitetura, padrões e
-restrições. Por padrão, toda implementação:
+O `AGENTS.md` do projeto localiza arquitetura, padrões e restrições. Por padrão,
+toda implementação preserva organização e separação de responsabilidades,
+segue o precedente equivalente mais próximo e não cria nova camada, estrutura
+ou abstração transversal por preferência do agente.
 
-- preserva a arquitetura, a organização e a separação de responsabilidades
-  vigentes;
-- coloca novos arquivos junto ao componente equivalente mais próximo;
-- segue os padrões de nomenclatura, dependência e estrutura do precedente
-  canônico aplicável;
-- não cria nova camada, pasta estrutural, abstração transversal ou padrão
-  arquitetural por preferência do agente.
+Uma evolução arquitetural identifica o padrão atual, a mudança, o alcance e a
+decisão do Arquiteto. Ausência ou conflito de precedentes é incerteza a
+registrar, não autorização implícita.
 
-Uma especificação Implementável [`Implementable`] pode determinar uma evolução
-arquitetural. A exceção só é explícita e consciente quando identifica:
+### 3.2 Unidade de trabalho
 
-1. o padrão, a restrição ou o precedente atual afetado;
-2. a mudança pretendida;
-3. o alcance da mudança;
-4. a justificativa ou decisão do Arquiteto que a sustenta.
+A especificação incremental é a unidade de comportamento, delegação e
+orquestração. Ela contém o necessário para executar e avaliar o recorte:
 
-Ausência de orientação, necessidade técnica inferida, oportunidade de melhoria
-ou texto genérico não autorizam desvio. Quando não houver precedente claro ou
-existirem precedentes conflitantes, o conflito deve ser registrado e devolvido
-ao Arquiteto, em vez de resolvido pela criação incidental de uma nova
-arquitetura.
+- objetivo, contexto, escopo e fora de escopo;
+- requisitos, contratos, estados e falhas relevantes;
+- critérios de aceite e evidências esperadas;
+- impactos, restrições, incertezas e experimentos necessários;
+- resultado da análise de implementabilidade.
 
-Preservar o padrão vigente não transforma todo código legado em modelo
-normativo nem impede evolução. Significa apenas que mudanças arquiteturais são
-deliberadas, delimitadas e verificáveis.
+Versões concluídas são preservadas. Mudanças posteriores usam nova versão
+relacionada por `Amends`, `Supersedes`, `Corrects` ou `Retires`, ou reabertura
+explícita pelo Arquiteto quando a convenção local assim determinar.
 
-## 4. Unidade de trabalho
+### 3.3 Critérios assertáveis sem fetichizar testes
 
-Uma especificação incremental é a unidade de comportamento, delegação e
-orquestração. Ela
-deve conter apenas o necessário para executar e verificar o recorte:
+Cada requisito obrigatório deve permitir distinguir sucesso, falha e ausência
+de evidência. Na forma mínima adequada ao risco, o critério identifica cenário,
+ação, resultado observável e meio de validação. `Dado / Quando / Então` é uma
+linguagem útil, não obrigação de Gherkin ou ferramenta BDD.
 
-- objetivo e contexto;
-- escopo e fora de escopo;
-- requisitos verificáveis;
-- contratos, estados e falhas relevantes;
-- critérios de aceite e validações;
-- relações normativas e lacunas conhecidas;
-- resultado da revisão de implementabilidade.
+Critérios como "adicionar testes", "validar o fluxo" ou "build aprovado" são
+insuficientes quando não declaram o comportamento observado. Doubles preservam
+a semântica material da integração substituída. Compilação comprova
+compilabilidade, não execução; zero casos não comprova comportamento.
 
-Versões concluídas da especificação são preservadas. Mudanças posteriores usam
-uma nova versão relacionada por `Amends`, `Supersedes`, `Corrects` ou `Retires`.
+Isso não transforma teste em prova absoluta nem exige um teste por requisito.
+O oráculo orienta a investigação e a evidência; o Arquiteto decide se o
+conjunto produzido é suficiente para aceitar o risco.
 
-### 4.1 Atomicidade operacional da versão
+### 3.4 Objetivos multi-contexto
 
-Cada versão normativa é a unidade atômica dos resultados formais do ciclo. Ao
-receber papel e especificação, o ator trabalha por padrão sobre a totalidade da
-versão indicada para a responsabilidade daquele papel. A ordem pode indicar um
-foco adicional, uma dúvida ou uma prioridade de investigação, mas isso não
-retira da versão requisitos, critérios, decisões, falhas, relações ou gates.
+Quando um objetivo atravessa repositórios, serviços, aplicativos ou
+infraestrutura, uma especificação coordenadora preserva o objetivo ponta a
+ponta e cada contexto mantém seu contrato local. A conclusão coordenada exige
+evidências materiais dos recortes e da integração; estados locais não a
+comprovam automaticamente.
 
-Por consequência:
+## 4. Ciclo de vida e workflow
 
-- autoria localizada reconcilia a coerência da versão inteira;
-- `Implementable` e `Needs Clarification` são conclusões sobre a versão inteira;
-- `Implemented` exige todos os requisitos e critérios automatizáveis
-  obrigatórios da versão;
-- promoções de revisão e validação confrontam contrato e evidências integrais.
-
-Integralidade não significa documento monolítico, matriz universal, mesma
-profundidade para todo risco nem leitura indiscriminada do repositório. Cada
-especificação continua incremental e pode relacionar contratos externos. A
-profundidade da análise e da evidência permanece proporcional ao risco, mas a
-cobertura normativa não pode ser reduzida silenciosamente.
-
-Uma atuação parcial continua possível quando o Arquiteto a ordenar
-explicitamente como diagnóstico, investigação ou execução parcial. Seu
-resultado não promove o estado formal que representa a versão inteira; na
-implementação, permanece `In Progress` enquanto faltar qualquer obrigação.
-
-### 4.2 Critérios de aceite assertáveis
-
-Cada requisito obrigatório deve possuir critério de aceite suficiente para que
-o executor determine, sem inventar o comportamento esperado, se a evidência
-aprova, reprova ou não permite verificar o requisito.
-
-Um critério assertável identifica, na menor forma adequada ao risco:
-
-1. o cenário ou condição inicial relevante;
-2. a ação, entrada ou evento observado;
-3. o resultado observável esperado;
-4. a evidência capaz de distinguir sucesso, falha e ausência de execução.
-
-A forma `Dado / Quando / Então` é preferida quando melhora a leitura do cenário
-e aproxima negócio, engenharia e validação. Ela é uma linguagem comum, não uma
-obrigação de usar Gherkin, ferramenta BDD ou estrutura universal. Texto
-equivalente permanece válido em recortes simples.
-
-Pode referenciar teste, inspeção, análise estática, observabilidade ou validação
-humana. Não precisa repetir o requisito nem impor formato universal. Agrupar
-requisitos é permitido somente quando a mesma evidência e o mesmo oráculo
-comprovarem todos eles sem ocultar comportamento específico.
-
-Critérios como “adicionar testes”, “validar o fluxo” ou “build aprovado” são
-insuficientes quando não definem o que deve ser afirmado. Mocks, fakes,
-emuladores e fixtures devem preservar as semânticas materiais do componente
-substituído; caso contrário, a evidência deve usar a integração real.
-
-Compilação comprova compilabilidade, não execução. Quando o critério exigir
-comportamento executado, a evidência registra casos executados e resultado
-terminal; zero casos, execução não iniciada, erro de infraestrutura ou estado
-desconhecido não aprovam o critério.
-
-Cobertura parcial continua útil como diagnóstico, mas deve ser identificada
-como parcial e não pode sustentar aprovação do critério completo.
-
-#### Procedimento do Autor
-
-O Autor mantém uma relação rastreável entre requisitos obrigatórios e critérios
-de aceite. Para cada requisito, identifica os cenários nominais, falhas e
-condições de borda expressamente requeridos e descreve condição inicial, ação,
-resultado observável e evidência terminal.
-
-Antes de encaminhar a especificação ao Analista, o Autor confirma que:
-
-- nenhum requisito obrigatório depende apenas de objetivo ou narrativa;
-- um executor independente pode converter o resultado em asserção sem escolher
-  novo comportamento funcional ou arquitetural;
-- a evidência consegue reprovar uma implementação plausível, não apenas
-  confirmar presença de código, teste ou build;
-- doubles preservam as semânticas materiais relevantes da integração
-  substituída;
-- validações automatizáveis estão separadas das validações humanas, físicas ou
-  de integração posteriores;
-- ambiguidades funcionais ou arquiteturais restantes estão registradas como
-  decisões ausentes.
-
-O procedimento não exige um teste por requisito, formato universal ou desenho
-interno antecipado. Um critério pode cobrir mais de um requisito somente quando
-o mesmo cenário, resultado e evidência os comprovarem integralmente.
-
-### 4.3 Objetivos que atravessam múltiplos contextos de entrega
-
-Um objetivo pode depender de mudanças em repositórios, serviços, aplicativos ou
-infraestruturas com fontes normativas e ciclos de integração independentes.
-Nessa situação, uma especificação local não deve absorver contratos alheios nem
-autorizar implicitamente alterações fora do próprio contexto.
-
-A coordenação usa a menor estrutura suficiente:
-
-- uma especificação coordenadora preserva o objetivo ponta a ponta, as decisões
-  de arquitetura, as relações entre os recortes e os critérios de integração;
-- cada contexto de entrega possui uma especificação subordinada executável,
-  mantida junto às próprias fontes e implementação;
-- as relações identificam a especificação, a fonte responsável, a dependência e
-  o estado material necessário, sem copiar commits ou o conteúdo integral da
-  outra fonte;
-- cada especificação percorre o fluxo normal de atores e promove somente seus
-  próprios estados;
-- o resultado coordenado só pode ser declarado quando as evidências dos
-  recortes obrigatórios e a validação de integração sustentarem o objetivo
-  ponta a ponta.
-
-Uma dependência externa sem contrato suficiente pode produzir Precisa de
-esclarecimento [`Needs Clarification`]. Quando o contrato necessário já está
-definido, mas sua entrega ainda está pendente, o Analista registra uma
-dependência de entrega; isso não deve ser convertido artificialmente em decisão
-arquitetural ausente.
-
-A orquestração pela especificação não cria um ator central, uma branch comum
-entre repositórios nem um estado global que substitua os estados locais. O
-Arquiteto continua ordenando cada atuação e decidindo a integração. Mecanismos
-de execução como concorrência, locks, filas e escalonadores são opcionais e
-permanecem fora do núcleo normativo.
-
-## 5. Estados
-
-Os estados permanecem independentes:
-
-### 5.1 Estado normativo
-
-- Rascunho [`Draft`]
-- Proposta [`Proposed`]
-- Aprovada [`Approved`]
-- Vigente [`Active`]
-- Substituída [`Superseded`]
-- Retirada [`Withdrawn`]
-- Arquivada [`Archived`]
-
-### 5.2 Estado da implementação
-
-- Não iniciada [`Not Started`]
-- Em andamento [`In Progress`]
-- Implementada [`Implemented`]
-- Validada [`Validated`]
-- Regredida [`Regressed`]
-- Bloqueada [`Blocked`]
-- Descontinuada [`Retired`]
-
-### 5.3 Estado da entrega
-
-- Não pronta [`Not Ready`]
-- Pronta para integração [`Ready for Integration`]
-- Concluída [`Done`]
-
-### 5.4 Revisão de implementabilidade
-
-- Pendente de revisão [`Pending Review`]
-- Implementável [`Implementable`]
-- Precisa de esclarecimento [`Needs Clarification`]
-
-O estado declarado na especificação, combinado com a ordem do Arquiteto,
-determina se a próxima etapa pode começar. A especificação orquestra a passagem;
-a ordem autoriza a atuação humana ou automatizada na versão. Não é obrigatório registrar
-manualmente SHA, branch de origem, checkpoint ou cadeia de commits para
-autorizar a transição.
-
-## 6. Ordem do Arquiteto
-
-Cada tarefa do ciclo de uma especificação é iniciada por uma ação do Arquiteto,
-diretamente por prompt, automação ou comando de pipeline. Essa ação consome a
-especificação aplicável; não se torna fonte normativa paralela. A ação:
-
-- identifica o papel e a especificação quando a atuação pertencer ao ciclo
-  funcional; o perfil e o estado vigente determinam o resultado canônico;
-- pode identificar foco adicional, prioridade, exceção ou resultado compatível
-  sem reduzir a unidade normativa;
-- autoriza apenas as operações normais necessárias àquela etapa;
-- não concede liberdade para ampliar requisitos ou tomar decisões reservadas
-  ao Arquiteto.
-
-Antes de agir, o agente lê:
-
-1. o `AGENTS.md` do projeto;
-2. as regras comuns dos perfis;
-3. exatamente um perfil correspondente ao papel recebido;
-4. a especificação indicada, quando aplicável;
-5. somente as fontes técnicas pertinentes à especificação e ao foco adicional.
-
-Não carrega perfis de outros papéis nem a metodologia completa, salvo ordem
-explícita de governança. No ciclo funcional, a ordem mínima identifica papel e
-especificação; ausência de resultado repetido ou foco adicional não bloqueia a
-tarefa. O Autor também precisa receber intenção, objetivo ou mudança, pois não
-pode inventar o comportamento. O Consultor pode receber Não se aplica [`Not
-Applicable`] em governança, arquitetura ou apoio fora desse ciclo e continua
-sujeito à entrada explícita de seu perfil.
-
-Se a ordem funcional declarar um recorte, ele é interpretado como foco
-adicional, não como exclusão. Trabalho intencionalmente parcial deve ser
-declarado como diagnóstico, investigação ou execução parcial e não promove o
-estado formal da versão inteira.
-
-Tarefas de adoção inicial ou governança do próprio método ficam fora do ciclo
-funcional e exigem ordem explícita com seu recorte documental.
-
-Não é necessário criar um registro adicional de aprovação com nome, data, SHA
-ou assinatura para repetir a ordem recebida pelos atores do fluxo funcional.
-O Consultor de Arquitetura é a exceção proporcional definida na seção 7.5:
-devido ao seu recorte transversal, registra ao final a autorização e as
-decisões explicitamente confirmadas pelo Arquiteto, sem copiar metadados Git.
-
-Uma ordem de análise autoriza somente análise e atualização dos artefatos de
-conhecimento correspondentes. Uma ordem de implementação autoriza a
-implementação somente quando a especificação estiver Implementável
-[`Implementable`].
-
-## 7. Fluxo oficial por atores
-
-Os atores oficiais são:
-
-| Ator | Perfil oficial |
-|---|---|
-| Autor da Especificação | `roles/AUTOR-DA-ESPECIFICACAO.md` |
-| Engenheiro Analista | `roles/ENGENHEIRO-ANALISTA.md` |
-| Engenheiro Implementador | `roles/ENGENHEIRO-IMPLEMENTADOR.md` |
-| Engenheiro Revisor, que pode corresponder ao Tech Lead humano | `roles/ENGENHEIRO-REVISOR.md` |
-
-O fluxo é a orquestração lógica das atuações pela especificação. Ele não
-prescreve uma infraestrutura de workflow:
+O workflow usa no máximo cinco estados principais de leitura operacional:
 
 ```mermaid
-flowchart TD
-    S["Especificação EKOM<br/>fonte única da verdade"] --> B
-    A["Arquiteto<br/>intenção, decisões e ordem"] --> S
+flowchart LR
+    A["Rascunho e análise"] -->|"Arquiteto considera suficiente"| P["Pronta"]
+    P --> I["Implementação"]
+    I --> V["Validação"]
+    V -->|"somente o Arquiteto conclui"| C["Concluída"]
 
-    subgraph AUT["Autor da Especificação"]
-        B["Especifica o recorte"] --> B1["Proposed<br/>Not Started<br/>Not Ready<br/>Pending Review"]
-        B1 --> B2["Commit + push<br/>árvore limpa"]
-    end
-
-    B2 --> C["Ordem de análise"]
-
-    subgraph ANA["Engenheiro Analista"]
-        C --> D["Confronta integralmente<br/>requisitos e fontes"]
-        D --> E{"Falta decisão?"}
-        E -- "Sim" --> F["Needs Clarification"]
-        E -- "Não" --> G["Implementable"]
-        F --> H["Registra resultado<br/>commit + push"]
-        G --> H
-    end
-
-    H --> I{"Implementable?"}
-    I -- "Não" --> J["Arquiteto decide"]
-    J --> B
-    I -- "Sim" --> K["Ordem de implementação"]
-
-    subgraph IMP["Engenheiro Implementador"]
-        K --> L["Implementa e valida<br/>a versão integral"]
-        L --> M["In Progress, Blocked<br/>ou Implemented"]
-        M --> N["Registra resultado<br/>commit + push"]
-    end
-
-    N --> O["Tech Lead / Engenheiro Revisor"]
-
-    subgraph REV["Revisão e decisão humana"]
-        O --> P["Revisa código e evidências"]
-        P --> Q{"Tech Lead validou e<br/>Arquiteto aprovou?"}
-        Q -- "Não" --> R["Registra achados<br/>commit + push"]
-        Q -- "Sim" --> S["Active<br/>Validated<br/>Ready for Integration"]
-        S --> T["Fecha a mudança<br/>commit + push"]
-    end
-
-    R --> K
-    T --> U["Integração autorizada separadamente"]
-    U --> V{"Integrada à referência<br/>de produção?"}
-    V -- "Não" --> W["Ready for Integration"]
-    V -- "Sim" --> X["Done"]
-
-    S -. "orquestra" .-> C
-    S -.-> K
-    S -.-> Q
-    A -. "autoridade final" .-> C
-    A -.-> K
-    A -.-> Q
-    A -.-> U
+    A -->|"lacunas: permanece"| A
+    I -->|"restrição ou ambiguidade"| A
+    V -->|"defeito de implementação"| I
+    V -->|"problema na especificação"| A
+    C -->|"nova necessidade ou evidência material; Arquiteto reabre"| A
 ```
 
-Cada ator encerra a própria etapa: devolve à especificação e às fontes
-explicitamente relacionadas os estados, evidências e conhecimento
-materialmente afetado, promove somente os estados sustentados por sua atuação,
-cria commit, realiza push e termina com árvore limpa. Não existe um ator
-adicional destinado apenas a reconciliar ou versionar o resultado dos demais.
+- **Rascunho e análise:** intenção, investigação e análise de
+  implementabilidade evoluem juntas; lacunas mantêm ou devolvem o trabalho a
+  este estado.
+- **Pronta:** o Arquiteto considera o contrato suficiente para implementar,
+  conhecendo incertezas e experimentos ainda necessários.
+- **Implementação:** agentes executam, verificam tecnicamente e registram
+  decisões locais, dúvidas, limitações e desvios. Restrição ou ambiguidade
+  normativa retorna à análise.
+- **Validação:** evidências são confrontadas com a especificação e o ambiente.
+  Defeito retorna à implementação; problema no contrato retorna ao rascunho.
+- **Concluída:** somente o Arquiteto determina que evidência e risco residual
+  são suficientes. Nova necessidade, regressão ou evidência pode motivar
+  reabertura pelo próprio Arquiteto.
 
-### 7.1 Autor da Especificação
+Retornos não são necessariamente fracasso. São aprendizado e evolução
+controlada da especificação. Projetos que precisem de estados técnicos mais
+granulares podem mantê-los, desde que não transfiram a autoridade de conclusão.
 
-O Autor analisa o problema na profundidade necessária para transformar a
-intenção recebida em uma solução proposta, implementável e verificável. Pode
-inspecionar fontes técnicas, confrontar restrições, comparar alternativas e
-propor arquitetura, fluxos, contratos e critérios de aceite.
+## 5. Funções e papéis
 
-Mesmo quando a intenção recebida altera somente uma parte do comportamento, o
-Autor reconcilia a versão inteira para não preservar contradições entre escopo,
-requisitos, critérios, decisões, falhas e gates.
+Função necessária não implica pessoa, sessão ou agente separado. A segregação
+é uma decisão proporcional a risco, incerteza, especialização e valor da
+independência real.
 
-Para cada requisito obrigatório, o Autor define critério assertável ou registra
-a decisão ausente que impede fazê-lo. O critério não antecipa estrutura interna
-desnecessária, mas torna explícito o resultado observável e a evidência capaz de
-reprová-lo.
+### 5.1 Autor da Especificação
 
-A autoria deve distinguir:
+O Autor transforma a intenção em solução proposta, implementável e verificável.
+Consulta repositório, arquitetura, conhecimento e precedentes. Pode usar IA
+para localizar impactos, restrições e incertezas.
 
-- fatos observados nas fontes;
-- intenção e decisões confirmadas pelo Arquiteto;
-- solução e recomendações propostas pelo Autor;
-- decisões pendentes que exigem autoridade humana.
+Ele diferencia fatos observados, decisões confirmadas, recomendações e
+pendências. Não transforma comportamento legado em requisito nem preferência
+técnica em decisão.
 
-Uma recomendação do Autor não se torna decisão confirmada por estar na
-especificação. O Autor não deve criar lacuna bloqueante para alternativa
-opcional, comportamento fora do escopo ou escolha técnica que não dependa de
-intenção, produto, arquitetura ou risco ainda não decidido.
+### 5.2 Análise de implementabilidade
 
-A análise necessária à autoria não é revisão de implementabilidade. O Autor
-não promove a própria proposta para Implementável [`Implementable`] nem ocupa
-a responsabilidade do Engenheiro Analista. Ao terminar, deixa a especificação
-como Proposta [`Proposed`], Não iniciada [`Not Started`], Não pronta
-[`Not Ready`] e Pendente de revisão [`Pending Review`]. O próprio Autor
-registra e entrega essa promoção.
+A análise é obrigatória antes da implementação. Pode ser executada:
 
-### 7.2 Engenheiro Analista
+- pelo próprio Autor;
+- pelo Autor apoiado por IA;
+- por agente especializado;
+- por especialista separado quando risco ou incerteza justificarem segregação.
 
-O Analista verifica se a versão integral pode ser implementada sem decisão
-normativa, de produto ou arquitetura não declarada. A análise cobre todos os
-elementos normativos aplicáveis, com rastreabilidade suficiente para sustentar
-o resultado, sem exigir matriz universal nem profundidade uniforme.
+Seu resultado registra:
 
-Declarar `Implementable` exige também confirmar que os critérios obrigatórios
-possuem oráculos assertáveis e meios de evidência viáveis. Critério que apenas
-nomeia uma validação, depende de mock semanticamente incompatível ou não
-distingue execução de compilação constitui decisão ou contrato ainda
-insuficiente.
+- evidências encontradas no repositório;
+- componentes e fontes impactados;
+- restrições conhecidas;
+- incertezas;
+- experimentos necessários;
+- bloqueadores identificados.
 
-Uma lacuna bloqueante permite concluir `Needs Clarification`, mas não autoriza
-encerrar antes de confrontar os demais elementos normativos da versão. Isso não
-exige investigação indiscriminada fora das fontes pertinentes; exige impedir
-que um primeiro bloqueio oculte outros conflitos materiais do mesmo contrato.
+Leitura de código não certifica comportamento que só pode ser confirmado por
+build, protótipo, API, banco, infraestrutura ou hardware. Esses pontos são
+registrados como experimentos necessários. A especificação fica Pronta apenas
+quando o Arquiteto considerar a análise suficiente para autorizar execução.
 
-O resultado é:
+### 5.3 Implementador
 
-- Implementável [`Implementable`], quando a versão pode ser executada sem
-  inferência relevante; ou
-- Precisa de esclarecimento [`Needs Clarification`], quando falta uma decisão
-  necessária.
+O Implementador:
 
-O Analista não altera a implementação. Ele registra a revisão de
-implementabilidade, as decisões ausentes, as evidências e as lacunas
-relacionadas e entrega sua própria promoção.
+- implementa conforme a especificação autorizada;
+- realiza verificações técnicas proporcionais ao risco;
+- registra decisões locais;
+- produz relatório e evidências;
+- declara dúvidas, limitações e desvios;
+- devolve ambiguidade normativa ao rascunho/análise.
 
-### 7.3 Engenheiro Implementador
+Ele não usa testes escolhidos ou escritos durante a própria implementação como
+argumento autorreferente de correção. Testes compõem a evidência disponível e
+podem ser fortes, insuficientes ou até semanticamente enganosos.
 
-O Implementador segue a especificação Implementável [`Implementable`], atualiza
-código, testes e conhecimento afetado e executa validações proporcionais ao
-risco. Decisões ausentes interrompem a implementação e retornam ao Arquiteto;
-não são preenchidas por conveniência técnica.
+### 5.4 Crítico ou Revisor
 
-O resultado formal abrange a versão inteira. Um foco adicional pode orientar a
-ordem do trabalho, mas não exclui obrigações; entrega parcial permanece `In
-Progress` e não pode ser apresentada como `Implemented`.
+Challenge é capacidade consultiva, não gate universal. Pode ser acionado:
 
-Resultado de build, teste, inspeção, hardware ou outra validação deve ser
-registrado quando for material para comprovar ou limitar a entrega. Não se
-registram comandos de leitura, arquivos temporários ou detalhes operacionais
-sem efeito sobre a conclusão.
+- pelo Arquiteto;
+- pelo risco da mudança;
+- por falha recorrente;
+- por segurança, autorização, corrupção de dados, concorrência ou operação
+  irreversível;
+- quando uma segunda perspectiva tiver valor justificável.
 
-O estado permanece Em andamento [`In Progress`] enquanto faltar implementação
-ou validação obrigatória da etapa. Implementada [`Implemented`] exige código e
-validações automatizáveis obrigatórias. A promoção posterior para Validada
-[`Validated`] pertence ao Engenheiro Revisor com as evidências humanas
-requeridas.
+O crítico levanta riscos, inconsistências e pontos cegos e pode concluir que
+não encontrou risco adicional relevante. Não substitui o Arquiteto, não aprova
+ou reprova o workflow, não redefine critérios unilateralmente, não obriga o
+Implementador a satisfazer narrativa de testes e não reabre decisão registrada
+sem nova evidência.
 
-O Implementador avalia cada critério obrigatório contra evidência terminal.
-Critério falho, não executado ou não verificável mantém a implementação Em
-andamento [`In Progress`], ainda que código e testes compilem.
+Múltiplos agentes com capacidades, contexto e vieses semelhantes não equivalem
+necessariamente a revisão independente. Quando independência for material, o
+Arquiteto define como obtê-la e quais conflitos de participação invalidam a
+alegação.
 
-O Implementador registra na própria especificação o estado sustentado e entrega
-essa promoção com o restante da implementação.
+### 5.5 Consultor de Arquitetura
 
-### 7.4 Engenheiro Revisor, decisão e integração
+O Consultor apoia investigação, desenho, governança, especificação, análise,
+implementação, revisão e coordenação dentro do recorte autorizado. Não recebe
+autoridade humana e não alega independência no trabalho de que participou.
 
-O Revisor encerra o ciclo técnico quando existem revisão, validação e decisão
-humana a registrar. A profundidade da revisão é proporcional ao risco.
-Revisões independentes adicionais, inclusive auditoria de integridade EKOM, são
-executadas somente quando o Arquiteto as solicitar.
+## 6. Validação proporcional
 
-A proporcionalidade regula profundidade e meios de evidência, não a cobertura
-normativa. Promoção global exige confronto da versão integral; foco adicional
-não exclui qualquer requisito, critério, decisão, falha, relação ou gate.
+Testes automatizados são evidências, não prova absoluta. Não são descartados:
+são particularmente valiosos para regressões, regras complexas, casos
+limítrofes, segurança e contratos estáveis.
 
-O Revisor confronta comportamento, arquitetura, compatibilidade, testes,
-evidências e conhecimento sem corrigir a implementação na mesma atuação. Sem
-aprovação explícita do Arquiteto, registra achados e preserva estados
-compatíveis com as evidências.
+Aplicam-se as regras:
 
-O confronto verifica se a evidência usa o oráculo definido, preserva as
-semânticas materiais de integrações substituídas e distingue compilação,
-execução, falha e limitação de ambiente.
+1. testes não são alterados apenas para produzir resultado verde;
+2. teste verde não comprova sozinho correção funcional ou arquitetural;
+3. a exigência de testes é proporcional ao risco e ao valor;
+4. falha, ausência de execução e limitação de ambiente permanecem explícitas;
+5. execução em dispositivo, API, banco ou infraestrutura real pode ter
+   precedência para aceitação funcional;
+6. evidência real não elimina automaticamente a necessidade de regressão,
+   segurança ou observabilidade;
+7. o Arquiteto decide a suficiência do conjunto de evidências.
 
-Quando a ordem contém validação suficiente do Tech Lead e aprovação explícita
-do Arquiteto, o Revisor registra essa evidência recebida e promove:
+Evidências materiais podem incluir código e diffs, builds, execução real, logs,
+testes, integrações, relatórios, decisões humanas e defeitos posteriores.
 
-- estado normativo para Vigente [`Active`];
-- implementação para Validada [`Validated`];
-- entrega para Pronta para integração [`Ready for Integration`];
-- transação para Fechada [`Closed`], quando suas condições estiverem
-  satisfeitas.
+## 7. Ordem e execução dos agentes
 
-O Revisor não produz aprovação própria. Quando o Arquiteto confirma que o
-resultado aceito foi integrado à referência de produção, o Revisor registra a
-evidência e promove a entrega para Concluída [`Done`]. Um pull request aberto,
-isoladamente, não comprova integração.
+Cada atuação começa por ordem do Arquiteto, diretamente ou por automação
+autorizada. A ordem seleciona objetivo, especificação, função, recorte e
+operações; não cria requisito concorrente.
 
-### 7.5 Consultor de Arquitetura — papel institucional fora do fluxo
+Antes de agir, o agente lê o `AGENTS.md`, as regras comuns, o perfil aplicável,
+a especificação e somente as fontes pertinentes. Uma mesma atuação pode
+combinar autoria e análise quando isso estiver autorizado. Segregação de papéis
+é registrada quando exigida por risco.
 
-O Consultor de Arquitetura é um agente de IA que apoia o Arquiteto e o Tech
-Lead em investigação, desenho, governança EKOM, especificação, análise,
-implementação, revisão e coordenação. Ele pode executar atividades materiais
-dessas naturezas somente quando a ordem do Arquiteto identificar:
+O Arquiteto decide transições relevantes. Agentes atualizam fatos, estados e
+evidências sustentados por sua execução, mas não declaram aprovação ou
+conclusão em nome próprio.
 
-- objetivo e resultado esperado;
-- repositório ou contexto de entrega;
-- recorte e fontes aplicáveis;
-- operações autorizadas;
-- decisões já confirmadas e limites ainda pendentes.
+## 8. Contrato Git
 
-O Arquiteto permanece o ator principal e a autoridade sobre intenção,
-arquitetura, risco, autorização, validação e integração. O Tech Lead pode
-colaborar com o Consultor, mas não amplia seu recorte nem confirma decisões
-reservadas ao Arquiteto sem delegação humana explícita.
+Cada tarefa material deve:
 
-O papel não concede autorização genérica. Uma nova operação material,
-ampliação de escopo, decisão arquitetural, implementação, ação destrutiva,
-integração ou publicação exige autorização correspondente antes da execução.
-Recomendações do Consultor não são decisões confirmadas.
+1. começar em branch de trabalho derivada da `main`, nunca diretamente nela;
+2. preservar alterações preexistentes e começar com árvore limpa;
+3. produzir resultado material e versionável;
+4. criar commit ao fim da etapa autorizada;
+5. realizar push quando a ordem e as regras locais autorizarem;
+6. terminar com árvore limpa.
 
-O Consultor não substitui os quatro atores oficiais nem promove estados que
-pertencem a uma etapa formal sem nova ordem que selecione o papel aplicável.
-Quando participa da solução, especificação ou implementação de um recorte, não
-pode alegar análise, revisão ou Gate independente desse mesmo recorte. Uma
-atuação posterior pode contribuir tecnicamente, mas deve registrar o conflito
-de independência.
+A ordem normal não autoriza force push, reescrita, merge, tag, release ou
+deploy. Git é a evidência desses atos; documentos não repetem hashes sem motivo
+material.
 
-Antes do commit final, o Consultor apresenta ao Arquiteto um registro conciso
-com a ordem, o recorte, as operações, as decisões confirmadas, o resultado e
-as limitações. O commit só ocorre após confirmação explícita desse registro
-pelo Arquiteto. Essa confirmação possui apenas o significado declarado: não
-comprova aprovação técnica, validação ou integração sem texto humano
-específico.
+### 8.1 Encerramento de execuções iniciadas
 
-O registro fica na fonte materialmente apropriada — decisão de desenho,
-especificação, changelog ou relatório de governança — e não copia prompt,
-conversa, SHA, branch ou mensagem de commit. A entrega continua exigindo
-commit, push e árvore limpa.
-
-## 8. Contrato Git de cada tarefa
-
-Toda tarefa de agente deve:
-
-1. começar em uma branch de trabalho derivada da `main`, nunca diretamente na
-   `main`;
-2. começar com a árvore de trabalho limpa;
-3. produzir um resultado material e versionável;
-4. criar um commit ao fim da etapa;
-5. enviar o commit ao repositório remoto por push;
-6. terminar com a árvore de trabalho limpa.
-
-A branch pode atravessar as etapas autorizadas do mesmo recorte. A exigência é
-que o fluxo de trabalho tenha sido iniciado a partir da `main`; não é necessário
-criar uma nova branch para cada atuação, atualizar a branch com avanços
-posteriores da `main` nem copiar a branch de origem para os documentos EKOM.
-
-Uma tarefa não usa commit vazio para simular entrega. Mesmo quando não houver
-mudança de código, a conclusão material da etapa deve atualizar o artefato EKOM
-apropriado, como a especificação, a transação ou o registro de evidência.
-
-Falha no push significa que a etapa ainda não foi entregue para a próxima
-etapa. A ordem da tarefa autoriza commit e push normais na branch indicada, mas
-não autoriza force push, reescrita de histórico, merge, tag, release ou deploy
-sem ordem correspondente do Arquiteto.
-
-O próprio Git é a evidência desses atos. Não é obrigatório repetir hashes,
-branch ou mensagem do commit no `EKOM-CHANGELOG.md`.
-
-### 8.1 Gate de encerramento de execuções iniciadas
-
-Uma etapa não está pronta para conclusão enquanto tarefa, comando, processo,
-build, teste, upload ou execução delegada iniciada pelo agente permanecer em
-estado não terminal ou desconhecido.
-
-Antes de promover estados, declarar evidência aprovada, criar o commit final,
-realizar push ou responder conclusivamente, o agente identifica as execuções
-que iniciou, confirma seus estados terminais e captura resultados, códigos de
-saída e limitações materiais. `Running`, `queued`, `pending`, `waiting`, estado
-desconhecido ou equivalente bloqueia essas ações.
-
-O agente pode realizar outro trabalho autorizado enquanto aguarda. Se não for
-possível observar ou concluir uma execução, registra a limitação sem fabricar
-sucesso. Cancelar trabalho dentro do recorte não converte resultado incompleto
-em evidência aprovada.
+Antes de promover estado, registrar validação como aprovada, criar commit,
+realizar push ou responder conclusivamente, o agente confirma o estado terminal
+de toda tarefa, build, teste, upload ou execução delegada que iniciou. Estado
+pendente ou desconhecido bloqueia conclusão; cancelamento não fabrica sucesso.
 
 ## 9. Transações e lacunas
 
-`EKOM-CHG-NNNN` identifica uma mudança de conhecimento ou implementação.
-`EKOM-GAP-NNNN` identifica conhecimento ausente que precise sobreviver à
-tarefa. Projetos adotantes da EKM 1.x podem manter `EKM-CHG-NNNN` e
-`EKM-GAP-NNNN`. O mapa declara um único namespace para novas entradas do
-projeto; identificadores existentes nunca são renumerados.
+`EKOM-CHG-NNNN` identifica mudança; `EKOM-GAP-NNNN`, conhecimento ausente que
+precisa sobreviver. Projetos migrados podem manter namespaces EKM históricos.
 
-Uma transação deve registrar somente:
-
-- objetivo e especificação relacionada;
-- decisões que alteram entendimento ou execução;
-- lacunas relevantes;
-- evidências materiais;
-- estado e resultado.
-
-Ela não deve funcionar como diário de comandos, espelho do histórico Git ou
-formulário de passagem entre agentes.
-
-Estados recomendados da transação:
-
-- Aberta [`Open`]
-- Bloqueada [`Blocked`]
-- Substituída [`Superseded`]
-- Fechada [`Closed`]
-
-O fechamento ocorre quando o recorte autorizado foi entregue por commit e push,
-as fontes afetadas estão atuais, as evidências materiais estão registradas e as
-lacunas restantes estão explícitas. Fechar a transação não significa que a
-especificação está Concluída [`Done`]; o estado da entrega informa separadamente
-se houve integração. Não se exige um commit posterior apenas para copiar
-metadados do Git.
+Uma transação registra objetivo, especificação relacionada, decisões, lacunas,
+evidências materiais e resultado. Não é diário de comandos ou espelho do Git.
+Fechamento documental não substitui a decisão do Arquiteto de concluir a
+especificação.
 
 ## 10. Adoção em legado
 
 A adoção começa pequena:
 
-1. inventariar o sistema e localizar fontes existentes;
-2. criar a fundação mínima;
+1. inventariar sistema e fontes existentes;
+2. criar fundação mínima;
 3. registrar lacunas que afetam decisões reais;
-4. especificar em profundidade somente o que for tocado;
+4. especificar em profundidade somente o que será tocado;
 5. aumentar controles apenas quando a experiência demonstrar valor.
 
 Fundação recomendada:
@@ -671,38 +320,19 @@ docs/
     └── SYSTEM-DOSSIER.md
 ```
 
-`EKOM-GUIDELINES.md` local é necessário apenas quando o projeto não referencia
-uma diretriz externa aplicável ou precisa declarar regras próprias.
+## 11. Aprendizado experimental
 
-## 11. Avaliação experimental dos atores
+O EKOM registra código, diffs, builds, execução real, logs, testes, integrações,
+relatórios, decisões e defeitos posteriores para confrontar tanto a solução
+quanto o próprio método. Hipóteses podem ser sustentadas, revisadas ou
+refutadas. Mudanças do modelo recebem versionamento e decisão rastreável.
 
-A adequação é atribuída ao perfil executor — modelo, ambiente, configuração,
-instruções e versão EKOM — para um papel específico. Ela não é inferida apenas
-do nome do modelo nem de uma única execução bem-sucedida.
-
-A métrica experimental combina pontuação de autoridade e escopo, correção
-técnica, evidências, conhecimento EKOM e encerramento Git com desvios
-eliminatórios que não podem ser compensados pela soma. Aceitação exige amostra
-de múltiplas execuções e contextos.
-
-O protocolo, os limiares e o registro mínimo estão em
-[`ACTOR-EVALUATION.md`](ACTOR-EVALUATION.md). Durante a fase experimental, a
-avaliação não é uma etapa obrigatória de toda tarefa nem substitui decisão do
-Arquiteto.
+Avaliação de perfil executor permanece instrumento experimental opcional. Ela
+não é gate universal nem substitui avaliação da solução e decisão do Arquiteto.
 
 ## 12. Limites atuais
 
-O EKOM 2.1 define orquestração como coordenação normativa pela especificação.
-Não define concorrência, locks, filas ou escalonadores entre atores. O gate de
-encerramento controla somente execuções iniciadas pelo próprio agente e não
-constitui infraestrutura de coordenação distribuída.
-
-A coordenação multi-contexto organiza conhecimento, dependências e evidência;
-ela não executa publicação distribuída, não sincroniza automaticamente estados
-entre repositórios e não presume consistência apenas porque os recortes locais
-foram concluídos.
-
-O modelo também não afirma que documentação substitui código, testes,
-observabilidade ou julgamento humano. Sua utilidade deve ser medida pela
-capacidade de entregar e descartar hipóteses mais rapidamente, preservando
-conhecimento suficiente para compreender e verificar o resultado.
+O EKOM 3.0 não define infraestrutura distribuída de agentes e não promete
+autonomia completa de julgamento. O modelo atual não substitui Arquiteto,
+testes, revisão, observabilidade ou CI/CD. Autonomia completa permanece
+horizonte evolutivo condicionado a evidências futuras.

@@ -16,9 +16,9 @@
 
 ## 2. Domínios
 
-| Domínio | Fonte normativa | Estado normativo | Implementação | Código principal | Evidência | Cobertura |
-|---|---|---|---|---|---|---|
-| `<DOMÍNIO>` | `<ESPECIFICAÇÃO OU GAP>` | `<ESTADO>` | `<ESTADO>` | `<CAMINHOS>` | `<TESTES/BUILD/HARDWARE>` | `<NÍVEL>` |
+| Domínio | Fonte normativa | Estado do workflow | Código principal | Evidência | Cobertura |
+|---|---|---|---|---|---|
+| `<DOMÍNIO>` | `<ESPECIFICAÇÃO OU GAP>` | `<RASCUNHO E ANÁLISE/PRONTA/IMPLEMENTAÇÃO/VALIDAÇÃO/CONCLUÍDA>` | `<CAMINHOS>` | `<TESTES/BUILD/AMBIENTE REAL>` | `<NÍVEL>` |
 
 ## 3. Lacunas
 
@@ -34,3 +34,7 @@ Atualize este mapa quando uma especificação, fonte relacionada, autoridade,
 responsabilidade, evidência, estado ou lacuna mudar. Cada domínio deve apontar
 para uma especificação como autoridade normativa; não remova entrada sem indicar
 o destino do conhecimento.
+
+Somente o Arquiteto determina Concluída ou Reaberta. Estados mais granulares
+podem permanecer na especificação quando necessários, sem transferir essa
+autoridade.

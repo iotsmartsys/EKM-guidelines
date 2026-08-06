@@ -1,6 +1,6 @@
 # Instrução — Adoção inicial do EKOM em repositório legado
 
-Adote o EKOM 2.1 no repositório `<CAMINHO_DO_REPOSITORIO>`.
+Adote o EKOM 3.0 no repositório `<CAMINHO_DO_REPOSITORIO>`.
 
 O Arquiteto autoriza nesta tarefa somente levantamento e fundação documental.
 Não altere código, testes, dependências, build, automações ou configuração.
@@ -15,6 +15,10 @@ Não altere código, testes, dependências, build, automações ou configuraçã
 5. Não declare como requisito uma intenção que não esteja comprovada.
 6. Instale o `AGENTS.md` com roteamento para os perfis oficiais do EKOM.
 7. Termine com commit, push e árvore de trabalho limpa.
+
+A análise de implementabilidade é obrigatória, mas não exige Analista separado.
+Revisão é challenge consultivo e proporcional ao risco, não gate universal.
+Somente o Arquiteto determina conclusão ou reabertura.
 
 Não copie branch, SHA, comandos de leitura ou mensagem de commit para os
 documentos. O Git mantém essa trilha. A ordem não autoriza force push, merge,

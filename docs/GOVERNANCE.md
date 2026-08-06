@@ -6,7 +6,7 @@ Evoluir o EKOM por evidência, com autoridade humana e com a menor carga
 operacional capaz de manter conhecimento, decisões, auditabilidade e
 verificabilidade.
 
-**Modelo vigente:** EKOM 2.1.
+**Modelo vigente:** EKOM 3.0.
 
 A especificação é a fonte única da verdade para o comportamento pretendido e
 o principal objeto do pipeline. Mudanças no método não podem criar em prompts,
@@ -14,9 +14,10 @@ automações, relatórios ou código uma autoridade normativa concorrente.
 
 ## 2. Autoridade
 
-O Arquiteto humano decide intenção, prioridade e adoção das regras. Agentes
-podem propor mudanças e apresentar evidências, mas não tornam uma hipótese
-obrigatória por iniciativa própria.
+O Arquiteto humano decide intenção, prioridade, adoção das regras, suficiência
+das evidências e conclusão ou reabertura. Agentes podem propor mudanças e
+apresentar evidências, mas não tornam uma hipótese obrigatória por iniciativa
+própria.
 
 ## 3. Critério para adicionar governança
 
@@ -63,6 +64,10 @@ Para alterar o método:
 5. validar consistência textual e referências;
 6. entregar a mudança por commit e push.
 
+Uma revisão do próprio modelo registra explicitamente hipóteses sustentadas,
+revisadas, refutadas ou ainda não comprovadas. O histórico não é reescrito para
+fazer versões anteriores parecerem compatíveis com o entendimento novo.
+
 ## 7. Medida de sucesso
 
 O sucesso não é quantidade de documentos ou controles. Avalie:
@@ -74,3 +79,6 @@ O sucesso não é quantidade de documentos ou controles. Avalie:
 - evidências suficientes para verificar conclusões;
 - retrabalho e carga cognitiva;
 - confiança proporcional ao risco.
+
+Autonomia completa é horizonte evolutivo. Não é promovida a capacidade vigente
+sem experimentos materiais e decisão arquitetural versionada.
