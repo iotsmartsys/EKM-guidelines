@@ -3,9 +3,9 @@
 Use este arquivo somente quando o projeto precisar de regras locais além da
 diretriz externa aplicável.
 
-**Versão do documento:** 3.0
+**Versão do documento:** 3.1
 
-**Versão do modelo EKOM:** 3.0
+**Versão do modelo EKOM:** 3.1
 
 **Estado:** vigente
 
@@ -56,7 +56,12 @@ defeitos posteriores. O Arquiteto decide suficiência e risco residual.
 ## 5. Preservação e Git
 
 - Preserve arquitetura e precedente local salvo decisão explícita.
-- Registre decisões, lacunas, limitações, desvios e evidências materiais.
+- Especificação preserva contrato; ADR, decisão arquitetural durável;
+  relatório, execução; mapa, localização; changelog, estado resumido.
+- Análise, implementação, challenge e validação produzem relatórios separados;
+  somente o Arquiteto incorpora seus achados em fontes normativas.
+- Registre decisões, lacunas, limitações, desvios e evidências materiais na
+  fonte correspondente.
 - Não copie para documentos a linhagem já preservada pelo Git.
 - Inicie em branch derivada da `main`; commit e push são exigidos quando
   autorizados; merge, tag, release e deploy exigem ordem específica.

@@ -1,8 +1,8 @@
 # Método EKOM
 
-**Versão do documento:** 3.0
+**Versão do documento:** 3.1
 
-**Modelo EKOM:** 3.0
+**Modelo EKOM:** 3.1
 
 **Estado:** aprovado e vigente
 
@@ -49,7 +49,7 @@ evidência, corrigir a implementação ou evoluir a especificação.
 | ADR ou RFC | razão de decisão e relação com a especificação afetada |
 | Diretriz | regras do método e preservação local |
 | Mapa de conhecimento | localização de fontes e lacunas |
-| Changelog EKOM | decisões, lacunas, evidências e resultado das mudanças |
+| Changelog EKOM | estado resumido da transação e ponteiros para fontes materiais |
 | Dossiê | visão factual e navegação do sistema |
 | Código e testes | implementação e evidências técnicas |
 | Relatório | evidência de uma execução; não cria requisito |
@@ -82,7 +82,7 @@ orquestração. Ela contém o necessário para executar e avaliar o recorte:
 - requisitos, contratos, estados e falhas relevantes;
 - critérios de aceite e evidências esperadas;
 - impactos, restrições, incertezas e experimentos necessários;
-- resultado da análise de implementabilidade.
+- referência ao relatório de análise e estado vigente dos bloqueadores.
 
 Versões concluídas são preservadas. Mudanças posteriores usam nova versão
 relacionada por `Amends`, `Supersedes`, `Corrects` ou `Retires`, ou reabertura
@@ -111,6 +111,35 @@ infraestrutura, uma especificação coordenadora preserva o objetivo ponta a
 ponta e cada contexto mantém seu contrato local. A conclusão coordenada exige
 evidências materiais dos recortes e da integração; estados locais não a
 comprovam automaticamente.
+
+### 3.5 Roteamento documental
+
+Responsabilidade conceitual exige destino operacional. Projetos EKOM 3.1
+declaram no `AGENTS.md` e no mapa caminhos distintos para especificações,
+ADRs/RFCs, relatórios, changelog e mapa.
+
+```text
+Especificação → contrato vigente e evidências exigidas
+ADR/RFC       → decisão arquitetural durável e suas consequências
+Relatório     → fatos, achados e evidências de uma atuação
+Mapa          → localização, autoridade, relações e lacunas
+Changelog     → estado resumido da transação e referências
+Git           → autoria, diferenças e linhagem técnica
+```
+
+Análise, implementação, challenge e validação produzem relatórios separados.
+Esses relatórios podem recomendar mudança normativa, mas somente o Arquiteto a
+incorpora à especificação ou aceita uma ADR. Relatórios concluídos são
+históricos; correção factual usa adendo ou novo relatório relacionado.
+
+ADR é obrigatória quando a decisão cruza especificações ou componentes,
+estabelece fronteira ou direção de dependência, impõe restrição durável,
+envolve trade-offs relevantes ou substitui decisão arquitetural anterior.
+Comportamento local permanece na especificação; escolha local de execução,
+no relatório.
+
+O roteamento, os ciclos de vida e a migração estão definidos na
+[`ADR-0003`](adr/ADR-0003-DOCUMENT-ROUTING-AND-EVIDENCE-SEPARATION.md).
 
 ## 4. Ciclo de vida e workflow
 
@@ -173,7 +202,7 @@ A análise é obrigatória antes da implementação. Pode ser executada:
 - por agente especializado;
 - por especialista separado quando risco ou incerteza justificarem segregação.
 
-Seu resultado registra:
+Seu relatório registra:
 
 - evidências encontradas no repositório;
 - componentes e fontes impactados;
@@ -193,8 +222,8 @@ O Implementador:
 
 - implementa conforme a especificação autorizada;
 - realiza verificações técnicas proporcionais ao risco;
-- registra decisões locais;
-- produz relatório e evidências;
+- registra decisões locais no relatório de implementação;
+- produz relatório e evidências sem anexá-los à especificação;
 - declara dúvidas, limitações e desvios;
 - devolve ambiguidade normativa ao rascunho/análise.
 
@@ -293,8 +322,9 @@ pendente ou desconhecido bloqueia conclusão; cancelamento não fabrica sucesso.
 `EKOM-CHG-NNNN` identifica mudança; `EKOM-GAP-NNNN`, conhecimento ausente que
 precisa sobreviver. Projetos migrados podem manter namespaces EKM históricos.
 
-Uma transação registra objetivo, especificação relacionada, decisões, lacunas,
-evidências materiais e resultado. Não é diário de comandos ou espelho do Git.
+Uma transação registra objetivo, especificação relacionada, estado, lacunas,
+resultado e referências para ADRs ou relatórios materiais. Não é relatório,
+diário de comandos ou espelho do Git.
 Fechamento documental não substitui a decisão do Arquiteto de concluir a
 especificação.
 
@@ -313,6 +343,8 @@ Fundação recomendada:
 ```text
 AGENTS.md
 docs/
+├── adr/
+├── reports/
 ├── rfc/
 │   ├── KNOWLEDGE-MAP.md
 │   └── EKOM-CHANGELOG.md
@@ -332,7 +364,7 @@ não é gate universal nem substitui avaliação da solução e decisão do Arqu
 
 ## 12. Limites atuais
 
-O EKOM 3.0 não define infraestrutura distribuída de agentes e não promete
+O EKOM 3.1 não define infraestrutura distribuída de agentes e não promete
 autonomia completa de julgamento. O modelo atual não substitui Arquiteto,
 testes, revisão, observabilidade ou CI/CD. Autonomia completa permanece
 horizonte evolutivo condicionado a evidências futuras.

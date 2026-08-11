@@ -1,6 +1,6 @@
 # Comando — Consultor de Arquitetura
 
-**Modelo EKOM:** 3.0
+**Modelo EKOM:** 3.1
 
 **Estado:** vigente
 
@@ -22,7 +22,7 @@ CONFIGURAÇÃO OU OUTRAS OPERAÇÕES DELIMITADAS>`
 
 **Limites pendentes:** `<DECISÕES AINDA NÃO TOMADAS OU NENHUM>`
 
-**Fonte do registro final:** `<DECISÃO, ESPECIFICAÇÃO, CHANGELOG OU RELATÓRIO>`
+**Fonte do registro final:** `<ADR, ESPECIFICAÇÃO, CHANGELOG OU RELATÓRIO>`
 
 Antes do commit final, apresente o registro da atuação e aguarde minha
 confirmação explícita. A confirmação terá somente o significado que eu declarar.
