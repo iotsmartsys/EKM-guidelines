@@ -1,6 +1,6 @@
 # EKOM Guidelines
 
-**Modelo EKOM vigente:** 3.1
+**Modelo EKOM vigente:** 3.2
 
 **Estado:** aprovado e vigente
 
@@ -23,13 +23,15 @@ está registrada no [`ADR-0001`](docs/adr/ADR-0001-EKM-TO-EKOM.md); a revisão
 operacional 3.0 está no
 [`ADR-0002`](docs/adr/ADR-0002-EKOM-3-OPERATIONAL-AUTHORITY.md); o roteamento
 documental 3.1, no
-[`ADR-0003`](docs/adr/ADR-0003-DOCUMENT-ROUTING-AND-EVIDENCE-SEPARATION.md).
+[`ADR-0003`](docs/adr/ADR-0003-DOCUMENT-ROUTING-AND-EVIDENCE-SEPARATION.md); as
+visões do mapa 3.2, no
+[`ADR-0004`](docs/adr/ADR-0004-KNOWLEDGE-MAP-VISUAL-STRUCTURE.md).
 
 O EKOM deve começar pequeno. Governança é útil quando acelera decisões, reduz
 retrabalho ou aumenta confiança; não quando apenas multiplica documentos,
 agentes ou passagens operacionais.
 
-## Princípios da versão 3.1
+## Princípios da versão 3.2
 
 - A especificação é a fonte da verdade, nasce antes do código e possui ciclo de
   vida próprio.
@@ -194,7 +196,7 @@ integração na referência de produção permanece autorizada por decisão huma
 Especificação → fonte normativa do comportamento, limites, estados e aceite
 ADR/RFC       → razão de decisões; referencia a especificação afetada
 Diretriz      → regras do método e de preservação
-Mapa          → localização das especificações, fontes derivadas e lacunas
+Mapa          → autoridade, hierarquia, relações e lacunas
 Changelog     → estado resumido da transação e referências
 Código/testes → implementação e evidências técnicas
 Git           → commits, autoria, diferenças e linhagem
@@ -204,6 +206,10 @@ Relatório     → evidência de uma execução; não cria requisitos
 "Fonte da verdade" não significa "arquivo único". Para cada comportamento,
 existe uma autoridade normativa identificável; fontes derivadas não competem
 com ela.
+
+O mapa usa tabela para autoridade, árvore para hierarquia e Mermaid para
+relações materiais entre alvos. Árvore e diagrama seguem gatilhos proporcionais
+e podem ser declarados não aplicáveis com justificativa.
 
 ## Estrutura inicial recomendada
 
@@ -222,12 +228,13 @@ docs/
 ## Conteúdo
 
 - [`docs/EKOM-CONCEPT.md`](docs/EKOM-CONCEPT.md): definição, visão, problema e limites.
-- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 3.1.
+- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 3.2.
 - [`docs/VISION.md`](docs/VISION.md): estado futuro orientado por especificações.
 - [`docs/PRINCIPLES.md`](docs/PRINCIPLES.md): princípios normativos do EKOM.
 - [`docs/GLOSSARY.md`](docs/GLOSSARY.md): vocabulário canônico e termos legados.
 - [`docs/adr/ADR-0001-EKM-TO-EKOM.md`](docs/adr/ADR-0001-EKM-TO-EKOM.md): decisão de evolução de EKM para EKOM.
 - [`docs/adr/ADR-0003-DOCUMENT-ROUTING-AND-EVIDENCE-SEPARATION.md`](docs/adr/ADR-0003-DOCUMENT-ROUTING-AND-EVIDENCE-SEPARATION.md): roteamento e autoridade das fontes.
+- [`docs/adr/ADR-0004-KNOWLEDGE-MAP-VISUAL-STRUCTURE.md`](docs/adr/ADR-0004-KNOWLEDGE-MAP-VISUAL-STRUCTURE.md): tabela, árvore e diagrama proporcionais no mapa.
 - [`docs/ACTOR-EVALUATION.md`](docs/ACTOR-EVALUATION.md): avaliação experimental dos atores.
 - [`docs/DESIGN-DECISIONS.md`](docs/DESIGN-DECISIONS.md): razões e evolução das decisões.
 - [`docs/LEGACY-ADOPTION.md`](docs/LEGACY-ADOPTION.md): adoção incremental.
@@ -261,7 +268,7 @@ ou julgamento humano. Orquestração é a coordenação normativa do trabalho pe
 especificação, não uma alegação de automação total. Qualidade e aceleração
 continuam hipóteses a demonstrar em casos reais.
 - [`docs/EKOM-CONCEPT.md`](docs/EKOM-CONCEPT.md): definição, objetivo e limites.
-- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 3.1.
+- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 3.2.
 - [`docs/VISION.md`](docs/VISION.md): visão e horizonte evolutivo.
 - [`docs/PRINCIPLES.md`](docs/PRINCIPLES.md): princípios normativos.
 - [`docs/GOVERNANCE.md`](docs/GOVERNANCE.md): evolução e versionamento.
@@ -274,7 +281,7 @@ continuam hipóteses a demonstrar em casos reais.
 
 ## Limite atual e horizonte
 
-O EKOM 3.1 não promete substituição do Arquiteto nem autonomia completa de
+O EKOM 3.2 não promete substituição do Arquiteto nem autonomia completa de
 julgamento. A interpretação conservadora da pesquisa pública e dos experimentos
 registrados é que eles ainda não sustentam engenharia de software amplamente
 autônoma, de ponta a ponta, sem supervisão e autoridade humanas. A base pública

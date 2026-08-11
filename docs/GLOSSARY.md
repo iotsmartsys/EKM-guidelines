@@ -16,6 +16,9 @@
 | ADR | Registro de decisão arquitetural transversal ou durável, com contexto, alternativas, decisão e consequências; não substitui o contrato comportamental da especificação. |
 | Relatório | Registro histórico e não normativo dos fatos, achados e evidências de uma atuação. |
 | Roteamento documental | Associação obrigatória entre classe de conhecimento, destino, autoridade de escrita e ciclo de vida. |
+| Mapa de conhecimento | Fonte navegacional que combina índice de autoridade, árvore hierárquica, relações materiais e lacunas sem duplicar contratos. |
+| Árvore de conhecimento | Visão textual da contenção, composição e responsabilidade entre alvos, domínios e componentes. |
+| Diagrama de relações | Visão Mermaid pequena das conexões materiais entre alvos ou domínios separados. |
 | Evidência | Resultado observável e terminal capaz de sustentar ou limitar uma conclusão. |
 | Ator | Pessoa ou agente que executa uma capacidade delimitada e registra fatos e evidências sem assumir autoridade do Arquiteto. |
 | Arquiteto | Autoridade humana final sobre intenção, arquitetura, risco aceitável, relevância das críticas, suficiência das evidências, aprovação, conclusão ou reabertura e integração. |

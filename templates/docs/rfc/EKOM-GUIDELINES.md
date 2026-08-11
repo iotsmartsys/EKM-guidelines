@@ -3,9 +3,9 @@
 Use este arquivo somente quando o projeto precisar de regras locais além da
 diretriz externa aplicável.
 
-**Versão do documento:** 3.1
+**Versão do documento:** 3.2
 
-**Versão do modelo EKOM:** 3.1
+**Versão do modelo EKOM:** 3.2
 
 **Estado:** vigente
 
@@ -62,6 +62,8 @@ defeitos posteriores. O Arquiteto decide suficiência e risco residual.
   somente o Arquiteto incorpora seus achados em fontes normativas.
 - Registre decisões, lacunas, limitações, desvios e evidências materiais na
   fonte correspondente.
+- Reconcilie tabela, árvore e diagrama do mapa quando suas relações materiais
+  mudarem; uma visão não aplicável exige justificativa curta.
 - Não copie para documentos a linhagem já preservada pelo Git.
 - Inicie em branch derivada da `main`; commit e push são exigidos quando
   autorizados; merge, tag, release e deploy exigem ordem específica.

@@ -615,3 +615,9 @@ O caso completo está em
 [`IOTSMARTLINK154-FIRMWARE-VARIANTS-DOCUMENT-ROUTING.md`](case-studies/IOTSMARTLINK154-FIRMWARE-VARIANTS-DOCUMENT-ROUTING.md)
 e sustenta a [`ADR-0003`](adr/ADR-0003-DOCUMENT-ROUTING-AND-EVIDENCE-SEPARATION.md).
 O EKOM 3.1 operacionaliza o roteamento; sua eficácia ainda não está comprovada.
+
+A mesma evidência sustenta a evolução visual do mapa. A tabela preserva
+autoridade; a árvore tornou visível a composição; o Mermaid conectou client e
+coordenador pelo protocolo. A [`ADR-0004`](adr/ADR-0004-KNOWLEDGE-MAP-VISUAL-STRUCTURE.md)
+incorpora essa capacidade proporcionalmente no EKOM 3.2. A utilidade observada
+no caso não prova benefício universal para diagramas em repositórios simples.
