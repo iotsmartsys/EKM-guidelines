@@ -1,6 +1,6 @@
 # Instrução — Adoção inicial do EKOM em repositório legado
 
-Adote o EKOM 3.1 no repositório `<CAMINHO_DO_REPOSITORIO>`.
+Adote o EKOM 3.2 no repositório `<CAMINHO_DO_REPOSITORIO>`.
 
 O Arquiteto autoriza nesta tarefa somente levantamento e fundação documental.
 Não altere código, testes, dependências, build, automações ou configuração.
@@ -71,8 +71,9 @@ resposta mudar a interpretação ou o trabalho.
   ADR-0003 for satisfeito.
 - `docs/reports/`: análises, implementações, challenges e validações separados
   das fontes normativas.
-- `KNOWLEDGE-MAP.md`: fontes, domínios, evidências e lacunas, sem duplicar
-  especificações.
+- `KNOWLEDGE-MAP.md`: índice de autoridade, árvore de conhecimento, relações
+  Mermaid e lacunas, sem duplicar especificações; árvore e diagrama seguem
+  gatilhos proporcionais e exigem justificativa quando não aplicáveis.
 - `EKOM-CHANGELOG.md`: abra `EKOM-CHG-0001` e registre objetivo, estado,
   lacunas, resultado e referências para ADRs ou relatórios materiais.
 - `SYSTEM-DOSSIER.md`: visão factual do propósito, arquitetura, runtime, APIs,

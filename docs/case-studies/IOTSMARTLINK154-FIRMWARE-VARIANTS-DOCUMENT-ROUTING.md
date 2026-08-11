@@ -54,3 +54,7 @@ contrato permanece na especificação; decisão arquitetural durável vai para A
 execução vai para relatório; mapa localiza; changelog resume a transação; Git
 preserva a linhagem. A eficácia da correção ainda precisa ser confrontada em
 uma nova mudança pequena e não é presumida por esta incorporação.
+
+O valor específico da árvore e do diagrama sustenta também a
+[`ADR-0004`](../adr/ADR-0004-KNOWLEDGE-MAP-VISUAL-STRUCTURE.md), sem tornar
+visuais decorativos obrigatórios em repositórios simples.

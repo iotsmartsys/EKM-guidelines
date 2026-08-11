@@ -1,6 +1,6 @@
 # Instruções permanentes e roteamento EKOM
 
-**Modelo EKOM:** 3.1
+**Modelo EKOM:** 3.2
 
 **Modalidade:** capacidades referenciadas e governança proporcional
 
@@ -57,6 +57,8 @@ análise, mas deve declarar segregação quando ela for necessária.
 - Agentes registram fatos, decisões locais, dúvidas, limitações e desvios.
 - Análise, implementação, challenge e validação produzem relatórios separados;
   não são anexados à especificação.
+- O mapa combina índice de autoridade, árvore hierárquica e Mermaid de relações
+  conforme os gatilhos normativos da ADR-0004.
 - Somente o Arquiteto incorpora achados em fontes normativas, aceita ADRs e
   promove estados; exceção mecânica exige arquivos e transformação explícitos.
 - Somente o Arquiteto determina conclusão ou reabertura do workflow.

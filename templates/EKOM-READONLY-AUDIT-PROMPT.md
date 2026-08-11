@@ -3,7 +3,7 @@
 **Estado:** Experimental
 
 Use somente quando o Arquiteto solicitar uma revisão independente. Esta não é
-uma etapa obrigatória do fluxo EKOM 3.1 e não possui autoridade de aprovação.
+uma etapa obrigatória do fluxo EKOM 3.2 e não possui autoridade de aprovação.
 
 ```text
 Revise a integridade EKOM da mudança <EKOM-CHG-NNNN> no repositório

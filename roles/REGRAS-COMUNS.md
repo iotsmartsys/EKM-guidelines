@@ -1,6 +1,6 @@
 # Regras comuns dos perfis EKOM
 
-**Modelo EKOM aplicável:** 3.1
+**Modelo EKOM aplicável:** 3.2
 
 **Versão do perfil:** 2.1
 
@@ -111,6 +111,8 @@ o Arquiteto decide a suficiência do conjunto.
   para relatório, localização para mapa e estado resumido para changelog.
 - Registre decisões, lacunas, validações, limitações e resultado na fonte de
   autoridade correspondente.
+- Reconcilie índice, árvore e diagrama do mapa quando autoridade, contenção,
+  responsabilidade ou relação material mudar.
 - Não transforme changelog em diário nem copie a linhagem do Git.
 - Agentes registram fatos e estados sustentados por sua execução.
 - Apenas o Arquiteto determina que a especificação está Concluída ou Reaberta.

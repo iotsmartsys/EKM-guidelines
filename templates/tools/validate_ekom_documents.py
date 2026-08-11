@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Valida somente regras estruturais objetivas do roteamento EKOM 3.1."""
+"""Valida regras estruturais objetivas do roteamento e mapa EKOM 3.2."""
 
 from __future__ import annotations
 
@@ -70,9 +70,54 @@ def validate_spec(text: str) -> list[str]:
     ]
 
 
+def section_body(text: str, heading_prefix: str) -> str | None:
+    pattern = re.compile(
+        rf"^##\s+{re.escape(heading_prefix)}[^\n]*\n(.*?)(?=^##\s+|\Z)",
+        re.MULTILINE | re.DOTALL | re.IGNORECASE,
+    )
+    match = pattern.search(text)
+    return match.group(1) if match else None
+
+
+def validate_knowledge_map(text: str) -> list[str]:
+    errors: list[str] = []
+    required_sections = (
+        "1. Governança",
+        "2. Índice de domínios e autoridade",
+        "3. Árvore de conhecimento",
+        "4. Diagrama de relações",
+        "5. Lacunas",
+        "6. Manutenção",
+    )
+    found = headings(text)
+    for required in required_sections:
+        if required.lower() not in found:
+            errors.append(f"seção obrigatória do mapa ausente: {required}")
+
+    for tabular in ("1. Governança", "2. Índice de domínios e autoridade"):
+        body = section_body(text, tabular)
+        if body is not None and "|---" not in body:
+            errors.append(f"visão tabular sem tabela Markdown: {tabular}")
+
+    tree = section_body(text, "3. Árvore de conhecimento")
+    tree_not_applicable = bool(
+        tree and re.search(r"^\s*(?:\*\*)?não se aplica", tree, re.MULTILINE | re.IGNORECASE)
+    )
+    if tree is not None and "```text" not in tree and not tree_not_applicable:
+        errors.append("árvore deve conter bloco text ou justificativa 'Não se aplica'")
+
+    diagram = section_body(text, "4. Diagrama de relações")
+    diagram_not_applicable = bool(
+        diagram and re.search(r"^\s*(?:\*\*)?não se aplica", diagram, re.MULTILINE | re.IGNORECASE)
+    )
+    if diagram is not None and "```mermaid" not in diagram and not diagram_not_applicable:
+        errors.append("diagrama deve conter Mermaid ou justificativa 'Não se aplica'")
+    return errors
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="Valida o roteamento estrutural de documentos EKOM 3.1."
+        description="Valida o roteamento e o mapa estrutural do EKOM 3.2."
     )
     parser.add_argument("root", nargs="?", default=".", help="raiz do projeto")
     parser.add_argument(
@@ -102,6 +147,8 @@ def main() -> int:
             errors = validate_adr(path, text)
         elif len(parts) >= 2 and parts[:2] == ("docs", "specs"):
             errors = validate_spec(text)
+        if path.name.upper() == "KNOWLEDGE-MAP.MD":
+            errors.extend(validate_knowledge_map(text))
         for error in errors:
             failures.append(f"{relative}: {error}")
 

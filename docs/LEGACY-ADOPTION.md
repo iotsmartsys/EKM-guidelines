@@ -13,7 +13,7 @@ Essa ordem autoriza a etapa. O agente inicia o fluxo em uma branch derivada da
 `main`, com árvore de trabalho limpa, e termina com commit, push e árvore limpa.
 
 O projeto instala um `AGENTS.md` que aponta para os perfis oficiais do EKOM
-3.1. Depois da fundação, cada tarefa funcional identifica papel e
+3.2. Depois da fundação, cada tarefa funcional identifica papel e
 especificação. O agente lê regras comuns, exatamente um perfil e somente as
 fontes pertinentes ao recorte.
 
@@ -38,6 +38,10 @@ docs/
 Uma diretriz local é criada apenas quando não há diretriz externa aplicável ou
 existem regras próprias. Especificações são criadas para contratos confirmados
 ou funcionalidades que serão tocadas.
+
+O mapa preserva um índice de autoridade e acrescenta árvore ou Mermaid quando
+hierarquia ou conexão entre alvos for material. Visão não aplicável permanece
+declarada com justificativa curta.
 
 O `AGENTS.md` deve substituir todos os placeholders do template por caminhos,
 fontes técnicas, validações e invariantes reais do projeto antes do primeiro

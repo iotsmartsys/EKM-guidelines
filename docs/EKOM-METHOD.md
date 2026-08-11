@@ -1,8 +1,8 @@
 # Método EKOM
 
-**Versão do documento:** 3.1
+**Versão do documento:** 3.2
 
-**Modelo EKOM:** 3.1
+**Modelo EKOM:** 3.2
 
 **Estado:** aprovado e vigente
 
@@ -140,6 +140,27 @@ no relatório.
 
 O roteamento, os ciclos de vida e a migração estão definidos na
 [`ADR-0003`](adr/ADR-0003-DOCUMENT-ROUTING-AND-EVIDENCE-SEPARATION.md).
+
+### 3.6 Visões do mapa de conhecimento
+
+O mapa combina três perguntas sem duplicar contratos:
+
+| Visão | Pergunta |
+|---|---|
+| Índice tabular | Onde está a fonte e qual sua autoridade? |
+| Árvore | Como alvos, domínios e responsabilidades se organizam? |
+| Diagrama | Como elementos separados se conectam ou dependem entre si? |
+
+O índice de autoridade é obrigatório. A árvore é obrigatória quando contenção,
+composição ou responsabilidade for material, especialmente com múltiplos
+runtime targets ou três ou mais domínios relacionados. Mermaid é obrigatório
+quando alvos implantáveis separadamente se conectarem por protocolo, API,
+eventos ou dados, ou quando um fluxo cruzar três ou mais fronteiras.
+
+Uma visão não aplicável permanece declarada com justificativa curta. Visuais
+devem ser pequenos, estáveis e navegacionais; comportamento detalhado continua
+na especificação ou ADR apontada pelo mapa. A regra completa está na
+[`ADR-0004`](adr/ADR-0004-KNOWLEDGE-MAP-VISUAL-STRUCTURE.md).
 
 ## 4. Ciclo de vida e workflow
 
@@ -364,7 +385,7 @@ não é gate universal nem substitui avaliação da solução e decisão do Arqu
 
 ## 12. Limites atuais
 
-O EKOM 3.1 não define infraestrutura distribuída de agentes e não promete
+O EKOM 3.2 não define infraestrutura distribuída de agentes e não promete
 autonomia completa de julgamento. O modelo atual não substitui Arquiteto,
 testes, revisão, observabilidade ou CI/CD. Autonomia completa permanece
 horizonte evolutivo condicionado a evidências futuras.

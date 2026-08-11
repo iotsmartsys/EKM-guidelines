@@ -149,8 +149,11 @@ testes verdes como prova suficiente e autonomia completa como capacidade atual.
 
 ## Estado do método
 
-O EKOM 3.1 está aprovado e vigente para adoção. Autonomia completa permanece
+O EKOM 3.2 está aprovado e vigente para adoção. Autonomia completa permanece
 horizonte evolutivo, não capacidade comprovada. A decisão está registrada no
 [`ADR-0002`](adr/ADR-0002-EKOM-3-OPERATIONAL-AUTHORITY.md), com o roteamento
 documental operacionalizado pela
 [`ADR-0003`](adr/ADR-0003-DOCUMENT-ROUTING-AND-EVIDENCE-SEPARATION.md).
+O mapa combina índice de autoridade, árvore de conhecimento e diagrama de
+relações conforme a
+[`ADR-0004`](adr/ADR-0004-KNOWLEDGE-MAP-VISUAL-STRUCTURE.md).

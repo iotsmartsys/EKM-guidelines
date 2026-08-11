@@ -950,3 +950,24 @@ não automática.
 
 **Estado da decisão:** confirmada pelo Arquiteto para incorporação ao EKOM 3.1;
 a eficácia ainda será confrontada em novo experimento pequeno.
+
+## DD-035 — O mapa combina autoridade, hierarquia e relações
+
+**Problema observado:** o índice tabular do mapa localizava fontes, mas não
+representava adequadamente composição e conexão entre alvos separados. No
+IoTSmartLink15.4, árvore e diagrama permitiram compreender product firmware,
+board, componentes, client e coordenador sem varredura ampla do repositório.
+
+**Decisão:** adotar a
+[`ADR-0004`](adr/ADR-0004-KNOWLEDGE-MAP-VISUAL-STRUCTURE.md) e promover o modelo
+para EKOM 3.2. Tabela de autoridade é sempre obrigatória; árvore e Mermaid são
+obrigatórios quando seus gatilhos materiais forem satisfeitos e explicitamente
+não aplicáveis nos demais casos.
+
+**Proporcionalidade:** visuais permanecem pequenos e navegacionais, não
+duplicam contrato nem inventariam arquivos. A guarda verifica presença ou
+justificativa; qualidade semântica continua sob julgamento humano.
+
+**Estado da decisão:** confirmada pelo Arquiteto para incorporação normativa e
+integração na `main` como EKOM 3.2; eficácia além do caso observado permanece
+hipótese a confrontar.
