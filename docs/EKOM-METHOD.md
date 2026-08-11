@@ -1,8 +1,8 @@
 # Método EKOM
 
-**Versão do documento:** 3.2
+**Versão do documento:** 3.3
 
-**Modelo EKOM:** 3.2
+**Modelo EKOM:** 3.3
 
 **Estado:** aprovado e vigente
 
@@ -87,6 +87,31 @@ orquestração. Ela contém o necessário para executar e avaliar o recorte:
 Versões concluídas são preservadas. Mudanças posteriores usam nova versão
 relacionada por `Amends`, `Supersedes`, `Corrects` ou `Retires`, ou reabertura
 explícita pelo Arquiteto quando a convenção local assim determinar.
+
+### 3.2.1 Confronto de autoridade durante a autoria
+
+Antes de recomendar prontidão, o Autor confronta a proposta com as fontes que
+já governam cada elemento afetado. O recorte considera comportamento, API,
+estado, ciclo de vida, persistência, compatibilidade, nomenclatura e fronteiras,
+e não apenas dependências diretas de código.
+
+O confronto mínimo:
+
+1. localiza autoridades pelo mapa, dossiê, especificações e ADRs pertinentes;
+2. classifica a relação como preservação, `New`, `Amends`, `Supersedes`,
+   `Corrects` ou `Retires`;
+3. identifica conflito, exceção, decisão transversal e fonte que precisa
+   mudar;
+4. registra a relação vigente na especificação e a matriz detalhada no
+   relatório de análise;
+5. devolve ao Arquiteto qualquer relação ambígua ou conflito normativo antes da
+   prontidão.
+
+Esse confronto é orientado por impacto, não uma leitura universal do acervo.
+Uma especificação exploratória pode nascer com lacunas, mas não pode ser
+recomendada como pronta enquanto outra autoridade aplicável estiver omitida ou
+contraditória. Ler uma fonte apenas como contexto técnico não equivale a
+confrontar seu contrato.
 
 ### 3.3 Critérios assertáveis sem fetichizar testes
 
@@ -213,6 +238,12 @@ para localizar impactos, restrições e incertezas.
 Ele diferencia fatos observados, decisões confirmadas, recomendações e
 pendências. Não transforma comportamento legado em requisito nem preferência
 técnica em decisão.
+
+Antes de recomendar prontidão, identifica os elementos normativos afetados,
+localiza suas autoridades e declara se a proposta preserva, altera, substitui,
+corrige ou descontinua cada contrato pertinente. O detalhamento do confronto
+permanece no relatório de análise; a especificação conserva somente as relações
+e decisões normativas vigentes.
 
 ### 5.2 Análise de implementabilidade
 
@@ -385,7 +416,7 @@ não é gate universal nem substitui avaliação da solução e decisão do Arqu
 
 ## 12. Limites atuais
 
-O EKOM 3.2 não define infraestrutura distribuída de agentes e não promete
+O EKOM 3.3 não define infraestrutura distribuída de agentes e não promete
 autonomia completa de julgamento. O modelo atual não substitui Arquiteto,
 testes, revisão, observabilidade ou CI/CD. Autonomia completa permanece
 horizonte evolutivo condicionado a evidências futuras.

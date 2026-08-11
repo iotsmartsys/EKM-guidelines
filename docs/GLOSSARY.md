@@ -9,6 +9,7 @@
 | Foco adicional | Prioridade, dúvida ou área de atenção indicada na ordem; orienta profundidade ou sequência sem reduzir a especificação. |
 | Atuação parcial | Diagnóstico, investigação ou execução explicitamente limitada que não promove o estado formal representativo da versão inteira. |
 | Fonte única da verdade | Autoridade normativa única por comportamento; não exige que todo conhecimento esteja em um único arquivo. |
+| Confronto de autoridade normativa | Verificação orientada por impacto que localiza as fontes vigentes dos elementos afetados, classifica a relação da mudança e impede prontidão diante de conflito, omissão ou alcance sem decisão. |
 | Plano de controle | Função exercida pela especificação ao determinar recorte, passagens, critérios e relações do pipeline. |
 | Orquestração | Coordenação do ciclo de engenharia pela especificação entre humanos, agentes de IA, automações, implementação, validação, evidências e evolução. |
 | Pipeline | Ciclo governado de rascunho e análise, prontidão, implementação, validação, conclusão e aprendizado; challenge é consultivo. |

@@ -1,6 +1,6 @@
 # Comando mínimo — perfil EKOM referenciado
 
-**Modelo EKOM:** 3.2
+**Modelo EKOM:** 3.3
 
 **Estado:** vigente
 
@@ -15,6 +15,10 @@ intenção ou mudança é:
 Siga o roteamento definido no `AGENTS.md` do projeto. Leia somente as regras
 comuns, o perfil correspondente ao papel, a especificação indicada e as fontes
 técnicas pertinentes.
+
+Na autoria, localize e confronte as autoridades normativas dos elementos
+afetados antes de recomendar prontidão; registre relações na especificação e a
+matriz detalhada no relatório de análise.
 
 **Foco adicional, se houver:** `<FOCO OU NENHUM>`
 

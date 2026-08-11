@@ -12,6 +12,13 @@ Para cada comportamento existe uma especificação com autoridade normativa
 identificável. Fontes relacionadas explicam, implementam, verificam ou
 registram a evolução; não criam contratos concorrentes.
 
+## Normative Authority Confrontation
+
+Antes da prontidão, toda mudança é confrontada com as autoridades normativas
+dos elementos que afeta. Relações de preservação, alteração, substituição,
+correção ou descontinuação permanecem explícitas; conflito ou autoridade
+omitida retorna à decisão do Arquiteto.
+
 ## Knowledge over Code
 
 Código preserva a implementação atual, não necessariamente a intenção.

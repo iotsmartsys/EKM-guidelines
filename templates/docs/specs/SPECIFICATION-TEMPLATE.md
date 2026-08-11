@@ -11,9 +11,18 @@
 **Decisão do Arquiteto:** Em análise | Pronta para implementação | Em
 validação | Concluída | Reaberta
 
-**Relação normativa:** Nova [`New`] | Altera [`Amends`] `<ID@VERSÃO>` |
-Substitui [`Supersedes`] `<ID@VERSÃO>` | Corrige [`Corrects`] `<ID@VERSÃO>` |
-Descontinua [`Retires`] `<ID@VERSÃO>`
+**Relações normativas:**
+
+- Nova [`New`] — somente quando não existir autoridade anterior para o
+  comportamento; ou
+- Altera [`Amends`] `<ID@VERSÃO>`;
+- Substitui [`Supersedes`] `<ID@VERSÃO>`;
+- Corrige [`Corrects`] `<ID@VERSÃO>`;
+- Descontinua [`Retires`] `<ID@VERSÃO>`.
+
+Declare uma linha por fonte afetada quando houver mais de uma relação. Uma
+especificação nova em seu recorte ainda pode alterar contratos públicos, ciclos
+de vida ou nomenclatura governados por outras fontes.
 
 ## 1. Objetivo e contexto
 
@@ -104,6 +113,10 @@ OBJETIVO FOR MULTI-CONTEXTO, IDENTIFIQUE A FONTE RESPONSÁVEL, A DEPENDÊNCIA E 
 ESTADO MATERIAL NECESSÁRIO SEM DUPLICAR O CONTEÚDO EXTERNO>`
 
 **ADRs relacionadas:** `<CAMINHOS OU NENHUMA>`
+
+**Autoridades confrontadas:** `<FONTES NORMATIVAS DOS COMPORTAMENTOS, APIS,
+ESTADOS, CICLOS DE VIDA, NOMES E FRONTEIRAS AFETADOS; A MATRIZ DETALHADA
+PERMANECE NO RELATÓRIO DE ANÁLISE>`
 
 **Relatórios esperados:** análise | implementação | revisão, se acionada |
 validação, conforme risco e recorte.

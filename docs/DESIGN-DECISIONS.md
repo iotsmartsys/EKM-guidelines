@@ -971,3 +971,25 @@ justificativa; qualidade semântica continua sob julgamento humano.
 **Estado da decisão:** confirmada pelo Arquiteto para incorporação normativa e
 integração na `main` como EKOM 3.2; eficácia além do caso observado permanece
 hipótese a confrontar.
+
+## DD-036 — A autoria confronta autoridades antes da prontidão
+
+**Problema observado:** na especificação de deep sleep do
+`IoTSmartLink15.4`, fontes anteriores foram lidas, mas não confrontadas como
+autoridades. A proposta recomendou prontidão enquanto alterava implicitamente
+API pública, lifecycle e nomenclatura governados por especificações Active.
+
+**Decisão:** adotar a
+[`ADR-0005`](adr/ADR-0005-SPECIFICATION-AUTHORITY-CONFRONTATION.md) e promover o
+modelo para EKOM 3.3. O Autor identifica os elementos afetados, localiza suas
+autoridades, classifica as relações e devolve conflitos ao Arquiteto antes da
+prontidão. A especificação registra relações vigentes; o relatório de análise,
+a matriz detalhada. O Analista reconfronta ambas.
+
+**Proporcionalidade:** o confronto é orientado por impacto, não leitura integral
+do acervo. Uma mudança isolada pode produzir uma matriz mínima; a obrigação
+cresce somente quando comportamento, API, estado, lifecycle, persistência,
+compatibilidade, nome ou fronteira cruzarem autoridades.
+
+**Estado da decisão:** confirmada pelo Arquiteto para incorporação ao EKOM 3.3;
+sua eficácia na redução de retornos tardios permanece hipótese a confrontar.

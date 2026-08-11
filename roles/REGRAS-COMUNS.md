@@ -1,8 +1,8 @@
 # Regras comuns dos perfis EKOM
 
-**Modelo EKOM aplicável:** 3.2
+**Modelo EKOM aplicável:** 3.3
 
-**Versão do perfil:** 2.1
+**Versão do perfil:** 2.2
 
 **Estado:** vigente
 
@@ -47,6 +47,9 @@ determinarem segregação.
 - Código e testes implementam ou evidenciam; não criam requisito por inferência.
 - Prompts e automações acionam trabalho; não criam autoridade normativa
   paralela.
+- Uma especificação nova não prevalece silenciosamente sobre outra fonte
+  normativa vigente. Relação indefinida ou conflito entre autoridades retorna
+  ao Arquiteto antes da prontidão.
 
 > **Specifications orchestrate. Code implements.**
 

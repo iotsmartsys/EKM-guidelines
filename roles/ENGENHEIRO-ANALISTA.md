@@ -1,6 +1,6 @@
 # Perfil EKOM — Engenheiro Analista
 
-**Versão do perfil:** 2.0
+**Versão do perfil:** 2.1
 
 **Estado:** capacidade especializada vigente e não obrigatória como ator separado
 
@@ -22,6 +22,8 @@ workflow; este ator separado não é.
   inclusive build, protótipo, API, banco, infraestrutura ou hardware.
 - Diferencie decisão normativa ausente, escolha normal de implementação e
   dependência externa pendente.
+- Reconfronte as autoridades normativas afetadas e verifique se relações,
+  emendas, exceções e conflitos foram declarados antes de recomendar prontidão.
 - Não altere implementação nem declare aprovação final.
 
 ## Saída

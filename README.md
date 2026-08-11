@@ -1,6 +1,6 @@
 # EKOM Guidelines
 
-**Modelo EKOM vigente:** 3.2
+**Modelo EKOM vigente:** 3.3
 
 **Estado:** aprovado e vigente
 
@@ -25,16 +25,20 @@ operacional 3.0 está no
 documental 3.1, no
 [`ADR-0003`](docs/adr/ADR-0003-DOCUMENT-ROUTING-AND-EVIDENCE-SEPARATION.md); as
 visões do mapa 3.2, no
-[`ADR-0004`](docs/adr/ADR-0004-KNOWLEDGE-MAP-VISUAL-STRUCTURE.md).
+[`ADR-0004`](docs/adr/ADR-0004-KNOWLEDGE-MAP-VISUAL-STRUCTURE.md); e o confronto
+de autoridade na autoria 3.3, no
+[`ADR-0005`](docs/adr/ADR-0005-SPECIFICATION-AUTHORITY-CONFRONTATION.md).
 
 O EKOM deve começar pequeno. Governança é útil quando acelera decisões, reduz
 retrabalho ou aumenta confiança; não quando apenas multiplica documentos,
 agentes ou passagens operacionais.
 
-## Princípios da versão 3.2
+## Princípios da versão 3.3
 
 - A especificação é a fonte da verdade, nasce antes do código e possui ciclo de
   vida próprio.
+- Antes da prontidão, o Autor confronta a mudança com as autoridades normativas
+  dos elementos afetados e torna relações ou conflitos explícitos.
 - Conhecimento, decisões e evidências permanecem persistentes, rastreáveis e
   evolutivos.
 - Agentes de IA podem investigar, implementar, verificar, documentar e produzir
@@ -81,7 +85,7 @@ reabertura. A fonte Mermaid reutilizável está em
 | Participante ou capacidade | Responsabilidade |
 |---|---|
 | Arquiteto | decidir arquitetura, prioridade, risco aceitável, relevância das críticas, suficiência das evidências, aprovação, conclusão e reabertura |
-| Autor da Especificação | investigar repositório e arquitetura e transformar intenção em contrato implementável e verificável |
+| Autor da Especificação | investigar repositório e arquitetura, confrontar autoridades afetadas e transformar intenção em contrato implementável e verificável |
 | Análise de implementabilidade | registrar evidências, impactos, restrições, incertezas, experimentos necessários e bloqueadores; pode ser exercida pelo Autor, por IA, por agente especializado ou por especialista separado |
 | Implementador | implementar conforme a especificação, verificar tecnicamente, registrar decisões locais, dúvidas, limitações, desvios e evidências |
 | Crítico ou Revisor | oferecer challenge consultivo, sem autoridade para aprovar, reprovar, redefinir aceite ou reabrir decisões sem nova evidência |
@@ -228,13 +232,14 @@ docs/
 ## Conteúdo
 
 - [`docs/EKOM-CONCEPT.md`](docs/EKOM-CONCEPT.md): definição, visão, problema e limites.
-- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 3.2.
+- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 3.3.
 - [`docs/VISION.md`](docs/VISION.md): estado futuro orientado por especificações.
 - [`docs/PRINCIPLES.md`](docs/PRINCIPLES.md): princípios normativos do EKOM.
 - [`docs/GLOSSARY.md`](docs/GLOSSARY.md): vocabulário canônico e termos legados.
 - [`docs/adr/ADR-0001-EKM-TO-EKOM.md`](docs/adr/ADR-0001-EKM-TO-EKOM.md): decisão de evolução de EKM para EKOM.
 - [`docs/adr/ADR-0003-DOCUMENT-ROUTING-AND-EVIDENCE-SEPARATION.md`](docs/adr/ADR-0003-DOCUMENT-ROUTING-AND-EVIDENCE-SEPARATION.md): roteamento e autoridade das fontes.
 - [`docs/adr/ADR-0004-KNOWLEDGE-MAP-VISUAL-STRUCTURE.md`](docs/adr/ADR-0004-KNOWLEDGE-MAP-VISUAL-STRUCTURE.md): tabela, árvore e diagrama proporcionais no mapa.
+- [`docs/adr/ADR-0005-SPECIFICATION-AUTHORITY-CONFRONTATION.md`](docs/adr/ADR-0005-SPECIFICATION-AUTHORITY-CONFRONTATION.md): confronto proporcional das autoridades afetadas durante a autoria.
 - [`docs/ACTOR-EVALUATION.md`](docs/ACTOR-EVALUATION.md): avaliação experimental dos atores.
 - [`docs/DESIGN-DECISIONS.md`](docs/DESIGN-DECISIONS.md): razões e evolução das decisões.
 - [`docs/LEGACY-ADOPTION.md`](docs/LEGACY-ADOPTION.md): adoção incremental.
@@ -268,7 +273,7 @@ ou julgamento humano. Orquestração é a coordenação normativa do trabalho pe
 especificação, não uma alegação de automação total. Qualidade e aceleração
 continuam hipóteses a demonstrar em casos reais.
 - [`docs/EKOM-CONCEPT.md`](docs/EKOM-CONCEPT.md): definição, objetivo e limites.
-- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 3.2.
+- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 3.3.
 - [`docs/VISION.md`](docs/VISION.md): visão e horizonte evolutivo.
 - [`docs/PRINCIPLES.md`](docs/PRINCIPLES.md): princípios normativos.
 - [`docs/GOVERNANCE.md`](docs/GOVERNANCE.md): evolução e versionamento.
@@ -281,7 +286,7 @@ continuam hipóteses a demonstrar em casos reais.
 
 ## Limite atual e horizonte
 
-O EKOM 3.2 não promete substituição do Arquiteto nem autonomia completa de
+O EKOM 3.3 não promete substituição do Arquiteto nem autonomia completa de
 julgamento. A interpretação conservadora da pesquisa pública e dos experimentos
 registrados é que eles ainda não sustentam engenharia de software amplamente
 autônoma, de ponta a ponta, sem supervisão e autoridade humanas. A base pública

@@ -56,8 +56,9 @@ falha, ainda que o Arquiteto aceite conscientemente o risco residual.
 
 O Autor transforma intenção em contrato verificável. Consulta repositório,
 arquitetura, conhecimento e precedentes para fundamentar a proposta e sua
-implementabilidade. IA pode ampliar a investigação sem converter inferência em
-decisão.
+implementabilidade. Antes da prontidão, confronta a proposta com as autoridades
+normativas dos comportamentos, APIs, estados, ciclos de vida, nomes e fronteiras
+afetados. IA pode ampliar a investigação sem converter inferência em decisão.
 
 ### Análise de implementabilidade
 
@@ -149,7 +150,7 @@ testes verdes como prova suficiente e autonomia completa como capacidade atual.
 
 ## Estado do método
 
-O EKOM 3.2 está aprovado e vigente para adoção. Autonomia completa permanece
+O EKOM 3.3 está aprovado e vigente para adoção. Autonomia completa permanece
 horizonte evolutivo, não capacidade comprovada. A decisão está registrada no
 [`ADR-0002`](adr/ADR-0002-EKOM-3-OPERATIONAL-AUTHORITY.md), com o roteamento
 documental operacionalizado pela
@@ -157,3 +158,5 @@ documental operacionalizado pela
 O mapa combina índice de autoridade, árvore de conhecimento e diagrama de
 relações conforme a
 [`ADR-0004`](adr/ADR-0004-KNOWLEDGE-MAP-VISUAL-STRUCTURE.md).
+O confronto de autoridade normativa durante a autoria está registrado na
+[`ADR-0005`](adr/ADR-0005-SPECIFICATION-AUTHORITY-CONFRONTATION.md).

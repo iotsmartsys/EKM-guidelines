@@ -6,7 +6,7 @@ Evoluir o EKOM por evidência, com autoridade humana e com a menor carga
 operacional capaz de manter conhecimento, decisões, auditabilidade e
 verificabilidade.
 
-**Modelo vigente:** EKOM 3.2.
+**Modelo vigente:** EKOM 3.3.
 
 A especificação é a fonte única da verdade para o comportamento pretendido e
 o principal objeto do pipeline. Mudanças no método não podem criar em prompts,

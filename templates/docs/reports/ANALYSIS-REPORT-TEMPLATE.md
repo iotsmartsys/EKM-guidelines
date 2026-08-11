@@ -12,6 +12,16 @@
 
 > Este relatório registra uma atuação e não altera fontes normativas.
 
+## Confronto de autoridades normativas
+
+| Elemento afetado | Fonte vigente | Relação proposta | Conflito ou ação requerida |
+|---|---|---|---|
+| `<COMPORTAMENTO, API, ESTADO, LIFECYCLE, NOME OU FRONTEIRA>` | `<SPEC, ADR OU DIRETRIZ>` | Preserva | `Nenhuma` |
+
+Use `New`, `Amends`, `Supersedes`, `Corrects` ou `Retires` quando aplicável.
+Relação ambígua, autoridade omitida ou conflito vigente impede recomendação de
+prontidão até decisão do Arquiteto.
+
 ## Resultado
 
 **Recomendação:** Prontidão | Retorno ao rascunho/análise
