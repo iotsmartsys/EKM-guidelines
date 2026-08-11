@@ -112,6 +112,12 @@ def validate_knowledge_map(text: str) -> list[str]:
     )
     if diagram is not None and "```mermaid" not in diagram and not diagram_not_applicable:
         errors.append("diagrama deve conter Mermaid ou justificativa 'Não se aplica'")
+    if diagram is not None:
+        for block in re.findall(r"```mermaid\s*(.*?)```", diagram, re.DOTALL | re.IGNORECASE):
+            if re.search(r"<[A-ZÀ-Ü][^>\n]*>", block):
+                errors.append(
+                    "Mermaid contém placeholder entre <...>; use texto sem delimitadores HTML"
+                )
     return errors
 
 

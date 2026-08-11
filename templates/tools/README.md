@@ -8,7 +8,8 @@ do mapa EKOM 3.2:
 - ausência de headings típicos de relatório em especificações.
 - presença do índice, árvore e diagrama no mapa;
 - árvore ou justificativa explícita de não aplicabilidade;
-- Mermaid ou justificativa explícita de não aplicabilidade.
+- Mermaid ou justificativa explícita de não aplicabilidade;
+- ausência de placeholders `<...>` que o Mermaid interpreta como HTML.
 
 Uso sobre todo o projeto:
 
