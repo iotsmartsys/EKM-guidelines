@@ -51,7 +51,7 @@ ou mais fronteiras. Caso contrário, registre `Não se aplica` e a justificativa
 
 ```mermaid
 flowchart LR
-    A["<ALVO OU DOMÍNIO A>"] -->|"<PROTOCOLO, API OU FLUXO>"| B["<ALVO OU DOMÍNIO B>"]
+    A["ALVO OU DOMÍNIO A"] -->|"PROTOCOLO, API OU FLUXO"| B["ALVO OU DOMÍNIO B"]
 ```
 
 Mantenha o diagrama pequeno e estável. Detalhes comportamentais pertencem às
