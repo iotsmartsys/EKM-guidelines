@@ -1,6 +1,6 @@
 # Instrução — Adoção inicial do EKOM em repositório legado
 
-Adote o EKOM 3.0 no repositório `<CAMINHO_DO_REPOSITORIO>`.
+Adote o EKOM 3.1 no repositório `<CAMINHO_DO_REPOSITORIO>`.
 
 O Arquiteto autoriza nesta tarefa somente levantamento e fundação documental.
 Não altere código, testes, dependências, build, automações ou configuração.
@@ -28,6 +28,8 @@ tag, release ou deploy.
 
 ```text
 AGENTS.md
+docs/adr/
+docs/reports/
 docs/rfc/KNOWLEDGE-MAP.md
 docs/rfc/EKOM-CHANGELOG.md
 docs/specs/SYSTEM-DOSSIER.md
@@ -65,10 +67,14 @@ resposta mudar a interpretação ou o trabalho.
 ## Ativos
 
 - `AGENTS.md`: porta de entrada curta para agentes.
+- `docs/adr/`: decisões arquiteturais duráveis, criadas quando o gatilho da
+  ADR-0003 for satisfeito.
+- `docs/reports/`: análises, implementações, challenges e validações separados
+  das fontes normativas.
 - `KNOWLEDGE-MAP.md`: fontes, domínios, evidências e lacunas, sem duplicar
   especificações.
-- `EKOM-CHANGELOG.md`: abra `EKOM-CHG-0001` e registre objetivo, decisões,
-  lacunas, evidências materiais e resultado.
+- `EKOM-CHANGELOG.md`: abra `EKOM-CHG-0001` e registre objetivo, estado,
+  lacunas, resultado e referências para ADRs ou relatórios materiais.
 - `SYSTEM-DOSSIER.md`: visão factual do propósito, arquitetura, runtime, APIs,
   dados, integrações, qualidade e operação.
 - especificações: somente contratos prioritários, em Rascunho [`Draft`] ou
@@ -82,6 +88,7 @@ Antes de encerrar:
 - valide caminhos e links;
 - confira estados entre especificações, mapa e changelog;
 - execute `git diff --check` ou equivalente;
+- execute a guarda estrutural do EKOM sobre os documentos novos ou alterados;
 - confirme que toda execução iniciada chegou a estado terminal e registre seu
   resultado ou limitação antes do commit, push e resposta conclusiva;
 - declare validações não executadas;

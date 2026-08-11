@@ -1,8 +1,8 @@
 # Regras comuns dos perfis EKOM
 
-**Modelo EKOM aplicável:** 3.0
+**Modelo EKOM aplicável:** 3.1
 
-**Versão do perfil:** 2.0
+**Versão do perfil:** 2.1
 
 **Estado:** vigente
 
@@ -67,19 +67,21 @@ restrições, incertezas, experimentos necessários e bloqueadores.
 Essa análise pode ser feita pelo Autor, com apoio de IA, por agente
 especializado ou por especialista separado. Leitura do código não certifica o
 que depende de compilação, protótipo, API, banco, infraestrutura ou hardware;
-registre o experimento necessário.
+registre o experimento necessário em relatório de análise separado. O relatório
+pode recomendar mudança normativa, mas não a incorpora à especificação.
 
 ### 4.2 Implementação
 
-O Implementador responde pela especificação autorizada, verificações técnicas,
-decisões locais, relatório, evidências, dúvidas, limitações e desvios. Restrição
-ou ambiguidade normativa retorna ao rascunho e análise.
+O Implementador responde pela especificação autorizada, verificações técnicas e
+relatório separado de decisões locais, evidências, dúvidas, limitações e
+desvios. Restrição ou ambiguidade normativa retorna ao rascunho e análise.
 
 ### 4.3 Challenge
 
-Crítica ou revisão é consultiva e proporcional ao risco. O crítico pode apontar
-riscos e pontos cegos ou declarar que não encontrou risco adicional relevante.
-Não redefine aceite, não impõe narrativa de testes, não reabre decisão sem nova
+Crítica ou revisão é consultiva e proporcional ao risco. O crítico registra em
+relatório separado riscos e pontos cegos ou declara que não encontrou risco
+adicional relevante. Não edita a especificação, não promove estado, não
+redefine aceite, não impõe narrativa de testes, não reabre decisão sem nova
 evidência e não substitui o Arquiteto.
 
 Outro agente não é automaticamente independente. Quando independência for
@@ -105,10 +107,18 @@ o Arquiteto decide a suficiência do conjunto.
 ## 6. Conhecimento, estado e entrega
 
 - Atualize somente conhecimento materialmente afetado.
-- Registre decisões, lacunas, validações, limitações e resultado.
+- Roteie contrato para especificação, arquitetura durável para ADR, execução
+  para relatório, localização para mapa e estado resumido para changelog.
+- Registre decisões, lacunas, validações, limitações e resultado na fonte de
+  autoridade correspondente.
 - Não transforme changelog em diário nem copie a linhagem do Git.
 - Agentes registram fatos e estados sustentados por sua execução.
 - Apenas o Arquiteto determina que a especificação está Concluída ou Reaberta.
+
+Analista, Implementador, Revisor e responsável pela validação escrevem seus
+relatórios nos destinos declarados pelo projeto. Somente o Arquiteto incorpora
+achados em especificações, aceita ADRs e promove estados normativos. Uma exceção
+de escrita mecânica deve nomear arquivos e transformação; não transfere decisão.
 
 Toda atuação material produz resultado versionável, commit e, quando
 autorizado, push; termina com árvore limpa. Não use commit vazio. A ordem normal

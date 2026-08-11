@@ -103,48 +103,11 @@ HUMANA, OU NENHUMA>`
 OBJETIVO FOR MULTI-CONTEXTO, IDENTIFIQUE A FONTE RESPONSÁVEL, A DEPENDÊNCIA E O
 ESTADO MATERIAL NECESSÁRIO SEM DUPLICAR O CONTEÚDO EXTERNO>`
 
-## 10. Análise de implementabilidade
+**ADRs relacionadas:** `<CAMINHOS OU NENHUMA>`
 
-**Executor da função:** Autor | Autor apoiado por IA | Agente especializado |
-Especialista separado
+**Relatórios esperados:** análise | implementação | revisão, se acionada |
+validação, conforme risco e recorte.
 
-**Recomendação:** Prontidão | Retorno ao rascunho/análise
-
-**Evidências encontradas:** `<FONTES MATERIAIS DO REPOSITÓRIO>`
-
-**Componentes impactados:** `<LISTA OBJETIVA>`
-
-**Restrições conhecidas:** `<LISTA OBJETIVA>`
-
-**Incertezas:** `<LISTA OBJETIVA OU NENHUMA>`
-
-**Experimentos necessários:** `<BUILD, PROTÓTIPO, API, BANCO, HARDWARE OU
-NENHUM>`
-
-**Bloqueadores:** `<LISTA OBJETIVA OU NENHUM>`
-
-**Decisões ausentes:** `<NENHUMA OU LISTA OBJETIVA>`
-
-A análise é obrigatória antes da implementação; ator separado não é. Somente o
-Arquiteto considera a especificação Pronta e autoriza execução.
-
-## 11. Evidências da implementação
-
-`<VALIDAÇÕES MATERIAIS, RESULTADOS E LIMITAÇÕES>`
-
-Esta seção é preenchida durante a implementação. Metadados de commit, branch e
-push permanecem no Git e não precisam ser copiados para a especificação.
-
-## 12. Validação e decisão do Arquiteto
-
-**Evidências confrontadas:** `<CONJUNTO MATERIAL>`
-
-**Challenge consultivo, se acionado:** `<ACHADOS, AUSÊNCIA DE RISCO ADICIONAL
-RELEVANTE OU NÃO SOLICITADO>`
-
-**Risco residual:** `<RISCO E TRATAMENTO>`
-
-**Decisão:** Retornar à implementação | Retornar ao rascunho/análise |
-Concluir | Reabrir
-
-Somente o Arquiteto determina conclusão ou reabertura.
+Análise, implementação, challenge e validação são registrados em relatórios
+separados. A especificação pode referenciá-los e refletir decisões incorporadas
+pelo Arquiteto, mas não recebe a narrativa dessas atuações.

@@ -927,3 +927,26 @@ cara ou incompleta; risco elevado ainda pode exigir segregação e revisão
 independente desenhada conscientemente.
 
 **Estado da decisão:** confirmada pelo Arquiteto para incorporação ao EKOM 3.0.
+
+## DD-034 — Responsabilidade documental exige destino operacional
+
+**Problema observado:** a separação conceitual entre especificação, ADR e
+relatório coexistia com um template que incorporava análise, implementação e
+validação à própria especificação. Sem destinos e autoridade de escrita, o
+experimento de variantes do IoTSmartLink15.4 acumulou histórico na fonte
+normativa e elevou a carga cognitiva.
+
+**Decisão:** adotar a
+[`ADR-0003`](adr/ADR-0003-DOCUMENT-ROUTING-AND-EVIDENCE-SEPARATION.md) e promover
+o modelo para EKOM 3.1. Especificação preserva contrato vigente; ADR, decisão
+arquitetural durável; relatório, atuação; mapa, localização; changelog, estado
+resumido; Git, linhagem. Templates e roteadores tornam essa separação
+operacional.
+
+**Proporcionalidade:** guardas automáticas cobrem apenas estrutura objetiva.
+Necessidade semântica de ADR, suficiência de evidência e relevância de achado
+continuam sob julgamento humano. Migração de conteúdo histórico é deliberada,
+não automática.
+
+**Estado da decisão:** confirmada pelo Arquiteto para incorporação ao EKOM 3.1;
+a eficácia ainda será confrontada em novo experimento pequeno.

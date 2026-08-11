@@ -20,6 +20,7 @@ tomar decisões reservadas ao Arquiteto.
 - Repositório: <CAMINHO>
 - Branch: <BRANCH DESIGNADA>
 - Especificação: <ID E VERSÃO>
+- Relatório: <CAMINHO EM docs/reports/<MUDANÇA>/implementation/>
 - Estado do workflow: Pronta, com implementação autorizada pelo Arquiteto
 - Árvore de trabalho inicial: deve estar limpa
 
@@ -91,6 +92,10 @@ Se a implementação exigir uma decisão não fornecida:
 ## 12. Entrega obrigatória
 
 - Atualize código, testes e conhecimento afetado.
+- Registre decisões locais, evidências, limitações e desvios no relatório de
+  implementação; não anexe a narrativa à especificação.
+- Não altere especificação ou ADR salvo autorização mecânica que nomeie arquivo
+  e transformação; essa exceção não transfere decisão normativa.
 - Registre somente evidências materiais.
 - Não declare o workflow Concluído; essa decisão pertence ao Arquiteto.
 - Antes de promover estado, criar o commit final, fazer push ou responder,

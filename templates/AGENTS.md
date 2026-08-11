@@ -1,6 +1,6 @@
 # Instruções permanentes e roteamento EKOM
 
-**Modelo EKOM:** 3.0
+**Modelo EKOM:** 3.1
 
 **Modalidade:** capacidades referenciadas e governança proporcional
 
@@ -41,7 +41,9 @@ análise, mas deve declarar segregação quando ela for necessária.
 ## Fontes locais do projeto
 
 - especificações: `<CAMINHO_DAS_ESPECIFICACOES>`;
-- decisões e evidências: `<CAMINHO_DO_CHANGELOG>`;
+- ADRs e RFCs: `<CAMINHO_DAS_DECISOES>`;
+- relatórios: `<CAMINHO_DOS_RELATORIOS>`;
+- transações e lacunas: `<CAMINHO_DO_CHANGELOG>`;
 - mapa de conhecimento: `<CAMINHO_DO_MAPA>`;
 - arquitetura e padrões: `<FONTES_TECNICAS_LOCAIS>`;
 - comandos canônicos: `<BUILD_TESTES_E_VALIDACOES>`.
@@ -53,6 +55,10 @@ análise, mas deve declarar segregação quando ela for necessária.
 - Testes são evidências, não prova absoluta; não os altere apenas para obter
   verde nem os use como argumento autorreferente.
 - Agentes registram fatos, decisões locais, dúvidas, limitações e desvios.
+- Análise, implementação, challenge e validação produzem relatórios separados;
+  não são anexados à especificação.
+- Somente o Arquiteto incorpora achados em fontes normativas, aceita ADRs e
+  promove estados; exceção mecânica exige arquivos e transformação explícitos.
 - Somente o Arquiteto determina conclusão ou reabertura do workflow.
 - `<REGRA_PERMANENTE_DO_PROJETO>`;
 - `<RESTRICAO_DE_SEGURANCA_OU_PLATAFORMA>`;

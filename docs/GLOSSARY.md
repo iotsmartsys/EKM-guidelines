@@ -13,6 +13,9 @@
 | Orquestração | Coordenação do ciclo de engenharia pela especificação entre humanos, agentes de IA, automações, implementação, validação, evidências e evolução. |
 | Pipeline | Ciclo governado de rascunho e análise, prontidão, implementação, validação, conclusão e aprendizado; challenge é consultivo. |
 | Fonte derivada | Código, teste, relatório ou automação que implementa, evidencia ou consome uma especificação sem criar requisito. |
+| ADR | Registro de decisão arquitetural transversal ou durável, com contexto, alternativas, decisão e consequências; não substitui o contrato comportamental da especificação. |
+| Relatório | Registro histórico e não normativo dos fatos, achados e evidências de uma atuação. |
+| Roteamento documental | Associação obrigatória entre classe de conhecimento, destino, autoridade de escrita e ciclo de vida. |
 | Evidência | Resultado observável e terminal capaz de sustentar ou limitar uma conclusão. |
 | Ator | Pessoa ou agente que executa uma capacidade delimitada e registra fatos e evidências sem assumir autoridade do Arquiteto. |
 | Arquiteto | Autoridade humana final sobre intenção, arquitetura, risco aceitável, relevância das críticas, suficiência das evidências, aprovação, conclusão ou reabertura e integração. |

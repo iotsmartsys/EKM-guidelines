@@ -1,6 +1,6 @@
 # EKOM Guidelines
 
-**Modelo EKOM vigente:** 3.0
+**Modelo EKOM vigente:** 3.1
 
 **Estado:** aprovado e vigente
 
@@ -21,13 +21,15 @@ os identificadores `EKM-CHG` e `EKM-GAP` e os registros de experimentos
 anteriores são preservados como história e compatibilidade. A mudança de nome
 está registrada no [`ADR-0001`](docs/adr/ADR-0001-EKM-TO-EKOM.md); a revisão
 operacional 3.0 está no
-[`ADR-0002`](docs/adr/ADR-0002-EKOM-3-OPERATIONAL-AUTHORITY.md).
+[`ADR-0002`](docs/adr/ADR-0002-EKOM-3-OPERATIONAL-AUTHORITY.md); o roteamento
+documental 3.1, no
+[`ADR-0003`](docs/adr/ADR-0003-DOCUMENT-ROUTING-AND-EVIDENCE-SEPARATION.md).
 
 O EKOM deve começar pequeno. Governança é útil quando acelera decisões, reduz
 retrabalho ou aumenta confiança; não quando apenas multiplica documentos,
 agentes ou passagens operacionais.
 
-## Princípios da versão 3.0
+## Princípios da versão 3.1
 
 - A especificação é a fonte da verdade, nasce antes do código e possui ciclo de
   vida próprio.
@@ -193,7 +195,7 @@ Especificação → fonte normativa do comportamento, limites, estados e aceite
 ADR/RFC       → razão de decisões; referencia a especificação afetada
 Diretriz      → regras do método e de preservação
 Mapa          → localização das especificações, fontes derivadas e lacunas
-Changelog     → evolução, decisões, lacunas, evidências e resultado
+Changelog     → estado resumido da transação e referências
 Código/testes → implementação e evidências técnicas
 Git           → commits, autoria, diferenças e linhagem
 Relatório     → evidência de uma execução; não cria requisitos
@@ -208,6 +210,8 @@ com ela.
 ```text
 AGENTS.md
 docs/
+├── adr/
+├── reports/
 ├── rfc/
 │   ├── KNOWLEDGE-MAP.md
 │   └── EKOM-CHANGELOG.md
@@ -218,11 +222,12 @@ docs/
 ## Conteúdo
 
 - [`docs/EKOM-CONCEPT.md`](docs/EKOM-CONCEPT.md): definição, visão, problema e limites.
-- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 2.1.
+- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 3.1.
 - [`docs/VISION.md`](docs/VISION.md): estado futuro orientado por especificações.
 - [`docs/PRINCIPLES.md`](docs/PRINCIPLES.md): princípios normativos do EKOM.
 - [`docs/GLOSSARY.md`](docs/GLOSSARY.md): vocabulário canônico e termos legados.
 - [`docs/adr/ADR-0001-EKM-TO-EKOM.md`](docs/adr/ADR-0001-EKM-TO-EKOM.md): decisão de evolução de EKM para EKOM.
+- [`docs/adr/ADR-0003-DOCUMENT-ROUTING-AND-EVIDENCE-SEPARATION.md`](docs/adr/ADR-0003-DOCUMENT-ROUTING-AND-EVIDENCE-SEPARATION.md): roteamento e autoridade das fontes.
 - [`docs/ACTOR-EVALUATION.md`](docs/ACTOR-EVALUATION.md): avaliação experimental dos atores.
 - [`docs/DESIGN-DECISIONS.md`](docs/DESIGN-DECISIONS.md): razões e evolução das decisões.
 - [`docs/LEGACY-ADOPTION.md`](docs/LEGACY-ADOPTION.md): adoção incremental.
@@ -231,6 +236,10 @@ docs/
 - [`diagrams/`](diagrams/): diagramas Mermaid do fluxo e das responsabilidades.
 - [`roles/`](roles/): regras comuns e perfis oficiais separados por responsabilidade.
 - [`templates/AGENTS.md`](templates/AGENTS.md): roteador oficial para projetos adotantes.
+- [`templates/docs/`](templates/docs/): modelos separados de especificação,
+  ADR e relatórios.
+- [`templates/tools/validate_ekom_documents.py`](templates/tools/validate_ekom_documents.py):
+  guarda estrutural opcional para documentos novos ou alterados.
 - [`templates/`](templates/): ativos reutilizáveis.
 
 ## Adoção rápida
@@ -241,8 +250,8 @@ docs/
    [`EKOM-LEGACY-ADOPTION-INSTRUCTIONS.md`](templates/EKOM-LEGACY-ADOPTION-INSTRUCTIONS.md).
 4. A fundação instala o roteador `AGENTS.md` e aponta para os perfis EKOM.
 5. A especificação aplicável torna-se a autoridade do pipeline.
-6. Cada ator promove somente estados sustentados por sua etapa e registra as
-   evidências correspondentes.
+6. Cada capacidade registra seu relatório e as evidências correspondentes; o
+   Arquiteto incorpora decisões normativas e promove estados.
 7. A entrega termina com fontes reconciliadas, commit, push e árvore limpa.
 
 ## Limite
@@ -252,7 +261,7 @@ ou julgamento humano. Orquestração é a coordenação normativa do trabalho pe
 especificação, não uma alegação de automação total. Qualidade e aceleração
 continuam hipóteses a demonstrar em casos reais.
 - [`docs/EKOM-CONCEPT.md`](docs/EKOM-CONCEPT.md): definição, objetivo e limites.
-- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 3.0.
+- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 3.1.
 - [`docs/VISION.md`](docs/VISION.md): visão e horizonte evolutivo.
 - [`docs/PRINCIPLES.md`](docs/PRINCIPLES.md): princípios normativos.
 - [`docs/GOVERNANCE.md`](docs/GOVERNANCE.md): evolução e versionamento.
@@ -265,7 +274,7 @@ continuam hipóteses a demonstrar em casos reais.
 
 ## Limite atual e horizonte
 
-O EKOM 3.0 não promete substituição do Arquiteto nem autonomia completa de
+O EKOM 3.1 não promete substituição do Arquiteto nem autonomia completa de
 julgamento. A interpretação conservadora da pesquisa pública e dos experimentos
 registrados é que eles ainda não sustentam engenharia de software amplamente
 autônoma, de ponta a ponta, sem supervisão e autoridade humanas. A base pública

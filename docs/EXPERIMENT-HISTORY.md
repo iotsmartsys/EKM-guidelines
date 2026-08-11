@@ -598,3 +598,20 @@ experimentos. Análise de implementabilidade permanece obrigatória como funçã
 challenge torna-se consultivo e proporcional; somente o Arquiteto conclui ou
 reabre. A decisão completa está no
 [`ADR-0002`](adr/ADR-0002-EKOM-3-OPERATIONAL-AUTHORITY.md).
+
+## 26. Variantes de firmware — utilidade arquitetural e acúmulo documental
+
+O experimento de variantes do IoTSmartLink15.4 sustentou a utilidade do mapa e
+das fronteiras entre produto, board, componentes, client, coordenador e
+protocolo. A segunda variante foi validada em hardware sem duplicar runtime nem
+espalhar condicionais de produto pelos componentes.
+
+O mesmo caso refutou contexto mínimo no formato documental usado: a
+especificação acumulou relatórios e decisões até 1.573 linhas. A causa incluiu
+uma contradição do template EKOM 3.0, que declarava fontes separadas, mas
+reservava análise, implementação e validação dentro da especificação.
+
+O caso completo está em
+[`IOTSMARTLINK154-FIRMWARE-VARIANTS-DOCUMENT-ROUTING.md`](case-studies/IOTSMARTLINK154-FIRMWARE-VARIANTS-DOCUMENT-ROUTING.md)
+e sustenta a [`ADR-0003`](adr/ADR-0003-DOCUMENT-ROUTING-AND-EVIDENCE-SEPARATION.md).
+O EKOM 3.1 operacionaliza o roteamento; sua eficácia ainda não está comprovada.

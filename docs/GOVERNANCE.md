@@ -6,7 +6,7 @@ Evoluir o EKOM por evidência, com autoridade humana e com a menor carga
 operacional capaz de manter conhecimento, decisões, auditabilidade e
 verificabilidade.
 
-**Modelo vigente:** EKOM 3.0.
+**Modelo vigente:** EKOM 3.1.
 
 A especificação é a fonte única da verdade para o comportamento pretendido e
 o principal objeto do pipeline. Mudanças no método não podem criar em prompts,
@@ -67,6 +67,10 @@ Para alterar o método:
 Uma revisão do próprio modelo registra explicitamente hipóteses sustentadas,
 revisadas, refutadas ou ainda não comprovadas. O histórico não é reescrito para
 fazer versões anteriores parecerem compatíveis com o entendimento novo.
+
+Mudança documental do método deve atualizar também o roteamento e os templates
+que induzem a execução. Uma regra conceitual sem destino, autoridade e guarda
+proporcional não é considerada operacionalizada.
 
 ## 7. Medida de sucesso
 
