@@ -1,6 +1,6 @@
 # EKOM Guidelines
 
-**Modelo EKOM vigente:** 4.0
+**Modelo EKOM vigente:** 4.1
 
 **Estado:** aprovado e vigente
 
@@ -37,12 +37,14 @@ A obrigação intrínseca de build na implementação 3.6 está na
 [`ADR-0008`](docs/adr/ADR-0008-BUILD-INTRINSIC-TO-IMPLEMENTATION.md).
 O workflow simplificado em quatro estágios 4.0 está na
 [`ADR-0009`](docs/adr/ADR-0009-FOUR-STAGE-WORKFLOW.md).
+Os testes dirigidos pela especificação 4.1 estão na
+[`ADR-0010`](docs/adr/ADR-0010-SPECIFICATION-DRIVEN-TESTS.md).
 
 O EKOM deve começar pequeno. Governança é útil quando acelera decisões, reduz
 retrabalho ou aumenta confiança; não quando apenas multiplica documentos,
 agentes ou passagens operacionais.
 
-## Princípios da versão 4.0
+## Princípios da versão 4.1
 
 - A especificação é a fonte da verdade, nasce antes do código e possui ciclo de
   vida próprio.
@@ -69,8 +71,10 @@ agentes ou passagens operacionais.
   Analista separado não é.
 - Revisão é o quarto estágio; challenge adicional, independência e profundidade
   são proporcionais ao risco.
-- Testes automatizados são evidências, não prova absoluta; sua exigência e a
-  combinação de evidências são proporcionais ao risco e ao valor.
+- Testes automatizados são evidências, não prova absoluta. Sua criação ou
+  alteração só integra o recorte quando exigida explicitamente pela
+  especificação e vinculada a critérios de aceite; execução exige permissão
+  operacional própria.
 - A IA amplia a capacidade do Arquiteto; não o substitui.
 
 Os princípios normativos completos estão em
@@ -124,6 +128,11 @@ Testes são especialmente valiosos para regressões, regras complexas, casos
 limítrofes, segurança e contratos estáveis. Não devem ser alterados apenas para
 produzir resultado verde, nem usados pelo Implementador como argumento
 autorreferente de correção.
+
+A ordem de implementação não autoriza inventar testes. A especificação decide
+se cria ou altera cada grupo de testes e o relaciona a cenário, resultado, meio
+e critério de aceite. Teste não contratado fica fora do recorte; criar teste
+contratado não autoriza executá-lo.
 
 O build canônico dos entregáveis construíveis afetados integra a implementação
 e não depende de repetição na especificação. Falha ou ausência permanece
@@ -194,7 +203,7 @@ flowchart LR
     subgraph IMPFASE["Engenheiro Implementador"]
         IMPL["Implementa o código"]
         IMPL --> BUILD["Executa builds"]
-        BUILD --> TEST["Executa testes,<br/>quando aplicáveis"]
+        BUILD --> TEST["Executa testes contratados,<br/>quando autorizados"]
         TEST --> IMPFIM["Submete ao<br/>Tech Lead / Revisor"]
     end
 
@@ -256,7 +265,7 @@ docs/
 ## Conteúdo
 
 - [`docs/EKOM-CONCEPT.md`](docs/EKOM-CONCEPT.md): definição, visão, problema e limites.
-- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 4.0.
+- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 4.1.
 - [`docs/VISION.md`](docs/VISION.md): estado futuro orientado por especificações.
 - [`docs/PRINCIPLES.md`](docs/PRINCIPLES.md): princípios normativos do EKOM.
 - [`docs/GLOSSARY.md`](docs/GLOSSARY.md): vocabulário canônico e termos legados.
@@ -268,6 +277,7 @@ docs/
 - [`docs/adr/ADR-0007-NON-IMPLICIT-IMPLEMENTATION-GATES.md`](docs/adr/ADR-0007-NON-IMPLICIT-IMPLEMENTATION-GATES.md): decisão histórica dos gates cumulativos, substituída pela ADR-0009.
 - [`docs/adr/ADR-0008-BUILD-INTRINSIC-TO-IMPLEMENTATION.md`](docs/adr/ADR-0008-BUILD-INTRINSIC-TO-IMPLEMENTATION.md): build canônico como obrigação da implementação autorizada.
 - [`docs/adr/ADR-0009-FOUR-STAGE-WORKFLOW.md`](docs/adr/ADR-0009-FOUR-STAGE-WORKFLOW.md): workflow vigente em quatro estágios.
+- [`docs/adr/ADR-0010-SPECIFICATION-DRIVEN-TESTS.md`](docs/adr/ADR-0010-SPECIFICATION-DRIVEN-TESTS.md): criação e alteração de testes somente por exigência da especificação.
 - [`docs/ACTOR-EVALUATION.md`](docs/ACTOR-EVALUATION.md): avaliação experimental dos atores.
 - [`docs/DESIGN-DECISIONS.md`](docs/DESIGN-DECISIONS.md): razões e evolução das decisões.
 - [`docs/LEGACY-ADOPTION.md`](docs/LEGACY-ADOPTION.md): adoção incremental.
@@ -301,7 +311,7 @@ ou julgamento humano. Orquestração é a coordenação normativa do trabalho pe
 especificação, não uma alegação de automação total. Qualidade e aceleração
 continuam hipóteses a demonstrar em casos reais.
 - [`docs/EKOM-CONCEPT.md`](docs/EKOM-CONCEPT.md): definição, objetivo e limites.
-- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 4.0.
+- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 4.1.
 - [`docs/VISION.md`](docs/VISION.md): visão e horizonte evolutivo.
 - [`docs/PRINCIPLES.md`](docs/PRINCIPLES.md): princípios normativos.
 - [`docs/GOVERNANCE.md`](docs/GOVERNANCE.md): evolução e versionamento.
@@ -314,7 +324,7 @@ continuam hipóteses a demonstrar em casos reais.
 
 ## Limite atual e horizonte
 
-O EKOM 4.0 não promete substituição do Arquiteto nem autonomia completa de
+O EKOM 4.1 não promete substituição do Arquiteto nem autonomia completa de
 julgamento. A interpretação conservadora da pesquisa pública e dos experimentos
 registrados é que eles ainda não sustentam engenharia de software amplamente
 autônoma, de ponta a ponta, sem supervisão e autoridade humanas. A base pública

@@ -1,8 +1,8 @@
 # Regras comuns dos perfis EKOM
 
-**Modelo EKOM aplicável:** 4.0
+**Modelo EKOM aplicável:** 4.1
 
-**Versão do perfil:** 3.0
+**Versão do perfil:** 3.1
 
 **Estado:** vigente
 
@@ -177,10 +177,23 @@ cenário, ação, resultado observável e meio de validação proporcional ao ri
 Doubles preservam a semântica material. Compilação não comprova execução; zero
 casos não comprova comportamento.
 
-Testes automatizados são evidências, não prova absoluta. Não os altere apenas
-para obter verde nem os use como argumento autorreferente de correção. Eles são
-especialmente valiosos para regressões, regras complexas, bordas, segurança e
-contratos estáveis.
+Testes automatizados são evidências, não prova absoluta. Criar, ampliar,
+reestruturar ou corrigir testes não é consequência implícita da ordem de
+implementação: somente integra o recorte quando a especificação corrente o
+exige explicitamente e vincula cenário, resultado e meio ao requisito ou
+critério de aceite sustentado. Menção genérica a qualidade, cobertura,
+regressão ou validação proporcional não autoriza teste.
+
+Não altere teste fora do recorte nem mesmo para reconciliar mudança de API. Se
+ele deixar de compilar, registre o consumidor e a limitação; sua correção exige
+emenda da especificação e análise aplicável. Teste contratado não é alterado
+apenas para obter verde nem usado como argumento autorreferente de correção.
+
+Implementar um teste não autoriza executá-lo. Inspeção do delta e build
+canônico são intrínsecos; outras validações são implementadas somente quando
+exigidas pela especificação e executadas somente quando cobertas pelas
+permissões operacionais vigentes. Ausência de permissão permanece
+`Not Executed`.
 
 Registre, conforme o contexto, código e diffs, builds, execução real, logs,
 testes, hardware, APIs, bancos, infraestrutura, relatórios, decisões do

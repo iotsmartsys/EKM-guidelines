@@ -102,7 +102,9 @@ constitui aprovação de comportamento.
 
 ### 7.1 Evidências planejadas
 
-- `<TESTES E OUTRAS EVIDÊNCIAS COMPORTAMENTAIS PROPORCIONAIS>`;
+- **Artefatos de teste no recorte:** Nenhum | `<TESTES EXPLICITAMENTE EXIGIDOS>`;
+- para cada teste exigido: `<REQUISITO/AC, CENÁRIO, RESULTADO, MEIO E CONSUMIDOR>`;
+- `<OUTRAS EVIDÊNCIAS COMPORTAMENTAIS>`;
 - `<CONDIÇÃO OBJETIVA DE SUCESSO, INCLUSIVE CASOS EXECUTADOS QUANDO APLICÁVEL>`;
 - `<VALIDAÇÕES HUMANAS OU DE HARDWARE RESERVADAS À ETAPA POSTERIOR>`.
 
@@ -111,9 +113,11 @@ do Implementador e não precisa ser autorizado ou repetido nesta especificação
 Declare aqui somente matriz excepcional, artefato adicional ou restrição de
 construção material ao aceite.
 
-Testes automatizados são evidências, não prova absoluta. Não devem ser alterados
-apenas para produzir verde. O conjunto e o risco residual são avaliados pelo
-Arquiteto.
+Somente os testes enumerados acima podem ser criados ou alterados pela
+Implementação. Menção genérica a qualidade, cobertura ou regressão não inclui
+teste no recorte. Criar teste não autoriza executá-lo. Testes automatizados são
+evidências, não prova absoluta; o conjunto e o risco residual são avaliados
+pelo Arquiteto.
 
 ## 8. Conhecimento afetado
 

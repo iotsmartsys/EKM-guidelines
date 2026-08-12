@@ -3,9 +3,9 @@
 Use este arquivo somente quando o projeto precisar de regras locais além da
 diretriz externa aplicável.
 
-**Versão do documento:** 4.0
+**Versão do documento:** 4.1
 
-**Versão do modelo EKOM:** 4.0
+**Versão do modelo EKOM:** 4.1
 
 **Estado:** vigente
 
@@ -62,6 +62,12 @@ Testes automatizados são evidências, não prova absoluta. Não devem ser
 alterados apenas para produzir verde nem usados autorreferencialmente pelo
 Implementador. São especialmente úteis para regressões, regras complexas,
 bordas, segurança e contratos estáveis.
+
+Criar, ampliar, reestruturar ou corrigir testes só integra o recorte quando a
+especificação corrente o exige explicitamente e o vincula a requisito ou
+critério de aceite. O Implementador não inventa suíte, matriz ou cobertura.
+Criar teste não autoriza executá-lo; toda execução depende da permissão
+operacional aplicável.
 
 Aceitação pode considerar código e diffs, builds, execução real, logs, testes,
 hardware, APIs, bancos, infraestrutura, relatórios, decisões do Arquiteto e

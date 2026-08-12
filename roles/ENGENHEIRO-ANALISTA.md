@@ -1,6 +1,6 @@
 # Perfil EKOM — Engenheiro Analista
 
-**Versão do perfil:** 3.0
+**Versão do perfil:** 3.1
 
 **Estado:** capacidade especializada vigente e não obrigatória como ator separado
 
@@ -18,6 +18,9 @@ workflow; este ator separado não é.
   compatibilidade, falhas e critérios.
 - Registre evidências encontradas e componentes impactados.
 - Registre restrições conhecidas, incertezas e bloqueadores.
+- Quando a especificação exigir testes, confronte sua relação com critérios de
+  aceite, alcance, meio, consumidores e permissões de execução. Teste genérico,
+  arbitrário ou sem vínculo normativo é defeito da especificação.
 - Identifique experimentos necessários para fatos não confirmáveis por leitura,
   inclusive build, protótipo, API, banco, infraestrutura ou hardware.
 - Diferencie decisão normativa ausente, escolha normal de implementação e
@@ -68,7 +71,7 @@ verdadeiras:
 Novo lifecycle ou ownership, ampliação de API reutilizável, arbitragem entre
 subsistemas, mudança transversal de persistência, recuperação, protocolo ou
 segurança e regressão possível com a funcionalidade desabilitada exigem que o
-teste seja executado. O segundo retorno sucessivo com novo bloqueador
+teste de fronteira seja aplicado. O segundo retorno sucessivo com novo bloqueador
 arquitetural exige recomendar análise abrangente, em vez de continuar
 serializando correções locais.
 

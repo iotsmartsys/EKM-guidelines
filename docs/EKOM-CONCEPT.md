@@ -84,7 +84,9 @@ são declarados, não preenchidos silenciosamente.
 Em artefato construível, a autorização de implementação inclui o build canônico
 e proporcional dos entregáveis afetados. A especificação não precisa repetir
 essa permissão. Build falho ou não executado impede alegar implementação
-concluída; testes, hardware e operações externas exigem autorização própria.
+concluída. Criar ou alterar testes exige previsão explícita na especificação;
+executá-los, assim como usar hardware ou realizar operações externas, exige
+autorização operacional própria.
 
 ### Revisão e challenge
 
@@ -103,12 +105,14 @@ necessariamente validação independente, mesmo quando ocupam sessões distintas
 
 ## Validação e evidências
 
-Testes automatizados são evidências limitadas, não prova absoluta. São
-especialmente valiosos para regressões, regras complexas, casos limítrofes,
-segurança e contratos estáveis. Devem ser exigidos conforme risco e valor e
-nunca alterados apenas para produzir resultado verde.
+Testes automatizados são evidências limitadas, não prova absoluta. A
+especificação decide explicitamente se sua criação ou alteração integra o
+recorte, relacionando-os a critérios de aceite e ao meio de validação. O
+Implementador não inventa testes por cobertura, conveniência ou preferência.
+Criar teste não autoriza executá-lo, e teste contratado nunca é alterado apenas
+para produzir resultado verde.
 
-O Implementador não usa testes que ele mesmo selecionou ou escreveu como
+O Implementador não usa testes que implementou como
 argumento autorreferente de correção. O conjunto de aceitação pode incluir:
 
 - código e diffs;
@@ -159,7 +163,7 @@ testes verdes como prova suficiente e autonomia completa como capacidade atual.
 
 ## Estado do método
 
-O EKOM 4.0 está aprovado e vigente para adoção. Autonomia completa permanece
+O EKOM 4.1 está aprovado e vigente para adoção. Autonomia completa permanece
 horizonte evolutivo, não capacidade comprovada. A decisão está registrada no
 [`ADR-0002`](adr/ADR-0002-EKOM-3-OPERATIONAL-AUTHORITY.md), com o roteamento
 documental operacionalizado pela
@@ -177,3 +181,5 @@ registrados na [`ADR-0009`](adr/ADR-0009-FOUR-STAGE-WORKFLOW.md), que substitui
 a ADR-0007.
 O build intrínseco à implementação está registrado na
 [`ADR-0008`](adr/ADR-0008-BUILD-INTRINSIC-TO-IMPLEMENTATION.md).
+Testes dirigidos pela especificação estão registrados na
+[`ADR-0010`](adr/ADR-0010-SPECIFICATION-DRIVEN-TESTS.md).

@@ -69,6 +69,11 @@ não provas absolutas. Evidência deve ser terminal, observável e proporcional 
 risco; sua suficiência é decidida pelo Arquiteto. Testes não são alterados
 apenas para produzir verde nem usados como argumento autorreferente.
 
+A especificação decide explicitamente se criar ou alterar testes integra o
+recorte e os vincula a critérios de aceite. O Implementador não inventa suíte,
+matriz ou cobertura. A criação autorizada não autoriza execução; validações só
+são executadas sob a permissão operacional correspondente.
+
 ## Build Is Part of Implementation
 
 Implementação autorizada de artefato construível inclui seu build canônico e

@@ -1,8 +1,8 @@
 # Método EKOM
 
-**Versão do documento:** 4.0
+**Versão do documento:** 4.1
 
-**Modelo EKOM:** 4.0
+**Modelo EKOM:** 4.1
 
 **Estado:** aprovado e vigente
 
@@ -149,8 +149,11 @@ a semântica material da integração substituída. Compilação comprova
 compilabilidade, não execução; zero casos não comprova comportamento.
 
 Isso não transforma teste em prova absoluta nem exige um teste por requisito.
-O oráculo orienta a investigação e a evidência; o Arquiteto decide se o
-conjunto produzido é suficiente para aceitar o risco.
+Teste só integra o recorte quando a especificação o exige explicitamente,
+vinculando cenário, resultado e meio ao requisito ou critério sustentado. Uma
+menção genérica a qualidade, cobertura ou regressão não delega ao Implementador
+o desenho de uma suíte. O Arquiteto decide se o conjunto exigido é suficiente
+para aceitar o risco.
 
 ### 3.4 Objetivos multi-contexto
 
@@ -335,15 +338,19 @@ O Implementador:
 - implementa conforme a especificação autorizada;
 - executa o build canônico proporcional dos entregáveis construíveis afetados,
   sem exigir autorização repetida na especificação;
-- realiza verificações técnicas proporcionais ao risco;
+- cria ou altera somente os testes explicitamente contratados pela
+  especificação;
+- implementa somente as evidências e verificações determinadas pela
+  especificação e executa apenas as cobertas pelas permissões vigentes;
 - registra decisões locais no relatório de implementação;
 - produz relatório e evidências sem anexá-los à especificação;
 - declara dúvidas, limitações e desvios;
 - devolve ambiguidade normativa ao rascunho/análise.
 
-Ele não usa testes escolhidos ou escritos durante a própria implementação como
-argumento autorreferente de correção. Testes compõem a evidência disponível e
-podem ser fortes, insuficientes ou até semanticamente enganosos.
+Ele não inventa suíte, matriz ou cobertura. Teste existente fora do recorte não
+é alterado para reconciliar uma API; incompatibilidade é registrada e devolvida
+ao Arquiteto. Testes contratados compõem a evidência disponível, mas não são
+argumento autorreferente de correção.
 
 ### 5.3.1 Build como obrigação da implementação
 
@@ -353,7 +360,7 @@ targets, configurações e consumidores; a especificação funcional não repete
 regra ordinária.
 
 Build comprova construção — configuração, compilação, link, empacotamento ou
-verificação equivalente — e não comportamento. Não autoriza testes, hardware,
+verificação equivalente — e não comportamento. Não autoriza execução de testes, hardware,
 deploy, release, publicação, integração nem alteração externa. Comando híbrido
 usa variante somente de build ou retorna ao Arquiteto para ampliar a operação.
 
@@ -401,15 +408,18 @@ limítrofes, segurança e contratos estáveis.
 
 Aplicam-se as regras:
 
-1. testes não são alterados apenas para produzir resultado verde;
-2. teste verde não comprova sozinho correção funcional ou arquitetural;
-3. a exigência de testes é proporcional ao risco e ao valor;
-4. falha, ausência de execução e limitação de ambiente permanecem explícitas;
-5. execução em dispositivo, API, banco ou infraestrutura real pode ter
+1. somente a especificação inclui criação ou alteração de testes no recorte;
+2. teste exigido vincula cenário, resultado, meio e critério sustentado;
+3. testes não são alterados apenas para produzir resultado verde;
+4. teste verde não comprova sozinho correção funcional ou arquitetural;
+5. criar teste não autoriza executá-lo;
+6. falha, ausência de execução e limitação de ambiente permanecem explícitas;
+7. execução em dispositivo, API, banco ou infraestrutura real pode ter
    precedência para aceitação funcional;
-6. evidência real não elimina automaticamente a necessidade de regressão,
+8. evidência real não elimina automaticamente uma exigência normativa de
+   regressão,
    segurança ou observabilidade;
-7. o Arquiteto decide a suficiência do conjunto de evidências.
+9. o Arquiteto decide a suficiência do conjunto de evidências.
 
 Evidências materiais podem incluir código e diffs, builds, execução real, logs,
 testes, integrações, relatórios, decisões humanas e defeitos posteriores.
@@ -498,7 +508,7 @@ não é gate universal nem substitui avaliação da solução e decisão do Arqu
 
 ## 12. Limites atuais
 
-O EKOM 4.0 não define infraestrutura distribuída de agentes e não promete
+O EKOM 4.1 não define infraestrutura distribuída de agentes e não promete
 autonomia completa de julgamento. O modelo atual não substitui Arquiteto,
 testes, revisão, observabilidade ou CI/CD. Autonomia completa permanece
 horizonte evolutivo condicionado a evidências futuras.

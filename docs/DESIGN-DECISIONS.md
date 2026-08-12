@@ -1192,3 +1192,49 @@ administrativas sem implementação de versões não analisadas.
 - **Confirmação final:** concedida pelo Arquiteto em 2026-08-12 para registrar,
   commitar e enviar a branch corrente. Não autoriza merge, release, adoção
   automática por projetos existentes nem operação externa adicional.
+
+## DD-040 — Testes só entram no recorte por decisão da especificação
+
+**Problema observado:** a regra de atualizar “código, testes e conhecimento
+afetado” permitia ao Implementador criar várias suítes por iniciativa própria.
+Embora executar testes exigisse autorização, sua criação já aumentava o volume
+de código, manutenção e oráculos derivados sem decisão normativa equivalente.
+
+**Decisão:** adotar a
+[`ADR-0010`](adr/ADR-0010-SPECIFICATION-DRIVEN-TESTS.md) e promover o modelo para
+EKOM 4.1. Criar, ampliar, reestruturar ou corrigir testes só integra a
+Implementação quando a especificação corrente o exige explicitamente e o
+vincula a requisito ou critério de aceite, cenário, resultado e meio. Menção
+genérica a qualidade, cobertura, regressão ou validação proporcional não
+autoriza teste.
+
+**Fronteira operacional:** criar teste contratado não autoriza executá-lo.
+Inspeção do delta e build canônico permanecem intrínsecos; outras validações só
+são implementadas quando exigidas pela especificação e executadas quando
+cobertas pela permissão aplicável. Teste existente fora do recorte que quebrar
+é impacto registrado, não autorização implícita para corrigi-lo.
+
+**Estado da decisão:** confirmada pelo Arquiteto em 2026-08-12. A eficácia será
+avaliada pela redução de testes sem vínculo normativo, sem ocultar consumidores
+afetados nem converter ausência de execução em sucesso.
+
+### Registro da atuação EKOM 4.1
+
+- **Capacidade:** Consultor de Arquitetura.
+- **Ordem:** restringir criação e alteração de testes à exigência explícita da
+  especificação e limitar execução de validações às permissões operacionais.
+- **Recorte:** regras comuns, perfis, método, princípios, glossário,
+  governança, templates, prompts, navegação, histórico, diagrama e ADR do
+  repositório central `EKM-guidelines`.
+- **Decisões confirmadas:** somente teste contratado integra a implementação;
+  criação não autoriza execução; build permanece intrínseco; teste fora do
+  recorte que quebrar é impacto a registrar, não correção implícita.
+- **Resultado material:** ADR-0010 aceita e modelo promovido para EKOM 4.1 nas
+  fontes vigentes e reutilizáveis.
+- **Validação e limites:** guarda documental e integridade do diff aprovadas;
+  mudança exclusivamente documental no EKOM central. A especificação e a
+  implementação correntes do projeto consumidor não foram alteradas. O
+  Consultor participou da formulação e não alega revisão independente.
+- **Confirmação final:** concedida pelo Arquiteto em 2026-08-12 para registrar,
+  commitar e enviar a branch corrente. Não autoriza merge, release, adoção
+  automática em projetos consumidores nem operação externa adicional.

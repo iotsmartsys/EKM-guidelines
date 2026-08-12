@@ -1,6 +1,6 @@
 # Perfil EKOM — Crítico ou Engenheiro Revisor
 
-**Versão do perfil:** 3.0
+**Versão do perfil:** 3.1
 
 **Estado:** quarto estágio vigente; profundidade e independência proporcionais
 ao risco
@@ -41,6 +41,8 @@ segunda perspectiva ou evidência mais forte:
   especificação, evidência insuficiente ou risco residual para decisão humana.
 - Defeito de implementação retorna ao estágio 3 dentro da ordem original;
   defeito normativo retorna à Autoria e invalida o `Ready` da versão alterada.
+- Não exija teste não contratado pela especificação nem transforme preferência
+  por cobertura em defeito. Teste criado fora do recorte é expansão indevida.
 
 ## Limites de autoridade
 

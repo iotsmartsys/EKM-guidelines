@@ -93,12 +93,13 @@ satisfeita, registre `In Progress` como primeiro efeito da atuação.
   esta ordem de implementação inclui essa operação.
 - Se o comando de build também executar testes ou operação não autorizada, use
   variante somente de build ou solicite autorização adicional.
-- <TESTES EXPRESSAMENTE AUTORIZADOS, OU NENHUM>
+- <EXECUÇÕES DE TESTE EXPRESSAMENTE AUTORIZADAS, OU NENHUMA>
 - <ANÁLISES OU INSPEÇÕES>
 
-Ausência de autorização de testes não dispensa o build e não autoriza coletar
-ou executar casos. Testes podem ser escritos ou atualizados como artefatos da
-implementação sem produzir resultado de execução.
+Ausência de autorização de execução de testes não dispensa o build e não
+autoriza coletar ou executar casos. Somente testes explicitamente exigidos pela
+especificação podem ser escritos ou alterados; sua criação não produz nem
+autoriza resultado de execução.
 
 ## 11. Tratamento de bloqueios
 
@@ -114,7 +115,11 @@ Se a implementação exigir uma decisão não fornecida:
 
 ## 12. Entrega obrigatória
 
-- Atualize código, testes e conhecimento afetado.
+- Atualize código e conhecimento afetado. Crie, amplie, reestruture ou corrija
+  somente os testes explicitamente exigidos pela especificação e vinculados a
+  requisito ou critério de aceite.
+- Implemente somente as evidências determinadas pela especificação e execute
+  apenas as cobertas pelas permissões operacionais vigentes.
 - Registre decisões locais, evidências, limitações e desvios no relatório de
   implementação; não anexe a narrativa à especificação.
 - Registre comando ou entrada, ambiente, target/configuração, estado terminal e

@@ -1,6 +1,6 @@
 # Perfil EKOM — Autor da Especificação
 
-**Versão do perfil:** 3.0
+**Versão do perfil:** 3.1
 
 **Estado:** vigente
 
@@ -24,8 +24,13 @@ quando autorizada; segregação não é gate universal.
   do Arquiteto.
 - Relacione requisitos a critérios que distingam sucesso, falha e ausência de
   evidência sem antecipar estrutura interna desnecessária.
-- Identifique validações automatizáveis e evidências humanas, físicas ou de
-  integração sem transformar teste em prova absoluta.
+- Decida explicitamente se a versão exige criar ou alterar testes. Quando
+  exigir, vincule cada grupo a requisito ou critério de aceite e delimite
+  cenário, resultado, meio e consumidores materiais. Quando não exigir,
+  declare que nenhum artefato de teste integra o recorte.
+- Identifique evidências humanas, físicas ou de integração e suas permissões
+  operacionais sem transformar teste em prova absoluta nem confundir criação
+  com execução.
 - Em objetivo multi-contexto, preserve contrato ponta a ponta e fontes locais
   responsáveis.
 

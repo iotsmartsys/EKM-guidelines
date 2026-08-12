@@ -36,7 +36,7 @@ flowchart LR
     subgraph IMPFASE["Engenheiro Implementador"]
         IMPL["Implementa o código"]
         IMPL --> BUILD["Executa builds"]
-        BUILD --> TEST["Executa testes,<br/>quando aplicáveis"]
+        BUILD --> TEST["Executa testes contratados,<br/>quando autorizados"]
         TEST --> IMPFIM["Submete ao<br/>Tech Lead / Revisor"]
     end
 

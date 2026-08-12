@@ -698,3 +698,23 @@ EKOM 4.0. O fluxo passa a ter quatro estágios; `Ready` e uma ordem explícita d
 Arquiteto iniciam a Implementação. O experimento futuro deve verificar duas
 propriedades ao mesmo tempo: ausência das recusas meramente administrativas e
 manutenção da recusa quando faltar análise `Ready` da versão corrente.
+
+## 31. Report identity — criação de testes expandida pela implementação
+
+Durante a implementação de `ISSP-Report-Identity` v0.2, o executor criou e
+ampliou diversas suítes. Parte delas estava prevista pela especificação, mas a
+regra geral do Implementador também autorizava atualizar testes afetados e
+executar validações proporcionais. Assim, a fronteira entre contrato e escolha
+técnica do executor permanecia aberta.
+
+O caso separou três atos que não devem compartilhar autorização implícita:
+definir que um teste é necessário, implementar o artefato e executá-lo. Se cada
+Implementador puder decidir os dois primeiros por conveniência, o repositório
+pode acumular mais oráculos arbitrários e código de manutenção do que
+conhecimento útil e rastreável.
+
+A [`ADR-0010`](adr/ADR-0010-SPECIFICATION-DRIVEN-TESTS.md) incorpora a correção
+no EKOM 4.1: a especificação decide e delimita os testes; o Implementador cria
+somente os contratados; a execução continua dependente de permissão própria. A
+eficácia será confrontada pelo vínculo entre testes novos e critérios de aceite
+e pela ausência de suítes criadas apenas por preferência do executor.

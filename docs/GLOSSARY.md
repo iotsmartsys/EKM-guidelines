@@ -37,7 +37,8 @@
 | Entrada da implementação | Análise `Ready` aplicável à versão corrente e ordem explícita do Arquiteto para implementar essa versão. |
 | Ordem explícita de implementação | Ato do Arquiteto que aprova e autoriza a passagem da versão analisada para Implementação; não substitui análise nem precisa ser duplicado em campo documental. |
 | Diagnóstico ou experimento em `Draft` | Atuação explicitamente não normativa de investigação; não implementa a especificação nem promove estado de implementação. |
-| Build intrínseco | Construção canônica e proporcional dos entregáveis afetados, incluída na ordem de implementação; não autoriza testes, hardware ou operação externa. |
+| Build intrínseco | Construção canônica e proporcional dos entregáveis afetados, incluída na ordem de implementação; não autoriza execução de testes, hardware ou operação externa. |
+| Teste contratado | Artefato de teste cuja criação ou alteração é exigida explicitamente pela especificação e vinculada a requisito ou critério de aceite; sua execução exige permissão própria. |
 | Challenge | Crítica consultiva e proporcional ao risco; informa o Arquiteto sem aprovar ou reprovar o workflow. |
 | Revisão | Quarto estágio que confronta implementação, contrato e evidências; devolve defeito técnico à Implementação e defeito normativo à Autoria. |
 | Evidência material | Fato observável como diff, build, execução, log, teste, integração real, relatório, decisão humana ou defeito posterior. |

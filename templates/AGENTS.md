@@ -1,6 +1,6 @@
 # Instruções permanentes e roteamento EKOM
 
-**Modelo EKOM:** 4.0
+**Modelo EKOM:** 4.1
 
 **Modalidade:** capacidades referenciadas e governança proporcional
 
@@ -51,6 +51,11 @@ superada por mudança normativa ou ordem ambígua obriga recusa sem mutação.
 Satisfeita essa entrada, a implementação de artefato construível inclui seu
 build canônico proporcional. Build não exige cláusula na especificação e não
 autoriza execução de testes, hardware, deploy ou outra operação externa.
+
+Criação, ampliação, reestruturação ou correção de testes só integra a
+implementação quando a especificação corrente o exigir explicitamente e
+vincular o teste a requisito ou critério de aceite. Criar teste não autoriza
+executá-lo.
 
 ## Fontes locais do projeto
 
