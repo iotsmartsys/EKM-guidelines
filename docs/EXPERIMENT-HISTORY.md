@@ -658,3 +658,23 @@ A [`ADR-0007`](adr/ADR-0007-NON-IMPLICIT-IMPLEMENTATION-GATES.md) torna análise
 `Ready`, promoção registrada e autorização gates cumulativos no EKOM 3.5. O
 experimento será repetido com a mesma ordem. O resultado esperado é recusa sem
 mutação, identificação dos gates ausentes e orientação para análise e promoção.
+
+## 29. Deep sleep — build confundido com teste autorizado
+
+Depois do confronto final `Ready` e da promoção da v0.11 de deep sleep, o
+contrato ainda dizia que a especificação não autorizava build, testes ou
+hardware. Ao discutir a autorização de implementação, o Arquiteto corrigiu a
+fronteira: build é verificação ordinária da implementação; execução de testes e
+hardware não é.
+
+O caso revelou uma responsabilidade no destino errado. Exigir que cada
+especificação funcional autorize build repete uma regra permanente do
+Implementador e permite divergência entre contratos. Agrupar build e teste
+também apaga a diferença entre construir o artefato e executar um oráculo
+comportamental.
+
+A [`ADR-0008`](adr/ADR-0008-BUILD-INTRINSIC-TO-IMPLEMENTATION.md) incorpora a
+regra no EKOM 3.6: implementação autorizada inclui build canônico proporcional;
+testes, hardware e operações externas conservam autorização própria. A eficácia
+será observada verificando se especificações deixam de repetir a permissão e se
+Implementadores executam o build sem ampliar silenciosamente outras operações.

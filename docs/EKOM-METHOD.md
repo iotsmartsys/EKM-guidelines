@@ -1,8 +1,8 @@
 # Método EKOM
 
-**Versão do documento:** 3.5
+**Versão do documento:** 3.6
 
-**Modelo EKOM:** 3.5
+**Modelo EKOM:** 3.6
 
 **Estado:** aprovado e vigente
 
@@ -336,6 +336,8 @@ O Implementador:
   de investigar a solução;
 - recusa sem mutação e orienta o fluxo quando qualquer gate estiver ausente;
 - implementa conforme a especificação autorizada;
+- executa o build canônico proporcional dos entregáveis construíveis afetados,
+  sem exigir autorização repetida na especificação;
 - realiza verificações técnicas proporcionais ao risco;
 - registra decisões locais no relatório de implementação;
 - produz relatório e evidências sem anexá-los à especificação;
@@ -345,6 +347,23 @@ O Implementador:
 Ele não usa testes escolhidos ou escritos durante a própria implementação como
 argumento autorreferente de correção. Testes compõem a evidência disponível e
 podem ser fortes, insuficientes ou até semanticamente enganosos.
+
+### 5.3.1 Build como obrigação da implementação
+
+A autorização de implementação inclui o build não operacional dos artefatos
+construíveis afetados. Projeto e delta determinam proporcionalmente comandos,
+targets, configurações e consumidores; a especificação funcional não repete a
+regra ordinária.
+
+Build comprova construção — configuração, compilação, link, empacotamento ou
+verificação equivalente — e não comportamento. Não autoriza testes, hardware,
+deploy, release, publicação, integração nem alteração externa. Comando híbrido
+usa variante somente de build ou retorna ao Arquiteto para ampliar a operação.
+
+Resultado falho ou não executado permanece explícito e impede declarar a
+implementação concluída. Mudança exclusivamente documental ou ambiente sem
+artefato construível não recebe build artificial. A regra completa está na
+[`ADR-0008`](adr/ADR-0008-BUILD-INTRINSIC-TO-IMPLEMENTATION.md).
 
 ### 5.4 Crítico ou Revisor
 
@@ -479,7 +498,7 @@ não é gate universal nem substitui avaliação da solução e decisão do Arqu
 
 ## 12. Limites atuais
 
-O EKOM 3.5 não define infraestrutura distribuída de agentes e não promete
+O EKOM 3.6 não define infraestrutura distribuída de agentes e não promete
 autonomia completa de julgamento. O modelo atual não substitui Arquiteto,
 testes, revisão, observabilidade ou CI/CD. Autonomia completa permanece
 horizonte evolutivo condicionado a evidências futuras.

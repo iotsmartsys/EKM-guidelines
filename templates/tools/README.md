@@ -1,7 +1,7 @@
 # Guardas estruturais EKOM
 
 `validate_ekom_documents.py` verifica somente regras objetivas do roteamento e
-do mapa no EKOM 3.5; as regras visuais do mapa foram introduzidas no EKOM 3.2:
+do mapa no EKOM 3.6; as regras visuais do mapa foram introduzidas no EKOM 3.2:
 
 - campos mínimos dos relatórios;
 - estrutura mínima das ADRs;

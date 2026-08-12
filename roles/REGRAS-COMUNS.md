@@ -1,8 +1,8 @@
 # Regras comuns dos perfis EKOM
 
-**Modelo EKOM aplicável:** 3.5
+**Modelo EKOM aplicável:** 3.6
 
-**Versão do perfil:** 2.4
+**Versão do perfil:** 2.5
 
 **Estado:** vigente
 
@@ -69,6 +69,26 @@ Registrar a violação em relatório não regulariza a execução. Investigaçã
 protótipo sobre especificação não pronta exige ordem distinta e explícita de
 diagnóstico ou experimento; não pode produzir nem alegar implementação da
 versão normativa.
+
+### 2.2 Build intrínseco à implementação
+
+Depois de satisfeitos os três gates, a autorização de implementação de artefato
+construível inclui e exige seu build canônico proporcional. A especificação não
+precisa repetir essa permissão. O `AGENTS.md` ou a fonte técnica local determina
+comandos, targets, configurações e consumidores materiais.
+
+Build cobre configuração, compilação, link, empacotamento ou verificação de
+construção equivalente. Não autoriza coleta ou execução de testes, flash,
+monitor, hardware, deploy, release, publicação, integração, instalação
+persistente de toolchain nem uso de credencial ou serviço externo. Se o comando
+canônico misturar operação não autorizada, use variante somente de build ou
+interrompa e solicite autorização adicional.
+
+Registre alvo, ambiente relevante, estado terminal e código de saída. Build
+falho ou não executado não sustenta implementação concluída. Mudança somente
+documental ou contexto sem artefato construível não exige comando artificial.
+A regra completa está na
+[`ADR-0008`](../docs/adr/ADR-0008-BUILD-INTRINSIC-TO-IMPLEMENTATION.md).
 
 ## 3. Fontes e arquitetura
 

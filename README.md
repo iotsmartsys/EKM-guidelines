@@ -1,6 +1,6 @@
 # EKOM Guidelines
 
-**Modelo EKOM vigente:** 3.5
+**Modelo EKOM vigente:** 3.6
 
 **Estado:** aprovado e vigente
 
@@ -32,12 +32,14 @@ A contenção de escopo funcional e os pré-requisitos arquiteturais 3.4 estão 
 [`ADR-0006`](docs/adr/ADR-0006-SPECIFICATION-SCOPE-AND-ARCHITECTURAL-PREREQUISITES.md).
 Os gates não implícitos de implementação 3.5 estão na
 [`ADR-0007`](docs/adr/ADR-0007-NON-IMPLICIT-IMPLEMENTATION-GATES.md).
+A obrigação intrínseca de build na implementação 3.6 está na
+[`ADR-0008`](docs/adr/ADR-0008-BUILD-INTRINSIC-TO-IMPLEMENTATION.md).
 
 O EKOM deve começar pequeno. Governança é útil quando acelera decisões, reduz
 retrabalho ou aumenta confiança; não quando apenas multiplica documentos,
 agentes ou passagens operacionais.
 
-## Princípios da versão 3.5
+## Princípios da versão 3.6
 
 - A especificação é a fonte da verdade, nasce antes do código e possui ciclo de
   vida próprio.
@@ -48,6 +50,8 @@ agentes ou passagens operacionais.
   é preparada separadamente.
 - Análise `Ready`, promoção registrada e autorização da mesma versão são gates
   cumulativos; ordem de implementação não substitui condição ausente.
+- Implementação autorizada de artefato construível inclui seu build canônico e
+  proporcional; testes, hardware e operações externas não são inferidos dela.
 - Conhecimento, decisões e evidências permanecem persistentes, rastreáveis e
   evolutivos.
 - Agentes de IA podem investigar, implementar, verificar, documentar e produzir
@@ -101,7 +105,7 @@ reabertura. A fonte Mermaid reutilizável está em
 | Arquiteto | decidir arquitetura, prioridade, risco aceitável, relevância das críticas, suficiência das evidências, aprovação, conclusão e reabertura |
 | Autor da Especificação | investigar repositório e arquitetura, confrontar autoridades afetadas e transformar intenção em contrato implementável e verificável |
 | Análise de implementabilidade | registrar evidências, impactos, restrições, incertezas, experimentos e bloqueadores; classificar prontidão, defeito funcional, pré-requisito arquitetural, evidência requerida, conflito de restrição ou impacto não delimitado |
-| Implementador | verificar os três gates, recusar sem mutação quando algum faltar e, quando satisfeitos, implementar e registrar evidências conforme a especificação |
+| Implementador | verificar os três gates, recusar sem mutação quando algum faltar e, quando satisfeitos, implementar, executar o build canônico proporcional e registrar evidências |
 | Crítico ou Revisor | oferecer challenge consultivo, sem autoridade para aprovar, reprovar, redefinir aceite ou reabrir decisões sem nova evidência |
 
 Uma segunda perspectiva é especialmente valiosa em segurança, autorização,
@@ -119,6 +123,11 @@ Testes são especialmente valiosos para regressões, regras complexas, casos
 limítrofes, segurança e contratos estáveis. Não devem ser alterados apenas para
 produzir resultado verde, nem usados pelo Implementador como argumento
 autorreferente de correção.
+
+O build canônico dos entregáveis construíveis afetados integra a implementação
+e não depende de repetição na especificação. Falha ou ausência permanece
+explícita e impede alegar implementação concluída. Essa autorização não inclui
+execução de testes, hardware, deploy ou publicação.
 
 Conforme o contexto, a aceitação pode combinar código e diffs, builds, execução
 em ambiente real, logs, testes, integração com hardware, APIs, bancos e
@@ -254,7 +263,7 @@ docs/
 ## Conteúdo
 
 - [`docs/EKOM-CONCEPT.md`](docs/EKOM-CONCEPT.md): definição, visão, problema e limites.
-- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 3.5.
+- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 3.6.
 - [`docs/VISION.md`](docs/VISION.md): estado futuro orientado por especificações.
 - [`docs/PRINCIPLES.md`](docs/PRINCIPLES.md): princípios normativos do EKOM.
 - [`docs/GLOSSARY.md`](docs/GLOSSARY.md): vocabulário canônico e termos legados.
@@ -264,6 +273,7 @@ docs/
 - [`docs/adr/ADR-0005-SPECIFICATION-AUTHORITY-CONFRONTATION.md`](docs/adr/ADR-0005-SPECIFICATION-AUTHORITY-CONFRONTATION.md): confronto proporcional das autoridades afetadas durante a autoria.
 - [`docs/adr/ADR-0006-SPECIFICATION-SCOPE-AND-ARCHITECTURAL-PREREQUISITES.md`](docs/adr/ADR-0006-SPECIFICATION-SCOPE-AND-ARCHITECTURAL-PREREQUISITES.md): contenção de escopo funcional e preparação arquitetural separada.
 - [`docs/adr/ADR-0007-NON-IMPLICIT-IMPLEMENTATION-GATES.md`](docs/adr/ADR-0007-NON-IMPLICIT-IMPLEMENTATION-GATES.md): análise, promoção e autorização como gates cumulativos da implementação.
+- [`docs/adr/ADR-0008-BUILD-INTRINSIC-TO-IMPLEMENTATION.md`](docs/adr/ADR-0008-BUILD-INTRINSIC-TO-IMPLEMENTATION.md): build canônico como obrigação da implementação autorizada.
 - [`docs/ACTOR-EVALUATION.md`](docs/ACTOR-EVALUATION.md): avaliação experimental dos atores.
 - [`docs/DESIGN-DECISIONS.md`](docs/DESIGN-DECISIONS.md): razões e evolução das decisões.
 - [`docs/LEGACY-ADOPTION.md`](docs/LEGACY-ADOPTION.md): adoção incremental.
@@ -297,7 +307,7 @@ ou julgamento humano. Orquestração é a coordenação normativa do trabalho pe
 especificação, não uma alegação de automação total. Qualidade e aceleração
 continuam hipóteses a demonstrar em casos reais.
 - [`docs/EKOM-CONCEPT.md`](docs/EKOM-CONCEPT.md): definição, objetivo e limites.
-- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 3.5.
+- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 3.6.
 - [`docs/VISION.md`](docs/VISION.md): visão e horizonte evolutivo.
 - [`docs/PRINCIPLES.md`](docs/PRINCIPLES.md): princípios normativos.
 - [`docs/GOVERNANCE.md`](docs/GOVERNANCE.md): evolução e versionamento.
@@ -310,7 +320,7 @@ continuam hipóteses a demonstrar em casos reais.
 
 ## Limite atual e horizonte
 
-O EKOM 3.5 não promete substituição do Arquiteto nem autonomia completa de
+O EKOM 3.6 não promete substituição do Arquiteto nem autonomia completa de
 julgamento. A interpretação conservadora da pesquisa pública e dos experimentos
 registrados é que eles ainda não sustentam engenharia de software amplamente
 autônoma, de ponta a ponta, sem supervisão e autoridade humanas. A base pública

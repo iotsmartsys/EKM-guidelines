@@ -67,6 +67,13 @@ não provas absolutas. Evidência deve ser terminal, observável e proporcional 
 risco; sua suficiência é decidida pelo Arquiteto. Testes não são alterados
 apenas para produzir verde nem usados como argumento autorreferente.
 
+## Build Is Part of Implementation
+
+Implementação autorizada de artefato construível inclui seu build canônico e
+proporcional. A especificação funcional não repete essa permissão. Build falho
+ou não executado não sustenta conclusão; testes, hardware e operações externas
+continuam sujeitos a autorização própria.
+
 ## Continuous Knowledge Evolution
 
 Novas decisões emendam ou substituem versões anteriores sem reescrever

@@ -37,6 +37,7 @@
 | Gate de implementação | Condição cumulativa para execução normativa: análise `Ready`, versão registrada como Pronta e autorização explícita da mesma versão. |
 | Promoção registrada | Decisão do Arquiteto incorporada à fonte normativa que altera o estado consumido pelos agentes; não é inferida de uma ordem posterior. |
 | Diagnóstico ou experimento em `Draft` | Atuação explicitamente não normativa de investigação; não implementa a especificação nem promove estado de implementação. |
+| Build intrínseco | Construção canônica e proporcional dos entregáveis afetados, incluída na autorização de implementação; não autoriza testes, hardware ou operação externa. |
 | Challenge | Crítica consultiva e proporcional ao risco; informa o Arquiteto sem aprovar ou reprovar o workflow. |
 | Evidência material | Fato observável como diff, build, execução, log, teste, integração real, relatório, decisão humana ou defeito posterior. |
 | Concluída [`Done`] | Estado determinado exclusivamente pelo Arquiteto quando evidências e risco residual são considerados suficientes. |

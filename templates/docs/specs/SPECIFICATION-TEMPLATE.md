@@ -106,9 +106,14 @@ constitui aprovação de comportamento.
 
 ### 7.1 Evidências planejadas
 
-- `<TESTES, BUILDS E OUTRAS EVIDÊNCIAS PROPORCIONAIS>`;
+- `<TESTES E OUTRAS EVIDÊNCIAS COMPORTAMENTAIS PROPORCIONAIS>`;
 - `<CONDIÇÃO OBJETIVA DE SUCESSO, INCLUSIVE CASOS EXECUTADOS QUANDO APLICÁVEL>`;
 - `<VALIDAÇÕES HUMANAS OU DE HARDWARE RESERVADAS À ETAPA POSTERIOR>`.
+
+O build canônico dos entregáveis construíveis afetados é obrigação transversal
+do Implementador e não precisa ser autorizado ou repetido nesta especificação.
+Declare aqui somente matriz excepcional, artefato adicional ou restrição de
+construção material ao aceite.
 
 Testes automatizados são evidências, não prova absoluta. Não devem ser alterados
 apenas para produzir verde. O conjunto e o risco residual são avaliados pelo

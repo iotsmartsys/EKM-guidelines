@@ -78,6 +78,11 @@ O Implementador executa a especificação, faz verificações técnicas, registr
 decisões locais e produz relatório e evidências. Dúvidas, limitações e desvios
 são declarados, não preenchidos silenciosamente.
 
+Em artefato construível, a autorização de implementação inclui o build canônico
+e proporcional dos entregáveis afetados. A especificação não precisa repetir
+essa permissão. Build falho ou não executado impede alegar implementação
+concluída; testes, hardware e operações externas exigem autorização própria.
+
 ### Challenge ou revisão
 
 O Crítico ou Revisor oferece uma segunda perspectiva quando acionado pelo
@@ -150,7 +155,7 @@ testes verdes como prova suficiente e autonomia completa como capacidade atual.
 
 ## Estado do método
 
-O EKOM 3.5 está aprovado e vigente para adoção. Autonomia completa permanece
+O EKOM 3.6 está aprovado e vigente para adoção. Autonomia completa permanece
 horizonte evolutivo, não capacidade comprovada. A decisão está registrada no
 [`ADR-0002`](adr/ADR-0002-EKOM-3-OPERATIONAL-AUTHORITY.md), com o roteamento
 documental operacionalizado pela
@@ -165,3 +170,5 @@ registrados na
 [`ADR-0006`](adr/ADR-0006-SPECIFICATION-SCOPE-AND-ARCHITECTURAL-PREREQUISITES.md).
 Os gates não implícitos de implementação estão registrados na
 [`ADR-0007`](adr/ADR-0007-NON-IMPLICIT-IMPLEMENTATION-GATES.md).
+O build intrínseco à implementação está registrado na
+[`ADR-0008`](adr/ADR-0008-BUILD-INTRINSIC-TO-IMPLEMENTATION.md).

@@ -1,6 +1,6 @@
 # Instruções permanentes e roteamento EKOM
 
-**Modelo EKOM:** 3.5
+**Modelo EKOM:** 3.6
 
 **Modalidade:** capacidades referenciadas e governança proporcional
 
@@ -48,6 +48,10 @@ exige cumulativamente análise `Ready`, versão promovida para Pronta e
 autorização explícita da mesma versão; gate ausente obriga recusa sem mutação e
 orientação da próxima etapa.
 
+Com os gates satisfeitos, a implementação de artefato construível inclui seu
+build canônico proporcional. Build não exige cláusula na especificação e não
+autoriza execução de testes, hardware, deploy ou outra operação externa.
+
 ## Fontes locais do projeto
 
 - especificações: `<CAMINHO_DAS_ESPECIFICACOES>`;
@@ -64,6 +68,8 @@ orientação da próxima etapa.
   exige decisão arquitetural explícita.
 - Testes são evidências, não prova absoluta; não os altere apenas para obter
   verde nem os use como argumento autorreferente.
+- Build canônico dos entregáveis afetados integra a implementação; registre
+  resultado terminal e não declare conclusão com build falho ou não executado.
 - Agentes registram fatos, decisões locais, dúvidas, limitações e desvios.
 - Análise, implementação, challenge e validação produzem relatórios separados;
   não são anexados à especificação.

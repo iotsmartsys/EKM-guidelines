@@ -1049,6 +1049,51 @@ a eficácia na redução de ciclos de análise permanece hipótese a confrontar.
   release, adoção automática por projetos existentes nem declara eficácia
   comprovada.
 
+## DD-039 — Build canônico integra a implementação autorizada
+
+**Problema observado:** ao promover a v0.11 de deep sleep do
+`IoTSmartLink15.4`, a especificação ainda agrupava build, testes e hardware como
+operações não autorizadas. O Arquiteto precisou esclarecer depois da promoção
+que build deve ser executado na implementação e que somente testes e operações
+físicas permanecem dependentes de autorização própria.
+
+**Decisão:** adotar a
+[`ADR-0008`](adr/ADR-0008-BUILD-INTRINSIC-TO-IMPLEMENTATION.md) e promover o
+modelo para EKOM 3.6. Autorização de implementação de artefato construível
+inclui e exige build canônico proporcional dos entregáveis afetados. A
+especificação funcional não repete essa permissão; fontes locais determinam
+comandos, targets e configurações. Testes, hardware, deploy e operações
+externas não são inferidos do build.
+
+**Proporcionalidade:** mudança documental ou contexto sem artefato construível
+não recebe comando artificial. O conjunto de builds segue o delta e os
+consumidores materiais, não uma matriz universal. Comando híbrido deve separar
+o build ou pedir autorização adicional.
+
+**Estado da decisão:** confirmada pelo Arquiteto para formulação no EKOM 3.6; a
+eficácia será observada em novas implementações.
+
+### Registro da atuação EKOM 3.6
+
+- **Capacidade:** Consultor de Arquitetura.
+- **Ordem:** tornar o build obrigação normativa transversal da EKOM, sem
+  repeti-lo como autorização da especificação funcional.
+- **Recorte:** regras comuns, perfil do Implementador, método, princípios,
+  glossário, governança, templates, ADR-0008 e adoção local pelo
+  `IoTSmartLink15.4`.
+- **Decisão confirmada:** implementação autorizada de artefato construível
+  inclui e exige build canônico proporcional; execução de testes, hardware e
+  operações externas conserva autorização própria.
+- **Resultado material:** EKOM promovido para 3.6; especificação de deep sleep
+  reconciliada para não autorizar nem proibir o build ordinário.
+- **Validação e limites:** guardas documentais aprovadas nos dois repositórios;
+  nenhuma construção, execução de teste ou operação em hardware integrou esta
+  atuação documental. A eficácia operacional permanece hipótese futura.
+- **Confirmação final:** concedida pelo Arquiteto em 2026-08-12 para registrar,
+  commitar e enviar os branches correntes dos dois repositórios. Não constitui
+  autorização de implementação da v0.11, testes, hardware, merge, release ou
+  deploy.
+
 ## DD-038 — Ordem de implementação não satisfaz gates ausentes
 
 **Problema observado:** um executor recebeu ordem para implementar uma versão

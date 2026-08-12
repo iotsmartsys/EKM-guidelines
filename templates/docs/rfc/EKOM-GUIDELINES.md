@@ -3,9 +3,9 @@
 Use este arquivo somente quando o projeto precisar de regras locais além da
 diretriz externa aplicável.
 
-**Versão do documento:** 3.5
+**Versão do documento:** 3.6
 
-**Versão do modelo EKOM:** 3.5
+**Versão do modelo EKOM:** 3.6
 
 **Estado:** vigente
 
@@ -47,6 +47,9 @@ Rascunho bloqueado → preparação arquitetural validada → nova análise
 - implementação exige cumulativamente análise `Ready`, promoção registrada para
   Pronta e autorização da mesma versão. Ordem de implementação não satisfaz
   gate ausente; o Implementador recusa sem mutação e orienta a próxima etapa.
+- implementação autorizada de artefato construível inclui build canônico e
+  proporcional; a especificação não repete essa permissão. Testes, hardware e
+  operações externas exigem autorização própria.
 
 Análise de implementabilidade é obrigatória, mas pode ser feita pelo Autor, com
 apoio de IA, por agente especializado ou por especialista separado. Revisão é
@@ -62,6 +65,9 @@ bordas, segurança e contratos estáveis.
 Aceitação pode considerar código e diffs, builds, execução real, logs, testes,
 hardware, APIs, bancos, infraestrutura, relatórios, decisões do Arquiteto e
 defeitos posteriores. O Arquiteto decide suficiência e risco residual.
+
+Build falho ou não executado não sustenta implementação concluída. O relatório
+registra alvo, ambiente relevante, estado terminal e código de saída.
 
 ## 5. Preservação e Git
 

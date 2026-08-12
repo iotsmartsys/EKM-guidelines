@@ -92,9 +92,16 @@ presente ou ausente e oriente a próxima etapa. Não use “a ordem prevalece”
 
 ## 10. Validações obrigatórias
 
-- <BUILD>
-- <TESTES>
+- Execute o build canônico proporcional dos entregáveis construíveis afetados;
+  a autorização de implementação inclui essa operação.
+- Se o comando de build também executar testes ou operação não autorizada, use
+  variante somente de build ou solicite autorização adicional.
+- <TESTES EXPRESSAMENTE AUTORIZADOS, OU NENHUM>
 - <ANÁLISES OU INSPEÇÕES>
+
+Ausência de autorização de testes não dispensa o build e não autoriza coletar
+ou executar casos. Testes podem ser escritos ou atualizados como artefatos da
+implementação sem produzir resultado de execução.
 
 ## 11. Tratamento de bloqueios
 
@@ -113,6 +120,9 @@ Se a implementação exigir uma decisão não fornecida:
 - Atualize código, testes e conhecimento afetado.
 - Registre decisões locais, evidências, limitações e desvios no relatório de
   implementação; não anexe a narrativa à especificação.
+- Registre comando ou entrada, ambiente, target/configuração, estado terminal e
+  código de saída de cada build. Build falho ou não executado mantém a
+  implementação `In Progress`.
 - Não altere especificação ou ADR salvo autorização mecânica que nomeie arquivo
   e transformação; essa exceção não transfere decisão normativa.
 - Registre somente evidências materiais.

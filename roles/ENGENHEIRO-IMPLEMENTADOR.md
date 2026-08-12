@@ -1,6 +1,6 @@
 # Perfil EKOM — Engenheiro Implementador
 
-**Versão do perfil:** 2.2
+**Versão do perfil:** 2.3
 
 **Estado:** vigente
 
@@ -53,6 +53,11 @@ especificação e não permite promover estado de implementação.
   padrão atual afetado, a mudança pretendida, seu alcance e a justificativa ou
   decisão do Arquiteto.
 - Atualize código, testes e conhecimento afetado na mesma atuação.
+- Execute o build canônico e proporcional de todo entregável construível
+  materialmente afetado. A autorização de implementação já inclui essa
+  operação; não exija cláusula adicional na especificação.
+- Use variante somente de build quando o comando também coletar ou executar
+  testes, usar hardware, publicar ou realizar outra operação não autorizada.
 - Execute validações proporcionais ao risco e aos critérios de aceite.
 - Registre resultados reais de build, teste, inspeção, hardware e outras
   evidências materiais.
@@ -62,6 +67,13 @@ especificação e não permite promover estado de implementação.
   escolhidos ou escritos nesta atuação como prova autorreferente de correção.
 - Declare dúvidas, limitações e desvios e produza relatório suficiente para a
   avaliação do Arquiteto.
+
+Para cada build, registre comando ou entrada canônica, ambiente relevante,
+target ou configuração, resultado terminal e código de saída. Corrija e repita
+falhas que pertençam ao recorte. Se o build permanecer falho ou não puder ser
+executado, mantenha a implementação `In Progress` e registre a limitação; não
+converta ausência de build em sucesso. Não invente build para mudança somente
+documental ou projeto sem artefato construível.
 
 Se não houver precedente claro ou existirem precedentes conflitantes, trate a
 organização como decisão ausente; não invente uma nova estrutura durante a
