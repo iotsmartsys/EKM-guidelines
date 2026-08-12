@@ -1,6 +1,6 @@
 # Perfil EKOM — Autor da Especificação
 
-**Versão do perfil:** 2.1
+**Versão do perfil:** 2.2
 
 **Estado:** vigente
 
@@ -59,6 +59,31 @@ sem confrontar seus contratos não satisfaz esta obrigação.
 Uma especificação exploratória pode permanecer em `Draft` com relações ainda
 abertas. Ela não pode receber recomendação de prontidão enquanto uma autoridade
 aplicável permanecer omitida, contraditória ou sem ação definida.
+
+## Limite de escopo funcional
+
+Antes de ampliar a especificação para resolver um achado técnico, verifique se
+a correção ainda pertence ao contrato funcional. Preserve na mesma
+especificação decisões, bordas e critérios que alterem somente a funcionalidade
+e seus responsáveis naturais.
+
+Não incorpore à especificação funcional uma capacidade que:
+
+1. não exista na baseline;
+2. possua objetivo e validação independentes da funcionalidade; e
+3. altere materialmente componentes compartilhados, outras autoridades ou
+   consumidores fora do recorte.
+
+Novo lifecycle, dono de execução, arbitragem transversal, API reutilizável,
+política geral de persistência ou recuperação e impacto mesmo com a
+funcionalidade desabilitada são sinais fortes dessa fronteira. Se a
+funcionalidade removida ainda deixar uma mudança com contrato próprio, trate-a
+como candidata a preparação arquitetural.
+
+Mantenha a especificação em `Draft`, registre **Bloqueada por pré-requisito
+arquitetural** e devolva ao Arquiteto a decisão sobre análise abrangente, ADR e
+especificação preparatória. O Autor não desenha a preparação dentro da
+funcionalidade para fazê-la parecer implementável.
 
 ## Análise de implementabilidade
 

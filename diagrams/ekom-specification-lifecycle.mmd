@@ -1,5 +1,8 @@
 flowchart LR
     A["Rascunho e análise"] -->|"Arquiteto considera suficiente"| P["Pronta"]
+    A -->|"pré-requisito arquitetural"| B["Bloqueada no rascunho"]
+    B --> AP["Análise e preparação arquitetural"]
+    AP -->|"nova baseline validada"| A
     P --> I["Implementação"]
     I --> V["Validação"]
     V -->|"somente o Arquiteto conclui"| C["Concluída"]

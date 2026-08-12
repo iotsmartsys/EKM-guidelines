@@ -621,3 +621,23 @@ autoridade; a árvore tornou visível a composição; o Mermaid conectou client 
 coordenador pelo protocolo. A [`ADR-0004`](adr/ADR-0004-KNOWLEDGE-MAP-VISUAL-STRUCTURE.md)
 incorpora essa capacidade proporcionalmente no EKOM 3.2. A utilidade observada
 no caso não prova benefício universal para diagramas em repositórios simples.
+
+## 27. Deep sleep — limite da especificação funcional
+
+O experimento de deep sleep do `IoTSmartLink15.4` exigiu nove análises e dez
+versões autorais até a promoção. A versão experimental reduzida tinha 219
+linhas; a promovida chegou a 610. A funcionalidade permaneceu pequena no
+produto, mas a baseline não oferecia lifecycle terminal, quiescência, parada do
+executor ou arbitragem com factory reset.
+
+O EKOM 3.3 fez o confronto de autoridades aparecer, mas não classificou que a
+capacidade necessária possuía identidade arquitetural própria. Retornos
+sucessivos foram tratados como ajustes da funcionalidade e a especificação
+absorveu a preparação da arquitetura.
+
+O caso sustenta a hipótese de que implementabilidade precisa ser avaliada
+dentro da baseline e do recorte, e que uma capacidade ausente, independente e
+transversal deve bloquear a funcionalidade e originar análise arquitetural. A
+[`ADR-0006`](adr/ADR-0006-SPECIFICATION-SCOPE-AND-ARCHITECTURAL-PREREQUISITES.md)
+operacionaliza a hipótese no EKOM 3.4. Sua eficácia ainda precisa ser observada
+em novas especificações; o caso anterior não é reinterpretado retroativamente.

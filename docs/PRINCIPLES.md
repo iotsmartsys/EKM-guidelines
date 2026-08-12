@@ -19,6 +19,13 @@ dos elementos que afeta. Relações de preservação, alteração, substituiçã
 correção ou descontinuação permanecem explícitas; conflito ou autoridade
 omitida retorna à decisão do Arquiteto.
 
+## Functional Scope Containment
+
+Uma especificação funcional não absorve silenciosamente uma evolução
+arquitetural independente. Capacidade ausente, transversal e validável por si
+própria bloqueia a funcionalidade na baseline vigente e exige decisão do
+Arquiteto sobre análise arquitetural e especificação preparatória.
+
 ## Knowledge over Code
 
 Código preserva a implementação atual, não necessariamente a intenção.

@@ -1,6 +1,6 @@
 # EKOM Guidelines
 
-**Modelo EKOM vigente:** 3.3
+**Modelo EKOM vigente:** 3.4
 
 **Estado:** aprovado e vigente
 
@@ -28,17 +28,22 @@ visões do mapa 3.2, no
 [`ADR-0004`](docs/adr/ADR-0004-KNOWLEDGE-MAP-VISUAL-STRUCTURE.md); e o confronto
 de autoridade na autoria 3.3, no
 [`ADR-0005`](docs/adr/ADR-0005-SPECIFICATION-AUTHORITY-CONFRONTATION.md).
+A contenção de escopo funcional e os pré-requisitos arquiteturais 3.4 estão na
+[`ADR-0006`](docs/adr/ADR-0006-SPECIFICATION-SCOPE-AND-ARCHITECTURAL-PREREQUISITES.md).
 
 O EKOM deve começar pequeno. Governança é útil quando acelera decisões, reduz
 retrabalho ou aumenta confiança; não quando apenas multiplica documentos,
 agentes ou passagens operacionais.
 
-## Princípios da versão 3.3
+## Princípios da versão 3.4
 
 - A especificação é a fonte da verdade, nasce antes do código e possui ciclo de
   vida próprio.
 - Antes da prontidão, o Autor confronta a mudança com as autoridades normativas
   dos elementos afetados e torna relações ou conflitos explícitos.
+- Implementabilidade é avaliada dentro da baseline e do recorte; capacidade
+  arquitetural ausente, independente e transversal bloqueia a funcionalidade e
+  é preparada separadamente.
 - Conhecimento, decisões e evidências permanecem persistentes, rastreáveis e
   evolutivos.
 - Agentes de IA podem investigar, implementar, verificar, documentar e produzir
@@ -62,6 +67,9 @@ Os princípios normativos completos estão em
 ```mermaid
 flowchart LR
     A["Rascunho e análise"] -->|"Arquiteto considera suficiente"| P["Pronta"]
+    A -->|"pré-requisito arquitetural"| B["Bloqueada no rascunho"]
+    B --> AP["Análise e preparação arquitetural"]
+    AP -->|"nova baseline validada"| A
     P --> I["Implementação"]
     I --> V["Validação"]
     V -->|"somente o Arquiteto conclui"| C["Concluída"]
@@ -86,7 +94,7 @@ reabertura. A fonte Mermaid reutilizável está em
 |---|---|
 | Arquiteto | decidir arquitetura, prioridade, risco aceitável, relevância das críticas, suficiência das evidências, aprovação, conclusão e reabertura |
 | Autor da Especificação | investigar repositório e arquitetura, confrontar autoridades afetadas e transformar intenção em contrato implementável e verificável |
-| Análise de implementabilidade | registrar evidências, impactos, restrições, incertezas, experimentos necessários e bloqueadores; pode ser exercida pelo Autor, por IA, por agente especializado ou por especialista separado |
+| Análise de implementabilidade | registrar evidências, impactos, restrições, incertezas, experimentos e bloqueadores; classificar prontidão, defeito funcional, pré-requisito arquitetural, evidência requerida, conflito de restrição ou impacto não delimitado |
 | Implementador | implementar conforme a especificação, verificar tecnicamente, registrar decisões locais, dúvidas, limitações, desvios e evidências |
 | Crítico ou Revisor | oferecer challenge consultivo, sem autoridade para aprovar, reprovar, redefinir aceite ou reabrir decisões sem nova evidência |
 
@@ -154,11 +162,17 @@ flowchart LR
 
     subgraph ANAFASE["Engenheiro Analista<br/>agente de IA ou o próprio Arquiteto"]
         ANALISTA["Análise de Implementabilidade"]
-        ANALISTA --> ANAD{"Implementável no<br/>repositório/código?"}
+        ANALISTA --> ANAD{"Classificação principal?"}
     end
 
-    ANAD -- "Não: devolve para<br/>esclarecer e corrigir" --> AUTOR
-    ANAD -- "Sim" --> IMPL
+    ANAD -- "Defeito da especificação" --> AUTOR
+    ANAD -- "Evidência requerida" --> EVID["Experimento ou evidência<br/>autorizada"]
+    EVID --> ANALISTA
+    ANAD -- "Pré-requisito arquitetural<br/>ou impacto não delimitado" --> ARQPREP["Arquiteto decide análise,<br/>ADR e preparação"]
+    ARQPREP --> PREP["Especificação preparatória<br/>implementada e validada"]
+    PREP --> AUTOR
+    ANAD -- "Conflito de restrição" --> ARQ
+    ANAD -- "Ready" --> IMPL
 
     subgraph IMPFASE["Engenheiro Implementador"]
         IMPL["Implementa o código"]
@@ -189,10 +203,12 @@ flowchart LR
     MAIN --> FIM["Especificação encerrada<br/>Done"]
 ```
 
-Reprovações não avançam o estado da especificação: falha de
-implementabilidade, de validação ou de homologação devolve o recorte ao Autor
-da Especificação; achados de revisão voltam ao Engenheiro Implementador. A
-integração na referência de produção permanece autorizada por decisão humana.
+Resultados não prontos não avançam o estado: defeito funcional retorna ao
+Autor; evidência requerida volta à análise depois da execução autorizada;
+pré-requisito ou impacto não delimitado retorna ao Arquiteto para preparação;
+conflito de restrição exige novo desenho ou decisão. Achados de revisão voltam
+ao Implementador. A integração na referência de produção permanece autorizada
+por decisão humana.
 
 ## Responsabilidades das fontes
 
@@ -232,7 +248,7 @@ docs/
 ## Conteúdo
 
 - [`docs/EKOM-CONCEPT.md`](docs/EKOM-CONCEPT.md): definição, visão, problema e limites.
-- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 3.3.
+- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 3.4.
 - [`docs/VISION.md`](docs/VISION.md): estado futuro orientado por especificações.
 - [`docs/PRINCIPLES.md`](docs/PRINCIPLES.md): princípios normativos do EKOM.
 - [`docs/GLOSSARY.md`](docs/GLOSSARY.md): vocabulário canônico e termos legados.
@@ -240,6 +256,7 @@ docs/
 - [`docs/adr/ADR-0003-DOCUMENT-ROUTING-AND-EVIDENCE-SEPARATION.md`](docs/adr/ADR-0003-DOCUMENT-ROUTING-AND-EVIDENCE-SEPARATION.md): roteamento e autoridade das fontes.
 - [`docs/adr/ADR-0004-KNOWLEDGE-MAP-VISUAL-STRUCTURE.md`](docs/adr/ADR-0004-KNOWLEDGE-MAP-VISUAL-STRUCTURE.md): tabela, árvore e diagrama proporcionais no mapa.
 - [`docs/adr/ADR-0005-SPECIFICATION-AUTHORITY-CONFRONTATION.md`](docs/adr/ADR-0005-SPECIFICATION-AUTHORITY-CONFRONTATION.md): confronto proporcional das autoridades afetadas durante a autoria.
+- [`docs/adr/ADR-0006-SPECIFICATION-SCOPE-AND-ARCHITECTURAL-PREREQUISITES.md`](docs/adr/ADR-0006-SPECIFICATION-SCOPE-AND-ARCHITECTURAL-PREREQUISITES.md): contenção de escopo funcional e preparação arquitetural separada.
 - [`docs/ACTOR-EVALUATION.md`](docs/ACTOR-EVALUATION.md): avaliação experimental dos atores.
 - [`docs/DESIGN-DECISIONS.md`](docs/DESIGN-DECISIONS.md): razões e evolução das decisões.
 - [`docs/LEGACY-ADOPTION.md`](docs/LEGACY-ADOPTION.md): adoção incremental.
@@ -273,7 +290,7 @@ ou julgamento humano. Orquestração é a coordenação normativa do trabalho pe
 especificação, não uma alegação de automação total. Qualidade e aceleração
 continuam hipóteses a demonstrar em casos reais.
 - [`docs/EKOM-CONCEPT.md`](docs/EKOM-CONCEPT.md): definição, objetivo e limites.
-- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 3.3.
+- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 3.4.
 - [`docs/VISION.md`](docs/VISION.md): visão e horizonte evolutivo.
 - [`docs/PRINCIPLES.md`](docs/PRINCIPLES.md): princípios normativos.
 - [`docs/GOVERNANCE.md`](docs/GOVERNANCE.md): evolução e versionamento.
@@ -286,7 +303,7 @@ continuam hipóteses a demonstrar em casos reais.
 
 ## Limite atual e horizonte
 
-O EKOM 3.3 não promete substituição do Arquiteto nem autonomia completa de
+O EKOM 3.4 não promete substituição do Arquiteto nem autonomia completa de
 julgamento. A interpretação conservadora da pesquisa pública e dos experimentos
 registrados é que eles ainda não sustentam engenharia de software amplamente
 autônoma, de ponta a ponta, sem supervisão e autoridade humanas. A base pública

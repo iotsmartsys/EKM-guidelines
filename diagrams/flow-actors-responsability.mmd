@@ -12,14 +12,18 @@ flowchart TD
 
     subgraph ANA["Engenheiro Analista"]
         C --> D["Confronta requisitos e fontes"]
-        D --> E{"Falta decisão?"}
-        E -- "Sim" --> F["Needs Clarification"]
-        E -- "Não" --> G["Implementable"]
+        D --> E{"Classificação?"}
+        E -- "Defeito funcional" --> F["Not Ready<br/>Specification Defect"]
+        E -- "Pré-requisito" --> PA["Not Ready<br/>Architectural Prerequisite"]
+        E -- "Impacto desconhecido" --> UN["Unknown<br/>Impact Not Delimited"]
+        E -- "Sem bloqueador" --> G["Ready"]
         F --> H["Registra resultado<br/>commit + push"]
+        PA --> H
+        UN --> H
         G --> H
     end
 
-    H --> I{"Implementable?"}
+    H --> I{"Ready?"}
     I -- "Não" --> J["Arquiteto decide"]
     J --> B
     I -- "Sim" --> K["Ordem de implementação"]

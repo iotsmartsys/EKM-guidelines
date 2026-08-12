@@ -11,14 +11,18 @@
 **Decisão do Arquiteto:** Em análise | Pronta para implementação | Em
 validação | Concluída | Reaberta
 
-**Relações normativas:**
+**Bloqueio arquitetural:** Nenhum | Bloqueada por `<ID OU CAPACIDADE>`
+
+**Relações normativas e de dependência:**
 
 - Nova [`New`] — somente quando não existir autoridade anterior para o
   comportamento; ou
 - Altera [`Amends`] `<ID@VERSÃO>`;
 - Substitui [`Supersedes`] `<ID@VERSÃO>`;
 - Corrige [`Corrects`] `<ID@VERSÃO>`;
-- Descontinua [`Retires`] `<ID@VERSÃO>`.
+- Descontinua [`Retires`] `<ID@VERSÃO>`;
+- Depende de [`Depends On`] `<ID@VERSÃO E ESTADO MATERIAL NECESSÁRIO>`; ou
+- Habilita [`Enables`] `<ID@VERSÃO>`.
 
 Declare uma linha por fonte afetada quando houver mais de uma relação. Uma
 especificação nova em seu recorte ainda pode alterar contratos públicos, ciclos
@@ -47,6 +51,19 @@ NÃO DEVEM MUDAR>`
 PRETENDIDA; ALCANCE; JUSTIFICATIVA OU DECISÃO DO ARQUITETO>`
 
 A ausência de desvio explícito determina preservação do precedente aplicável.
+
+### 3.2 Limite de escopo funcional
+
+**Capacidades arquiteturais pressupostas:** `<FONTES VIGENTES OU NENHUMA>`
+
+**Preparação arquitetural separada:** `<ID E CONDIÇÃO DE RETOMADA OU NÃO
+APLICÁVEL>`
+
+Uma capacidade ausente que possa ser especificada e validada sem esta
+funcionalidade e que altere materialmente componentes compartilhados,
+autoridades ou consumidores não deve ser desenhada aqui. Mantenha a
+funcionalidade bloqueada e registre somente `Depends On`; a preparação registra
+`Enables` e seu próprio contrato.
 
 ## 4. Requisitos
 

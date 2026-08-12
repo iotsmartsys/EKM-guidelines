@@ -1,6 +1,6 @@
 # Instruções permanentes e roteamento EKOM
 
-**Modelo EKOM:** 3.3
+**Modelo EKOM:** 3.4
 
 **Modalidade:** capacidades referenciadas e governança proporcional
 
@@ -37,6 +37,11 @@ ser feita pelo Autor, pelo Autor apoiado por IA, por agente especializado ou
 por especialista separado. Challenge/revisão é consultivo e acionado pelo
 Arquiteto ou pelo risco; não é gate universal. A ordem pode combinar autoria e
 análise, mas deve declarar segregação quando ela for necessária.
+
+Implementabilidade é avaliada dentro da baseline e do recorte. Capacidade
+arquitetural ausente, independente e transversal bloqueia a funcionalidade e
+exige decisão do Arquiteto sobre análise e especificação preparatória; não é
+absorvida como detalhe da especificação funcional ou da implementação.
 
 ## Fontes locais do projeto
 

@@ -20,11 +20,17 @@ flowchart LR
 
     subgraph ANAFASE["Engenheiro Analista<br/>agente de IA ou o próprio Arquiteto"]
         ANALISTA["Análise de Implementabilidade"]
-        ANALISTA --> ANAD{"Implementável no<br/>repositório/código?"}
+        ANALISTA --> ANAD{"Classificação principal?"}
     end
 
-    ANAD -- "Não: devolve para<br/>esclarecer e corrigir" --> AUTOR
-    ANAD -- "Sim" --> IMPL
+    ANAD -- "Defeito da especificação" --> AUTOR
+    ANAD -- "Evidência requerida" --> EVID["Experimento ou evidência<br/>autorizada"]
+    EVID --> ANALISTA
+    ANAD -- "Pré-requisito arquitetural<br/>ou impacto não delimitado" --> ARQPREP["Arquiteto decide análise,<br/>ADR e preparação"]
+    ARQPREP --> PREP["Especificação preparatória<br/>implementada e validada"]
+    PREP --> AUTOR
+    ANAD -- "Conflito de restrição" --> ARQ
+    ANAD -- "Ready" --> IMPL
 
     subgraph IMPFASE["Engenheiro Implementador"]
         IMPL["Implementa o código"]

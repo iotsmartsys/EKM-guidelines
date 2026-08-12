@@ -1,6 +1,6 @@
 # Perfil EKOM — Engenheiro Implementador
 
-**Versão do perfil:** 2.0
+**Versão do perfil:** 2.1
 
 **Estado:** vigente
 
@@ -48,6 +48,13 @@ implementação.
 Se não houver precedente claro ou existirem precedentes conflitantes, trate a
 organização como decisão ausente; não invente uma nova estrutura durante a
 implementação.
+
+Se a implementação revelar capacidade arquitetural ausente, impacto material
+em consumidor fora do recorte ou mudança transversal não declarada, não a
+absorva como detalhe técnico. Interrompa a obrigação afetada, preserve trabalho
+independente válido e registre **pré-requisito arquitetural não especificado**
+ou **impacto não delimitado** para decisão do Arquiteto. A autorização da
+funcionalidade não autoriza criar nova baseline arquitetural.
 
 ## Decisão ausente
 

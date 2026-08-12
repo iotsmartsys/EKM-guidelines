@@ -10,6 +10,16 @@
 | Atuação parcial | Diagnóstico, investigação ou execução explicitamente limitada que não promove o estado formal representativo da versão inteira. |
 | Fonte única da verdade | Autoridade normativa única por comportamento; não exige que todo conhecimento esteja em um único arquivo. |
 | Confronto de autoridade normativa | Verificação orientada por impacto que localiza as fontes vigentes dos elementos afetados, classifica a relação da mudança e impede prontidão diante de conflito, omissão ou alcance sem decisão. |
+| Baseline arquitetural | Conjunto vigente de responsabilidades, contratos, lifecycle, precedentes e capacidades contra o qual a implementabilidade é avaliada. |
+| Pré-requisito arquitetural | Capacidade ausente, independente da funcionalidade e materialmente transversal que precisa preparar e validar uma nova baseline antes da implementação funcional. |
+| Especificação preparatória | Especificação própria da capacidade arquitetural que habilita uma ou mais funcionalidades sem incorporar a política particular de cada consumidora. |
+| `Depends On` | Relação de dependência: a especificação consumidora não pode ser implementada antes do estado material exigido da fonte referenciada. |
+| `Enables` | Relação inversa pela qual uma preparação fornece capacidade arquitetural a uma especificação consumidora. |
+| Não pronta — defeito da especificação | Classificação de análise para decisão, borda, contrato ou critério ausente que ainda pertence à própria funcionalidade. |
+| Não pronta — pré-requisito arquitetural | Classificação bloqueante usada quando a baseline não oferece capacidade independente e transversal necessária à funcionalidade. |
+| Não pronta — evidência requerida | Classificação bloqueante quando a conclusão depende de experimento, toolchain, integração, infraestrutura ou hardware autorizado. |
+| Não implementável — conflito de restrição | Classificação para incompatibilidade do desenho com restrição física, de plataforma ou autoridade que não pode ser preservada. |
+| Desconhecida — impacto não delimitado | Classificação bloqueante quando consumidores ou raio de impacto material não foram suficientemente identificados. |
 | Plano de controle | Função exercida pela especificação ao determinar recorte, passagens, critérios e relações do pipeline. |
 | Orquestração | Coordenação do ciclo de engenharia pela especificação entre humanos, agentes de IA, automações, implementação, validação, evidências e evolução. |
 | Pipeline | Ciclo governado de rascunho e análise, prontidão, implementação, validação, conclusão e aprendizado; challenge é consultivo. |

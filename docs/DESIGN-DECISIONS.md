@@ -993,3 +993,58 @@ compatibilidade, nome ou fronteira cruzarem autoridades.
 
 **Estado da decisão:** confirmada pelo Arquiteto para incorporação ao EKOM 3.3;
 sua eficácia na redução de retornos tardios permanece hipótese a confrontar.
+
+## DD-037 — A funcionalidade não absorve pré-requisito arquitetural
+
+**Problema observado:** o confronto de autoridade do EKOM 3.3 revelou
+corretamente contratos afetados no deep sleep do `IoTSmartLink15.4`, mas não
+impediu que sucessivos retornos fossem incorporados à mesma especificação. Uma
+funcionalidade pequena passou a definir lifecycle, quiescência, encerramento e
+arbitragem transversais. O resultado genérico de prontidão condicionada não
+distinguia defeito funcional de baseline arquitetural insuficiente.
+
+**Decisão:** adotar a
+[`ADR-0006`](adr/ADR-0006-SPECIFICATION-SCOPE-AND-ARCHITECTURAL-PREREQUISITES.md)
+e promover o modelo para EKOM 3.4. A análise classifica separadamente prontidão,
+defeito da especificação, pré-requisito arquitetural, evidência requerida,
+conflito de restrição e impacto não delimitado. Capacidade ausente, independente
+e transversal bloqueia a funcionalidade e retorna ao Arquiteto para análise e
+preparação arquitetural separadas.
+
+**Proporcionalidade:** tocar componente compartilhado não cria automaticamente
+outra especificação. A separação exige materialidade, capacidade com contrato
+próprio ou impacto ainda desconhecido. Correções locais continuam no contrato
+funcional.
+
+**Estado da decisão:** confirmada pelo Arquiteto para incorporação ao EKOM 3.4;
+a eficácia na redução de ciclos de análise permanece hipótese a confrontar.
+
+### Registro da atuação EKOM 3.4
+
+**Estado da confirmação final:** Confirmada pelo Arquiteto.
+
+- **Papel exercido:** Consultor de Arquitetura.
+- **Ordem autorizada:** incorporar limites de escopo funcional, classificação
+  de inviabilidade no recorte e preparação arquitetural separada ao EKOM.
+- **Repositório e recorte:** `EKM-guidelines`; regras comuns, perfis de Autor,
+  Analista e Implementador, método, ADR, princípios, glossário, templates,
+  prompts, diagramas e navegação afetados.
+- **Operações autorizadas:** investigar fontes vigentes, editar a governança,
+  validar consistência e, após confirmação final, criar commit e realizar push
+  na branch de trabalho.
+- **Decisões confirmadas:** promover o modelo para EKOM 3.4; tornar obrigatória
+  a taxonomia de implementabilidade; bloquear funcionalidade que dependa de
+  capacidade arquitetural ausente, independente e transversal; separar análise
+  e especificação preparatória por decisão do Arquiteto.
+- **Resultado material produzido:** ADR-0006, DD-037, teste de fronteira,
+  relações `Depends On` e `Enables`, campos obrigatórios no relatório e
+  roteamento operacional entre defeito funcional, evidência, preparação,
+  conflito de restrição e impacto não delimitado.
+- **Validações e limitações:** integridade do diff e guarda documental
+  verificadas; mudança exclusivamente documental; eficácia depende de novas
+  atuações. O Consultor participou da formulação e não alega revisão
+  independente.
+- **Significado da confirmação final:** confirmar a formulação como EKOM 3.4 e
+  autorizar commit e push na branch atual. A confirmação não autoriza merge,
+  release, adoção automática por projetos existentes nem declara eficácia
+  comprovada.

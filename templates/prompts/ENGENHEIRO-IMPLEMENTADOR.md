@@ -68,6 +68,10 @@ Se alguma condição não for verdadeira, não inicie a implementação.
   Arquiteto.
 - Na ausência ou conflito de precedentes, interrompa o recorte e devolva a
   decisão ao Arquiteto.
+- Se surgir capacidade arquitetural ausente, impacto material fora do recorte
+  ou consumidor compartilhado não delimitado, não absorva a mudança como
+  detalhe técnico. Interrompa a obrigação afetada e registre pré-requisito
+  arquitetural não especificado.
 
 ## 9. Referências canônicas
 

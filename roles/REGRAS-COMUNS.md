@@ -1,8 +1,8 @@
 # Regras comuns dos perfis EKOM
 
-**Modelo EKOM aplicável:** 3.3
+**Modelo EKOM aplicável:** 3.4
 
-**Versão do perfil:** 2.2
+**Versão do perfil:** 2.3
 
 **Estado:** vigente
 
@@ -57,6 +57,35 @@ Preserve arquitetura, organização e separação de responsabilidades. Use o
 precedente equivalente mais próximo. Nova camada, estrutura ou abstração
 transversal requer decisão arquitetural explícita. Ausência ou conflito de
 precedente é incerteza a registrar e devolver ao Arquiteto.
+
+### 3.1 Contenção de escopo e pré-requisito arquitetural
+
+Implementabilidade significa ser executável dentro da baseline arquitetural e
+do recorte autorizados, não apenas ser tecnicamente possível após redesenhar o
+sistema. Uma especificação funcional não absorve por acúmulo uma capacidade
+arquitetural independente.
+
+Quando a mudança exigir capacidade inexistente que possa ser definida e
+validada sem a funcionalidade e que altere materialmente lifecycle, ownership,
+concorrência, persistência, recuperação, protocolo, segurança, API reutilizável
+ou consumidores fora do recorte, classifique o resultado como **Não pronta —
+pré-requisito arquitetural** [`Not Ready — Architectural Prerequisite`].
+
+Nesse resultado:
+
+- a implementação funcional não começa;
+- o relatório identifica a capacidade ausente, autoridades, consumidores,
+  impacto com a funcionalidade desabilitada e incertezas;
+- o Arquiteto decide entre mudar o desenho, aceitar alteração local, ordenar
+  análise arquitetural abrangente ou autorizar especificação preparatória e
+  ADR;
+- a especificação funcional registra somente a dependência e a condição de
+  retomada, sem incorporar o contrato da preparação;
+- depois de implementada e validada a nova baseline, a funcionalidade é
+  reconfrontada e recebe nova análise de implementabilidade.
+
+Impacto ainda não delimitado em componente compartilhado é bloqueador, não
+permissão para evoluir a arquitetura durante a implementação.
 
 ## 4. Funções necessárias
 

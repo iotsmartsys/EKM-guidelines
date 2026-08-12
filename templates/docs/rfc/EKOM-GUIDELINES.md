@@ -3,9 +3,9 @@
 Use este arquivo somente quando o projeto precisar de regras locais além da
 diretriz externa aplicável.
 
-**Versão do documento:** 3.3
+**Versão do documento:** 3.4
 
-**Versão do modelo EKOM:** 3.3
+**Versão do modelo EKOM:** 3.4
 
 **Estado:** vigente
 
@@ -30,6 +30,7 @@ integração. Agentes registram fatos e recomendações, não criam aprovação.
 
 ```text
 Rascunho e análise → Pronta → Implementação → Validação → Concluída
+Rascunho bloqueado → preparação arquitetural validada → nova análise
 ```
 
 - lacuna de análise permanece ou retorna ao rascunho;
@@ -37,6 +38,12 @@ Rascunho e análise → Pronta → Implementação → Validação → Concluíd
 - defeito de validação retorna à implementação;
 - problema na especificação retorna ao rascunho/análise;
 - nova evidência pode motivar reabertura pelo Arquiteto.
+- capacidade arquitetural ausente, independente e transversal bloqueia a
+  funcionalidade; análise e especificação preparatória são separadas por
+  decisão do Arquiteto;
+- análise classifica explicitamente defeito funcional, pré-requisito
+  arquitetural, evidência requerida, conflito de restrição e impacto não
+  delimitado; `prontidão condicionada` não é resultado final.
 
 Análise de implementabilidade é obrigatória, mas pode ser feita pelo Autor, com
 apoio de IA, por agente especializado ou por especialista separado. Revisão é

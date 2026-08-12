@@ -1,8 +1,8 @@
 # Método EKOM
 
-**Versão do documento:** 3.3
+**Versão do documento:** 3.4
 
-**Modelo EKOM:** 3.3
+**Modelo EKOM:** 3.4
 
 **Estado:** aprovado e vigente
 
@@ -113,6 +113,29 @@ recomendada como pronta enquanto outra autoridade aplicável estiver omitida ou
 contraditória. Ler uma fonte apenas como contexto técnico não equivale a
 confrontar seu contrato.
 
+### 3.2.2 Contenção de escopo e preparação arquitetural
+
+Uma especificação funcional governa seu comportamento e as mudanças locais
+necessárias; ela não absorve por acúmulo uma nova baseline arquitetural.
+Implementabilidade é avaliada contra a arquitetura e o recorte vigentes.
+
+Existe pré-requisito arquitetural quando uma capacidade necessária não existe,
+pode receber objetivo e validação independentes da funcionalidade e altera
+materialmente lifecycle, ownership, concorrência, persistência, recuperação,
+protocolo, segurança, API reutilizável, autoridades ou consumidores fora do
+recorte. Impacto material ainda não delimitado também impede prontidão.
+
+O Autor mantém a funcionalidade em `Draft` e registra a dependência. O relatório
+de análise delimita a capacidade ausente e recomenda análise arquitetural. O
+Arquiteto decide se muda o desenho, aceita alteração local, cria ADR ou autoriza
+especificação preparatória. A funcionalidade usa `Depends On`; a preparação,
+`Enables`, sem duplicação de contrato.
+
+A implementação funcional só é retomada depois que a preparação tiver sido
+implementada e validada e a especificação for reconfrontada com a nova
+baseline. A regra completa está na
+[`ADR-0006`](adr/ADR-0006-SPECIFICATION-SCOPE-AND-ARCHITECTURAL-PREREQUISITES.md).
+
 ### 3.3 Critérios assertáveis sem fetichizar testes
 
 Cada requisito obrigatório deve permitir distinguir sucesso, falha e ausência
@@ -194,6 +217,9 @@ O workflow usa no máximo cinco estados principais de leitura operacional:
 ```mermaid
 flowchart LR
     A["Rascunho e análise"] -->|"Arquiteto considera suficiente"| P["Pronta"]
+    A -->|"pré-requisito arquitetural"| B["Bloqueada no rascunho"]
+    B --> AP["Análise e preparação arquitetural"]
+    AP -->|"nova baseline validada"| A
     P --> I["Implementação"]
     I --> V["Validação"]
     V -->|"somente o Arquiteto conclui"| C["Concluída"]
@@ -262,6 +288,23 @@ Seu relatório registra:
 - incertezas;
 - experimentos necessários;
 - bloqueadores identificados.
+
+O resultado usa exatamente uma classificação principal:
+
+- Pronta [`Ready`];
+- Não pronta — defeito da especificação [`Not Ready — Specification Defect`];
+- Não pronta — pré-requisito arquitetural [`Not Ready — Architectural
+  Prerequisite`];
+- Não pronta — evidência requerida [`Not Ready — Evidence Required`];
+- Não implementável — conflito de restrição [`Not Implementable — Constraint
+  Conflict`];
+- Desconhecida — impacto não delimitado [`Unknown — Impact Not Delimited`].
+
+`Prontidão condicionada` não é resultado final. Condições são classificadas
+como bloqueantes ou não bloqueantes. A análise distingue correção pertencente à
+funcionalidade de capacidade arquitetural independente e recomenda análise
+abrangente quando retornos sucessivos continuarem revelando novos bloqueadores
+transversais.
 
 Leitura de código não certifica comportamento que só pode ser confirmado por
 build, protótipo, API, banco, infraestrutura ou hardware. Esses pontos são
@@ -416,7 +459,7 @@ não é gate universal nem substitui avaliação da solução e decisão do Arqu
 
 ## 12. Limites atuais
 
-O EKOM 3.3 não define infraestrutura distribuída de agentes e não promete
+O EKOM 3.4 não define infraestrutura distribuída de agentes e não promete
 autonomia completa de julgamento. O modelo atual não substitui Arquiteto,
 testes, revisão, observabilidade ou CI/CD. Autonomia completa permanece
 horizonte evolutivo condicionado a evidências futuras.
