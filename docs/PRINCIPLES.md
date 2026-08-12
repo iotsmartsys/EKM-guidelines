@@ -47,6 +47,12 @@ Toda especificação é analisada antes de implementar. A função é obrigatór
 Engenheiro Analista separado não é. Segregação é escolhida quando risco,
 incerteza ou necessidade de especialização justificarem seu custo.
 
+## Explicit Implementation Gates
+
+Análise `Ready`, promoção registrada para Pronta e autorização de implementação
+são condições cumulativas. Uma ordem não promove estado nem substitui análise;
+gate ausente exige recusa sem mutação e orientação do fluxo correto.
+
 ## Consultative Challenge
 
 Crítica e revisão são capacidades consultivas, proporcionais ao risco. Outro

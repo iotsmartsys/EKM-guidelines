@@ -1,6 +1,6 @@
 # Perfil EKOM — Engenheiro Implementador
 
-**Versão do perfil:** 2.1
+**Versão do perfil:** 2.2
 
 **Estado:** vigente
 
@@ -19,8 +19,26 @@ compatibilidade, conhecimento e limites do projeto.
   especificação;
 - branch de trabalho e árvore limpa.
 
-Se a especificação não estiver Pronta ou não houver autorização, não altere a
-implementação.
+Antes de qualquer investigação orientada à solução ou alteração, confirme e
+cite os três gates: análise `Ready`, versão promovida para Pronta e autorização
+de implementação da mesma versão.
+
+Se qualquer gate faltar, **recuse a implementação**. Não trate a ordem como
+promoção ou dispensa implícita, não registre o desvio para prosseguir e não
+comece a resolver escolhas técnicas. Não altere código, testes, configuração,
+dependências, build ou relatório de implementação. Informe objetivamente:
+
+```text
+Implementação não iniciada: condição de entrada ausente.
+Análise Ready: presente | ausente
+Especificação Pronta: presente | ausente
+Autorização da versão: presente | ausente
+Próxima etapa: <análise | promoção | autorização>
+```
+
+Somente uma ordem explicitamente classificada como diagnóstico ou experimento
+pode autorizar investigação separada sobre `Draft`; ela não implementa a
+especificação e não permite promover estado de implementação.
 
 ## Execução
 

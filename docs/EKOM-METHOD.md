@@ -1,8 +1,8 @@
 # Método EKOM
 
-**Versão do documento:** 3.4
+**Versão do documento:** 3.5
 
-**Modelo EKOM:** 3.4
+**Modelo EKOM:** 3.5
 
 **Estado:** aprovado e vigente
 
@@ -220,7 +220,9 @@ flowchart LR
     A -->|"pré-requisito arquitetural"| B["Bloqueada no rascunho"]
     B --> AP["Análise e preparação arquitetural"]
     AP -->|"nova baseline validada"| A
-    P --> I["Implementação"]
+    P --> G{"Ready + promoção<br/>+ autorização?"}
+    G -->|"Sim"| I["Implementação"]
+    G -->|"Não: recusa sem mutação"| A
     I --> V["Validação"]
     V -->|"somente o Arquiteto conclui"| C["Concluída"]
 
@@ -248,6 +250,21 @@ flowchart LR
 Retornos não são necessariamente fracasso. São aprendizado e evolução
 controlada da especificação. Projetos que precisem de estados técnicos mais
 granulares podem mantê-los, desde que não transfiram a autoridade de conclusão.
+
+### 4.1 Gates cumulativos da implementação
+
+A passagem para implementação exige simultaneamente análise `Ready`, promoção
+registrada da mesma versão para Pronta e autorização explícita do Arquiteto.
+Cada fonte responde por um fato diferente; nenhum deles é inferido dos demais.
+
+Uma ordem com o verbo `implementar` satisfaz autorização, mas não análise nem
+promoção. Se faltar gate, o Implementador recusa sem mutação, informa o estado
+de cada condição e orienta a próxima etapa. Registro em relatório não autoriza
+prosseguir nem corrige retroativamente a entrada.
+
+Diagnóstico e experimento sobre `Draft` exigem ordem própria e não produzem
+implementação normativa. A regra completa está na
+[`ADR-0007`](adr/ADR-0007-NON-IMPLICIT-IMPLEMENTATION-GATES.md).
 
 ## 5. Funções e papéis
 
@@ -315,6 +332,9 @@ quando o Arquiteto considerar a análise suficiente para autorizar execução.
 
 O Implementador:
 
+- verifica análise `Ready`, estado Pronta e autorização da mesma versão antes
+  de investigar a solução;
+- recusa sem mutação e orienta o fluxo quando qualquer gate estiver ausente;
 - implementa conforme a especificação autorizada;
 - realiza verificações técnicas proporcionais ao risco;
 - registra decisões locais no relatório de implementação;
@@ -459,7 +479,7 @@ não é gate universal nem substitui avaliação da solução e decisão do Arqu
 
 ## 12. Limites atuais
 
-O EKOM 3.4 não define infraestrutura distribuída de agentes e não promete
+O EKOM 3.5 não define infraestrutura distribuída de agentes e não promete
 autonomia completa de julgamento. O modelo atual não substitui Arquiteto,
 testes, revisão, observabilidade ou CI/CD. Autonomia completa permanece
 horizonte evolutivo condicionado a evidências futuras.

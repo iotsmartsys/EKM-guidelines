@@ -150,7 +150,7 @@ testes verdes como prova suficiente e autonomia completa como capacidade atual.
 
 ## Estado do método
 
-O EKOM 3.4 está aprovado e vigente para adoção. Autonomia completa permanece
+O EKOM 3.5 está aprovado e vigente para adoção. Autonomia completa permanece
 horizonte evolutivo, não capacidade comprovada. A decisão está registrada no
 [`ADR-0002`](adr/ADR-0002-EKOM-3-OPERATIONAL-AUTHORITY.md), com o roteamento
 documental operacionalizado pela
@@ -163,3 +163,5 @@ O confronto de autoridade normativa durante a autoria está registrado na
 A contenção de escopo funcional e os pré-requisitos arquiteturais estão
 registrados na
 [`ADR-0006`](adr/ADR-0006-SPECIFICATION-SCOPE-AND-ARCHITECTURAL-PREREQUISITES.md).
+Os gates não implícitos de implementação estão registrados na
+[`ADR-0007`](adr/ADR-0007-NON-IMPLICIT-IMPLEMENTATION-GATES.md).

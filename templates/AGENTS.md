@@ -1,6 +1,6 @@
 # Instruções permanentes e roteamento EKOM
 
-**Modelo EKOM:** 3.4
+**Modelo EKOM:** 3.5
 
 **Modalidade:** capacidades referenciadas e governança proporcional
 
@@ -42,6 +42,11 @@ Implementabilidade é avaliada dentro da baseline e do recorte. Capacidade
 arquitetural ausente, independente e transversal bloqueia a funcionalidade e
 exige decisão do Arquiteto sobre análise e especificação preparatória; não é
 absorvida como detalhe da especificação funcional ou da implementação.
+
+Ordem de implementação não promove estado nem dispensa análise. Implementação
+exige cumulativamente análise `Ready`, versão promovida para Pronta e
+autorização explícita da mesma versão; gate ausente obriga recusa sem mutação e
+orientação da próxima etapa.
 
 ## Fontes locais do projeto
 

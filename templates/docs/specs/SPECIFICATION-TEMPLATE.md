@@ -11,6 +11,10 @@
 **Decisão do Arquiteto:** Em análise | Pronta para implementação | Em
 validação | Concluída | Reaberta
 
+**Análise de implementabilidade:** Pendente | `Ready` | `<OUTRA CLASSIFICAÇÃO>`
+
+**Autorização de implementação desta versão:** Não concedida | Concedida
+
 **Bloqueio arquitetural:** Nenhum | Bloqueada por `<ID OU CAPACIDADE>`
 
 **Relações normativas e de dependência:**

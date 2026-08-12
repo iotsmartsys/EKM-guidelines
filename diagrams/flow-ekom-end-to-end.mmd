@@ -30,7 +30,9 @@ flowchart LR
     ARQPREP --> PREP["Especificação preparatória<br/>implementada e validada"]
     PREP --> AUTOR
     ANAD -- "Conflito de restrição" --> ARQ
-    ANAD -- "Ready" --> IMPL
+    ANAD -- "Ready" --> PROM["Arquiteto promove<br/>a versão para Pronta"]
+    PROM --> AUTH["Arquiteto autoriza<br/>a mesma versão"]
+    AUTH --> IMPL
 
     subgraph IMPFASE["Engenheiro Implementador"]
         IMPL["Implementa o código"]

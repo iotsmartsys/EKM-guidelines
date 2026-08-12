@@ -27,9 +27,12 @@ flowchart TD
     I -- "Não" --> J["Arquiteto decide"]
     J --> B
     I -- "Sim" --> K["Ordem de implementação"]
+    K --> KG{"Ready + Pronta<br/>+ autorizada?"}
+    KG -- "Não" --> KR["Recusa sem mutação<br/>e orienta o fluxo"]
+    KR --> J
 
     subgraph IMP["Engenheiro Implementador"]
-        K --> L["Implementa e valida o recorte"]
+        KG -- "Sim" --> L["Implementa e valida o recorte"]
         L --> M["In Progress, Blocked<br/>ou Implemented"]
         M --> N["Registra resultado<br/>commit + push"]
     end

@@ -641,3 +641,20 @@ transversal deve bloquear a funcionalidade e originar análise arquitetural. A
 [`ADR-0006`](adr/ADR-0006-SPECIFICATION-SCOPE-AND-ARCHITECTURAL-PREREQUISITES.md)
 operacionaliza a hipótese no EKOM 3.4. Sua eficácia ainda precisa ser observada
 em novas especificações; o caso anterior não é reinterpretado retroativamente.
+
+## 28. Ordem de implementação sobre especificação em Draft
+
+Com a v0.11 de deep sleep ainda em `Draft` e sem análise, o Arquiteto ordenou a
+implementação para observar o gate. O executor identificou o estado incorreto,
+mas afirmou que a ordem prevalecia, anunciou que registraria o desvio e iniciou
+investigação para codificar EXT1.
+
+O Arquiteto interrompeu a implementação e desfez todas as alterações. O caso
+mostrou que declarar a condição de entrada não foi suficiente: autoridade humana
+foi confundida com promoção implícita e o relatório, com regularização
+posterior.
+
+A [`ADR-0007`](adr/ADR-0007-NON-IMPLICIT-IMPLEMENTATION-GATES.md) torna análise
+`Ready`, promoção registrada e autorização gates cumulativos no EKOM 3.5. O
+experimento será repetido com a mesma ordem. O resultado esperado é recusa sem
+mutação, identificação dos gates ausentes e orientação para análise e promoção.

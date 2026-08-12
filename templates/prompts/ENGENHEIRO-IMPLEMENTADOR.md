@@ -26,6 +26,18 @@ tomar decisões reservadas ao Arquiteto.
 
 Se alguma condição não for verdadeira, não inicie a implementação.
 
+A ordem atual não promove a especificação, não substitui análise e não dispensa
+os gates. Antes de investigar a solução, confirme separadamente:
+
+1. análise concluída com `Ready`;
+2. versão promovida para Pronta;
+3. autorização de implementação da mesma versão.
+
+Se faltar qualquer item, recuse sem alterar código, testes, configuração,
+dependências, build ou relatório de implementação. Informe cada gate como
+presente ou ausente e oriente a próxima etapa. Não use “a ordem prevalece” nem
+“registrarei o desvio e seguirei”: relatório não regulariza execução sem gate.
+
 ## 3. Objetivo
 
 <RESULTADO PRETENDIDO>
@@ -85,6 +97,9 @@ Se alguma condição não for verdadeira, não inicie a implementação.
 - <ANÁLISES OU INSPEÇÕES>
 
 ## 11. Tratamento de bloqueios
+
+Falha de condição de entrada ocorre antes da implementação e não é um bloqueio
+técnico do código. Não preserve ou produza trabalho parcial nesse caso.
 
 Se a implementação exigir uma decisão não fornecida:
 

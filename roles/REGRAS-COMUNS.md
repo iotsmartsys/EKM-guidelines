@@ -1,8 +1,8 @@
 # Regras comuns dos perfis EKOM
 
-**Modelo EKOM aplicável:** 3.4
+**Modelo EKOM aplicável:** 3.5
 
-**Versão do perfil:** 2.3
+**Versão do perfil:** 2.4
 
 **Estado:** vigente
 
@@ -38,6 +38,37 @@ Se condição material falhar, informe o impedimento sem assumir autoridade
 adicional. Uma ordem pode combinar Autoria e análise de implementabilidade; um
 Analista ou Revisor separado só é obrigatório quando o Arquiteto ou o risco
 determinarem segregação.
+
+### 2.1 Gates não implícitos da implementação
+
+Uma ordem de implementação não promove implicitamente a especificação, não
+substitui análise de implementabilidade e não dispensa condições de entrada. A
+implementação normativa exige simultaneamente:
+
+1. análise concluída com classificação **Pronta** [`Ready`];
+2. promoção da versão para **Pronta para implementação** registrada na fonte
+   normativa pelo Arquiteto; e
+3. autorização explícita do Arquiteto para implementar essa versão.
+
+Intenção inferida, autoridade geral do Arquiteto, ordem com verbo
+`implementar`, foco adicional, urgência, registro posterior em relatório ou
+trabalho anterior em outra versão não satisfazem gate ausente. Autoridade humana
+decide a transição; não transforma uma transição ainda não registrada em fato.
+
+Se qualquer gate faltar, o Implementador deve:
+
+- recusar o início da implementação;
+- não alterar código, testes, configuração, dependências ou artefatos de build;
+- limitar leitura ao necessário para confirmar o estado e localizar a próxima
+  etapa;
+- informar os gates presentes e ausentes;
+- orientar o fluxo correto: análise, incorporação de achados, promoção e nova
+  ou reafirmada autorização de implementação.
+
+Registrar a violação em relatório não regulariza a execução. Investigação ou
+protótipo sobre especificação não pronta exige ordem distinta e explícita de
+diagnóstico ou experimento; não pode produzir nem alegar implementação da
+versão normativa.
 
 ## 3. Fontes e arquitetura
 

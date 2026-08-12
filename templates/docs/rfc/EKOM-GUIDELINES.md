@@ -3,9 +3,9 @@
 Use este arquivo somente quando o projeto precisar de regras locais além da
 diretriz externa aplicável.
 
-**Versão do documento:** 3.4
+**Versão do documento:** 3.5
 
-**Versão do modelo EKOM:** 3.4
+**Versão do modelo EKOM:** 3.5
 
 **Estado:** vigente
 
@@ -44,6 +44,9 @@ Rascunho bloqueado → preparação arquitetural validada → nova análise
 - análise classifica explicitamente defeito funcional, pré-requisito
   arquitetural, evidência requerida, conflito de restrição e impacto não
   delimitado; `prontidão condicionada` não é resultado final.
+- implementação exige cumulativamente análise `Ready`, promoção registrada para
+  Pronta e autorização da mesma versão. Ordem de implementação não satisfaz
+  gate ausente; o Implementador recusa sem mutação e orienta a próxima etapa.
 
 Análise de implementabilidade é obrigatória, mas pode ser feita pelo Autor, com
 apoio de IA, por agente especializado ou por especialista separado. Revisão é

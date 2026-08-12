@@ -1,6 +1,6 @@
 # EKOM Guidelines
 
-**Modelo EKOM vigente:** 3.4
+**Modelo EKOM vigente:** 3.5
 
 **Estado:** aprovado e vigente
 
@@ -30,12 +30,14 @@ de autoridade na autoria 3.3, no
 [`ADR-0005`](docs/adr/ADR-0005-SPECIFICATION-AUTHORITY-CONFRONTATION.md).
 A contenção de escopo funcional e os pré-requisitos arquiteturais 3.4 estão na
 [`ADR-0006`](docs/adr/ADR-0006-SPECIFICATION-SCOPE-AND-ARCHITECTURAL-PREREQUISITES.md).
+Os gates não implícitos de implementação 3.5 estão na
+[`ADR-0007`](docs/adr/ADR-0007-NON-IMPLICIT-IMPLEMENTATION-GATES.md).
 
 O EKOM deve começar pequeno. Governança é útil quando acelera decisões, reduz
 retrabalho ou aumenta confiança; não quando apenas multiplica documentos,
 agentes ou passagens operacionais.
 
-## Princípios da versão 3.4
+## Princípios da versão 3.5
 
 - A especificação é a fonte da verdade, nasce antes do código e possui ciclo de
   vida próprio.
@@ -44,6 +46,8 @@ agentes ou passagens operacionais.
 - Implementabilidade é avaliada dentro da baseline e do recorte; capacidade
   arquitetural ausente, independente e transversal bloqueia a funcionalidade e
   é preparada separadamente.
+- Análise `Ready`, promoção registrada e autorização da mesma versão são gates
+  cumulativos; ordem de implementação não substitui condição ausente.
 - Conhecimento, decisões e evidências permanecem persistentes, rastreáveis e
   evolutivos.
 - Agentes de IA podem investigar, implementar, verificar, documentar e produzir
@@ -70,7 +74,9 @@ flowchart LR
     A -->|"pré-requisito arquitetural"| B["Bloqueada no rascunho"]
     B --> AP["Análise e preparação arquitetural"]
     AP -->|"nova baseline validada"| A
-    P --> I["Implementação"]
+    P --> G{"Ready + promoção<br/>+ autorização?"}
+    G -->|"Sim"| I["Implementação"]
+    G -->|"Não: recusa sem mutação"| A
     I --> V["Validação"]
     V -->|"somente o Arquiteto conclui"| C["Concluída"]
 
@@ -95,7 +101,7 @@ reabertura. A fonte Mermaid reutilizável está em
 | Arquiteto | decidir arquitetura, prioridade, risco aceitável, relevância das críticas, suficiência das evidências, aprovação, conclusão e reabertura |
 | Autor da Especificação | investigar repositório e arquitetura, confrontar autoridades afetadas e transformar intenção em contrato implementável e verificável |
 | Análise de implementabilidade | registrar evidências, impactos, restrições, incertezas, experimentos e bloqueadores; classificar prontidão, defeito funcional, pré-requisito arquitetural, evidência requerida, conflito de restrição ou impacto não delimitado |
-| Implementador | implementar conforme a especificação, verificar tecnicamente, registrar decisões locais, dúvidas, limitações, desvios e evidências |
+| Implementador | verificar os três gates, recusar sem mutação quando algum faltar e, quando satisfeitos, implementar e registrar evidências conforme a especificação |
 | Crítico ou Revisor | oferecer challenge consultivo, sem autoridade para aprovar, reprovar, redefinir aceite ou reabrir decisões sem nova evidência |
 
 Uma segunda perspectiva é especialmente valiosa em segurança, autorização,
@@ -248,7 +254,7 @@ docs/
 ## Conteúdo
 
 - [`docs/EKOM-CONCEPT.md`](docs/EKOM-CONCEPT.md): definição, visão, problema e limites.
-- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 3.4.
+- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 3.5.
 - [`docs/VISION.md`](docs/VISION.md): estado futuro orientado por especificações.
 - [`docs/PRINCIPLES.md`](docs/PRINCIPLES.md): princípios normativos do EKOM.
 - [`docs/GLOSSARY.md`](docs/GLOSSARY.md): vocabulário canônico e termos legados.
@@ -257,6 +263,7 @@ docs/
 - [`docs/adr/ADR-0004-KNOWLEDGE-MAP-VISUAL-STRUCTURE.md`](docs/adr/ADR-0004-KNOWLEDGE-MAP-VISUAL-STRUCTURE.md): tabela, árvore e diagrama proporcionais no mapa.
 - [`docs/adr/ADR-0005-SPECIFICATION-AUTHORITY-CONFRONTATION.md`](docs/adr/ADR-0005-SPECIFICATION-AUTHORITY-CONFRONTATION.md): confronto proporcional das autoridades afetadas durante a autoria.
 - [`docs/adr/ADR-0006-SPECIFICATION-SCOPE-AND-ARCHITECTURAL-PREREQUISITES.md`](docs/adr/ADR-0006-SPECIFICATION-SCOPE-AND-ARCHITECTURAL-PREREQUISITES.md): contenção de escopo funcional e preparação arquitetural separada.
+- [`docs/adr/ADR-0007-NON-IMPLICIT-IMPLEMENTATION-GATES.md`](docs/adr/ADR-0007-NON-IMPLICIT-IMPLEMENTATION-GATES.md): análise, promoção e autorização como gates cumulativos da implementação.
 - [`docs/ACTOR-EVALUATION.md`](docs/ACTOR-EVALUATION.md): avaliação experimental dos atores.
 - [`docs/DESIGN-DECISIONS.md`](docs/DESIGN-DECISIONS.md): razões e evolução das decisões.
 - [`docs/LEGACY-ADOPTION.md`](docs/LEGACY-ADOPTION.md): adoção incremental.
@@ -290,7 +297,7 @@ ou julgamento humano. Orquestração é a coordenação normativa do trabalho pe
 especificação, não uma alegação de automação total. Qualidade e aceleração
 continuam hipóteses a demonstrar em casos reais.
 - [`docs/EKOM-CONCEPT.md`](docs/EKOM-CONCEPT.md): definição, objetivo e limites.
-- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 3.4.
+- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 3.5.
 - [`docs/VISION.md`](docs/VISION.md): visão e horizonte evolutivo.
 - [`docs/PRINCIPLES.md`](docs/PRINCIPLES.md): princípios normativos.
 - [`docs/GOVERNANCE.md`](docs/GOVERNANCE.md): evolução e versionamento.
@@ -303,7 +310,7 @@ continuam hipóteses a demonstrar em casos reais.
 
 ## Limite atual e horizonte
 
-O EKOM 3.4 não promete substituição do Arquiteto nem autonomia completa de
+O EKOM 3.5 não promete substituição do Arquiteto nem autonomia completa de
 julgamento. A interpretação conservadora da pesquisa pública e dos experimentos
 registrados é que eles ainda não sustentam engenharia de software amplamente
 autônoma, de ponta a ponta, sem supervisão e autoridade humanas. A base pública

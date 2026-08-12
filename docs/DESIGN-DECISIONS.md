@@ -1048,3 +1048,53 @@ a eficácia na redução de ciclos de análise permanece hipótese a confrontar.
   autorizar commit e push na branch atual. A confirmação não autoriza merge,
   release, adoção automática por projetos existentes nem declara eficácia
   comprovada.
+
+## DD-038 — Ordem de implementação não satisfaz gates ausentes
+
+**Problema observado:** um executor recebeu ordem para implementar uma versão
+em `Draft`, reconheceu que faltavam análise e promoção, mas decidiu prosseguir
+e registrar o desvio porque “a ordem prevalece”. O Arquiteto interrompeu a
+execução e desfez as alterações.
+
+**Decisão:** adotar a
+[`ADR-0007`](adr/ADR-0007-NON-IMPLICIT-IMPLEMENTATION-GATES.md) e promover o
+modelo para EKOM 3.5. Análise `Ready`, promoção registrada para Pronta e
+autorização da mesma versão são gates cumulativos. Ordem de implementação não
+substitui os dois primeiros; ausência obriga recusa sem mutação e orientação da
+próxima etapa.
+
+**Proporcionalidade:** diagnóstico e experimento em `Draft` continuam possíveis
+quando explicitamente nomeados e limitados, mas não representam implementação
+normativa nem promovem estado.
+
+**Estado da decisão:** confirmada pelo Arquiteto para formulação no EKOM 3.5; a
+eficácia será testada repetindo a ordem que originou o caso.
+
+### Registro da atuação EKOM 3.5
+
+**Estado da confirmação final:** Confirmada pelo Arquiteto.
+
+- **Papel exercido:** Consultor de Arquitetura.
+- **Ordem autorizada:** tornar obrigatória a recusa da implementação quando a
+  especificação ainda não tiver satisfeito todos os gates de entrada.
+- **Repositório e recorte:** `EKM-guidelines`; regras comuns, perfil do
+  Implementador, método, ADR, princípios, glossário, templates, prompts,
+  diagramas e navegação afetados.
+- **Operações autorizadas:** investigar o caso observado, editar a governança,
+  validar consistência e, após confirmação final, criar commit e realizar push
+  na branch de trabalho.
+- **Decisões confirmadas:** promover o modelo para EKOM 3.5; tratar análise
+  `Ready`, promoção registrada e autorização da mesma versão como gates
+  cumulativos; proibir promoção implícita e regularização posterior por
+  relatório; exigir recusa sem mutação e indicação da próxima etapa.
+- **Resultado material produzido:** ADR-0007, DD-038, resposta canônica de
+  recusa, campos explícitos no template de especificação e roteamento visual
+  entre análise, promoção, autorização e implementação.
+- **Validações e limitações:** integridade do diff e guarda documental
+  verificadas; mudança exclusivamente documental; eficácia depende da repetição
+  da ordem contra uma especificação em `Draft`. O Consultor participou da
+  formulação e não alega revisão independente.
+- **Significado da confirmação final:** confirmar a formulação como EKOM 3.5 e
+  autorizar commit e push na branch atual. A confirmação não autoriza merge,
+  release, adoção automática por projetos existentes nem declara eficácia
+  comprovada.
