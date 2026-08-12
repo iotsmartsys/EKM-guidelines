@@ -21,22 +21,19 @@ tomar decisões reservadas ao Arquiteto.
 - Branch: <BRANCH DESIGNADA>
 - Especificação: <ID E VERSÃO>
 - Relatório: <CAMINHO EM docs/reports/<MUDANÇA>/implementation/>
-- Estado do workflow: Pronta, com implementação autorizada pelo Arquiteto
+- Análise de implementabilidade: `Ready` para a versão indicada
 - Árvore de trabalho inicial: deve estar limpa
 
 Se alguma condição não for verdadeira, não inicie a implementação.
 
-A ordem atual não promove a especificação, não substitui análise e não dispensa
-os gates. Antes de investigar a solução, confirme separadamente:
+Esta ordem explícita aprova e autoriza a Implementação da versão indicada; não
+exige promoção nem campo documental adicional. Antes de investigar a solução,
+confirme que a análise `Ready` se aplica à versão normativa corrente.
 
-1. análise concluída com `Ready`;
-2. versão promovida para Pronta;
-3. autorização de implementação da mesma versão.
-
-Se faltar qualquer item, recuse sem alterar código, testes, configuração,
-dependências, build ou relatório de implementação. Informe cada gate como
-presente ou ausente e oriente a próxima etapa. Não use “a ordem prevalece” nem
-“registrarei o desvio e seguirei”: relatório não regulariza execução sem gate.
+Se a análise faltar, pertencer a outra versão ou tiver sido invalidada por
+mudança normativa, recuse sem alterar código, testes, configuração,
+dependências, build ou relatório. Oriente a nova análise. Se a entrada estiver
+satisfeita, registre `In Progress` como primeiro efeito da atuação.
 
 ## 3. Objetivo
 
@@ -93,7 +90,7 @@ presente ou ausente e oriente a próxima etapa. Não use “a ordem prevalece”
 ## 10. Validações obrigatórias
 
 - Execute o build canônico proporcional dos entregáveis construíveis afetados;
-  a autorização de implementação inclui essa operação.
+  esta ordem de implementação inclui essa operação.
 - Se o comando de build também executar testes ou operação não autorizada, use
   variante somente de build ou solicite autorização adicional.
 - <TESTES EXPRESSAMENTE AUTORIZADOS, OU NENHUM>

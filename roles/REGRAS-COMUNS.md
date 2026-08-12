@@ -1,8 +1,8 @@
 # Regras comuns dos perfis EKOM
 
-**Modelo EKOM aplicável:** 3.6
+**Modelo EKOM aplicável:** 4.0
 
-**Versão do perfil:** 2.5
+**Versão do perfil:** 3.0
 
 **Estado:** vigente
 
@@ -39,41 +39,38 @@ adicional. Uma ordem pode combinar Autoria e análise de implementabilidade; um
 Analista ou Revisor separado só é obrigatório quando o Arquiteto ou o risco
 determinarem segregação.
 
-### 2.1 Gates não implícitos da implementação
+### 2.1 Entrada simples da implementação
 
-Uma ordem de implementação não promove implicitamente a especificação, não
-substitui análise de implementabilidade e não dispensa condições de entrada. A
-implementação normativa exige simultaneamente:
+O workflow possui quatro estágios: Autoria, Análise de Implementabilidade,
+Implementação e Revisão. Promoção documental não é estágio nem gate.
 
-1. análise concluída com classificação **Pronta** [`Ready`];
-2. promoção da versão para **Pronta para implementação** registrada na fonte
-   normativa pelo Arquiteto; e
-3. autorização explícita do Arquiteto para implementar essa versão.
+A implementação normativa exige somente:
 
-Intenção inferida, autoridade geral do Arquiteto, ordem com verbo
-`implementar`, foco adicional, urgência, registro posterior em relatório ou
-trabalho anterior em outra versão não satisfazem gate ausente. Autoridade humana
-decide a transição; não transforma uma transição ainda não registrada em fato.
+1. análise concluída com classificação **Pronta** [`Ready`] aplicável à versão
+   normativa corrente; e
+2. ordem explícita do Arquiteto para implementar essa versão.
 
-Se qualquer gate faltar, o Implementador deve:
+A ordem explícita é o ato de aprovação e autorização da passagem. O
+Implementador registra mecanicamente `In Progress` como primeiro efeito da
+atuação; não exige que o Arquiteto edite antes um campo de promoção ou
+autorização na especificação. Ordem genérica para trabalhar, avaliar, continuar
+ou investigar não equivale a ordem de implementação.
 
-- recusar o início da implementação;
-- não alterar código, testes, configuração, dependências ou artefatos de build;
-- limitar leitura ao necessário para confirmar o estado e localizar a próxima
-  etapa;
-- informar os gates presentes e ausentes;
-- orientar o fluxo correto: análise, incorporação de achados, promoção e nova
-  ou reafirmada autorização de implementação.
+Alteração normativa posterior ao `Ready`, análise de outra versão ou ausência
+de ordem explícita obriga o Implementador a recusar sem mutação e orientar a
+próxima ação: análise da versão corrente ou ordem inequívoca de implementação.
+Diagnóstico ou experimento sobre `Draft` continua possível por ordem própria e
+não produz implementação normativa.
 
-Registrar a violação em relatório não regulariza a execução. Investigação ou
-protótipo sobre especificação não pronta exige ordem distinta e explícita de
-diagnóstico ou experimento; não pode produzir nem alegar implementação da
-versão normativa.
+Correções de implementação devolvidas pela Revisão permanecem cobertas pela
+ordem original enquanto versão, recorte, arquitetura e risco autorizado não
+mudarem. Decisão humana nova ou ampliação material retorna ao Arquiteto; não se
+cria autorização repetida para cada iteração ordinária.
 
 ### 2.2 Build intrínseco à implementação
 
-Depois de satisfeitos os três gates, a autorização de implementação de artefato
-construível inclui e exige seu build canônico proporcional. A especificação não
+Satisfeita a entrada simples, a ordem de implementação de artefato construível
+inclui e exige seu build canônico proporcional. A especificação não
 precisa repetir essa permissão. O `AGENTS.md` ou a fonte técnica local determina
 comandos, targets, configurações e consumidores materiais.
 
@@ -159,13 +156,16 @@ O Implementador responde pela especificação autorizada, verificações técnic
 relatório separado de decisões locais, evidências, dúvidas, limitações e
 desvios. Restrição ou ambiguidade normativa retorna ao rascunho e análise.
 
-### 4.3 Challenge
+### 4.3 Revisão e challenge
 
-Crítica ou revisão é consultiva e proporcional ao risco. O crítico registra em
-relatório separado riscos e pontos cegos ou declara que não encontrou risco
-adicional relevante. Não edita a especificação, não promove estado, não
-redefine aceite, não impõe narrativa de testes, não reabre decisão sem nova
-evidência e não substitui o Arquiteto.
+Revisão é o quarto estágio do workflow. Confronta implementação, especificação
+e evidências, registra o resultado e devolve defeito de implementação ao
+Implementador ou defeito normativo à Autoria. Não edita código na mesma atuação
+sem ordem compatível, não redefine aceite e não substitui o Arquiteto.
+
+Profundidade, independência e challenge adicional são proporcionais ao risco.
+Uma segunda perspectiva não recebe autoridade para aprovar, concluir ou reabrir
+o workflow; somente o Arquiteto decide `Done`, reabertura e integração.
 
 Outro agente não é automaticamente independente. Quando independência for
 material, registre conflitos de participação, contexto e capacidade.
@@ -200,7 +200,7 @@ o Arquiteto decide a suficiência do conjunto.
 - Agentes registram fatos e estados sustentados por sua execução.
 - Apenas o Arquiteto determina que a especificação está Concluída ou Reaberta.
 
-Analista, Implementador, Revisor e responsável pela validação escrevem seus
+Analista, Implementador, Revisor e responsável por evidência operacional escrevem seus
 relatórios nos destinos declarados pelo projeto. Somente o Arquiteto incorpora
 achados em especificações, aceita ADRs e promove estados normativos. Uma exceção
 de escrita mecânica deve nomear arquivos e transformação; não transfere decisão.

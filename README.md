@@ -1,6 +1,6 @@
 # EKOM Guidelines
 
-**Modelo EKOM vigente:** 3.6
+**Modelo EKOM vigente:** 4.0
 
 **Estado:** aprovado e vigente
 
@@ -31,15 +31,18 @@ de autoridade na autoria 3.3, no
 A contenção de escopo funcional e os pré-requisitos arquiteturais 3.4 estão na
 [`ADR-0006`](docs/adr/ADR-0006-SPECIFICATION-SCOPE-AND-ARCHITECTURAL-PREREQUISITES.md).
 Os gates não implícitos de implementação 3.5 estão na
-[`ADR-0007`](docs/adr/ADR-0007-NON-IMPLICIT-IMPLEMENTATION-GATES.md).
+[`ADR-0007`](docs/adr/ADR-0007-NON-IMPLICIT-IMPLEMENTATION-GATES.md), hoje
+substituída.
 A obrigação intrínseca de build na implementação 3.6 está na
 [`ADR-0008`](docs/adr/ADR-0008-BUILD-INTRINSIC-TO-IMPLEMENTATION.md).
+O workflow simplificado em quatro estágios 4.0 está na
+[`ADR-0009`](docs/adr/ADR-0009-FOUR-STAGE-WORKFLOW.md).
 
 O EKOM deve começar pequeno. Governança é útil quando acelera decisões, reduz
 retrabalho ou aumenta confiança; não quando apenas multiplica documentos,
 agentes ou passagens operacionais.
 
-## Princípios da versão 3.6
+## Princípios da versão 4.0
 
 - A especificação é a fonte da verdade, nasce antes do código e possui ciclo de
   vida próprio.
@@ -48,8 +51,11 @@ agentes ou passagens operacionais.
 - Implementabilidade é avaliada dentro da baseline e do recorte; capacidade
   arquitetural ausente, independente e transversal bloqueia a funcionalidade e
   é preparada separadamente.
-- Análise `Ready`, promoção registrada e autorização da mesma versão são gates
-  cumulativos; ordem de implementação não substitui condição ausente.
+- O fluxo possui quatro estágios: Autoria, Análise de Implementabilidade,
+  Implementação e Revisão.
+- Análise `Ready` da versão corrente e ordem explícita do Arquiteto bastam para
+  iniciar a Implementação; não existe promoção ou autorização documental
+  intermediária.
 - Implementação autorizada de artefato construível inclui seu build canônico e
   proporcional; testes, hardware e operações externas não são inferidos dela.
 - Conhecimento, decisões e evidências permanecem persistentes, rastreáveis e
@@ -61,8 +67,8 @@ agentes ou passagens operacionais.
   reabertura do workflow.
 - Análise de implementabilidade é obrigatória; segregação em um Engenheiro
   Analista separado não é.
-- Challenge e revisão são capacidades consultivas acionadas quando o risco ou o
-  Arquiteto justificarem uma segunda perspectiva.
+- Revisão é o quarto estágio; challenge adicional, independência e profundidade
+  são proporcionais ao risco.
 - Testes automatizados são evidências, não prova absoluta; sua exigência e a
   combinação de evidências são proporcionais ao risco e ao valor.
 - A IA amplia a capacidade do Arquiteto; não o substitui.
@@ -74,21 +80,16 @@ Os princípios normativos completos estão em
 
 ```mermaid
 flowchart LR
-    A["Rascunho e análise"] -->|"Arquiteto considera suficiente"| P["Pronta"]
-    A -->|"pré-requisito arquitetural"| B["Bloqueada no rascunho"]
-    B --> AP["Análise e preparação arquitetural"]
-    AP -->|"nova baseline validada"| A
-    P --> G{"Ready + promoção<br/>+ autorização?"}
-    G -->|"Sim"| I["Implementação"]
-    G -->|"Não: recusa sem mutação"| A
-    I --> V["Validação"]
-    V -->|"somente o Arquiteto conclui"| C["Concluída"]
-
-    A -->|"lacunas: permanece"| A
-    I -->|"restrição ou ambiguidade"| A
-    V -->|"defeito de implementação"| I
-    V -->|"problema na especificação"| A
-    C -->|"nova necessidade ou evidência material; Arquiteto reabre"| A
+    A["1. Autoria"] --> N["2. Análise de Implementabilidade"]
+    N -->|"Ready + ordem explícita"| I["3. Implementação"]
+    N -->|"não Ready"| A
+    I --> R["4. Revisão"]
+    R -->|"defeito de implementação"| I
+    R -->|"defeito da especificação"| A
+    R -->|"Arquiteto aceita"| C["Done"]
+    A -->|"pré-requisito arquitetural"| P["Preparação arquitetural"]
+    P -->|"baseline validada"| A
+    C -->|"Arquiteto reabre"| A
 ```
 
 A especificação governa o fluxo e pode avançar ou retornar conforme o trabalho
@@ -105,8 +106,8 @@ reabertura. A fonte Mermaid reutilizável está em
 | Arquiteto | decidir arquitetura, prioridade, risco aceitável, relevância das críticas, suficiência das evidências, aprovação, conclusão e reabertura |
 | Autor da Especificação | investigar repositório e arquitetura, confrontar autoridades afetadas e transformar intenção em contrato implementável e verificável |
 | Análise de implementabilidade | registrar evidências, impactos, restrições, incertezas, experimentos e bloqueadores; classificar prontidão, defeito funcional, pré-requisito arquitetural, evidência requerida, conflito de restrição ou impacto não delimitado |
-| Implementador | verificar os três gates, recusar sem mutação quando algum faltar e, quando satisfeitos, implementar, executar o build canônico proporcional e registrar evidências |
-| Crítico ou Revisor | oferecer challenge consultivo, sem autoridade para aprovar, reprovar, redefinir aceite ou reabrir decisões sem nova evidência |
+| Implementador | confirmar `Ready` da versão corrente e ordem explícita, registrar `In Progress`, implementar, executar o build canônico proporcional e registrar evidências |
+| Crítico ou Revisor | revisar implementação, contrato e evidências; devolver defeitos ao estágio correto, sem autoridade para concluir o workflow |
 
 Uma segunda perspectiva é especialmente valiosa em segurança, autorização,
 corrupção de dados, concorrência, operações irreversíveis, falhas recorrentes ou
@@ -187,7 +188,8 @@ flowchart LR
     ARQPREP --> PREP["Especificação preparatória<br/>implementada e validada"]
     PREP --> AUTOR
     ANAD -- "Conflito de restrição" --> ARQ
-    ANAD -- "Ready" --> IMPL
+    ANAD -- "Ready" --> ORDER["Arquiteto ordena implementar<br/>a versão analisada"]
+    ORDER --> IMPL
 
     subgraph IMPFASE["Engenheiro Implementador"]
         IMPL["Implementa o código"]
@@ -204,18 +206,9 @@ flowchart LR
     end
 
     REVD -- "Não: ajustes na<br/>implementação" --> IMPL
-    REVD -- "Sim" --> PR["Abre PR do repositório"]
-    PR --> DEV["Integra na<br/>branch de desenvolvimento"]
-
-    DEV --> VAL["Validação pelo Desenvolvedor<br/>e pelo Analista de Negócio"]
-    VAL --> VALD{"Tudo de acordo?"}
-    VALD -- "Não: problemas<br/>de especificação" --> AUTOR
-    VALD -- "Sim" --> HOM["Homologação"]
-
-    HOM --> HOMD{"OK da área<br/>responsável?"}
-    HOMD -- "Não" --> AUTOR
-    HOMD -- "Sim" --> MAIN["Integra na branch main"]
-    MAIN --> FIM["Especificação encerrada<br/>Done"]
+    REVD -- "Não: defeito da<br/>especificação" --> AUTOR
+    REVD -- "Sim" --> DEC["Arquiteto decide conclusão<br/>e integração"]
+    DEC --> FIM["Done"]
 ```
 
 Resultados não prontos não avançam o estado: defeito funcional retorna ao
@@ -263,7 +256,7 @@ docs/
 ## Conteúdo
 
 - [`docs/EKOM-CONCEPT.md`](docs/EKOM-CONCEPT.md): definição, visão, problema e limites.
-- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 3.6.
+- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 4.0.
 - [`docs/VISION.md`](docs/VISION.md): estado futuro orientado por especificações.
 - [`docs/PRINCIPLES.md`](docs/PRINCIPLES.md): princípios normativos do EKOM.
 - [`docs/GLOSSARY.md`](docs/GLOSSARY.md): vocabulário canônico e termos legados.
@@ -272,8 +265,9 @@ docs/
 - [`docs/adr/ADR-0004-KNOWLEDGE-MAP-VISUAL-STRUCTURE.md`](docs/adr/ADR-0004-KNOWLEDGE-MAP-VISUAL-STRUCTURE.md): tabela, árvore e diagrama proporcionais no mapa.
 - [`docs/adr/ADR-0005-SPECIFICATION-AUTHORITY-CONFRONTATION.md`](docs/adr/ADR-0005-SPECIFICATION-AUTHORITY-CONFRONTATION.md): confronto proporcional das autoridades afetadas durante a autoria.
 - [`docs/adr/ADR-0006-SPECIFICATION-SCOPE-AND-ARCHITECTURAL-PREREQUISITES.md`](docs/adr/ADR-0006-SPECIFICATION-SCOPE-AND-ARCHITECTURAL-PREREQUISITES.md): contenção de escopo funcional e preparação arquitetural separada.
-- [`docs/adr/ADR-0007-NON-IMPLICIT-IMPLEMENTATION-GATES.md`](docs/adr/ADR-0007-NON-IMPLICIT-IMPLEMENTATION-GATES.md): análise, promoção e autorização como gates cumulativos da implementação.
+- [`docs/adr/ADR-0007-NON-IMPLICIT-IMPLEMENTATION-GATES.md`](docs/adr/ADR-0007-NON-IMPLICIT-IMPLEMENTATION-GATES.md): decisão histórica dos gates cumulativos, substituída pela ADR-0009.
 - [`docs/adr/ADR-0008-BUILD-INTRINSIC-TO-IMPLEMENTATION.md`](docs/adr/ADR-0008-BUILD-INTRINSIC-TO-IMPLEMENTATION.md): build canônico como obrigação da implementação autorizada.
+- [`docs/adr/ADR-0009-FOUR-STAGE-WORKFLOW.md`](docs/adr/ADR-0009-FOUR-STAGE-WORKFLOW.md): workflow vigente em quatro estágios.
 - [`docs/ACTOR-EVALUATION.md`](docs/ACTOR-EVALUATION.md): avaliação experimental dos atores.
 - [`docs/DESIGN-DECISIONS.md`](docs/DESIGN-DECISIONS.md): razões e evolução das decisões.
 - [`docs/LEGACY-ADOPTION.md`](docs/LEGACY-ADOPTION.md): adoção incremental.
@@ -307,7 +301,7 @@ ou julgamento humano. Orquestração é a coordenação normativa do trabalho pe
 especificação, não uma alegação de automação total. Qualidade e aceleração
 continuam hipóteses a demonstrar em casos reais.
 - [`docs/EKOM-CONCEPT.md`](docs/EKOM-CONCEPT.md): definição, objetivo e limites.
-- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 3.6.
+- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 4.0.
 - [`docs/VISION.md`](docs/VISION.md): visão e horizonte evolutivo.
 - [`docs/PRINCIPLES.md`](docs/PRINCIPLES.md): princípios normativos.
 - [`docs/GOVERNANCE.md`](docs/GOVERNANCE.md): evolução e versionamento.
@@ -320,7 +314,7 @@ continuam hipóteses a demonstrar em casos reais.
 
 ## Limite atual e horizonte
 
-O EKOM 3.6 não promete substituição do Arquiteto nem autonomia completa de
+O EKOM 4.0 não promete substituição do Arquiteto nem autonomia completa de
 julgamento. A interpretação conservadora da pesquisa pública e dos experimentos
 registrados é que eles ainda não sustentam engenharia de software amplamente
 autônoma, de ponta a ponta, sem supervisão e autoridade humanas. A base pública

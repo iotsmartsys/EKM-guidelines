@@ -30,9 +30,8 @@ flowchart LR
     ARQPREP --> PREP["Especificação preparatória<br/>implementada e validada"]
     PREP --> AUTOR
     ANAD -- "Conflito de restrição" --> ARQ
-    ANAD -- "Ready" --> PROM["Arquiteto promove<br/>a versão para Pronta"]
-    PROM --> AUTH["Arquiteto autoriza<br/>a mesma versão"]
-    AUTH --> IMPL
+    ANAD -- "Ready" --> ORDER["Arquiteto ordena implementar<br/>a versão analisada"]
+    ORDER --> IMPL
 
     subgraph IMPFASE["Engenheiro Implementador"]
         IMPL["Implementa o código"]
@@ -48,16 +47,7 @@ flowchart LR
         REV --> REVD{"Está de acordo?"}
     end
 
-    REVD -- "Não: ajustes na<br/>implementação" --> IMPL
-    REVD -- "Sim" --> PR["Abre PR do repositório"]
-    PR --> DEV["Integra na<br/>branch de desenvolvimento"]
-
-    DEV --> VAL["Validação pelo Desenvolvedor<br/>e pelo Analista de Negócio"]
-    VAL --> VALD{"Tudo de acordo?"}
-    VALD -- "Não: problemas<br/>de especificação" --> AUTOR
-    VALD -- "Sim" --> HOM["Homologação"]
-
-    HOM --> HOMD{"OK da área<br/>responsável?"}
-    HOMD -- "Não" --> AUTOR
-    HOMD -- "Sim" --> MAIN["Integra na branch main"]
-    MAIN --> FIM["Especificação encerrada<br/>Done"]
+    REVD -- "Não: defeito de<br/>implementação" --> IMPL
+    REVD -- "Não: defeito da<br/>especificação" --> AUTOR
+    REVD -- "Sim" --> DEC["Arquiteto decide conclusão<br/>e integração"]
+    DEC --> FIM["Done"]

@@ -1,6 +1,6 @@
 # Comando mínimo — perfil EKOM referenciado
 
-**Modelo EKOM:** 3.6
+**Modelo EKOM:** 4.0
 
 **Estado:** vigente
 
@@ -20,22 +20,22 @@ Na autoria, localize e confronte as autoridades normativas dos elementos
 afetados antes de recomendar prontidão; registre relações na especificação e a
 matriz detalhada no relatório de análise.
 
-Na análise, produza exatamente uma classificação do EKOM 3.6 e teste se a
+Na análise, produza exatamente uma classificação do EKOM 4.0 e teste se a
 mudança cabe na baseline e no recorte. Não use `prontidão condicionada` como
 resultado nem devolva capacidade arquitetural independente como simples ajuste
 da funcionalidade.
 
-Na implementação, trate análise `Ready`, promoção registrada para Pronta e
-autorização da mesma versão como gates cumulativos. A ordem não satisfaz os dois
-primeiros implicitamente. Se faltar qualquer gate, recuse sem mutação e oriente
-o fluxo correto. Com os gates satisfeitos, execute o build canônico proporcional
-dos entregáveis construíveis afetados; testes e operações externas continuam
+Na implementação, confirme análise `Ready` da versão corrente. Esta ordem,
+quando nomeia inequivocamente a implementação e a versão, aprova e autoriza a
+passagem; não exija promoção ou campo documental adicional. Se faltar análise
+aplicável, recuse sem mutação. Registre `In Progress` como primeiro efeito e
+execute o build canônico proporcional; testes e operações externas continuam
 dependentes de autorização própria.
 
 **Foco adicional, se houver:** `<FOCO OU NENHUM>`
 
-O foco orienta atenção ou sequência. Challenge/revisão é consultivo e não
-aprova nem reprova o workflow. Somente o Arquiteto conclui ou reabre.
+O foco orienta atenção ou sequência. Revisão é o quarto estágio, com challenge
+proporcional ao risco. Somente o Arquiteto conclui ou reabre.
 
 **Operações autorizadas:** `<LEITURA, DOCUMENTAÇÃO, CÓDIGO, TESTES,
 CONFIGURAÇÃO OU OUTRAS OPERAÇÕES DELIMITADAS>`

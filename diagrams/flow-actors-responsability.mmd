@@ -1,63 +1,44 @@
 flowchart TD
-    S["Especificação EKOM<br/>fonte única da verdade"] --> B
-    A["Arquiteto<br/>intenção, decisões e ordem"] --> S
+    A["Arquiteto<br/>intenção, decisões e ordens"] --> S["Especificação EKOM<br/>fonte normativa"]
 
-    subgraph AUT["Autor da Especificação"]
-        B["Especifica o recorte"]
-        B --> B1["Proposed<br/>Not Started<br/>Not Ready<br/>Pending Review"]
-        B1 --> B2["Commit + push<br/>árvore limpa"]
+    subgraph AUT["1. Autoria da Especificação"]
+        S --> D["Redige e confronta autoridades"]
+        D --> DC["Draft<br/>commit + push"]
     end
 
-    B2 --> C["Ordem de análise"]
+    DC --> AO["Ordem de análise"]
 
-    subgraph ANA["Engenheiro Analista"]
-        C --> D["Confronta requisitos e fontes"]
-        D --> E{"Classificação?"}
-        E -- "Defeito funcional" --> F["Not Ready<br/>Specification Defect"]
-        E -- "Pré-requisito" --> PA["Not Ready<br/>Architectural Prerequisite"]
-        E -- "Impacto desconhecido" --> UN["Unknown<br/>Impact Not Delimited"]
-        E -- "Sem bloqueador" --> G["Ready"]
-        F --> H["Registra resultado<br/>commit + push"]
-        PA --> H
-        UN --> H
-        G --> H
+    subgraph ANA["2. Análise de Implementabilidade"]
+        AO --> C["Confronta baseline, código,<br/>consumidores e limites"]
+        C --> R{"Classificação?"}
+        R -- "Não Ready" --> NR["Registra bloqueador<br/>commit + push"]
+        R -- "Ready" --> RD["Ready da versão<br/>commit + push"]
     end
 
-    H --> I{"Ready?"}
-    I -- "Não" --> J["Arquiteto decide"]
-    J --> B
-    I -- "Sim" --> K["Ordem de implementação"]
-    K --> KG{"Ready + Pronta<br/>+ autorizada?"}
-    KG -- "Não" --> KR["Recusa sem mutação<br/>e orienta o fluxo"]
-    KR --> J
+    NR --> A
+    A --> D
+    RD --> IO["Ordem explícita do Arquiteto<br/>para implementar a versão"]
 
-    subgraph IMP["Engenheiro Implementador"]
-        KG -- "Sim" --> L["Implementa e valida o recorte"]
-        L --> M["In Progress, Blocked<br/>ou Implemented"]
-        M --> N["Registra resultado<br/>commit + push"]
+    subgraph IMP["3. Implementação"]
+        IO --> IP["Registra In Progress"]
+        IP --> I["Implementa + builds"]
+        I --> IR["Implemented ou In Progress<br/>relatório + commit + push"]
     end
 
-    N --> O["Tech Lead / Engenheiro Revisor"]
+    IR --> RO["Ordem de revisão"]
 
-    subgraph REV["Revisão e decisão humana"]
-        O --> P["Revisa código e evidências"]
-        P --> Q{"Tech Lead validou e<br/>Arquiteto aprovou?"}
-        Q -- "Não" --> R["Registra achados<br/>commit + push"]
-        Q -- "Sim" --> S["Active<br/>Validated<br/>Ready for Integration"]
-        S --> T["Fecha a mudança<br/>commit + push"]
+    subgraph REV["4. Revisão"]
+        RO --> V["Confronta implementação,<br/>contrato e evidências"]
+        V --> VD{"Resultado?"}
+        VD -- "Defeito técnico" --> I
+        VD -- "Defeito normativo" --> D
+        VD -- "Aderente" --> RV["Reviewed<br/>relatório + commit + push"]
     end
 
-    R --> K
-    T --> U["Integração autorizada separadamente"]
+    RV --> AD{"Decisão do Arquiteto"}
+    AD -- "Aceitar" --> DONE["Done / integração autorizada"]
+    AD -- "Reabrir" --> D
 
-    U --> V{"Integrada à referência<br/>de produção?"}
-    V -- "Não" --> W["Ready for Integration"]
-    V -- "Sim" --> X["Done"]
-
-    S -. "orquestra" .-> C
-    S -.-> K
-    S -.-> Q
-    A -. "autoridade final" .-> C
-    A -.-> K
-    A -.-> Q
-    A -.-> U
+    S -. "orquestra" .-> AO
+    S -.-> IO
+    S -.-> RO

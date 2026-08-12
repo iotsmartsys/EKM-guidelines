@@ -74,7 +74,10 @@ hardware real são experimentos quando a confirmação depende deles.
 
 ### Implementação
 
-O Implementador executa a especificação, faz verificações técnicas, registra
+Uma análise `Ready` da versão corrente e uma ordem explícita do Arquiteto são
+suficientes para iniciar. A ordem aprova e autoriza a passagem; não existe
+promoção documental intermediária. O Implementador registra `In Progress`,
+executa a especificação, faz verificações técnicas, registra
 decisões locais e produz relatório e evidências. Dúvidas, limitações e desvios
 são declarados, não preenchidos silenciosamente.
 
@@ -83,11 +86,12 @@ e proporcional dos entregáveis afetados. A especificação não precisa repetir
 essa permissão. Build falho ou não executado impede alegar implementação
 concluída; testes, hardware e operações externas exigem autorização própria.
 
-### Challenge ou revisão
+### Revisão e challenge
 
-O Crítico ou Revisor oferece uma segunda perspectiva quando acionado pelo
-Arquiteto ou pelo risco. Segurança, autorização, corrupção de dados,
-concorrência, operações irreversíveis e falhas recorrentes são sinais fortes.
+Revisão é o quarto estágio e confronta implementação, contrato e evidências.
+Sua profundidade e independência são proporcionais ao risco. Segurança,
+autorização, corrupção de dados, concorrência, operações irreversíveis e falhas
+recorrentes justificam challenge adicional.
 
 O crítico pode localizar inconsistências e pontos cegos, ou concluir que não
 encontrou risco adicional relevante. Não substitui o Arquiteto, não aprova ou
@@ -155,7 +159,7 @@ testes verdes como prova suficiente e autonomia completa como capacidade atual.
 
 ## Estado do método
 
-O EKOM 3.6 está aprovado e vigente para adoção. Autonomia completa permanece
+O EKOM 4.0 está aprovado e vigente para adoção. Autonomia completa permanece
 horizonte evolutivo, não capacidade comprovada. A decisão está registrada no
 [`ADR-0002`](adr/ADR-0002-EKOM-3-OPERATIONAL-AUTHORITY.md), com o roteamento
 documental operacionalizado pela
@@ -168,7 +172,8 @@ O confronto de autoridade normativa durante a autoria está registrado na
 A contenção de escopo funcional e os pré-requisitos arquiteturais estão
 registrados na
 [`ADR-0006`](adr/ADR-0006-SPECIFICATION-SCOPE-AND-ARCHITECTURAL-PREREQUISITES.md).
-Os gates não implícitos de implementação estão registrados na
-[`ADR-0007`](adr/ADR-0007-NON-IMPLICIT-IMPLEMENTATION-GATES.md).
+O workflow simplificado em quatro estágios e a ordem como passagem estão
+registrados na [`ADR-0009`](adr/ADR-0009-FOUR-STAGE-WORKFLOW.md), que substitui
+a ADR-0007.
 O build intrínseco à implementação está registrado na
 [`ADR-0008`](adr/ADR-0008-BUILD-INTRINSIC-TO-IMPLEMENTATION.md).

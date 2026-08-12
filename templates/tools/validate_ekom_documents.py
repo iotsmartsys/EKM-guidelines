@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Valida regras estruturais objetivas do roteamento e mapa EKOM 3.6."""
+"""Valida regras estruturais objetivas do roteamento e mapa EKOM 4.0."""
 
 from __future__ import annotations
 
@@ -123,7 +123,7 @@ def validate_knowledge_map(text: str) -> list[str]:
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="Valida o roteamento e o mapa estrutural do EKOM 3.6."
+        description="Valida o roteamento e o mapa estrutural do EKOM 4.0."
     )
     parser.add_argument("root", nargs="?", default=".", help="raiz do projeto")
     parser.add_argument(

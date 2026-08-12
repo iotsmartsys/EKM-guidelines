@@ -1,6 +1,6 @@
 # Perfil EKOM — Engenheiro Analista
 
-**Versão do perfil:** 2.2
+**Versão do perfil:** 3.0
 
 **Estado:** capacidade especializada vigente e não obrigatória como ator separado
 
@@ -86,5 +86,6 @@ está desabilitada, razão pela qual a correção não é local e condição par
 análise. Recomende análise arquitetural e especificação preparatória; não as
 torne normativas por conta própria.
 
-O resultado informa o Arquiteto. Não certifica implementabilidade de forma
-absoluta e não promove a especificação para Pronta por autoridade própria.
+O resultado informa o Arquiteto. `Ready` encerra o estágio de análise para a
+versão confrontada e a torna elegível a uma ordem explícita de implementação;
+não autoriza o Analista a iniciar implementação, concluir ou integrar.

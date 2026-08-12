@@ -3,9 +3,9 @@
 Use este arquivo somente quando o projeto precisar de regras locais além da
 diretriz externa aplicável.
 
-**Versão do documento:** 3.6
+**Versão do documento:** 4.0
 
-**Versão do modelo EKOM:** 3.6
+**Versão do modelo EKOM:** 4.0
 
 **Estado:** vigente
 
@@ -29,13 +29,13 @@ integração. Agentes registram fatos e recomendações, não criam aprovação.
 ## 3. Workflow
 
 ```text
-Rascunho e análise → Pronta → Implementação → Validação → Concluída
-Rascunho bloqueado → preparação arquitetural validada → nova análise
+Autoria → Análise de Implementabilidade → Implementação → Revisão
+Autoria bloqueada → preparação arquitetural validada → nova análise
 ```
 
 - lacuna de análise permanece ou retorna ao rascunho;
 - restrição ou ambiguidade de implementação retorna ao rascunho/análise;
-- defeito de validação retorna à implementação;
+- defeito técnico encontrado na Revisão retorna à Implementação;
 - problema na especificação retorna ao rascunho/análise;
 - nova evidência pode motivar reabertura pelo Arquiteto.
 - capacidade arquitetural ausente, independente e transversal bloqueia a
@@ -44,16 +44,17 @@ Rascunho bloqueado → preparação arquitetural validada → nova análise
 - análise classifica explicitamente defeito funcional, pré-requisito
   arquitetural, evidência requerida, conflito de restrição e impacto não
   delimitado; `prontidão condicionada` não é resultado final.
-- implementação exige cumulativamente análise `Ready`, promoção registrada para
-  Pronta e autorização da mesma versão. Ordem de implementação não satisfaz
-  gate ausente; o Implementador recusa sem mutação e orienta a próxima etapa.
+- implementação exige análise `Ready` da versão corrente e ordem explícita do
+  Arquiteto para implementar essa versão. A ordem autoriza a passagem; não há
+  promoção nem campo documental intermediário.
 - implementação autorizada de artefato construível inclui build canônico e
   proporcional; a especificação não repete essa permissão. Testes, hardware e
   operações externas exigem autorização própria.
 
 Análise de implementabilidade é obrigatória, mas pode ser feita pelo Autor, com
 apoio de IA, por agente especializado ou por especialista separado. Revisão é
-challenge consultivo e proporcional ao risco, não gate universal.
+o quarto estágio; profundidade, independência e challenge são proporcionais ao
+risco.
 
 ## 4. Evidências
 
@@ -74,7 +75,8 @@ registra alvo, ambiente relevante, estado terminal e código de saída.
 - Preserve arquitetura e precedente local salvo decisão explícita.
 - Especificação preserva contrato; ADR, decisão arquitetural durável;
   relatório, execução; mapa, localização; changelog, estado resumido.
-- Análise, implementação, challenge e validação produzem relatórios separados;
+- Análise, implementação, revisão e evidência operacional produzem registros
+  separados;
   somente o Arquiteto incorpora seus achados em fontes normativas.
 - Registre decisões, lacunas, limitações, desvios e evidências materiais na
   fonte correspondente.

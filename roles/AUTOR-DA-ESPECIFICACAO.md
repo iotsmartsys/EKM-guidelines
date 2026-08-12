@@ -1,6 +1,6 @@
 # Perfil EKOM — Autor da Especificação
 
-**Versão do perfil:** 2.2
+**Versão do perfil:** 3.0
 
 **Estado:** vigente
 
@@ -99,5 +99,7 @@ risco exigir segregação, deixe a análise pendente para o perfil especializado
 ## Saída
 
 Deixe a especificação em Rascunho e análise enquanto houver lacuna bloqueante.
-Quando o contrato e a análise estiverem suficientes, recomende prontidão ao
-Arquiteto. Somente o Arquiteto promove para Pronta e autoriza implementação.
+Quando o contrato estiver suficiente, encaminhe-o à Análise de
+Implementabilidade. Uma classificação `Ready` conclui o estágio técnico; não
+existe promoção documental intermediária. A passagem à Implementação ocorre
+somente pela ordem explícita do Arquiteto para a versão analisada.

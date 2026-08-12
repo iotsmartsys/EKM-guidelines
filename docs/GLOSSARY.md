@@ -5,7 +5,7 @@
 | EKOM | Engineering Knowledge Orchestration Model, nome oficial vigente desde a versão 2.0. |
 | EKM | Engineering Knowledge Model, formulação histórica das versões 1.x; também prefixo legado compatível. |
 | Especificação | Fonte única da verdade para o comportamento pretendido, seus limites, estados e critérios de aceite. |
-| Versão normativa integral | Unidade atômica de cobertura para resultados formais do ciclo; nenhum elemento normativo aplicável pode ser omitido da promoção. |
+| Versão normativa integral | Unidade atômica de cobertura para resultados formais do ciclo; nenhum elemento normativo aplicável pode ser omitido da análise, implementação ou revisão. |
 | Foco adicional | Prioridade, dúvida ou área de atenção indicada na ordem; orienta profundidade ou sequência sem reduzir a especificação. |
 | Atuação parcial | Diagnóstico, investigação ou execução explicitamente limitada que não promove o estado formal representativo da versão inteira. |
 | Fonte única da verdade | Autoridade normativa única por comportamento; não exige que todo conhecimento esteja em um único arquivo. |
@@ -22,7 +22,7 @@
 | Desconhecida — impacto não delimitado | Classificação bloqueante quando consumidores ou raio de impacto material não foram suficientemente identificados. |
 | Plano de controle | Função exercida pela especificação ao determinar recorte, passagens, critérios e relações do pipeline. |
 | Orquestração | Coordenação do ciclo de engenharia pela especificação entre humanos, agentes de IA, automações, implementação, validação, evidências e evolução. |
-| Pipeline | Ciclo governado de rascunho e análise, prontidão, implementação, validação, conclusão e aprendizado; challenge é consultivo. |
+| Pipeline | Ciclo governado de Autoria, Análise de Implementabilidade, Implementação e Revisão, seguido da decisão humana de conclusão ou reabertura. |
 | Fonte derivada | Código, teste, relatório ou automação que implementa, evidencia ou consome uma especificação sem criar requisito. |
 | ADR | Registro de decisão arquitetural transversal ou durável, com contexto, alternativas, decisão e consequências; não substitui o contrato comportamental da especificação. |
 | Relatório | Registro histórico e não normativo dos fatos, achados e evidências de uma atuação. |
@@ -34,11 +34,12 @@
 | Ator | Pessoa ou agente que executa uma capacidade delimitada e registra fatos e evidências sem assumir autoridade do Arquiteto. |
 | Arquiteto | Autoridade humana final sobre intenção, arquitetura, risco aceitável, relevância das críticas, suficiência das evidências, aprovação, conclusão ou reabertura e integração. |
 | Análise de implementabilidade | Função obrigatória anterior à implementação; registra evidências, impactos, restrições, incertezas, experimentos e bloqueadores, sem exigir ator separado. |
-| Gate de implementação | Condição cumulativa para execução normativa: análise `Ready`, versão registrada como Pronta e autorização explícita da mesma versão. |
-| Promoção registrada | Decisão do Arquiteto incorporada à fonte normativa que altera o estado consumido pelos agentes; não é inferida de uma ordem posterior. |
+| Entrada da implementação | Análise `Ready` aplicável à versão corrente e ordem explícita do Arquiteto para implementar essa versão. |
+| Ordem explícita de implementação | Ato do Arquiteto que aprova e autoriza a passagem da versão analisada para Implementação; não substitui análise nem precisa ser duplicado em campo documental. |
 | Diagnóstico ou experimento em `Draft` | Atuação explicitamente não normativa de investigação; não implementa a especificação nem promove estado de implementação. |
-| Build intrínseco | Construção canônica e proporcional dos entregáveis afetados, incluída na autorização de implementação; não autoriza testes, hardware ou operação externa. |
+| Build intrínseco | Construção canônica e proporcional dos entregáveis afetados, incluída na ordem de implementação; não autoriza testes, hardware ou operação externa. |
 | Challenge | Crítica consultiva e proporcional ao risco; informa o Arquiteto sem aprovar ou reprovar o workflow. |
+| Revisão | Quarto estágio que confronta implementação, contrato e evidências; devolve defeito técnico à Implementação e defeito normativo à Autoria. |
 | Evidência material | Fato observável como diff, build, execução, log, teste, integração real, relatório, decisão humana ou defeito posterior. |
 | Concluída [`Done`] | Estado determinado exclusivamente pelo Arquiteto quando evidências e risco residual são considerados suficientes. |
 | Reaberta [`Reopened`] | Especificação concluída devolvida ao ciclo pelo Arquiteto diante de nova necessidade ou evidência material. |

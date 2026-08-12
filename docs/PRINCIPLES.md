@@ -47,18 +47,20 @@ Toda especificação é analisada antes de implementar. A função é obrigatór
 Engenheiro Analista separado não é. Segregação é escolhida quando risco,
 incerteza ou necessidade de especialização justificarem seu custo.
 
-## Explicit Implementation Gates
+## Simple Explicit Transitions
 
-Análise `Ready`, promoção registrada para Pronta e autorização de implementação
-são condições cumulativas. Uma ordem não promove estado nem substitui análise;
-gate ausente exige recusa sem mutação e orientação do fluxo correto.
+O workflow possui Autoria, Análise, Implementação e Revisão. Análise `Ready` da
+versão corrente e ordem explícita do Arquiteto são condições suficientes para
+iniciar implementação; não existe promoção ou autorização documental
+intermediária. A ordem não substitui análise e uma análise antiga não cobre
+mudança normativa posterior.
 
-## Consultative Challenge
+## Review and Consultative Challenge
 
-Crítica e revisão são capacidades consultivas, proporcionais ao risco. Outro
-agente não constitui automaticamente validação independente. O challenge
-informa a decisão do Arquiteto e não recebe autoridade para redefinir aceite ou
-controlar universalmente o workflow.
+Revisão é o quarto estágio; sua profundidade e independência são proporcionais
+ao risco. Outro agente não constitui automaticamente validação independente. O
+challenge informa a decisão do Arquiteto e não recebe autoridade para redefinir
+aceite, concluir ou integrar.
 
 ## Evidence-based Validation
 

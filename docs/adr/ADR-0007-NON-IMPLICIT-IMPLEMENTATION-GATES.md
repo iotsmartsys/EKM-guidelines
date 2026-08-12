@@ -1,6 +1,8 @@
 # ADR-0007 — Gates de implementação não são implícitos
 
-**Estado:** Aceita
+**Estado:** Substituída
+
+**Substituída por:** ADR-0009 — Workflow EKOM em quatro estágios
 
 **Data:** 2026-08-11
 

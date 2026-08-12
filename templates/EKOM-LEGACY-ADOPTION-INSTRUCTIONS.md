@@ -1,6 +1,6 @@
 # Instrução — Adoção inicial do EKOM em repositório legado
 
-Adote o EKOM 3.6 no repositório `<CAMINHO_DO_REPOSITORIO>`.
+Adote o EKOM 4.0 no repositório `<CAMINHO_DO_REPOSITORIO>`.
 
 O Arquiteto autoriza nesta tarefa somente levantamento e fundação documental.
 Não altere código, testes, dependências, build, automações ou configuração.
@@ -17,7 +17,8 @@ Não altere código, testes, dependências, build, automações ou configuraçã
 7. Termine com commit, push e árvore de trabalho limpa.
 
 A análise de implementabilidade é obrigatória, mas não exige Analista separado.
-Revisão é challenge consultivo e proporcional ao risco, não gate universal.
+Revisão é o quarto estágio; sua profundidade, independência e evidências são
+proporcionais ao risco.
 Somente o Arquiteto determina conclusão ou reabertura.
 
 Não copie branch, SHA, comandos de leitura ou mensagem de commit para os

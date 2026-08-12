@@ -1,8 +1,8 @@
 # Método EKOM
 
-**Versão do documento:** 3.6
+**Versão do documento:** 4.0
 
-**Modelo EKOM:** 3.6
+**Modelo EKOM:** 4.0
 
 **Estado:** aprovado e vigente
 
@@ -212,59 +212,55 @@ na especificação ou ADR apontada pelo mapa. A regra completa está na
 
 ## 4. Ciclo de vida e workflow
 
-O workflow usa no máximo cinco estados principais de leitura operacional:
+O workflow possui quatro estágios de engenharia:
 
 ```mermaid
 flowchart LR
-    A["Rascunho e análise"] -->|"Arquiteto considera suficiente"| P["Pronta"]
-    A -->|"pré-requisito arquitetural"| B["Bloqueada no rascunho"]
-    B --> AP["Análise e preparação arquitetural"]
-    AP -->|"nova baseline validada"| A
-    P --> G{"Ready + promoção<br/>+ autorização?"}
-    G -->|"Sim"| I["Implementação"]
-    G -->|"Não: recusa sem mutação"| A
-    I --> V["Validação"]
-    V -->|"somente o Arquiteto conclui"| C["Concluída"]
-
-    A -->|"lacunas: permanece"| A
-    I -->|"restrição ou ambiguidade"| A
-    V -->|"defeito de implementação"| I
-    V -->|"problema na especificação"| A
-    C -->|"nova necessidade ou evidência material; Arquiteto reabre"| A
+    A["1. Autoria"] --> N["2. Análise de Implementabilidade"]
+    N -->|"Ready + ordem explícita"| I["3. Implementação"]
+    N -->|"não Ready"| A
+    I --> R["4. Revisão"]
+    R -->|"defeito de implementação"| I
+    R -->|"defeito da especificação"| A
+    R -->|"Arquiteto aceita"| C["Done"]
+    A -->|"pré-requisito arquitetural"| P["Preparação arquitetural"]
+    P -->|"baseline validada"| A
+    C -->|"Arquiteto reabre"| A
 ```
 
-- **Rascunho e análise:** intenção, investigação e análise de
-  implementabilidade evoluem juntas; lacunas mantêm ou devolvem o trabalho a
-  este estado.
-- **Pronta:** o Arquiteto considera o contrato suficiente para implementar,
-  conhecendo incertezas e experimentos ainda necessários.
-- **Implementação:** agentes executam, verificam tecnicamente e registram
-  decisões locais, dúvidas, limitações e desvios. Restrição ou ambiguidade
-  normativa retorna à análise.
-- **Validação:** evidências são confrontadas com a especificação e o ambiente.
-  Defeito retorna à implementação; problema no contrato retorna ao rascunho.
-- **Concluída:** somente o Arquiteto determina que evidência e risco residual
-  são suficientes. Nova necessidade, regressão ou evidência pode motivar
-  reabertura pelo próprio Arquiteto.
+- **Autoria:** transforma intenção em contrato, confronta autoridades e deixa a
+  versão em `Draft` para análise.
+- **Análise de Implementabilidade:** confronta a versão com baseline, código,
+  consumidores e restrições. `Ready` torna a versão elegível à ordem de
+  implementação.
+- **Implementação:** depois de `Ready` e ordem explícita, agentes registram
+  `In Progress`, executam e verificam tecnicamente. Ambiguidade normativa
+  retorna à Autoria.
+- **Revisão:** confronta implementação, contrato e evidências. Defeito técnico
+  retorna à Implementação; defeito normativo retorna à Autoria.
+
+Somente o Arquiteto determina `Done`, integração ou reabertura. Esses são atos
+de decisão, não estágios extras de engenharia.
 
 Retornos não são necessariamente fracasso. São aprendizado e evolução
 controlada da especificação. Projetos que precisem de estados técnicos mais
 granulares podem mantê-los, desde que não transfiram a autoridade de conclusão.
 
-### 4.1 Gates cumulativos da implementação
+### 4.1 Entrada da implementação
 
-A passagem para implementação exige simultaneamente análise `Ready`, promoção
-registrada da mesma versão para Pronta e autorização explícita do Arquiteto.
-Cada fonte responde por um fato diferente; nenhum deles é inferido dos demais.
+A passagem exige análise `Ready` aplicável à versão normativa corrente e ordem
+explícita do Arquiteto para implementar essa versão. A ordem é a aprovação e a
+autorização; não existe promoção intermediária nem campo documental obrigatório
+de autorização.
 
-Uma ordem com o verbo `implementar` satisfaz autorização, mas não análise nem
-promoção. Se faltar gate, o Implementador recusa sem mutação, informa o estado
-de cada condição e orienta a próxima etapa. Registro em relatório não autoriza
-prosseguir nem corrige retroativamente a entrada.
+O Implementador registra `In Progress` como primeiro efeito da atuação. Se
+faltar `Ready`, se a fonte normativa mudou depois da análise ou se a ordem for
+ambígua, recusa sem mutação e orienta análise ou ordem inequívoca.
 
-Diagnóstico e experimento sobre `Draft` exigem ordem própria e não produzem
-implementação normativa. A regra completa está na
-[`ADR-0007`](adr/ADR-0007-NON-IMPLICIT-IMPLEMENTATION-GATES.md).
+Correção devolvida pela Revisão não exige nova autorização enquanto versão,
+recorte, arquitetura e risco não mudarem. Diagnóstico e experimento sobre
+`Draft` exigem ordem própria e não produzem implementação normativa. A regra
+completa está na [`ADR-0009`](adr/ADR-0009-FOUR-STAGE-WORKFLOW.md).
 
 ## 5. Funções e papéis
 
@@ -325,16 +321,17 @@ transversais.
 
 Leitura de código não certifica comportamento que só pode ser confirmado por
 build, protótipo, API, banco, infraestrutura ou hardware. Esses pontos são
-registrados como experimentos necessários. A especificação fica Pronta apenas
-quando o Arquiteto considerar a análise suficiente para autorizar execução.
+registrados como experimentos necessários. O resultado `Ready` torna a versão
+elegível à ordem explícita de implementação.
 
 ### 5.3 Implementador
 
 O Implementador:
 
-- verifica análise `Ready`, estado Pronta e autorização da mesma versão antes
-  de investigar a solução;
-- recusa sem mutação e orienta o fluxo quando qualquer gate estiver ausente;
+- verifica análise `Ready` da versão corrente e ordem explícita antes de
+  investigar a solução;
+- recusa sem mutação quando faltar análise aplicável ou ordem inequívoca;
+- registra `In Progress` como primeiro efeito da atuação;
 - implementa conforme a especificação autorizada;
 - executa o build canônico proporcional dos entregáveis construíveis afetados,
   sem exigir autorização repetida na especificação;
@@ -365,9 +362,11 @@ implementação concluída. Mudança exclusivamente documental ou ambiente sem
 artefato construível não recebe build artificial. A regra completa está na
 [`ADR-0008`](adr/ADR-0008-BUILD-INTRINSIC-TO-IMPLEMENTATION.md).
 
-### 5.4 Crítico ou Revisor
+### 5.4 Revisor e challenge
 
-Challenge é capacidade consultiva, não gate universal. Pode ser acionado:
+Revisão é o quarto estágio. Sua profundidade, independência e challenge
+adicional são proporcionais ao risco. Uma segunda perspectiva é especialmente
+útil:
 
 - pelo Arquiteto;
 - pelo risco da mudança;
@@ -376,7 +375,8 @@ Challenge é capacidade consultiva, não gate universal. Pode ser acionado:
   irreversível;
 - quando uma segunda perspectiva tiver valor justificável.
 
-O crítico levanta riscos, inconsistências e pontos cegos e pode concluir que
+O Revisor confronta implementação, contrato e evidências; levanta riscos,
+inconsistências e pontos cegos e pode concluir que
 não encontrou risco adicional relevante. Não substitui o Arquiteto, não aprova
 ou reprova o workflow, não redefine critérios unilateralmente, não obriga o
 Implementador a satisfazer narrativa de testes e não reabre decisão registrada
@@ -498,7 +498,7 @@ não é gate universal nem substitui avaliação da solução e decisão do Arqu
 
 ## 12. Limites atuais
 
-O EKOM 3.6 não define infraestrutura distribuída de agentes e não promete
+O EKOM 4.0 não define infraestrutura distribuída de agentes e não promete
 autonomia completa de julgamento. O modelo atual não substitui Arquiteto,
 testes, revisão, observabilidade ou CI/CD. Autonomia completa permanece
 horizonte evolutivo condicionado a evidências futuras.

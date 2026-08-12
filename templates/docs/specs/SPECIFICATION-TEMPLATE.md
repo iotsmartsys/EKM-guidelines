@@ -6,14 +6,10 @@
 
 **Versão:** 0.1
 
-**Estado do workflow:** Rascunho e análise [`Draft and Analysis`]
-
-**Decisão do Arquiteto:** Em análise | Pronta para implementação | Em
-validação | Concluída | Reaberta
+**Estado do workflow:** `Draft` | `Ready` | `In Progress` | `Implemented` |
+`Reviewed` | `Done` | `Reopened`
 
 **Análise de implementabilidade:** Pendente | `Ready` | `<OUTRA CLASSIFICAÇÃO>`
-
-**Autorização de implementação desta versão:** Não concedida | Concedida
 
 **Bloqueio arquitetural:** Nenhum | Bloqueada por `<ID OU CAPACIDADE>`
 

@@ -1,6 +1,6 @@
 # Instruções permanentes e roteamento EKOM
 
-**Modelo EKOM:** 3.6
+**Modelo EKOM:** 4.0
 
 **Modalidade:** capacidades referenciadas e governança proporcional
 
@@ -34,21 +34,21 @@ Antes de qualquer atuação EKOM:
 
 Análise de implementabilidade é obrigatória antes da implementação, mas pode
 ser feita pelo Autor, pelo Autor apoiado por IA, por agente especializado ou
-por especialista separado. Challenge/revisão é consultivo e acionado pelo
-Arquiteto ou pelo risco; não é gate universal. A ordem pode combinar autoria e
-análise, mas deve declarar segregação quando ela for necessária.
+por especialista separado. Revisão é o quarto estágio; profundidade,
+independência e challenge adicional são proporcionais ao risco. A ordem pode
+combinar autoria e análise, mas deve declarar segregação quando necessária.
 
 Implementabilidade é avaliada dentro da baseline e do recorte. Capacidade
 arquitetural ausente, independente e transversal bloqueia a funcionalidade e
 exige decisão do Arquiteto sobre análise e especificação preparatória; não é
 absorvida como detalhe da especificação funcional ou da implementação.
 
-Ordem de implementação não promove estado nem dispensa análise. Implementação
-exige cumulativamente análise `Ready`, versão promovida para Pronta e
-autorização explícita da mesma versão; gate ausente obriga recusa sem mutação e
-orientação da próxima etapa.
+Implementação exige análise `Ready` da versão corrente e ordem explícita do
+Arquiteto para implementar essa versão. A ordem aprova e autoriza a passagem;
+não existe promoção ou campo documental intermediário. Análise ausente,
+superada por mudança normativa ou ordem ambígua obriga recusa sem mutação.
 
-Com os gates satisfeitos, a implementação de artefato construível inclui seu
+Satisfeita essa entrada, a implementação de artefato construível inclui seu
 build canônico proporcional. Build não exige cláusula na especificação e não
 autoriza execução de testes, hardware, deploy ou outra operação externa.
 
@@ -71,12 +71,13 @@ autoriza execução de testes, hardware, deploy ou outra operação externa.
 - Build canônico dos entregáveis afetados integra a implementação; registre
   resultado terminal e não declare conclusão com build falho ou não executado.
 - Agentes registram fatos, decisões locais, dúvidas, limitações e desvios.
-- Análise, implementação, challenge e validação produzem relatórios separados;
+- Análise, implementação, revisão e evidência operacional produzem registros
+  separados;
   não são anexados à especificação.
 - O mapa combina índice de autoridade, árvore hierárquica e Mermaid de relações
   conforme os gatilhos normativos da ADR-0004.
 - Somente o Arquiteto incorpora achados em fontes normativas, aceita ADRs e
-  promove estados; exceção mecânica exige arquivos e transformação explícitos.
+  decide estados; exceção mecânica exige arquivos e transformação explícitos.
 - Somente o Arquiteto determina conclusão ou reabertura do workflow.
 - `<REGRA_PERMANENTE_DO_PROJETO>`;
 - `<RESTRICAO_DE_SEGURANCA_OU_PLATAFORMA>`;

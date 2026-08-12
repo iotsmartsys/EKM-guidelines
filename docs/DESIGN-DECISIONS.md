@@ -1143,3 +1143,52 @@ eficácia será testada repetindo a ordem que originou o caso.
   autorizar commit e push na branch atual. A confirmação não autoriza merge,
   release, adoção automática por projetos existentes nem declara eficácia
   comprovada.
+
+## DD-039 — Quatro estágios e uma decisão por passagem
+
+**Problema observado:** os três gates do EKOM 3.5 impediram implementação
+prematura, mas obrigaram o Arquiteto a repetir a mesma intenção como análise
+`Ready`, promoção para Pronta, campo de autorização e ordem. Em uma
+especificação já analisada e promovida, o Implementador recusou corretamente a
+ordem porque faltava apenas o registro documental da autorização. O controle
+era seguro, porém confundia estados com etapas e não acrescentava decisão.
+
+**Decisão:** adotar a
+[`ADR-0009`](adr/ADR-0009-FOUR-STAGE-WORKFLOW.md) e promover o modelo para EKOM
+4.0. O fluxo oficial possui Autoria, Análise de Implementabilidade,
+Implementação e Revisão. Para entrar em Implementação bastam `Ready` aplicável
+à versão corrente e ordem explícita do Arquiteto para implementá-la. A ordem é
+a aprovação da passagem; `In Progress` é registrado pelo Implementador como
+efeito, não como precondição.
+
+**Limites preservados:** mudança normativa posterior invalida o `Ready`;
+análise não pronta retorna à Autoria; pré-requisito arquitetural nasce em
+especificação preparatória; build é intrínseco à Implementação; testes,
+hardware, deploy e operações externas conservam permissão própria. Revisão é
+obrigatória como estágio, com profundidade e independência proporcionais ao
+risco. Somente o Arquiteto decide `Done`, reabertura e integração.
+
+**Estado da decisão:** confirmada pelo Arquiteto em 2026-08-12 para tornar o
+fluxo simplificado vigente. A eficácia será medida pela redução de paradas
+administrativas sem implementação de versões não analisadas.
+
+### Registro da atuação EKOM 4.0
+
+- **Capacidade:** Consultor de Arquitetura.
+- **Ordem:** incorporar e tornar vigente o workflow simplificado em quatro
+  estágios.
+- **Recorte:** regras comuns, perfis, método, princípios, glossário,
+  governança, templates, diagramas, ADRs, decisões de desenho e histórico
+  experimental do repositório central `EKM-guidelines`.
+- **Decisões confirmadas:** `Ready` da versão corrente e ordem explícita do
+  Arquiteto iniciam a Implementação; não existe promoção nem autorização
+  documental intermediária; build permanece intrínseco; testes, hardware e
+  operações externas conservam permissão própria; Revisão é o quarto estágio.
+- **Resultado material:** ADR-0009 aceita, ADR-0007 substituída e modelo
+  promovido para EKOM 4.0 nas fontes vigentes e reutilizáveis.
+- **Validação e limites:** guarda documental e integridade do diff aprovadas;
+  mudança exclusivamente documental. O Consultor participou da formulação e
+  não alega revisão independente. A eficácia operacional ainda será observada.
+- **Confirmação final:** concedida pelo Arquiteto em 2026-08-12 para registrar,
+  commitar e enviar a branch corrente. Não autoriza merge, release, adoção
+  automática por projetos existentes nem operação externa adicional.

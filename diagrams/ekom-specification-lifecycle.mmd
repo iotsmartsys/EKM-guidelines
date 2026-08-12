@@ -1,16 +1,11 @@
 flowchart LR
-    A["Rascunho e análise"] -->|"Arquiteto considera suficiente"| P["Pronta"]
-    A -->|"pré-requisito arquitetural"| B["Bloqueada no rascunho"]
-    B --> AP["Análise e preparação arquitetural"]
-    AP -->|"nova baseline validada"| A
-    P --> G{"Ready + promoção<br/>+ autorização?"}
-    G -->|"Sim"| I["Implementação"]
-    G -->|"Não: recusa sem mutação"| A
-    I --> V["Validação"]
-    V -->|"somente o Arquiteto conclui"| C["Concluída"]
-
-    A -->|"lacunas: permanece"| A
-    I -->|"restrição ou ambiguidade"| A
-    V -->|"defeito de implementação"| I
-    V -->|"problema na especificação"| A
-    C -->|"nova necessidade ou evidência material; Arquiteto reabre"| A
+    A["1. Autoria"] --> N["2. Análise de Implementabilidade"]
+    N -->|"Ready + ordem explícita"| I["3. Implementação"]
+    N -->|"não Ready"| A
+    I --> R["4. Revisão"]
+    R -->|"defeito de implementação"| I
+    R -->|"defeito da especificação"| A
+    R -->|"Arquiteto aceita"| C["Done"]
+    A -->|"pré-requisito arquitetural"| P["Preparação arquitetural"]
+    P -->|"baseline validada"| A
+    C -->|"Arquiteto reabre"| A

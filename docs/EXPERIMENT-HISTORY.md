@@ -678,3 +678,23 @@ regra no EKOM 3.6: implementação autorizada inclui build canônico proporciona
 testes, hardware e operações externas conservam autorização própria. A eficácia
 será observada verificando se especificações deixam de repetir a permissão e se
 Implementadores executam o build sem ampliar silenciosamente outras operações.
+
+## 30. Report identity — gates eficazes, mas excessivos
+
+Na especificação `ISSP-Report-Identity` v0.2, a análise de implementabilidade
+resultou `Ready` e o Arquiteto promoveu a versão. Ao receber a ordem para
+implementar, o executor recusou porque a fonte normativa ainda declarava a
+autorização ausente. O comportamento obedeceu integralmente ao EKOM 3.5, mas
+expôs que promoção, autorização documental e ordem representavam a mesma
+decisão humana em três passagens.
+
+O caso não refuta a necessidade de impedir implementação de uma versão em
+`Draft` ou sem análise. Ele refuta a multiplicação de gates depois que a
+análise aplicável já concluiu `Ready`: estados documentais haviam se tornado
+passos do workflow, elevando o custo sem produzir evidência ou escolha nova.
+
+A [`ADR-0009`](adr/ADR-0009-FOUR-STAGE-WORKFLOW.md) incorpora o aprendizado no
+EKOM 4.0. O fluxo passa a ter quatro estágios; `Ready` e uma ordem explícita do
+Arquiteto iniciam a Implementação. O experimento futuro deve verificar duas
+propriedades ao mesmo tempo: ausência das recusas meramente administrativas e
+manutenção da recusa quando faltar análise `Ready` da versão corrente.
