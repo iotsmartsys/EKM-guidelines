@@ -1,8 +1,8 @@
 # Regras comuns dos perfis EKOM
 
-**Modelo EKOM aplicável:** 4.1
+**Modelo EKOM aplicável:** 4.2
 
-**Versão do perfil:** 3.1
+**Versão do perfil:** 3.2
 
 **Estado:** vigente
 
@@ -218,9 +218,24 @@ relatórios nos destinos declarados pelo projeto. Somente o Arquiteto incorpora
 achados em especificações, aceita ADRs e promove estados normativos. Uma exceção
 de escrita mecânica deve nomear arquivos e transformação; não transfere decisão.
 
-Toda atuação material produz resultado versionável, commit e, quando
-autorizado, push; termina com árvore limpa. Não use commit vazio. A ordem normal
-não autoriza force push, merge, tag, release ou deploy.
+Toda atuação autorizada que produza mudança material inclui, sem confirmação
+final adicional, preparar somente o delta do próprio recorte, criar commit e
+fazer push da branch de trabalho corrente. Ela termina com árvore limpa. A
+ordem inicial para produzir a mudança já autoriza esses atos de entrega; não é
+necessário que a especificação os repita.
+
+Não crie commit vazio. Atuação somente leitura preserva a árvore limpa sem
+commit. Proibição explícita do Arquiteto prevalece. Falha de autenticação,
+rede ou política do remoto deve ser registrada com precisão; o commit local
+pode permanecer, mas a entrega não é apresentada como sincronizada. Se não
+for possível separar com segurança alterações preexistentes, não as incorpore
+e interrompa antes de produzir mutação concorrente.
+
+Commit e push da branch corrente não autorizam force push, reescrita de
+histórico, merge, tag, release, deploy, exclusão de branch nem publicação em
+outro destino. Mudança parcial só é entregue quando constitui resultado
+versionável e coerente; caso contrário, o agente remove apenas o próprio delta
+incompleto e restaura a limpeza sem afetar trabalho preexistente.
 
 Antes de promover estado, criar commit, fazer push ou responder
 conclusivamente, confirme que toda execução iniciada chegou a estado terminal.

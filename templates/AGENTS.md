@@ -1,6 +1,6 @@
 # Instruções permanentes e roteamento EKOM
 
-**Modelo EKOM:** 4.1
+**Modelo EKOM:** 4.2
 
 **Modalidade:** capacidades referenciadas e governança proporcional
 
@@ -56,6 +56,12 @@ Criação, ampliação, reestruturação ou correção de testes só integra a
 implementação quando a especificação corrente o exigir explicitamente e
 vincular o teste a requisito ou critério de aceite. Criar teste não autoriza
 executá-lo.
+
+Toda atuação autorizada que produza mudança material inclui commit e push da
+branch de trabalho corrente, sem confirmação final adicional, e termina com
+árvore limpa. Atuação somente leitura não cria commit. Force push, merge, tag,
+release, deploy, exclusão de branch e reescrita de histórico exigem ordem
+específica.
 
 ## Fontes locais do projeto
 

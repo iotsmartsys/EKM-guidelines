@@ -163,7 +163,7 @@ testes verdes como prova suficiente e autonomia completa como capacidade atual.
 
 ## Estado do método
 
-O EKOM 4.1 está aprovado e vigente para adoção. Autonomia completa permanece
+O EKOM 4.2 está aprovado e vigente para adoção. Autonomia completa permanece
 horizonte evolutivo, não capacidade comprovada. A decisão está registrada no
 [`ADR-0002`](adr/ADR-0002-EKOM-3-OPERATIONAL-AUTHORITY.md), com o roteamento
 documental operacionalizado pela
@@ -183,3 +183,5 @@ O build intrínseco à implementação está registrado na
 [`ADR-0008`](adr/ADR-0008-BUILD-INTRINSIC-TO-IMPLEMENTATION.md).
 Testes dirigidos pela especificação estão registrados na
 [`ADR-0010`](adr/ADR-0010-SPECIFICATION-DRIVEN-TESTS.md).
+A entrega Git intrínseca a toda mudança material autorizada está registrada na
+[`ADR-0011`](adr/ADR-0011-INTRINSIC-GIT-DELIVERY.md).

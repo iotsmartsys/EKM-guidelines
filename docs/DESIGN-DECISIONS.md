@@ -1238,3 +1238,44 @@ afetados nem converter ausência de execução em sucesso.
 - **Confirmação final:** concedida pelo Arquiteto em 2026-08-12 para registrar,
   commitar e enviar a branch corrente. Não autoriza merge, release, adoção
   automática em projetos consumidores nem operação externa adicional.
+
+## DD-041 — Entrega Git faz parte da atuação material
+
+**Problema observado:** regras que exigiam push “quando autorizado” e uma
+confirmação final no perfil do Consultor faziam agentes concluir alterações e
+parar antes de commit ou push. A confirmação repetia a autorização inicial e
+deixava árvore suja ou branch local não sincronizada sem produzir decisão nova.
+
+**Decisão:** adotar a
+[`ADR-0011`](adr/ADR-0011-INTRINSIC-GIT-DELIVERY.md) e promover o modelo para
+EKOM 4.2. Toda atuação autorizada que produza mudança material inclui commit e
+push da branch corrente e termina com árvore limpa, sem confirmação final
+adicional. Atuação somente leitura não cria commit e proibição explícita do
+Arquiteto prevalece.
+
+**Fronteira operacional:** a autorização não alcança force push, reescrita de
+histórico, merge, tag, release, deploy, exclusão de branch, outro destino ou
+mudança alheia ao recorte. Falha do remoto é registrada sem alegar
+sincronização. Alterações preexistentes são preservadas e nunca absorvidas para
+fabricar limpeza.
+
+**Estado da decisão:** confirmada pelo Arquiteto em 2026-08-12. A eficácia será
+avaliada pela ausência de novas paradas administrativas entre resultado
+material pronto e entrega da branch, sem aumento de operações Git indevidas.
+
+### Registro da atuação EKOM 4.2
+
+- **Capacidade:** Consultor de Arquitetura.
+- **Ordem:** tornar commit, push e árvore limpa parte automática de todo
+  trabalho material autorizado.
+- **Recorte:** regras comuns, perfil do Consultor, método, princípios,
+  glossário, governança, templates, prompts, navegação, decisão e histórico do
+  repositório central `EKM-guidelines`.
+- **Decisões confirmadas:** entrega Git normal não cria gate final; atuação
+  somente leitura não cria commit; proibição explícita prevalece; operações de
+  integração, publicação e reescrita continuam fora do recorte implícito.
+- **Resultado material:** ADR-0011 aceita e modelo promovido para EKOM 4.2 nas
+  fontes vigentes e reutilizáveis.
+- **Validação e limites:** mudança exclusivamente documental; o Consultor
+  participou da formulação e não alega revisão independente. A eficácia
+  operacional será observada em atuações futuras.

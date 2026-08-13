@@ -3,9 +3,9 @@
 Use este arquivo somente quando o projeto precisar de regras locais além da
 diretriz externa aplicável.
 
-**Versão do documento:** 4.1
+**Versão do documento:** 4.2
 
-**Versão do modelo EKOM:** 4.1
+**Versão do modelo EKOM:** 4.2
 
 **Estado:** vigente
 
@@ -89,8 +89,11 @@ registra alvo, ambiente relevante, estado terminal e código de saída.
 - Reconcilie tabela, árvore e diagrama do mapa quando suas relações materiais
   mudarem; uma visão não aplicável exige justificativa curta.
 - Não copie para documentos a linhagem já preservada pelo Git.
-- Inicie em branch derivada da `main`; commit e push são exigidos quando
-  autorizados; merge, tag, release e deploy exigem ordem específica.
+- Inicie em branch derivada da `main`. Toda mudança material autorizada inclui
+  commit e push da branch corrente, sem confirmação final adicional, e termina
+  com árvore limpa. Atuação somente leitura não cria commit.
+- Force push, reescrita de histórico, merge, tag, release, deploy, exclusão de
+  branch e publicação em outro destino exigem ordem específica.
 - Não conclua com execução própria pendente ou estado desconhecido.
 
 ## 6. Regras específicas do projeto

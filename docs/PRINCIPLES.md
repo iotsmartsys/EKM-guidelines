@@ -81,6 +81,13 @@ proporcional. A especificação funcional não repete essa permissão. Build fal
 ou não executado não sustenta conclusão; testes, hardware e operações externas
 continuam sujeitos a autorização própria.
 
+## Material Work Ends Delivered
+
+Toda atuação autorizada que altera materialmente o repositório inclui commit e
+push da branch de trabalho corrente e termina com árvore limpa. Esses atos são
+parte da entrega, não um estágio ou gate adicional. Operações que integram,
+publicam, reescrevem ou removem história continuam fora dessa autorização.
+
 ## Continuous Knowledge Evolution
 
 Novas decisões emendam ou substituem versões anteriores sem reescrever

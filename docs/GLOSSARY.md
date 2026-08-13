@@ -39,6 +39,7 @@
 | Diagnóstico ou experimento em `Draft` | Atuação explicitamente não normativa de investigação; não implementa a especificação nem promove estado de implementação. |
 | Build intrínseco | Construção canônica e proporcional dos entregáveis afetados, incluída na ordem de implementação; não autoriza execução de testes, hardware ou operação externa. |
 | Teste contratado | Artefato de teste cuja criação ou alteração é exigida explicitamente pela especificação e vinculada a requisito ou critério de aceite; sua execução exige permissão própria. |
+| Entrega Git intrínseca | Commit e push da branch de trabalho corrente, seguidos de árvore limpa, incluídos em toda atuação autorizada que produz mudança material; não abrange integração, publicação, release ou reescrita de histórico. |
 | Challenge | Crítica consultiva e proporcional ao risco; informa o Arquiteto sem aprovar ou reprovar o workflow. |
 | Revisão | Quarto estágio que confronta implementação, contrato e evidências; devolve defeito técnico à Implementação e defeito normativo à Autoria. |
 | Evidência material | Fato observável como diff, build, execução, log, teste, integração real, relatório, decisão humana ou defeito posterior. |

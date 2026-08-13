@@ -1,8 +1,8 @@
 # Método EKOM
 
-**Versão do documento:** 4.1
+**Versão do documento:** 4.2
 
-**Modelo EKOM:** 4.1
+**Modelo EKOM:** 4.2
 
 **Estado:** aprovado e vigente
 
@@ -447,12 +447,18 @@ Cada tarefa material deve:
 2. preservar alterações preexistentes e começar com árvore limpa;
 3. produzir resultado material e versionável;
 4. criar commit ao fim da etapa autorizada;
-5. realizar push quando a ordem e as regras locais autorizarem;
+5. realizar push da branch de trabalho corrente;
 6. terminar com árvore limpa.
 
-A ordem normal não autoriza force push, reescrita, merge, tag, release ou
-deploy. Git é a evidência desses atos; documentos não repetem hashes sem motivo
-material.
+A ordem que autoriza produzir mudança material inclui commit e push sem
+confirmação final adicional. A especificação não precisa repetir essa
+autorização. Atuação somente leitura não cria commit; proibição explícita do
+Arquiteto prevalece. Falha de remoto é registrada sem apresentar a branch como
+sincronizada, e alteração preexistente nunca é absorvida para obter limpeza.
+
+A entrega Git intrínseca não autoriza force push, reescrita, merge, tag,
+release, deploy, exclusão de branch nem publicação em outro destino. Git é a
+evidência desses atos; documentos não repetem hashes sem motivo material.
 
 ### 8.1 Encerramento de execuções iniciadas
 
@@ -508,7 +514,7 @@ não é gate universal nem substitui avaliação da solução e decisão do Arqu
 
 ## 12. Limites atuais
 
-O EKOM 4.1 não define infraestrutura distribuída de agentes e não promete
+O EKOM 4.2 não define infraestrutura distribuída de agentes e não promete
 autonomia completa de julgamento. O modelo atual não substitui Arquiteto,
 testes, revisão, observabilidade ou CI/CD. Autonomia completa permanece
 horizonte evolutivo condicionado a evidências futuras.

@@ -1,6 +1,6 @@
 # Comando — Consultor de Arquitetura
 
-**Modelo EKOM:** 4.1
+**Modelo EKOM:** 4.2
 
 **Estado:** vigente
 
@@ -24,5 +24,5 @@ CONFIGURAÇÃO OU OUTRAS OPERAÇÕES DELIMITADAS>`
 
 **Fonte do registro final:** `<ADR, ESPECIFICAÇÃO, CHANGELOG OU RELATÓRIO>`
 
-Antes do commit final, apresente o registro da atuação e aguarde minha
-confirmação explícita. A confirmação terá somente o significado que eu declarar.
+Entregue toda mudança material por commit e push da branch corrente e termine
+com árvore limpa, sem solicitar confirmação final adicional para esses atos.

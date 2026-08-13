@@ -718,3 +718,23 @@ no EKOM 4.1: a especificação decide e delimita os testes; o Implementador cria
 somente os contratados; a execução continua dependente de permissão própria. A
 eficácia será confrontada pelo vínculo entre testes novos e critérios de aceite
 e pela ausência de suítes criadas apenas por preferência do executor.
+
+## 32. Entrega Git — confirmação adicional deixou trabalho pendente
+
+Em atuações materiais do projeto `IoTSmartLink15.4`, agentes produziram o
+resultado solicitado, mas não criaram commit ou não fizeram push
+automaticamente. A expressão “quando autorizado” nas regras comuns e a
+confirmação final obrigatória do Consultor permitiam interpretar a entrega Git
+como uma nova decisão posterior ao trabalho.
+
+O Arquiteto esclareceu que todo trabalho deve terminar com árvore limpa e que
+commit e push da branch de trabalho são parte normal da entrega. O gate extra
+não reduzia risco: apenas interrompia o fluxo com um resultado já autorizado e
+materialmente pronto.
+
+A [`ADR-0011`](adr/ADR-0011-INTRINSIC-GIT-DELIVERY.md) incorpora o aprendizado
+no EKOM 4.2. Mudança material autorizada passa a incluir commit e push, sem
+confirmação final adicional. O experimento futuro deve verificar duas
+propriedades em conjunto: desaparecimento das paradas administrativas e
+preservação das fronteiras que ainda exigem ordem própria, como force push,
+merge, release e deploy.
