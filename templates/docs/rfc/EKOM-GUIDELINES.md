@@ -3,9 +3,9 @@
 Use este arquivo somente quando o projeto precisar de regras locais além da
 diretriz externa aplicável.
 
-**Versão do documento:** 4.2
+**Versão do documento:** 4.3
 
-**Versão do modelo EKOM:** 4.2
+**Versão do modelo EKOM:** 4.3
 
 **Estado:** vigente
 
@@ -77,6 +77,12 @@ Build falho ou não executado não sustenta implementação concluída. O relat�
 registra alvo, ambiente relevante, estado terminal e código de saída.
 
 ## 5. Preservação e Git
+
+Trabalho governado por especificação usa branch previsível: o documento
+`docs/specs/<Nome>.md` corresponde a `spec/<nome-em-minúsculas>`. O nome usa
+segmentos alfanuméricos ASCII separados por hífen. A especificação coordenadora
+define a branch quando houver múltiplas especificações; ausência de coordenadora
+ou colisão com outra transação exige decisão do Arquiteto.
 
 - Preserve arquitetura e precedente local salvo decisão explícita.
 - Especificação preserva contrato; ADR, decisão arquitetural durável;

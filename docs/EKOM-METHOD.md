@@ -1,8 +1,8 @@
 # Método EKOM
 
-**Versão do documento:** 4.2
+**Versão do documento:** 4.3
 
-**Modelo EKOM:** 4.2
+**Modelo EKOM:** 4.3
 
 **Estado:** aprovado e vigente
 
@@ -460,7 +460,33 @@ A entrega Git intrínseca não autoriza force push, reescrita, merge, tag,
 release, deploy, exclusão de branch nem publicação em outro destino. Git é a
 evidência desses atos; documentos não repetem hashes sem motivo material.
 
-### 8.1 Encerramento de execuções iniciadas
+### 8.1 Branch derivada da especificação
+
+Trabalho governado por uma especificação principal usa branch previsível
+derivada do nome do documento normativo:
+
+```text
+docs/specs/<NomeDaEspecificacao>.md
+             ↓
+spec/<nome-da-especificacao>
+```
+
+O slug é o nome do arquivo sem `.md`, convertido para minúsculas. O nome do
+arquivo deve usar segmentos alfanuméricos ASCII separados por hífen; automação
+não inventa tradução, abreviação ou sufixo. Exemplo:
+`docs/specs/ISSP-Battery-Level-Capability.md` usa
+`spec/issp-battery-level-capability`.
+
+Quando uma mudança afeta múltiplas especificações, a especificação coordenadora
+define a branch. Se não houver coordenadora ou se a branch já representar outra
+transação ativa, a criação é bloqueada e retorna ao Arquiteto; colisão não é
+resolvida silenciosamente.
+
+Essa convenção remove do Arquiteto a escolha operacional do nome Git e permite
+gatilhos determinísticos. Ela não autoriza criar branch, commit, push ou iniciar
+análise antes da ordem ou transição aplicável.
+
+### 8.2 Encerramento de execuções iniciadas
 
 Antes de promover estado, registrar validação como aprovada, criar commit,
 realizar push ou responder conclusivamente, o agente confirma o estado terminal
@@ -514,7 +540,7 @@ não é gate universal nem substitui avaliação da solução e decisão do Arqu
 
 ## 12. Limites atuais
 
-O EKOM 4.2 não define infraestrutura distribuída de agentes e não promete
+O EKOM 4.3 não define infraestrutura distribuída de agentes e não promete
 autonomia completa de julgamento. O modelo atual não substitui Arquiteto,
 testes, revisão, observabilidade ou CI/CD. Autonomia completa permanece
 horizonte evolutivo condicionado a evidências futuras.

@@ -1,6 +1,6 @@
 # Regras comuns dos perfis EKOM
 
-**Modelo EKOM aplicável:** 4.2
+**Modelo EKOM aplicável:** 4.3
 
 **Versão do perfil:** 3.2
 

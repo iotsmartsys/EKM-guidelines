@@ -88,6 +88,12 @@ push da branch de trabalho corrente e termina com árvore limpa. Esses atos são
 parte da entrega, não um estágio ou gate adicional. Operações que integram,
 publicam, reescrevem ou removem história continuam fora dessa autorização.
 
+## Specification-derived Branches
+
+Trabalho governado por especificação usa branch `spec/<slug>` derivada do nome
+do documento normativo. O Arquiteto decide intenção e prontidão, não nomes Git;
+automação aplica a convenção, bloqueia colisões e não inventa identificadores.
+
 ## Continuous Knowledge Evolution
 
 Novas decisões emendam ou substituem versões anteriores sem reescrever

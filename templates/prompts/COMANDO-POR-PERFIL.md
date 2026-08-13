@@ -1,6 +1,6 @@
 # Comando mínimo — perfil EKOM referenciado
 
-**Modelo EKOM:** 4.2
+**Modelo EKOM:** 4.3
 
 **Estado:** vigente
 
@@ -20,7 +20,7 @@ Na autoria, localize e confronte as autoridades normativas dos elementos
 afetados antes de recomendar prontidão; registre relações na especificação e a
 matriz detalhada no relatório de análise.
 
-Na análise, produza exatamente uma classificação do EKOM 4.2 e teste se a
+Na análise, produza exatamente uma classificação do EKOM 4.3 e teste se a
 mudança cabe na baseline e no recorte. Não use `prontidão condicionada` como
 resultado nem devolva capacidade arquitetural independente como simples ajuste
 da funcionalidade.

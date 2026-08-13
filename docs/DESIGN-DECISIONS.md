@@ -1279,3 +1279,31 @@ material pronto e entrega da branch, sem aumento de operações Git indevidas.
 - **Validação e limites:** mudança exclusivamente documental; o Consultor
   participou da formulação e não alega revisão independente. A eficácia
   operacional será observada em atuações futuras.
+
+## DD-042 — A especificação determina a branch de trabalho
+
+**Problema observado:** o piloto n8n solicitava `working_branch` ao submeter uma
+especificação. O campo adicionava linguagem operacional à autoria, permitia
+divergência entre documento e branch e dificultava gatilhos futuros por commit.
+
+**Decisão:** adotar a
+[`ADR-0012`](adr/ADR-0012-SPECIFICATION-DERIVED-BRANCH.md) e promover o modelo
+para EKOM 4.3. O nome do documento em `docs/specs/` determina uma branch
+`spec/<slug>` previsível. Colisão ou ausência de uma especificação coordenadora
+retorna ao Arquiteto em vez de gerar nome alternativo silencioso.
+
+**Estado da decisão:** confirmada pelo Arquiteto em 2026-08-13 para incorporação
+e promoção na `main` como regra vigente.
+
+### Registro da atuação EKOM 4.3
+
+- **Capacidade:** Consultor de Arquitetura.
+- **Ordem:** padronizar branches pelo nome da especificação e promover a versão
+  local para a `main` vigente.
+- **Recorte:** método, princípios, governança, templates, navegação, decisão e
+  histórico do repositório central `EKM-guidelines`.
+- **Resultado material:** ADR-0012 aceita e convenção operacional incorporada
+  ao EKOM 4.3.
+- **Validação e limites:** mudança documental; não altera automaticamente
+  branches existentes nem autoriza criação, análise, merge ou publicação fora
+  da entrega explicitamente ordenada.

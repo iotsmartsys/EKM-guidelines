@@ -738,3 +738,17 @@ confirmação final adicional. O experimento futuro deve verificar duas
 propriedades em conjunto: desaparecimento das paradas administrativas e
 preservação das fronteiras que ainda exigem ordem própria, como force push,
 merge, release e deploy.
+
+## 33. Piloto n8n — nome manual de branch reduziu fluidez da autoria
+
+Ao preparar a submissão automática de uma especificação para análise, o
+workflow ainda recebia `working_branch`. O Arquiteto identificou que esse campo
+introduzia detalhe técnico na autoria e impedia gatilhos previsíveis por estado
+e commit.
+
+A fonte normativa já possuía um nome estável e suficiente para derivar a
+branch. A [`ADR-0012`](adr/ADR-0012-SPECIFICATION-DERIVED-BRANCH.md) incorpora
+essa conclusão no EKOM 4.3: `docs/specs/<Nome>.md` corresponde a
+`spec/<nome-em-minúsculas>`. A eficácia será observada pela remoção do campo
+manual, pela ausência de divergência entre documento e branch e pela capacidade
+de migrar o gatilho para eventos Git sem alterar o restante da orquestração.

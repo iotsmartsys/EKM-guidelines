@@ -1,6 +1,6 @@
 # Instruções permanentes e roteamento EKOM
 
-**Modelo EKOM:** 4.2
+**Modelo EKOM:** 4.3
 
 **Modalidade:** capacidades referenciadas e governança proporcional
 
@@ -62,6 +62,12 @@ branch de trabalho corrente, sem confirmação final adicional, e termina com
 árvore limpa. Atuação somente leitura não cria commit. Force push, merge, tag,
 release, deploy, exclusão de branch e reescrita de histórico exigem ordem
 específica.
+
+Trabalho governado por uma especificação principal usa branch derivada do
+documento: `docs/specs/<Nome>.md` corresponde a `spec/<nome-em-minúsculas>`.
+O arquivo usa segmentos alfanuméricos ASCII separados por hífen. Em mudança
+multi-especificação, a coordenadora define a branch; ausência de coordenadora ou
+colisão com outra transação retorna ao Arquiteto.
 
 ## Fontes locais do projeto
 
