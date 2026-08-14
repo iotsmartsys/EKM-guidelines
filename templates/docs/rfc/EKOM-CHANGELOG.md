@@ -1,8 +1,9 @@
 # Histórico de mudanças EKOM
 
-Registre o estado resumido da transação, lacunas, resultado e referências para
-ADRs ou relatórios materiais. O histórico Git já registra commits, autores,
-branches, diferenças e push; não copie esses dados para este documento.
+Registre o estado resumido da transação, lacunas, débitos relacionados,
+resultado e referências para ADRs ou relatórios materiais. O histórico Git já
+registra commits, autores, branches, diferenças e push; não copie esses dados
+para este documento.
 
 ## EKOM-CHG-0001 — `<TÍTULO>`
 
@@ -21,6 +22,10 @@ branches, diferenças e push; não copie esses dados para este documento.
 
 - `<EKOM-GAP-NNNN E IMPACTO, OU NENHUMA>`
 
+### Débitos técnicos relacionados
+
+- `<EKOM-DEBT-NNNN E RELAÇÃO COM A TRANSAÇÃO, OU NENHUM>`
+
 ### Relatórios e evidências materiais
 
 - `<RELATÓRIO DE ANÁLISE, IMPLEMENTAÇÃO, REVISÃO OU VALIDAÇÃO>`
@@ -31,8 +36,8 @@ branches, diferenças e push; não copie esses dados para este documento.
 
 Uma transação é fechada quando o recorte autorizado foi entregue por commit e
 push, o conhecimento afetado está atual, os relatórios materiais estão
-referenciados e as lacunas restantes estão explícitas. O estado da especificação
-registra separadamente a decisão do Arquiteto. Fechar a transação não conclui
-nem reabre a especificação por autoridade do agente. Não é necessário registrar
-hashes de origem nem criar commit posterior para reconciliar o próprio histórico
-Git.
+referenciados e as lacunas e débitos restantes estão explícitos. O estado da
+especificação registra separadamente a decisão do Arquiteto. Fechar a transação
+não conclui nem reabre a especificação, aceita débito ou determina sua quitação
+por autoridade do agente. Não é necessário registrar hashes de origem nem criar
+commit posterior para reconciliar o próprio histórico Git.

@@ -1307,3 +1307,47 @@ e promoção na `main` como regra vigente.
 - **Validação e limites:** mudança documental; não altera automaticamente
   branches existentes nem autoriza criação, análise, merge ou publicação fora
   da entrega explicitamente ordenada.
+
+## DD-043 — Débito técnico tem identidade e guarda próprias
+
+**Problema observado:** o EKOM preservava lacunas, desvios, riscos residuais e
+transações, mas não distinguia a postergação consciente de uma condição técnica
+conhecida. No piloto IoTSmartLink15.4, essa necessidade mostrou que usar
+`EKOM-GAP` confundiria conhecimento ausente com compromisso conhecido, enquanto
+manter o achado apenas em relatório não garantiria reavaliação ou quitação.
+
+**Decisão:** adotar a
+[`ADR-0013`](adr/ADR-0013-TECHNICAL-DEBT.md) e promover o modelo para EKOM 4.4.
+`EKOM-DEBT-NNNN` identifica condição conhecida cuja correção foi postergada por
+decisão explícita do Arquiteto. O mapa mantém condição, alcance, evidência,
+consequência, decisão, gatilho ou critério de quitação e relações materiais.
+
+**Fronteira operacional:** agentes podem descobrir e relatar candidatos, mas
+não aceitam dívida nem determinam quitação. Aceitar débito não altera evidência,
+não torna conforme uma violação normativa e não cria autorização implícita para
+remediação. A correção usa `EKOM-CHG` e o workflow aplicável. Prazo, prioridade e
+estimativa permanecem opcionais; não surge estágio ou backlog universal.
+
+**Estado da decisão:** confirmada pelo Arquiteto em 2026-08-14. A eficácia será
+avaliada pela capacidade de localizar, reavaliar e quitar postergações reais sem
+converter todo defeito, risco ou lacuna em dívida.
+
+### Registro da atuação EKOM 4.4
+
+- **Capacidade:** Consultor de Arquitetura.
+- **Ordem:** normatizar débito técnico, consolidar na branch de evolução vigente
+  e promover o resultado para `main`, mantendo a major 4.
+- **Recorte:** método, princípios, glossário, regras comuns, governança,
+  templates, navegação, ADR e registro de decisões do repositório central.
+- **Decisões confirmadas:** dívida é postergação consciente; `GAP` permanece
+  conhecimento ausente; somente o Arquiteto aceita e quita; evidência e
+  conformidade não são alteradas pela aceitação; remediação usa transação.
+- **Resultado material:** ADR-0013 aceita e modelo EKOM 4.4 vigente nas
+  fontes e templates reutilizáveis.
+- **Validação e limites:** guarda documental, template do mapa e integridade do
+  diff aprovados; mudança exclusivamente documental. O Consultor participou da
+  formulação e não alega revisão independente. A eficácia será observada em
+  casos reais de registro e remediação.
+- **Confirmação final:** concedida pelo Arquiteto em 2026-08-14 para consolidar
+  a decisão na branch corrente, promovê-la à `main` e torná-la vigente sem sair
+  da major 4. Não autoriza release, deploy ou operação externa adicional.

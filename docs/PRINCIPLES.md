@@ -100,6 +100,13 @@ Novas decisões emendam ou substituem versões anteriores sem reescrever
 especificações concluídas nem registros históricos. Nova necessidade, defeito
 posterior ou evidência material pode justificar reabertura pelo Arquiteto.
 
+## Deliberate Technical Debt
+
+Débito técnico é postergação consciente, não rótulo para toda crítica ou
+lacuna. Evidência, consequência, alcance e condição de quitação permanecem
+localizáveis. Somente o Arquiteto aceita a postergação ou determina a quitação;
+aceitar o risco não transforma desvio ou defeito em conformidade.
+
 ## Experimental Learning
 
 As hipóteses do próprio EKOM são confrontadas com experimentos reais. Papéis,

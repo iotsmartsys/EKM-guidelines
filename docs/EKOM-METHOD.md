@@ -1,8 +1,8 @@
 # Método EKOM
 
-**Versão do documento:** 4.3
+**Versão do documento:** 4.4
 
-**Modelo EKOM:** 4.3
+**Modelo EKOM:** 4.4
 
 **Estado:** aprovado e vigente
 
@@ -48,8 +48,8 @@ evidência, corrigir a implementação ou evoluir a especificação.
 | Especificação | comportamento, limites, estados e critérios de aceite |
 | ADR ou RFC | razão de decisão e relação com a especificação afetada |
 | Diretriz | regras do método e preservação local |
-| Mapa de conhecimento | localização de fontes e lacunas |
-| Changelog EKOM | estado resumido da transação e ponteiros para fontes materiais |
+| Mapa de conhecimento | localização de fontes, lacunas e débitos técnicos aceitos |
+| Changelog EKOM | estado resumido da transação, relações e ponteiros para fontes materiais |
 | Dossiê | visão factual e navegação do sistema |
 | Código e testes | implementação e evidências técnicas |
 | Relatório | evidência de uma execução; não cria requisito |
@@ -173,8 +173,8 @@ ADRs/RFCs, relatórios, changelog e mapa.
 Especificação → contrato vigente e evidências exigidas
 ADR/RFC       → decisão arquitetural durável e suas consequências
 Relatório     → fatos, achados e evidências de uma atuação
-Mapa          → localização, autoridade, relações e lacunas
-Changelog     → estado resumido da transação e referências
+Mapa          → localização, autoridade, relações, lacunas e débitos aceitos
+Changelog     → estado resumido da transação, relações e referências
 Git           → autoria, diferenças e linhagem técnica
 ```
 
@@ -493,16 +493,37 @@ realizar push ou responder conclusivamente, o agente confirma o estado terminal
 de toda tarefa, build, teste, upload ou execução delegada que iniciou. Estado
 pendente ou desconhecido bloqueia conclusão; cancelamento não fabrica sucesso.
 
-## 9. Transações e lacunas
+## 9. Transações, lacunas e débitos técnicos
 
 `EKOM-CHG-NNNN` identifica mudança; `EKOM-GAP-NNNN`, conhecimento ausente que
-precisa sobreviver. Projetos migrados podem manter namespaces EKM históricos.
+precisa sobreviver; `EKOM-DEBT-NNNN`, condição técnica conhecida cuja correção
+foi conscientemente postergada pelo Arquiteto. Projetos migrados podem manter
+namespaces EKM históricos para transações e lacunas.
 
 Uma transação registra objetivo, especificação relacionada, estado, lacunas,
 resultado e referências para ADRs ou relatórios materiais. Não é relatório,
 diário de comandos ou espelho do Git.
 Fechamento documental não substitui a decisão do Arquiteto de concluir a
 especificação.
+
+Débito técnico não é sinônimo de defeito, desvio, risco residual ou lacuna. Um
+achado só se torna débito quando o Arquiteto aceita explicitamente a
+postergação. A aceitação não altera evidência nem torna conforme uma violação
+da especificação vigente.
+
+O mapa de conhecimento mantém o registro canônico do débito com identidade,
+estado, condição atual, alcance, evidência, consequência, decisão de
+postergação, gatilho de reavaliação ou critério de quitação e relações com as
+fontes e transações pertinentes. Os estados são `Accepted`, `In Remediation`,
+`Repaid` e `Superseded`. Somente o Arquiteto aceita a postergação e determina a
+quitação ou substituição; agentes registram fatos e o estado operacional
+`In Remediation` quando sustentado.
+
+Remediação usa uma `EKOM-CHG` e, quando aplicável, especificação ou ADR. Ela
+percorre o workflow proporcional e só quita o débito com evidência compatível
+com o critério registrado. Prazo, prioridade e estimativa são opcionais; um
+gatilho material pode governar melhor a reavaliação. A regra completa está na
+[`ADR-0013`](adr/ADR-0013-TECHNICAL-DEBT.md).
 
 ## 10. Adoção em legado
 
@@ -540,7 +561,7 @@ não é gate universal nem substitui avaliação da solução e decisão do Arqu
 
 ## 12. Limites atuais
 
-O EKOM 4.3 não define infraestrutura distribuída de agentes e não promete
+O EKOM 4.4 não define infraestrutura distribuída de agentes e não promete
 autonomia completa de julgamento. O modelo atual não substitui Arquiteto,
 testes, revisão, observabilidade ou CI/CD. Autonomia completa permanece
 horizonte evolutivo condicionado a evidências futuras.

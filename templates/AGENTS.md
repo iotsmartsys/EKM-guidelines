@@ -1,6 +1,6 @@
 # Instruções permanentes e roteamento EKOM
 
-**Modelo EKOM:** 4.3
+**Modelo EKOM:** 4.4
 
 **Modalidade:** capacidades referenciadas e governança proporcional
 
@@ -74,7 +74,7 @@ colisão com outra transação retorna ao Arquiteto.
 - especificações: `<CAMINHO_DAS_ESPECIFICACOES>`;
 - ADRs e RFCs: `<CAMINHO_DAS_DECISOES>`;
 - relatórios: `<CAMINHO_DOS_RELATORIOS>`;
-- transações e lacunas: `<CAMINHO_DO_CHANGELOG>`;
+- transações, lacunas e débitos relacionados: `<CAMINHO_DO_CHANGELOG>`;
 - mapa de conhecimento: `<CAMINHO_DO_MAPA>`;
 - arquitetura e padrões: `<FONTES_TECNICAS_LOCAIS>`;
 - comandos canônicos: `<BUILD_TESTES_E_VALIDACOES>`.

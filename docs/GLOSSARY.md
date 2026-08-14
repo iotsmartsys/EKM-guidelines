@@ -47,4 +47,10 @@
 | Reaberta [`Reopened`] | Especificação concluída devolvida ao ciclo pelo Arquiteto diante de nova necessidade ou evidência material. |
 | `EKOM-CHG` | Namespace recomendado para novas transações de mudança desde o EKOM 2.0. |
 | `EKOM-GAP` | Namespace recomendado para novas lacunas de conhecimento desde o EKOM 2.0. |
+| Débito técnico | Condição técnica conhecida, com consequência identificada, cuja correção foi conscientemente postergada pelo Arquiteto e possui gatilho de reavaliação ou critério objetivo de quitação. |
+| `EKOM-DEBT` | Namespace canônico para débito técnico aceito; não substitui defeito, desvio, risco residual ou lacuna de conhecimento. |
+| Débito aceito [`Accepted`] | Estado determinado pelo Arquiteto quando a postergação consciente foi registrada sem alterar a evidência ou a conformidade normativa. |
+| Débito em remediação [`In Remediation`] | Estado operacional de débito cuja correção foi autorizada e vinculada a uma transação `EKOM-CHG`. |
+| Débito quitado [`Repaid`] | Estado determinado pelo Arquiteto quando o critério de quitação possui evidência considerada suficiente. |
+| Débito substituído [`Superseded`] | Estado de registro substituído por outro débito ou decisão identificada, sem apagar seu histórico. |
 | `EKM-CHG` / `EKM-GAP` | Namespaces legados aceitos para compatibilidade com adoções EKM 1.x. |

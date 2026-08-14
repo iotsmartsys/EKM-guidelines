@@ -3,7 +3,7 @@
 **Estado:** Experimental
 
 Use somente quando o Arquiteto solicitar uma revisão independente. Esta não é
-uma atuação de auditoria do EKOM 4.3 e não possui autoridade de aprovação.
+uma atuação de auditoria do EKOM 4.4 e não possui autoridade de aprovação.
 
 ```text
 Revise a integridade EKOM da mudança <EKOM-CHG-NNNN> no repositório
@@ -20,7 +20,7 @@ Não altere código, testes, especificação ou decisões.
    - preservação das fontes normativas;
    - coerência dos estados;
    - presença das evidências materiais exigidas;
-   - lacunas ou desvios não declarados.
+   - lacunas, desvios ou débitos aceitos não declarados.
 5. Classifique cada achado como Conforme, Não conforme ou Não verificável.
 6. Não invente evidência nem transforme risco aceito em validação aprovada.
 7. Registre apenas achados materiais.

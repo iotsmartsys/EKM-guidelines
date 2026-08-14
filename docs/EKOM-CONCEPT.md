@@ -24,7 +24,7 @@ não são fontes normativas estáveis por si sós.
 O EKOM torna a especificação o plano de controle capaz de declarar:
 
 - comportamento, escopo, limites e critérios de aceite;
-- decisões confirmadas, incertezas e lacunas;
+- decisões confirmadas, incertezas, lacunas e débitos técnicos aceitos;
 - componentes impactados e restrições conhecidas;
 - estados e condições para avançar ou retornar;
 - evidências e experimentos necessários;
@@ -163,7 +163,7 @@ testes verdes como prova suficiente e autonomia completa como capacidade atual.
 
 ## Estado do método
 
-O EKOM 4.3 está aprovado e vigente para adoção. Autonomia completa permanece
+O EKOM 4.4 está aprovado e vigente para adoção. Autonomia completa permanece
 horizonte evolutivo, não capacidade comprovada. A decisão está registrada no
 [`ADR-0002`](adr/ADR-0002-EKOM-3-OPERATIONAL-AUTHORITY.md), com o roteamento
 documental operacionalizado pela
@@ -185,3 +185,5 @@ Testes dirigidos pela especificação estão registrados na
 [`ADR-0010`](adr/ADR-0010-SPECIFICATION-DRIVEN-TESTS.md).
 A entrega Git intrínseca a toda mudança material autorizada está registrada na
 [`ADR-0011`](adr/ADR-0011-INTRINSIC-GIT-DELIVERY.md).
+A preservação e remediação de débito técnico aceito estão registradas na
+[`ADR-0013`](adr/ADR-0013-TECHNICAL-DEBT.md).

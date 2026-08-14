@@ -1,6 +1,6 @@
 # Regras comuns dos perfis EKOM
 
-**Modelo EKOM aplicável:** 4.3
+**Modelo EKOM aplicável:** 4.4
 
 **Versão do perfil:** 3.2
 
@@ -207,6 +207,12 @@ o Arquiteto decide a suficiência do conjunto.
   para relatório, localização para mapa e estado resumido para changelog.
 - Registre decisões, lacunas, validações, limitações e resultado na fonte de
   autoridade correspondente.
+- Não classifique achado, defeito, desvio ou risco como débito técnico por
+  autoridade própria. Preserve a evidência e solicite ao Arquiteto a decisão de
+  postergação. Débito aceito é registrado no mapa com consequência, alcance,
+  gatilho ou critério de quitação e relações materiais.
+- Aceitar débito não torna conforme uma violação normativa. Remediação usa
+  transação e contrato aplicáveis; somente o Arquiteto determina a quitação.
 - Reconcilie índice, árvore e diagrama do mapa quando autoridade, contenção,
   responsabilidade ou relação material mudar.
 - Não transforme changelog em diário nem copie a linhagem do Git.

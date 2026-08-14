@@ -1,6 +1,6 @@
 # Instrução — Adoção inicial do EKOM em repositório legado
 
-Adote o EKOM 4.3 no repositório `<CAMINHO_DO_REPOSITORIO>`.
+Adote o EKOM 4.4 no repositório `<CAMINHO_DO_REPOSITORIO>`.
 
 O Arquiteto autoriza nesta tarefa somente levantamento e fundação documental.
 Não altere código, testes, dependências, build, automações ou configuração.
@@ -61,6 +61,8 @@ Classifique o conhecimento como:
 - **inferência:** explicação provável ainda não confirmada;
 - **lacuna:** conhecimento necessário ausente;
 - **desvio:** diferença comprovada entre intenção e estado atual.
+- **candidato a débito:** condição conhecida cuja postergação ainda depende de
+  decisão explícita do Arquiteto; não a registre como aceita por inferência.
 
 Não transforme inferência em decisão. Agrupe perguntas curtas apenas quando a
 resposta mudar a interpretação ou o trabalho.
@@ -73,10 +75,10 @@ resposta mudar a interpretação ou o trabalho.
 - `docs/reports/`: análises, implementações, challenges e validações separados
   das fontes normativas.
 - `KNOWLEDGE-MAP.md`: índice de autoridade, árvore de conhecimento, relações
-  Mermaid e lacunas, sem duplicar especificações; árvore e diagrama seguem
+  Mermaid, lacunas e débitos aceitos, sem duplicar especificações; árvore e diagrama seguem
   gatilhos proporcionais e exigem justificativa quando não aplicáveis.
 - `EKOM-CHANGELOG.md`: abra `EKOM-CHG-0001` e registre objetivo, estado,
-  lacunas, resultado e referências para ADRs ou relatórios materiais.
+  lacunas, débitos relacionados, resultado e referências para ADRs ou relatórios materiais.
 - `SYSTEM-DOSSIER.md`: visão factual do propósito, arquitetura, runtime, APIs,
   dados, integrações, qualidade e operação.
 - especificações: somente contratos prioritários, em Rascunho [`Draft`] ou
@@ -97,6 +99,6 @@ Antes de encerrar:
 - confirme que não houve mudança funcional.
 
 A fundação está concluída quando o conhecimento necessário para o próximo
-experimento é localizável, decisões e lacunas estão explícitas, os arquivos
-estão consistentes e a entrega foi enviada por commit e push. Quantidade de
-documentos não é medida de sucesso.
+experimento é localizável, decisões, lacunas e débitos aceitos estão explícitos,
+os arquivos estão consistentes e a entrega foi enviada por commit e push.
+Quantidade de documentos não é medida de sucesso.

@@ -1,6 +1,6 @@
 # Avaliação experimental de adequação dos atores EKOM
 
-**Modelo EKOM:** 4.3
+**Modelo EKOM:** 4.4
 
 **Versão da métrica:** 0.1
 
@@ -40,7 +40,7 @@ EKOM aplicado: 3.0
 | Autoridade, papel e escopo | 20 | papel correto, limites, decisões reservadas, segurança e preservação arquitetural |
 | Correção técnica do resultado | 20 | exatidão, confronto com fontes, dependências, bordas e qualidade do handoff |
 | Evidências e validações | 25 | estados terminais, resultados e códigos de saída, falhas, limitações, rastreabilidade e proporcionalidade |
-| Estados e conhecimento EKOM | 20 | estado do workflow, decisão do Arquiteto, especificação, changelog, mapa e lacunas |
+| Estados e conhecimento EKOM | 20 | estado do workflow, decisão do Arquiteto, especificação, changelog, mapa, lacunas e débitos aceitos |
 | Git e encerramento | 15 | branch e entrada limpas, resultado material, commit, push, árvore final e ausência de trabalho próprio pendente |
 
 Cada dimensão recebe valor entre zero e seu peso máximo. O avaliador deve

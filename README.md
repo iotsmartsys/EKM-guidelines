@@ -1,6 +1,6 @@
 # EKOM Guidelines
 
-**Modelo EKOM vigente:** 4.3
+**Modelo EKOM vigente:** 4.4
 
 **Estado:** aprovado e vigente
 
@@ -43,12 +43,14 @@ A entrega Git intrínseca à atuação material 4.2 está na
 [`ADR-0011`](docs/adr/ADR-0011-INTRINSIC-GIT-DELIVERY.md).
 A branch previsível derivada da especificação 4.3 está na
 [`ADR-0012`](docs/adr/ADR-0012-SPECIFICATION-DERIVED-BRANCH.md).
+A normatização de débito técnico 4.4 está na
+[`ADR-0013`](docs/adr/ADR-0013-TECHNICAL-DEBT.md).
 
 O EKOM deve começar pequeno. Governança é útil quando acelera decisões, reduz
 retrabalho ou aumenta confiança; não quando apenas multiplica documentos,
 agentes ou passagens operacionais.
 
-## Princípios da versão 4.3
+## Princípios da versão 4.4
 
 - A especificação é a fonte da verdade, nasce antes do código e possui ciclo de
   vida próprio.
@@ -66,6 +68,9 @@ agentes ou passagens operacionais.
   proporcional; testes, hardware e operações externas não são inferidos dela.
 - Conhecimento, decisões e evidências permanecem persistentes, rastreáveis e
   evolutivos.
+- Débito técnico é uma postergação consciente aceita pelo Arquiteto, distinta
+  de defeito, desvio, risco residual e lacuna de conhecimento; aceitar não
+  altera evidência nem conformidade.
 - Agentes de IA podem investigar, implementar, verificar, documentar e produzir
   evidências dentro do recorte autorizado.
 - O Arquiteto é a autoridade final sobre arquitetura, risco aceitável,
@@ -241,8 +246,8 @@ por decisão humana.
 Especificação → fonte normativa do comportamento, limites, estados e aceite
 ADR/RFC       → razão de decisões; referencia a especificação afetada
 Diretriz      → regras do método e de preservação
-Mapa          → autoridade, hierarquia, relações e lacunas
-Changelog     → estado resumido da transação e referências
+Mapa          → autoridade, hierarquia, relações, lacunas e débitos aceitos
+Changelog     → estado resumido da transação, relações e referências
 Código/testes → implementação e evidências técnicas
 Git           → commits, autoria, diferenças e linhagem
 Relatório     → evidência de uma execução; não cria requisitos
@@ -273,7 +278,7 @@ docs/
 ## Conteúdo
 
 - [`docs/EKOM-CONCEPT.md`](docs/EKOM-CONCEPT.md): definição, visão, problema e limites.
-- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 4.3.
+- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 4.4.
 - [`docs/VISION.md`](docs/VISION.md): estado futuro orientado por especificações.
 - [`docs/PRINCIPLES.md`](docs/PRINCIPLES.md): princípios normativos do EKOM.
 - [`docs/GLOSSARY.md`](docs/GLOSSARY.md): vocabulário canônico e termos legados.
@@ -288,6 +293,7 @@ docs/
 - [`docs/adr/ADR-0010-SPECIFICATION-DRIVEN-TESTS.md`](docs/adr/ADR-0010-SPECIFICATION-DRIVEN-TESTS.md): criação e alteração de testes somente por exigência da especificação.
 - [`docs/adr/ADR-0011-INTRINSIC-GIT-DELIVERY.md`](docs/adr/ADR-0011-INTRINSIC-GIT-DELIVERY.md): commit, push da branch corrente e árvore limpa como entrega intrínseca de mudança material autorizada.
 - [`docs/adr/ADR-0012-SPECIFICATION-DERIVED-BRANCH.md`](docs/adr/ADR-0012-SPECIFICATION-DERIVED-BRANCH.md): convenção previsível de branch derivada do nome da especificação.
+- [`docs/adr/ADR-0013-TECHNICAL-DEBT.md`](docs/adr/ADR-0013-TECHNICAL-DEBT.md): débito técnico aceito como conhecimento persistente, distinto de lacuna e defeito.
 - [`docs/ACTOR-EVALUATION.md`](docs/ACTOR-EVALUATION.md): avaliação experimental dos atores.
 - [`docs/DESIGN-DECISIONS.md`](docs/DESIGN-DECISIONS.md): razões e evolução das decisões.
 - [`docs/LEGACY-ADOPTION.md`](docs/LEGACY-ADOPTION.md): adoção incremental.
@@ -321,7 +327,7 @@ ou julgamento humano. Orquestração é a coordenação normativa do trabalho pe
 especificação, não uma alegação de automação total. Qualidade e aceleração
 continuam hipóteses a demonstrar em casos reais.
 - [`docs/EKOM-CONCEPT.md`](docs/EKOM-CONCEPT.md): definição, objetivo e limites.
-- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 4.3.
+- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 4.4.
 - [`docs/VISION.md`](docs/VISION.md): visão e horizonte evolutivo.
 - [`docs/PRINCIPLES.md`](docs/PRINCIPLES.md): princípios normativos.
 - [`docs/GOVERNANCE.md`](docs/GOVERNANCE.md): evolução e versionamento.
@@ -334,7 +340,7 @@ continuam hipóteses a demonstrar em casos reais.
 
 ## Limite atual e horizonte
 
-O EKOM 4.3 não promete substituição do Arquiteto nem autonomia completa de
+O EKOM 4.4 não promete substituição do Arquiteto nem autonomia completa de
 julgamento. A interpretação conservadora da pesquisa pública e dos experimentos
 registrados é que eles ainda não sustentam engenharia de software amplamente
 autônoma, de ponta a ponta, sem supervisão e autoridade humanas. A base pública

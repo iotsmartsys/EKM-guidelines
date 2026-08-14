@@ -54,6 +54,10 @@
 
 `<DÍVIDA, CÓDIGO OBSOLETO, EXPERIMENTOS E FRONTEIRAS NÃO RESOLVIDAS>`
 
+Débitos técnicos aceitos pertencem ao mapa de conhecimento. Este dossiê apenas
+os referencia quando necessários para compreender o sistema; não duplica
+condição, evidência ou critério de quitação.
+
 ## 12. Questões abertas
 
 | ID | Questão | Impacto | Destino |

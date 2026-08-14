@@ -3,9 +3,9 @@
 Use este arquivo somente quando o projeto precisar de regras locais além da
 diretriz externa aplicável.
 
-**Versão do documento:** 4.3
+**Versão do documento:** 4.4
 
-**Versão do modelo EKOM:** 4.3
+**Versão do modelo EKOM:** 4.4
 
 **Estado:** vigente
 
@@ -92,6 +92,9 @@ ou colisão com outra transação exige decisão do Arquiteto.
   somente o Arquiteto incorpora seus achados em fontes normativas.
 - Registre decisões, lacunas, limitações, desvios e evidências materiais na
   fonte correspondente.
+- Registre débito técnico somente após decisão explícita de postergação do
+  Arquiteto. Use o mapa como guarda canônica; aceite não altera evidência nem
+  conformidade, e quitação exige critério satisfeito e decisão do Arquiteto.
 - Reconcilie tabela, árvore e diagrama do mapa quando suas relações materiais
   mudarem; uma visão não aplicável exige justificativa curta.
 - Não copie para documentos a linhagem já preservada pelo Git.
