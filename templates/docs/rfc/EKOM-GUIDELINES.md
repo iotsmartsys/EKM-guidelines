@@ -3,11 +3,11 @@
 Use este arquivo somente quando o projeto precisar de regras locais além da
 diretriz externa aplicável.
 
-**Versão do documento:** 4.4-experimental
+**Versão do documento:** 4.5
 
-**Versão do modelo EKOM:** 4.4
+**Versão do modelo EKOM:** 4.5
 
-**Estado:** candidato experimental
+**Estado:** vigente
 
 ## 1. Definição e objetivo
 

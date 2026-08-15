@@ -15,9 +15,11 @@ registram a evolução; não criam contratos concorrentes.
 ## Normative Authority Confrontation
 
 Antes da prontidão, toda mudança é confrontada com as autoridades normativas
-dos elementos que afeta. Relações de preservação, alteração, substituição,
-correção ou descontinuação permanecem explícitas; conflito ou autoridade
-omitida retorna à decisão do Arquiteto.
+dos comportamentos que necessariamente altera ou restringe. Relações de
+preservação, alteração, substituição, correção ou descontinuação permanecem
+explícitas. Autoridade não se amplia por título, domínio, arquivo, classe,
+componente, dependência ou inventário; conflito material ou autoridade
+aplicável ao mesmo comportamento omitida retorna à decisão do Arquiteto.
 
 ## Functional Scope Containment
 
@@ -47,6 +49,12 @@ Toda especificação é analisada antes de implementar. A função é obrigatór
 Engenheiro Analista separado não é. Segregação é escolhida quando risco,
 incerteza ou necessidade de especialização justificarem seu custo.
 
+Prontidão é suficiência, não exaustão: existe ao menos uma implementação
+tecnicamente plausível e conforme na baseline e no recorte. Escolhas locais de
+engenharia e evidências próprias de Implementação ou Revisão não bloqueiam,
+salvo quando forem indispensáveis para decidir se qualquer solução conforme é
+possível.
+
 ## Simple Explicit Transitions
 
 O workflow possui Autoria, Análise, Implementação e Revisão. Análise `Ready` da
@@ -73,6 +81,11 @@ A especificação decide explicitamente se criar ou alterar testes integra o
 recorte e os vincula a critérios de aceite. O Implementador não inventa suíte,
 matriz ou cobertura. A criação autorizada não autoriza execução; validações só
 são executadas sob a permissão operacional correspondente.
+
+Análise formal cobre requisitos, critérios e débitos relacionados, reconcilia
+bloqueadores anteriores e executa challenge limitado antes de `Ready`. O
+relatório é síntese curta e persistida; cada execução cria arquivo novo e
+imutável, sem apagar a linhagem anterior.
 
 ## Build Is Part of Implementation
 

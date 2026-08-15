@@ -1,6 +1,6 @@
 # Perfil EKOM — Autor da Especificação
 
-**Versão do perfil:** 3.1
+**Versão do perfil:** 3.2
 
 **Estado:** vigente
 

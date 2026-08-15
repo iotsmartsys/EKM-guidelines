@@ -1,10 +1,10 @@
 # Regras comuns dos perfis EKOM
 
-**Modelo EKOM aplicável:** 4.4
+**Modelo EKOM aplicável:** 4.5
 
-**Versão do perfil:** 3.6-experimental
+**Versão do perfil:** 3.6
 
-**Estado:** candidato experimental; não vigente fora desta branch
+**Estado:** vigente
 
 Leia este arquivo antes do perfil recebido. Perfis representam capacidades
 acionáveis; não formam uma sequência universal de atores separados.

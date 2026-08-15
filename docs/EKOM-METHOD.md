@@ -1,10 +1,10 @@
 # Método EKOM
 
-**Versão do documento:** 4.4-experimental
+**Versão do documento:** 4.5
 
-**Modelo EKOM:** 4.4
+**Modelo EKOM:** 4.5
 
-**Estado:** candidato experimental; não vigente fora desta branch
+**Estado:** aprovado e vigente
 
 ## 1. Objetivo operacional
 
@@ -579,6 +579,11 @@ com o critério registrado. Prazo, prioridade e estimativa são opcionais; um
 gatilho material pode governar melhor a reavaliação. A regra completa está na
 [`ADR-0013`](adr/ADR-0013-TECHNICAL-DEBT.md).
 
+O limite de prontidão por suficiência, a autoridade normativa limitada, o
+controle contra omissão e o formato curto e imutável do relatório estão
+consolidados na
+[`ADR-0014`](adr/ADR-0014-IMPLEMENTABILITY-SUFFICIENCY-BOUNDARY.md).
+
 ## 10. Adoção em legado
 
 A adoção começa pequena:
@@ -615,7 +620,7 @@ não é gate universal nem substitui avaliação da solução e decisão do Arqu
 
 ## 12. Limites atuais
 
-O EKOM 4.4 não define infraestrutura distribuída de agentes e não promete
+O EKOM 4.5 não define infraestrutura distribuída de agentes e não promete
 autonomia completa de julgamento. O modelo atual não substitui Arquiteto,
 testes, revisão, observabilidade ou CI/CD. Autonomia completa permanece
 horizonte evolutivo condicionado a evidências futuras.

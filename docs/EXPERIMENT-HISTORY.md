@@ -752,3 +752,63 @@ essa conclusão no EKOM 4.3: `docs/specs/<Nome>.md` corresponde a
 `spec/<nome-em-minúsculas>`. A eficácia será observada pela remoção do campo
 manual, pela ausência de divergência entre documento e branch e pela capacidade
 de migrar o gatilho para eventos Git sem alterar o restante da orquestração.
+
+## 34. Capability de bateria — fluidez, suficiência e controle contra omissão
+
+O piloto `EKOM-BATTERY-001` no `IoTSmartLink15.4` expôs duas falhas opostas na
+análise de implementabilidade. Sob a EKOM 4.4, fontes anteriores que apenas
+descreviam a fachada e os componentes foram tratadas como autoridade sobre
+qualquer extensão futura; escolha de fundo de escala e validações próprias da
+implementação também retornaram à Autoria. A funcionalidade simples acumulou
+reanálises e custo desproporcional.
+
+A branch experimental introduziu autoridade normativa limitada e teste de
+suficiência. Uma primeira execução classificou a v0.4 como `Ready`, mas omitiu
+`BATTERY-AC-007`: o critério exigia uma direção de unicidade que dependia da
+remediação explicitamente postergada em `EKOM-DEBT-0001`. O resultado mostrou
+que reduzir o espaço de bloqueio sem controle de cobertura pode trocar falso
+positivo de defeito por falsa prontidão.
+
+O experimento foi então complementado com cobertura de requisitos, critérios e
+débitos, reconciliação obrigatória de bloqueadores anteriores e challenge final
+limitado. Duas análises independentes da v0.4 convergiram no mesmo bloqueador
+único. O Arquiteto escolheu corrigir somente a especificação: a v0.5 passou a
+exigir apenas a direção confinável à nova operação, preservando a remediação
+postergada. Nova análise da revisão versionada resultou `Ready` sem bloqueador.
+
+A implementação foi construída nas duas composições ESP32-H2, revisada sem
+defeito material e validada em hardware como aceitável pelo Arquiteto. A v0.5
+foi encerrada como `Done`. O caminho completo sustenta que a fronteira reduz
+retornos indevidos sem esconder a contradição interna que efetivamente impedia
+o recorte, desde que os controles contra omissão sejam aplicados.
+
+O caso também mostrou que objetividade precisa alcançar a saída. A primeira
+regra de concisão não reduziu o template e os relatórios continuaram extensos.
+O formato final limita a análise a 800 palavras, cinco blocos decisórios e até
+cinco restrições de handoff; proíbe repetição do contrato, solução e próximos
+passos. Cada análise formal cria relatório novo, imutável e identificado por
+UTC, revisão e execução. Parecer apenas em conversa permanece consultivo.
+
+### Hipóteses sustentadas
+
+- prontidão por suficiência separa contrato de escolhas locais e validações
+  posteriores;
+- autoridade limitada evita que inventários e componentes compartilhados
+  congelem extensões aditivas;
+- dívida postergada continua bloqueante quando um critério exige sua própria
+  remediação;
+- cobertura, reconciliação e challenge limitado reduzem omissão sem exigir
+  relatório exaustivo;
+- saída curta e imutável melhora o handoff e preserva a linhagem.
+
+### Limites da evidência
+
+O experimento ocorreu em uma única funcionalidade de firmware, com participação
+ativa do Arquiteto e evolução do modelo durante o próprio caso. Ele não prova
+eficácia universal nem independência entre agentes. A primeira classificação
+`Ready` incorreta permanece parte do resultado e sustenta a necessidade dos
+controles, não sua infalibilidade.
+
+A [`ADR-0014`](adr/ADR-0014-IMPLEMENTABILITY-SUFFICIENCY-BOUNDARY.md) incorpora
+o aprendizado no EKOM 4.5, sem reinterpretar relatórios produzidos sob regras
+anteriores.

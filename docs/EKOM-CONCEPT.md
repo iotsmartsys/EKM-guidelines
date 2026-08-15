@@ -187,7 +187,7 @@ testes verdes como prova suficiente e autonomia completa como capacidade atual.
 
 ## Estado do método
 
-O EKOM 4.4 está aprovado e vigente para adoção. Autonomia completa permanece
+O EKOM 4.5 está aprovado e vigente para adoção. Autonomia completa permanece
 horizonte evolutivo, não capacidade comprovada. A decisão está registrada no
 [`ADR-0002`](adr/ADR-0002-EKOM-3-OPERATIONAL-AUTHORITY.md), com o roteamento
 documental operacionalizado pela
@@ -211,3 +211,6 @@ A entrega Git intrínseca a toda mudança material autorizada está registrada n
 [`ADR-0011`](adr/ADR-0011-INTRINSIC-GIT-DELIVERY.md).
 A preservação e remediação de débito técnico aceito estão registradas na
 [`ADR-0013`](adr/ADR-0013-TECHNICAL-DEBT.md).
+O limite de prontidão por suficiência, a autoridade normativa limitada e os
+controles contra omissão estão registrados na
+[`ADR-0014`](adr/ADR-0014-IMPLEMENTABILITY-SUFFICIENCY-BOUNDARY.md).

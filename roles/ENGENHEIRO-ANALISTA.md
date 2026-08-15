@@ -1,8 +1,8 @@
 # Perfil EKOM — Engenheiro Analista
 
-**Versão do perfil:** 3.5-experimental
+**Versão do perfil:** 3.5
 
-**Estado:** candidato experimental; não vigente fora desta branch
+**Estado:** vigente
 
 Leia primeiro [`REGRAS-COMUNS.md`](REGRAS-COMUNS.md).
 

@@ -1,8 +1,8 @@
 # Comando mínimo — perfil EKOM referenciado
 
-**Modelo EKOM:** 4.4-experimental
+**Modelo EKOM:** 4.5
 
-**Estado:** candidato experimental
+**Estado:** vigente
 
 Atue como **<PAPEL EKOM>** na especificação
 **<CAMINHO OU ID, OU NÃO SE APLICA>**.

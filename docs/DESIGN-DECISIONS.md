@@ -1398,8 +1398,28 @@ antecipar implementação, sugerir correção ou listar próximos passos. Cada
 execução cria arquivo novo, imutável e identificável por UTC, revisão e ID da
 execução; o delta deve registrá-lo como adição.
 
-**Estado da decisão:** experimento autorizado pelo Arquiteto em 2026-08-14.
-Aplicada somente na branch experimental; não está vigente na `main` e não altera
-a versão oficial EKOM 4.4. Sua eficácia será confrontada pela nova análise da
-especificação de bateria, observando redução de falsos bloqueios sem ocultar
-conflitos normativos ou físicos.
+**Estado da decisão:** confirmada pelo Arquiteto em 2026-08-15 e incorporada ao
+EKOM 4.5. O experimento da bateria descartou bloqueios por autoridade adjacente
+e por escolhas locais, mas uma primeira execução `Ready` omitiu um critério
+internamente insatisfazível. Os controles de cobertura, reconciliação e
+challenge foram então acrescentados; duas análises independentes convergiram no
+único bloqueador material, a especificação foi corrigida e a v0.5 chegou a
+`Ready`, implementação aderente e validação aceitável em hardware.
+
+### Registro da atuação EKOM 4.5
+
+- **Capacidade:** Consultor de Arquitetura.
+- **Ordem:** registrar o experimento, incorporar os limites de prontidão e
+  promover a EKOM para `main` e estado vigente sem alterar a major 4.
+- **Recorte:** conceito, método, princípios, glossário, regras comuns, perfis,
+  templates, validação documental, navegação, histórico e decisão arquitetural
+  do repositório central.
+- **Resultado material:** ADR-0014 aceita e EKOM 4.5 vigente, com teste de
+  suficiência, autoridade limitada, controle contra omissão e relatório curto e
+  imutável.
+- **Validação e limites:** o caso sustenta utilidade no recorte simples a médio
+  observado, não eficácia universal. A primeira falsa classificação `Ready` é
+  preservada como evidência de que concisão sem controle pode ocultar defeitos.
+- **Confirmação final:** concedida pelo Arquiteto em 2026-08-15 para registrar,
+  promover à `main` e tornar vigente. Não autoriza release, deploy nem adoção
+  automática por repositórios consumidores.
