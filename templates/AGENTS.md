@@ -48,6 +48,13 @@ não uma solução interna completa. Escolhas locais de engenharia e evidências
 produzidas durante Implementação ou Revisão são não bloqueantes, salvo quando
 forem necessárias para decidir se qualquer implementação conforme é possível.
 
+Autoridade normativa se limita a comportamentos, garantias e restrições
+explicitamente declarados. Extensão aditiva presume-se não interferente;
+arquivo, classe, fachada, componente, dependência ou inventário compartilhado
+não criam emenda nem bloqueio. Fonte anterior só bloqueia quando requisitos
+explícitos e aplicáveis tornam o conflito inevitável e não existe implementação
+conforme no recorte. Não exija prova de ausência de regressão.
+
 Implementação exige análise `Ready` da versão corrente e ordem explícita do
 Arquiteto para implementar essa versão. A ordem aprova e autoriza a passagem;
 não existe promoção ou campo documental intermediário. Análise ausente,

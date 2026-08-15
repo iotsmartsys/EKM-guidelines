@@ -39,11 +39,11 @@ quando autorizada; segregação não é gate universal.
 Antes de fechar a proposta ou recomendar prontidão:
 
 1. identifique os comportamentos, contratos públicos, estados, ciclos de vida,
-   nomes e fronteiras que a mudança toca;
+   nomes e fronteiras que a mudança necessariamente altera ou restringe;
 2. use o mapa de conhecimento, o dossiê e as referências locais para localizar
    as especificações, ADRs e diretrizes que já governam esses elementos;
-3. confronte a mudança com cada autoridade pertinente, inclusive itens de fora
-   de escopo, invariantes e decisões de lifetime ou compatibilidade;
+3. confronte a mudança com cada autoridade aplicável ao mesmo comportamento,
+   inclusive invariantes e decisões de lifetime ou compatibilidade;
 4. classifique a relação como preservação ou, conforme a convenção vigente,
    `New`, `Amends`, `Supersedes`, `Corrects` ou `Retires`;
 5. declare na especificação a relação normativa e a fonte que governa cada
@@ -56,14 +56,21 @@ Antes de fechar a proposta ou recomendar prontidão:
    entre fontes vigentes ou alteração normativa cujo alcance não esteja
    confirmado.
 
+Autoridade é limitada ao comportamento, garantia e restrição explicitamente
+contratados. Menção a arquivo, classe, fachada, componente, dependência ou
+domínio não cria autoridade irrestrita; inventários são abertos salvo declaração
+inequívoca de exaustividade. Extensão aditiva pode ser `New` e governar sua
+própria API ou componente sem emendar fontes que apenas descrevem elementos
+anteriores.
+
 Não é necessário ler toda a documentação do projeto. A seleção é orientada
-pelos elementos realmente afetados, mas deve cobrir a cadeia de autoridade, não
-somente arquivos de código ou o precedente técnico mais próximo. Ler uma fonte
-sem confrontar seus contratos não satisfaz esta obrigação.
+pelos contratos realmente alterados, não pela coincidência de arquivos ou pelo
+precedente técnico mais próximo.
 
 Uma especificação exploratória pode permanecer em `Draft` com relações ainda
-abertas. Ela não pode receber recomendação de prontidão enquanto uma autoridade
-aplicável permanecer omitida, contraditória ou sem ação definida.
+abertas. Ela não pode receber recomendação de prontidão enquanto houver conflito
+material ou autoridade aplicável ao mesmo comportamento omitida. Relação com
+fonte apenas adjacente não constitui pendência.
 
 ## Limite de escopo funcional
 

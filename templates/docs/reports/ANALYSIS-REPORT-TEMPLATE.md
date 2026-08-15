@@ -19,8 +19,9 @@
 | `<COMPORTAMENTO, API, ESTADO, LIFECYCLE, NOME OU FRONTEIRA>` | `<SPEC, ADR OU DIRETRIZ>` | Preserva | `Nenhuma` |
 
 Use `New`, `Amends`, `Supersedes`, `Corrects` ou `Retires` quando aplicável.
-Relação ambígua, autoridade omitida ou conflito vigente impede recomendação de
-prontidão até decisão do Arquiteto.
+Relação ambígua ou autoridade omitida só impede prontidão quando envolve o mesmo
+comportamento e sobreposição material de contratos. Fonte adjacente e extensão
+aditiva não exigem emenda. Conflito vigente aplicável permanece bloqueante.
 
 ## Resultado
 
@@ -49,6 +50,11 @@ PLAUSÍVEL E CONFORME DENTRO DA BASELINE E DO RECORTE? EVIDÊNCIA OBJETIVA>`
 **Razão de cada bloqueio:** `<IMPOSSIBILIDADE OU CONFLITO | DECISÃO NORMATIVA
 AUSENTE | PRÉ-REQUISITO ARQUITETURAL | IMPACTO MATERIAL NÃO DELIMITADO |
 EVIDÊNCIA PRÉVIA INDISPENSÁVEL | NENHUMA>`
+
+**Quando houver bloqueio por fonte anterior, cadeia causal cumulativa:**
+`<REQUISITO ANTERIOR EXPLÍCITO E APLICÁVEL → REQUISITO NOVO NECESSARIAMENTE
+INCOMPATÍVEL → CONFLITO INEVITÁVEL → AUSÊNCIA DE IMPLEMENTAÇÃO CONFORME NO
+RECORTE, OU NÃO APLICÁVEL>`
 
 ## Fronteira da especificação
 

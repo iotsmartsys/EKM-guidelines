@@ -79,6 +79,13 @@ locais nem produzir evidências que pertencem à implementação e à revisão. 
 experimento só bloqueia antes da implementação quando é indispensável para
 decidir se alguma solução conforme é possível.
 
+Autoridade normativa é estritamente comportamental. Uma especificação não se
+torna proprietária de todas as evoluções de uma fachada, componente, arquivo ou
+domínio por mencioná-lo. Extensões aditivas governam seus próprios contratos e
+presumem-se não interferentes; fonte anterior só bloqueia quando requisitos
+explícitos tornam o conflito inevitável em qualquer implementação dentro do
+recorte.
+
 ### Implementação
 
 Uma análise `Ready` da versão corrente e uma ordem explícita do Arquiteto são

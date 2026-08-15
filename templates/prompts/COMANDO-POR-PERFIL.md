@@ -26,7 +26,11 @@ recorte. Não exija solução interna completa nem evidência própria de
 Implementação ou Revisão. Só bloqueie por impossibilidade ou conflito, decisão
 normativa ausente, pré-requisito arquitetural, impacto material não delimitado
 ou evidência prévia indispensável para decidir se alguma solução conforme é
-possível. Não use `prontidão condicionada` nem devolva capacidade arquitetural
+possível. Fonte anterior só bloqueia com cadeia cumulativa: requisito anterior
+explícito e aplicável, requisito novo necessariamente incompatível, conflito
+inevitável e nenhuma implementação conforme no recorte. Não exija prova de
+ausência de regressão, não investigue conflito por mera proximidade técnica e
+não use `prontidão condicionada` nem devolva capacidade arquitetural
 independente como simples ajuste da funcionalidade.
 
 Na implementação, confirme análise `Ready` da versão corrente. Esta ordem,

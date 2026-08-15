@@ -48,6 +48,12 @@ Autoria bloqueada → preparação arquitetural validada → nova análise
   implementação plausível e conforme. Escolhas técnicas locais e evidências de
   Implementação ou Revisão não bloqueiam, salvo quando forem indispensáveis
   para decidir se qualquer implementação conforme é possível.
+- autoridade é limitada ao comportamento explicitamente contratado. Extensão
+  aditiva presume-se não interferente; compartilhar domínio, arquivo, classe,
+  componente ou dependência não cria emenda ou bloqueio. Fonte anterior só
+  bloqueia quando requisitos aplicáveis tornam o conflito inevitável e nenhuma
+  implementação conforme cabe no recorte; não se exige prova de ausência de
+  regressão.
 - implementação exige análise `Ready` da versão corrente e ordem explícita do
   Arquiteto para implementar essa versão. A ordem autoriza a passagem; não há
   promoção nem campo documental intermediário.

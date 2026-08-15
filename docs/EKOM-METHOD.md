@@ -58,6 +58,12 @@ Para cada comportamento existe uma autoridade normativa identificável.
 "Fonte da verdade" não exige arquivo monolítico: especificações podem se
 relacionar sem duplicar contratos.
 
+A autoridade é limitada ao comportamento, garantia e restrição explicitamente
+declarados. Título abrangente, menção a domínio, arquivo, classe, fachada,
+componente ou dependência e inventário de elementos existentes não concedem
+autoridade sobre extensões futuras. Listas são abertas por padrão, salvo
+declaração normativa inequívoca de exaustividade.
+
 Git registra autoria, branches, diferenças e linhagem. Esses dados não são
 copiados manualmente para documentos, salvo quando necessários para explicar
 decisão ou desvio material.
@@ -71,7 +77,7 @@ ou abstração transversal por preferência do agente.
 
 Uma evolução arquitetural identifica o padrão atual, a mudança, o alcance e a
 decisão do Arquiteto. Ausência ou conflito de precedentes é incerteza a
-registrar, não autorização implícita.
+registrar, não autorização implícita nem bloqueio automático.
 
 ### 3.2 Unidade de trabalho
 
@@ -84,16 +90,19 @@ orquestração. Ela contém o necessário para executar e avaliar o recorte:
 - impactos, restrições, incertezas e experimentos necessários;
 - referência ao relatório de análise e estado vigente dos bloqueadores.
 
-Versões concluídas são preservadas. Mudanças posteriores usam nova versão
-relacionada por `Amends`, `Supersedes`, `Corrects` ou `Retires`, ou reabertura
-explícita pelo Arquiteto quando a convenção local assim determinar.
+Versões concluídas são preservadas. Mudança posterior de comportamento já
+normatizado usa nova versão relacionada por `Amends`, `Supersedes`, `Corrects`
+ou `Retires`, ou reabertura explícita pelo Arquiteto quando a convenção local
+assim determinar. Extensão aditiva pode ser `New` e governar seu próprio
+contrato.
 
 ### 3.2.1 Confronto de autoridade durante a autoria
 
 Antes de recomendar prontidão, o Autor confronta a proposta com as fontes que
-já governam cada elemento afetado. O recorte considera comportamento, API,
-estado, ciclo de vida, persistência, compatibilidade, nomenclatura e fronteiras,
-e não apenas dependências diretas de código.
+já governam os comportamentos necessariamente alterados ou restringidos. O
+recorte considera estado, ciclo de vida, persistência, compatibilidade,
+nomenclatura e fronteiras materiais, e não é ampliado pela simples coincidência
+de API, arquivo, componente ou dependência.
 
 O confronto mínimo:
 
@@ -104,14 +113,14 @@ O confronto mínimo:
    mudar;
 4. registra a relação vigente na especificação e a matriz detalhada no
    relatório de análise;
-5. devolve ao Arquiteto qualquer relação ambígua ou conflito normativo antes da
-   prontidão.
+5. devolve ao Arquiteto relação ambígua somente quando houver sobreposição
+   material de contratos, e todo conflito normativo real, antes da prontidão.
 
 Esse confronto é orientado por impacto, não uma leitura universal do acervo.
 Uma especificação exploratória pode nascer com lacunas, mas não pode ser
-recomendada como pronta enquanto outra autoridade aplicável estiver omitida ou
-contraditória. Ler uma fonte apenas como contexto técnico não equivale a
-confrontar seu contrato.
+recomendada como pronta enquanto outra autoridade aplicável ao mesmo
+comportamento estiver omitida ou contraditória. Fonte adjacente, inventário
+aberto e extensão aditiva não criam emenda ou bloqueio por si sós.
 
 ### 3.2.2 Contenção de escopo e preparação arquitetural
 
@@ -123,7 +132,9 @@ Existe pré-requisito arquitetural quando uma capacidade necessária não existe
 pode receber objetivo e validação independentes da funcionalidade e altera
 materialmente lifecycle, ownership, concorrência, persistência, recuperação,
 protocolo, segurança, API reutilizável, autoridades ou consumidores fora do
-recorte. Impacto material ainda não delimitado também impede prontidão.
+recorte. Impacto material ainda não delimitado impede prontidão somente quando
+requisito ou evidência concreta indicar alteração fora do recorte; compartilhar
+um componente não demonstra esse impacto.
 
 O Autor mantém a funcionalidade em `Draft` e registra a dependência. O relatório
 de análise delimita a capacidade ausente e recomenda análise arquitetural. O
@@ -310,6 +321,12 @@ ao menos uma implementação tecnicamente plausível que satisfaça contrato e
 restrições dentro da baseline e do recorte. Não exige solução interna completa,
 escolha antecipada entre alternativas locais nem prova que somente poderá ser
 produzida durante Implementação ou Revisão.
+
+Para invocar fonte anterior como bloqueio, a análise demonstra cumulativamente
+um requisito anterior explícito e aplicável, requisito novo necessariamente
+incompatível, inevitabilidade do conflito independentemente da escolha técnica e
+ausência de implementação conforme no recorte. Não exige prova negativa de
+regressão nem cria experimento para procurar conflito hipotético.
 
 O resultado usa exatamente uma classificação principal:
 

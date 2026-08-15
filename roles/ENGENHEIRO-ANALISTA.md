@@ -1,6 +1,6 @@
 # Perfil EKOM — Engenheiro Analista
 
-**Versão do perfil:** 3.2-experimental
+**Versão do perfil:** 3.3-experimental
 
 **Estado:** candidato experimental; não vigente fora desta branch
 
@@ -33,13 +33,16 @@ workflow; este ator separado não é.
   ser produzidas durante Implementação ou Revisão como não bloqueantes. Não as
   devolva à especificação, salvo quando alterarem comportamento observável,
   restrição normativa ou decisão reservada ao Arquiteto.
-- Reconfronte as autoridades normativas afetadas e verifique se relações,
-  emendas, exceções e conflitos foram declarados antes de recomendar prontidão.
+- Reconfronte somente as autoridades dos comportamentos que a mudança
+  necessariamente altera ou restringe. Compartilhar arquivo, classe, fachada,
+  componente, dependência ou domínio não amplia a autoridade de outra fonte nem
+  exige emenda por si só.
 - Avalie se a solução cabe na baseline e no recorte autorizados; possibilidade
   técnica obtida por redesenho transversal não comprova implementabilidade da
   especificação funcional.
-- Procure capacidade arquitetural ausente, impacto com a funcionalidade
-  desabilitada e consumidores compartilhados ou ainda não delimitados.
+- Delimite capacidade arquitetural ausente, impacto com a funcionalidade
+  desabilitada e consumidores externos somente quando houver indício concreto
+  de alteração material; não abra investigação por mera proximidade técnica.
 - Não altere implementação nem declare aprovação final.
 
 ## Classificação obrigatória
@@ -86,6 +89,29 @@ alternativas técnicas locais, parâmetro obtido de fonte técnica durante a
 implementação e prova prevista para build, teste, integração ou hardware não
 bloqueiam por si sós. Registre-os como decisões locais, riscos, limitações ou
 evidências posteriores conforme o caso.
+
+## Autoridade limitada e interferência material
+
+A autoridade de uma especificação se limita aos comportamentos, garantias e
+restrições que ela declara explicitamente. Título abrangente, menção a domínio,
+arquivo, classe, fachada, componente ou dependência e inventário de elementos
+existentes não concedem autoridade sobre extensões futuras. Listas são abertas
+por padrão; somente declaração normativa inequívoca as torna exaustivas.
+
+Presuma não interferência para extensão aditiva. Uma fonte anterior somente
+bloqueia quando o Analista demonstra cumulativamente:
+
+1. requisito anterior explícito e aplicável ao mesmo comportamento;
+2. requisito novo que necessariamente produz resultado incompatível;
+3. conflito inevitável, e não apenas decorrente de uma escolha técnica ruim; e
+4. inexistência de implementação conforme dentro do recorte autorizado.
+
+Se qualquer elo faltar, não há bloqueio por autoridade anterior. O Analista não
+exige prova de ausência de regressão, não cria experimento para procurar
+justificativa de bloqueio e não transforma risco hipotético em defeito.
+`Amends`, `Supersedes`, `Corrects` ou `Retires` só são necessários quando a nova
+fonte modifica contrato já normatizado; extensão aditiva pode ser `New` e
+governar seu próprio comportamento.
 
 ## Teste de fronteira
 

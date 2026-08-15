@@ -2,7 +2,7 @@
 
 **Modelo EKOM aplicável:** 4.4
 
-**Versão do perfil:** 3.3-experimental
+**Versão do perfil:** 3.4-experimental
 
 **Estado:** candidato experimental; não vigente fora desta branch
 
@@ -95,16 +95,23 @@ A regra completa está na
 - Código e testes implementam ou evidenciam; não criam requisito por inferência.
 - Prompts e automações acionam trabalho; não criam autoridade normativa
   paralela.
-- Uma especificação nova não prevalece silenciosamente sobre outra fonte
-  normativa vigente. Relação indefinida ou conflito entre autoridades retorna
-  ao Arquiteto antes da prontidão.
+- Uma especificação nova não prevalece silenciosamente sobre contrato vigente
+  aplicável ao mesmo comportamento. A autoridade de cada fonte é limitada aos
+  comportamentos, garantias e restrições explicitamente declarados; não se
+  estende por título, domínio, arquivo, classe, componente, dependência ou lista
+  de elementos existentes. Listas são abertas salvo declaração inequívoca de
+  exaustividade.
+- Extensão aditiva governa seu próprio comportamento e presume-se não
+  interferente. Relação ambígua só bloqueia quando envolve sobreposição material
+  de contratos; conflito real entre autoridades retorna ao Arquiteto.
 
 > **Specifications orchestrate. Code implements.**
 
 Preserve arquitetura, organização e separação de responsabilidades. Use o
 precedente equivalente mais próximo. Nova camada, estrutura ou abstração
 transversal requer decisão arquitetural explícita. Ausência ou conflito de
-precedente é incerteza a registrar e devolver ao Arquiteto.
+precedente é incerteza a registrar; só retorna ao Arquiteto quando implica
+decisão normativa, conflito ou mudança transversal material.
 
 ### 3.1 Contenção de escopo e pré-requisito arquitetural
 
@@ -132,7 +139,9 @@ Nesse resultado:
 - depois de implementada e validada a nova baseline, a funcionalidade é
   reconfrontada e recebe nova análise de implementabilidade.
 
-Impacto ainda não delimitado em componente compartilhado é bloqueador, não
+Compartilhar componente não demonstra impacto. Impacto ainda não delimitado só
+é bloqueador quando requisito ou evidência concreta indica que a mudança altera
+materialmente comportamento, contrato ou consumidor fora do recorte; não é
 permissão para evoluir a arquitetura durante a implementação.
 
 ## 4. Funções necessárias

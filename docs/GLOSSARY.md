@@ -9,7 +9,9 @@
 | Foco adicional | Prioridade, dúvida ou área de atenção indicada na ordem; orienta profundidade ou sequência sem reduzir a especificação. |
 | Atuação parcial | Diagnóstico, investigação ou execução explicitamente limitada que não promove o estado formal representativo da versão inteira. |
 | Fonte única da verdade | Autoridade normativa única por comportamento; não exige que todo conhecimento esteja em um único arquivo. |
-| Confronto de autoridade normativa | Verificação orientada por impacto que localiza as fontes vigentes dos elementos afetados, classifica a relação da mudança e impede prontidão diante de conflito, omissão ou alcance sem decisão. |
+| Confronto de autoridade normativa | Verificação orientada por comportamento que localiza fontes aplicáveis ao contrato necessariamente alterado e impede prontidão somente diante de sobreposição material omitida, conflito inevitável ou alcance sem decisão. |
+| Autoridade normativa limitada | Princípio pelo qual uma fonte governa somente comportamentos, garantias e restrições explicitamente declarados, sem adquirir autoridade irrestrita por título, domínio, arquivo, classe, componente, dependência ou inventário. |
+| Presunção de não interferência | Regra para extensões aditivas: não há bloqueio por fonte anterior sem requisito aplicável, incompatibilidade necessária, conflito inevitável e ausência de implementação conforme no recorte. |
 | Baseline arquitetural | Conjunto vigente de responsabilidades, contratos, lifecycle, precedentes e capacidades contra o qual a implementabilidade é avaliada. |
 | Pré-requisito arquitetural | Capacidade ausente, independente da funcionalidade e materialmente transversal que precisa preparar e validar uma nova baseline antes da implementação funcional. |
 | Especificação preparatória | Especificação própria da capacidade arquitetural que habilita uma ou mais funcionalidades sem incorporar a política particular de cada consumidora. |

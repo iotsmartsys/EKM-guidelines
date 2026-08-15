@@ -1371,6 +1371,19 @@ ausente, pré-requisito arquitetural independente, impacto material não
 delimitado ou evidência prévia indispensável para decidir se qualquer solução
 conforme é possível impedem `Ready`.
 
+**Autoridade limitada:** uma fonte governa somente comportamentos, garantias e
+restrições explicitamente contratados. Título, domínio, arquivo, classe,
+fachada, componente, dependência ou inventário não concedem autoridade sobre
+extensões futuras. Listas são abertas salvo declaração normativa inequívoca de
+exaustividade; extensão aditiva pode governar seu próprio contrato.
+
+**Teste causal fechado:** fonte anterior só bloqueia quando coexistem requisito
+anterior explícito e aplicável, requisito novo necessariamente incompatível,
+conflito inevitável independentemente da escolha técnica e ausência de
+implementação conforme no recorte. O Analista não exige prova de ausência de
+regressão, não cria experimento para procurar justificativa de bloqueio e não
+converte risco hipotético em defeito.
+
 **Estado da decisão:** experimento autorizado pelo Arquiteto em 2026-08-14.
 Aplicada somente na branch experimental; não está vigente na `main` e não altera
 a versão oficial EKOM 4.4. Sua eficácia será confrontada pela nova análise da
