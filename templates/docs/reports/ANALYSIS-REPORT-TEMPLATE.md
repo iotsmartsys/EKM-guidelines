@@ -56,6 +56,34 @@ EVIDÊNCIA PRÉVIA INDISPENSÁVEL | NENHUMA>`
 INCOMPATÍVEL → CONFLITO INEVITÁVEL → AUSÊNCIA DE IMPLEMENTAÇÃO CONFORME NO
 RECORTE, OU NÃO APLICÁVEL>`
 
+## Reconciliação dos achados anteriores
+
+| Achado anterior | Disposição | Regra e evidência |
+|---|---|---|
+| `<BLOQUEADOR DO RELATÓRIO ANTERIOR>` | `Mantido | Descartado | Não bloqueante` | `<FONTE E FUNDAMENTO>` |
+
+Todo bloqueador anterior aplicável deve aparecer. `Ready` não é válido com
+achado sem disposição.
+
+## Controle de cobertura
+
+- **Requisitos confrontados:** `<N>/<TOTAL>`
+- **Critérios de aceite confrontados:** `<N>/<TOTAL>`
+- **Débitos relacionados confrontados:** `<N>/<TOTAL>`
+- **Lacunas de cobertura:** `<ITENS OU NENHUMA>`
+
+## Challenge de `Ready`
+
+**Executado:** `Sim | Não aplicável porque a classificação não é Ready`
+
+**Contradição interna:** `<RESULTADO>`
+
+**Critério insatisfazível ou fora do recorte:** `<RESULTADO>`
+
+**Remediação postergada exigida:** `<RESULTADO>`
+
+**Bloqueador anterior sem disposição:** `<RESULTADO>`
+
 ## Fronteira da especificação
 
 **Baseline confrontada:** `<ARQUITETURA, VERSÃO E ESTADO>`
@@ -90,6 +118,10 @@ preparatória`, subordinada à decisão do Arquiteto.
 ## Incertezas e experimentos necessários
 
 `<ITENS, INDICANDO BLOQUEANTE PRÉVIO OU EVIDÊNCIA POSTERIOR, OU NENHUM>`
+
+## Restrições materiais não bloqueantes
+
+`<ATÉ CINCO ITENS NECESSÁRIOS AO HANDOFF, OU NENHUMA>`
 
 ## Bloqueadores e decisões requeridas
 

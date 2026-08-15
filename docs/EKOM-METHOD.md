@@ -354,6 +354,25 @@ Escolhas normais de engenharia e validações posteriores não retornam à
 especificação por si sós. O resultado `Ready` torna a versão elegível à ordem
 explícita de implementação.
 
+### 5.2.1 Controle contra omissão
+
+Objetividade limita a redação, não o confronto. Antes de classificar, o Analista:
+
+1. cobre requisitos, critérios de aceite e débitos relacionados;
+2. dispõe cada bloqueador do relatório anterior aplicável como mantido,
+   descartado ou não bloqueante, sempre com regra e evidência;
+3. confronta critérios com recorte e com remediações postergadas;
+4. preserva no relatório até cinco restrições materiais para o handoff; e
+5. antes de `Ready`, executa challenge limitado a contradição interna, critério
+   insatisfazível, remediação fora do recorte e achado anterior omitido.
+
+`Ready` é inválido se cobertura, reconciliação ou challenge estiverem ausentes.
+O challenge não autoriza investigação aberta nem prova negativa de regressão.
+
+Análise formal termina com relatório separado persistido no destino autorizado
+do projeto. Parecer somente em conversa ou produzido sob proibição de escrita é
+consultivo: pode informar o experimento, mas não estabelece `Ready` formal.
+
 ### 5.3 Implementador
 
 O Implementador:

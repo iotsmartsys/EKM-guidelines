@@ -12,6 +12,9 @@
 | Confronto de autoridade normativa | Verificação orientada por comportamento que localiza fontes aplicáveis ao contrato necessariamente alterado e impede prontidão somente diante de sobreposição material omitida, conflito inevitável ou alcance sem decisão. |
 | Autoridade normativa limitada | Princípio pelo qual uma fonte governa somente comportamentos, garantias e restrições explicitamente declarados, sem adquirir autoridade irrestrita por título, domínio, arquivo, classe, componente, dependência ou inventário. |
 | Presunção de não interferência | Regra para extensões aditivas: não há bloqueio por fonte anterior sem requisito aplicável, incompatibilidade necessária, conflito inevitável e ausência de implementação conforme no recorte. |
+| Reconciliação de achados | Disposição obrigatória de cada bloqueador anterior aplicável como mantido, descartado ou não bloqueante, com regra e evidência. |
+| Challenge de `Ready` | Passagem final e limitada que tenta invalidar somente a prontidão por contradição interna, critério insatisfazível, remediação fora do recorte ou achado anterior omitido. |
+| Parecer consultivo | Resultado de análise não persistido ou produzido sob proibição de escrita; informa o Arquiteto, mas não estabelece `Ready` formal. |
 | Baseline arquitetural | Conjunto vigente de responsabilidades, contratos, lifecycle, precedentes e capacidades contra o qual a implementabilidade é avaliada. |
 | Pré-requisito arquitetural | Capacidade ausente, independente da funcionalidade e materialmente transversal que precisa preparar e validar uma nova baseline antes da implementação funcional. |
 | Especificação preparatória | Especificação própria da capacidade arquitetural que habilita uma ou mais funcionalidades sem incorporar a política particular de cada consumidora. |

@@ -2,7 +2,7 @@
 
 **Modelo EKOM aplicável:** 4.4
 
-**Versão do perfil:** 3.4-experimental
+**Versão do perfil:** 3.5-experimental
 
 **Estado:** candidato experimental; não vigente fora desta branch
 
@@ -170,6 +170,22 @@ registre o experimento necessário em relatório de análise separado e classifi
 explicitamente se ele é bloqueante antes da implementação ou evidência
 posterior. O relatório pode recomendar mudança normativa, mas não a incorpora à
 especificação.
+
+Para impedir omissão sem exigir relatório exaustivo, a análise mantém cobertura
+de requisitos, critérios e débitos relacionados; reconcilia todo bloqueador do
+relatório anterior aplicável; registra até cinco restrições materiais não
+bloqueantes; e, antes de `Ready`, executa challenge limitado a contradição
+interna, critério insatisfazível, remediação fora do recorte e achado anterior
+sem disposição. `Ready` sem esses controles é inválido.
+
+Autoridade limitada não afasta conflito dentro da própria especificação. Um
+critério que exige comportamento cuja implementação foi explicitamente
+postergada ou excluída do recorte continua bloqueante até que contrato, recorte
+ou decisão normativa sejam coerentes.
+
+Análise formal produz relatório persistido no destino autorizado do projeto.
+Quando a ordem proibir escrita ou não identificar destino, o parecer permanece
+consultivo e não conclui formalmente o estágio de análise.
 
 ### 4.2 Implementação
 

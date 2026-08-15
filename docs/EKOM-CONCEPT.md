@@ -86,6 +86,12 @@ presumem-se não interferentes; fonte anterior só bloqueia quando requisitos
 explícitos tornam o conflito inevitável em qualquer implementação dentro do
 recorte.
 
+Análise confiável também precisa tornar visível o que descartou. Um `Ready`
+formal reconcilia bloqueadores anteriores, declara cobertura de requisitos,
+critérios e débitos, preserva restrições materiais não bloqueantes e registra um
+challenge final contra inconsistência interna. Parecer não persistido permanece
+consultivo.
+
 ### Implementação
 
 Uma análise `Ready` da versão corrente e uma ordem explícita do Arquiteto são

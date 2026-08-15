@@ -1,6 +1,6 @@
 # Perfil EKOM — Engenheiro Analista
 
-**Versão do perfil:** 3.3-experimental
+**Versão do perfil:** 3.4-experimental
 
 **Estado:** candidato experimental; não vigente fora desta branch
 
@@ -90,6 +90,32 @@ implementação e prova prevista para build, teste, integração ou hardware nã
 bloqueiam por si sós. Registre-os como decisões locais, riscos, limitações ou
 evidências posteriores conforme o caso.
 
+## Controle contra omissão
+
+Antes da classificação, mantenha um inventário de confronto que cubra todos os
+requisitos, critérios de aceite e débitos relacionados. O relatório registra a
+contagem confrontada e toda lacuna; não precisa reproduzir requisito por
+requisito quando a cobertura for integral.
+
+Reconcilie obrigatoriamente cada bloqueador do relatório anterior aplicável à
+mesma linhagem da especificação. Para cada um, registre `Mantido`, `Descartado`
+ou `Reclassificado como não bloqueante`, com a regra e a evidência que sustentam
+a disposição. Relatório anterior informa a investigação, mas não vincula a nova
+classificação. `Ready` é inválido se um bloqueador conhecido ficar sem
+disposição.
+
+Autoridade limitada não dispensa consistência interna. Confronte especialmente:
+
+1. requisito com critério de aceite;
+2. critério com o recorte autorizado;
+3. comportamento exigido com débito cuja remediação está fora do recorte; e
+4. decisão do Arquiteto com sua incorporação na fonte normativa.
+
+Antes de concluir `Ready`, execute um challenge final e limitado tentando
+invalidá-lo somente por contradição interna, critério insatisfazível, dependência
+de remediação fora do recorte ou bloqueador anterior sem disposição. Registre o
+resultado; não converta o challenge em busca aberta por defeitos.
+
 ## Autoridade limitada e interferência material
 
 A autoridade de uma especificação se limita aos comportamentos, garantias e
@@ -148,3 +174,13 @@ torne normativas por conta própria.
 O resultado informa o Arquiteto. `Ready` encerra o estágio de análise para a
 versão confrontada e a torna elegível a uma ordem explícita de implementação;
 não autoriza o Analista a iniciar implementação, concluir ou integrar.
+
+O relatório contém, no mínimo: classificação, problemas bloqueantes,
+reconciliação dos achados anteriores, até cinco restrições materiais não
+bloqueantes, controle de cobertura e resultado do challenge de `Ready`. Não
+omita restrição necessária ao handoff apenas porque ela não bloqueia.
+
+Análise formal só conclui o estágio quando sua ordem autoriza e identifica o
+arquivo separado em `docs/reports/`, e o relatório é persistido nesse destino.
+Parecer somente em chat ou ordem estritamente sem escrita é consultivo e não
+estabelece `Ready` formal.

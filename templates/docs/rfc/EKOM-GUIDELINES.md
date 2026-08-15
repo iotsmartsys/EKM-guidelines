@@ -54,6 +54,10 @@ Autoria bloqueada → preparação arquitetural validada → nova análise
   bloqueia quando requisitos aplicáveis tornam o conflito inevitável e nenhuma
   implementação conforme cabe no recorte; não se exige prova de ausência de
   regressão.
+- análise formal declara cobertura, reconcilia bloqueadores anteriores,
+  preserva até cinco restrições materiais não bloqueantes e executa challenge
+  limitado antes de `Ready`. Critério dependente de remediação fora do recorte
+  bloqueia; parecer não persistido permanece consultivo.
 - implementação exige análise `Ready` da versão corrente e ordem explícita do
   Arquiteto para implementar essa versão. A ordem autoriza a passagem; não há
   promoção nem campo documental intermediário.

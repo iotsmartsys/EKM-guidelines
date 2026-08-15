@@ -1384,6 +1384,13 @@ implementação conforme no recorte. O Analista não exige prova de ausência de
 regressão, não cria experimento para procurar justificativa de bloqueio e não
 converte risco hipotético em defeito.
 
+**Controle contra omissão:** objetividade limita a saída, não a cobertura. A
+análise confronta requisitos, critérios e débitos; dispõe todo bloqueador
+anterior; preserva até cinco restrições materiais não bloqueantes; e executa
+challenge limitado antes de `Ready`. Critério que exige remediação postergada ou
+fora do recorte permanece bloqueante. Parecer não persistido é consultivo e não
+conclui o estágio formal.
+
 **Estado da decisão:** experimento autorizado pelo Arquiteto em 2026-08-14.
 Aplicada somente na branch experimental; não está vigente na `main` e não altera
 a versão oficial EKOM 4.4. Sua eficácia será confrontada pela nova análise da

@@ -55,6 +55,13 @@ não criam emenda nem bloqueio. Fonte anterior só bloqueia quando requisitos
 explícitos e aplicáveis tornam o conflito inevitável e não existe implementação
 conforme no recorte. Não exija prova de ausência de regressão.
 
+Análise formal reconcilia todo bloqueador anterior aplicável, declara cobertura
+de requisitos, critérios e débitos relacionados, preserva até cinco restrições
+materiais não bloqueantes e executa challenge limitado antes de `Ready`.
+Critério que depende de remediação explicitamente fora do recorte continua
+bloqueante. Parecer somente em chat não estabelece `Ready`; o relatório precisa
+ser persistido no destino autorizado de `docs/reports/`.
+
 Implementação exige análise `Ready` da versão corrente e ordem explícita do
 Arquiteto para implementar essa versão. A ordem aprova e autoriza a passagem;
 não existe promoção ou campo documental intermediário. Análise ausente,

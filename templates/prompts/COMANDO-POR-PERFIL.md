@@ -33,6 +33,14 @@ ausência de regressão, não investigue conflito por mera proximidade técnica 
 não use `prontidão condicionada` nem devolva capacidade arquitetural
 independente como simples ajuste da funcionalidade.
 
+Declare cobertura de requisitos, critérios e débitos relacionados; reconcilie
+cada bloqueador anterior aplicável; registre até cinco restrições materiais não
+bloqueantes; confronte critérios com recorte e remediações postergadas; e, antes
+de `Ready`, execute challenge limitado contra contradição interna, critério
+insatisfazível, remediação fora do recorte ou achado anterior omitido. Persista o
+relatório no caminho autorizado. Sem relatório persistido, o parecer é apenas
+consultivo.
+
 Na implementação, confirme análise `Ready` da versão corrente. Esta ordem,
 quando nomeia inequivocamente a implementação e a versão, aprova e autoriza a
 passagem; não exija promoção ou campo documental adicional. Se faltar análise
