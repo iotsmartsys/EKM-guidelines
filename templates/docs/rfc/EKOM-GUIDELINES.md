@@ -3,11 +3,11 @@
 Use este arquivo somente quando o projeto precisar de regras locais além da
 diretriz externa aplicável.
 
-**Versão do documento:** 4.4
+**Versão do documento:** 4.4-experimental
 
 **Versão do modelo EKOM:** 4.4
 
-**Estado:** vigente
+**Estado:** candidato experimental
 
 ## 1. Definição e objetivo
 
@@ -44,6 +44,10 @@ Autoria bloqueada → preparação arquitetural validada → nova análise
 - análise classifica explicitamente defeito funcional, pré-requisito
   arquitetural, evidência requerida, conflito de restrição e impacto não
   delimitado; `prontidão condicionada` não é resultado final.
+- análise aplica suficiência, não exaustão: `Ready` exige ao menos uma
+  implementação plausível e conforme. Escolhas técnicas locais e evidências de
+  Implementação ou Revisão não bloqueiam, salvo quando forem indispensáveis
+  para decidir se qualquer implementação conforme é possível.
 - implementação exige análise `Ready` da versão corrente e ordem explícita do
   Arquiteto para implementar essa versão. A ordem autoriza a passagem; não há
   promoção nem campo documental intermediário.

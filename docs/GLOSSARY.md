@@ -17,7 +17,7 @@
 | `Enables` | Relação inversa pela qual uma preparação fornece capacidade arquitetural a uma especificação consumidora. |
 | Não pronta — defeito da especificação | Classificação de análise para decisão, borda, contrato ou critério ausente que ainda pertence à própria funcionalidade. |
 | Não pronta — pré-requisito arquitetural | Classificação bloqueante usada quando a baseline não oferece capacidade independente e transversal necessária à funcionalidade. |
-| Não pronta — evidência requerida | Classificação bloqueante quando a conclusão depende de experimento, toolchain, integração, infraestrutura ou hardware autorizado. |
+| Não pronta — evidência requerida | Classificação bloqueante quando evidência prévia de experimento, toolchain, integração, infraestrutura ou hardware é indispensável para decidir se alguma implementação conforme cabe nas restrições e na baseline; validação posterior não pertence a esta classe. |
 | Não implementável — conflito de restrição | Classificação para incompatibilidade do desenho com restrição física, de plataforma ou autoridade que não pode ser preservada. |
 | Desconhecida — impacto não delimitado | Classificação bloqueante quando consumidores ou raio de impacto material não foram suficientemente identificados. |
 | Plano de controle | Função exercida pela especificação ao determinar recorte, passagens, critérios e relações do pipeline. |
@@ -34,6 +34,7 @@
 | Ator | Pessoa ou agente que executa uma capacidade delimitada e registra fatos e evidências sem assumir autoridade do Arquiteto. |
 | Arquiteto | Autoridade humana final sobre intenção, arquitetura, risco aceitável, relevância das críticas, suficiência das evidências, aprovação, conclusão ou reabertura e integração. |
 | Análise de implementabilidade | Função obrigatória anterior à implementação; registra evidências, impactos, restrições, incertezas, experimentos e bloqueadores, sem exigir ator separado. |
+| Teste de suficiência da implementabilidade | Verificação de que existe ao menos uma implementação tecnicamente plausível e conforme dentro da baseline e do recorte, sem exigir solução interna completa nem evidência própria de estágios posteriores. |
 | Entrada da implementação | Análise `Ready` aplicável à versão corrente e ordem explícita do Arquiteto para implementar essa versão. |
 | Ordem explícita de implementação | Ato do Arquiteto que aprova e autoriza a passagem da versão analisada para Implementação; não substitui análise nem precisa ser duplicado em campo documental. |
 | Diagnóstico ou experimento em `Draft` | Atuação explicitamente não normativa de investigação; não implementa a especificação nem promove estado de implementação. |

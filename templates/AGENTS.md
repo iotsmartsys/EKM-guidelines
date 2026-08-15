@@ -1,10 +1,10 @@
 # Instruções permanentes e roteamento EKOM
 
-**Modelo EKOM:** 4.4
+**Modelo EKOM:** 4.4-experimental
 
 **Modalidade:** capacidades referenciadas e governança proporcional
 
-**Estado:** vigente
+**Estado:** candidato experimental
 
 ## Autoridade
 
@@ -42,6 +42,11 @@ Implementabilidade é avaliada dentro da baseline e do recorte. Capacidade
 arquitetural ausente, independente e transversal bloqueia a funcionalidade e
 exige decisão do Arquiteto sobre análise e especificação preparatória; não é
 absorvida como detalhe da especificação funcional ou da implementação.
+
+Prontidão exige ao menos uma implementação tecnicamente plausível e conforme,
+não uma solução interna completa. Escolhas locais de engenharia e evidências
+produzidas durante Implementação ou Revisão são não bloqueantes, salvo quando
+forem necessárias para decidir se qualquer implementação conforme é possível.
 
 Implementação exige análise `Ready` da versão corrente e ordem explícita do
 Arquiteto para implementar essa versão. A ordem aprova e autoriza a passagem;

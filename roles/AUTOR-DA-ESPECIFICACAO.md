@@ -98,8 +98,11 @@ bloqueadores identificados. Inclua o confronto de autoridades normativas
 afetadas; não limite a análise à viabilidade do código.
 
 Não certifique por leitura o que depende de build, protótipo, API, banco,
-infraestrutura ou hardware. Registre-o como experimento necessário. Quando o
-risco exigir segregação, deixe a análise pendente para o perfil especializado.
+infraestrutura ou hardware. Registre-o como experimento necessário e distinga
+evidência prévia indispensável de validação posterior da implementação. Não
+expanda a especificação para resolver escolha técnica local nem trate validação
+posterior como lacuna normativa. Quando o risco exigir segregação, deixe a
+análise pendente para o perfil especializado.
 
 ## Saída
 

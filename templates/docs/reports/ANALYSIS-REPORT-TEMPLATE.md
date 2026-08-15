@@ -40,7 +40,15 @@ prontidão até decisão do Arquiteto.
 **Condições não bloqueantes:** `<ITENS OU NENHUMA>`
 
 Não use `prontidão condicionada` como classificação. Classifique cada condição
-e informe a ação correspondente.
+e informe a ação correspondente. Escolhas técnicas locais e evidências que
+serão produzidas durante Implementação ou Revisão não bloqueiam por si sós.
+
+**Teste de suficiência:** `<EXISTE AO MENOS UMA IMPLEMENTAÇÃO TECNICAMENTE
+PLAUSÍVEL E CONFORME DENTRO DA BASELINE E DO RECORTE? EVIDÊNCIA OBJETIVA>`
+
+**Razão de cada bloqueio:** `<IMPOSSIBILIDADE OU CONFLITO | DECISÃO NORMATIVA
+AUSENTE | PRÉ-REQUISITO ARQUITETURAL | IMPACTO MATERIAL NÃO DELIMITADO |
+EVIDÊNCIA PRÉVIA INDISPENSÁVEL | NENHUMA>`
 
 ## Fronteira da especificação
 
@@ -75,7 +83,7 @@ preparatória`, subordinada à decisão do Arquiteto.
 
 ## Incertezas e experimentos necessários
 
-`<ITENS OU NENHUM>`
+`<ITENS, INDICANDO BLOQUEANTE PRÉVIO OU EVIDÊNCIA POSTERIOR, OU NENHUM>`
 
 ## Bloqueadores e decisões requeridas
 

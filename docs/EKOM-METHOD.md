@@ -1,10 +1,10 @@
 # Método EKOM
 
-**Versão do documento:** 4.4
+**Versão do documento:** 4.4-experimental
 
 **Modelo EKOM:** 4.4
 
-**Estado:** aprovado e vigente
+**Estado:** candidato experimental; não vigente fora desta branch
 
 ## 1. Objetivo operacional
 
@@ -305,6 +305,12 @@ Seu relatório registra:
 - experimentos necessários;
 - bloqueadores identificados.
 
+A análise aplica um teste de suficiência, não de exaustão: pergunta se existe
+ao menos uma implementação tecnicamente plausível que satisfaça contrato e
+restrições dentro da baseline e do recorte. Não exige solução interna completa,
+escolha antecipada entre alternativas locais nem prova que somente poderá ser
+produzida durante Implementação ou Revisão.
+
 O resultado usa exatamente uma classificação principal:
 
 - Pronta [`Ready`];
@@ -324,8 +330,12 @@ transversais.
 
 Leitura de código não certifica comportamento que só pode ser confirmado por
 build, protótipo, API, banco, infraestrutura ou hardware. Esses pontos são
-registrados como experimentos necessários. O resultado `Ready` torna a versão
-elegível à ordem explícita de implementação.
+registrados como experimentos necessários e separados em bloqueantes prévios ou
+evidências posteriores. Só bloqueiam quando, sem o experimento, não for possível
+determinar se alguma implementação conforme cabe nas restrições e na baseline.
+Escolhas normais de engenharia e validações posteriores não retornam à
+especificação por si sós. O resultado `Ready` torna a versão elegível à ordem
+explícita de implementação.
 
 ### 5.3 Implementador
 

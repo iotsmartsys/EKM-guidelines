@@ -1351,3 +1351,28 @@ converter todo defeito, risco ou lacuna em dívida.
 - **Confirmação final:** concedida pelo Arquiteto em 2026-08-14 para consolidar
   a decisão na branch corrente, promovê-la à `main` e torná-la vigente sem sair
   da major 4. Não autoriza release, deploy ou operação externa adicional.
+
+## DD-044 — Prontidão de implementação usa suficiência, não exaustão
+
+**Problema observado:** no piloto da capability de bateria do
+`IoTSmartLink15.4`, a análise continuou produzindo bloqueios depois de o escopo,
+as relações normativas e os débitos técnicos terem sido delimitados. Escolhas
+locais de implementação e evidências próprias da execução foram tratadas como
+lacunas da especificação, criando retorno potencialmente ilimitado à Autoria.
+
+**Hipótese experimental:** uma especificação está pronta quando existe ao menos
+uma implementação tecnicamente plausível e conforme dentro da baseline e do
+recorte. Solução interna completa, escolha antecipada entre alternativas locais
+e evidência produzível durante Implementação ou Revisão não são condições de
+prontidão.
+
+**Limite de bloqueio:** somente impossibilidade ou conflito, decisão normativa
+ausente, pré-requisito arquitetural independente, impacto material não
+delimitado ou evidência prévia indispensável para decidir se qualquer solução
+conforme é possível impedem `Ready`.
+
+**Estado da decisão:** experimento autorizado pelo Arquiteto em 2026-08-14.
+Aplicada somente na branch experimental; não está vigente na `main` e não altera
+a versão oficial EKOM 4.4. Sua eficácia será confrontada pela nova análise da
+especificação de bateria, observando redução de falsos bloqueios sem ocultar
+conflitos normativos ou físicos.

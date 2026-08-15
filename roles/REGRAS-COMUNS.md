@@ -2,9 +2,9 @@
 
 **Modelo EKOM aplicável:** 4.4
 
-**Versão do perfil:** 3.2
+**Versão do perfil:** 3.3-experimental
 
-**Estado:** vigente
+**Estado:** candidato experimental; não vigente fora desta branch
 
 Leia este arquivo antes do perfil recebido. Perfis representam capacidades
 acionáveis; não formam uma sequência universal de atores separados.
@@ -144,11 +144,23 @@ arquitetura e conhecimento existente. Antes de implementar, deve existir
 análise de implementabilidade que registre evidências, componentes impactados,
 restrições, incertezas, experimentos necessários e bloqueadores.
 
+Implementabilidade não significa antecipar a solução completa nem possuir
+evidência de uma execução que ainda será produzida. Uma versão pode receber
+`Ready` quando existe ao menos uma implementação tecnicamente plausível dentro
+da baseline e do recorte, capaz de preservar o contrato e as restrições. Escolha
+local de engenharia, detalhe interno e validação executável durante
+Implementação ou Revisão permanecem não bloqueantes, salvo quando revelarem
+impossibilidade, conflito, decisão normativa ausente, pré-requisito
+arquitetural, impacto material não delimitado ou necessidade de evidência prévia
+para determinar se qualquer implementação conforme é possível.
+
 Essa análise pode ser feita pelo Autor, com apoio de IA, por agente
 especializado ou por especialista separado. Leitura do código não certifica o
 que depende de compilação, protótipo, API, banco, infraestrutura ou hardware;
-registre o experimento necessário em relatório de análise separado. O relatório
-pode recomendar mudança normativa, mas não a incorpora à especificação.
+registre o experimento necessário em relatório de análise separado e classifique
+explicitamente se ele é bloqueante antes da implementação ou evidência
+posterior. O relatório pode recomendar mudança normativa, mas não a incorpora à
+especificação.
 
 ### 4.2 Implementação
 

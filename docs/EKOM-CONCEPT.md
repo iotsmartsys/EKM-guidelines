@@ -72,6 +72,13 @@ encontradas, componentes impactados, restrições, incertezas, experimentos
 necessários e bloqueadores. Compilação, protótipo, consulta a API ou banco e
 hardware real são experimentos quando a confirmação depende deles.
 
+Prontidão é um teste de suficiência: deve existir ao menos uma implementação
+tecnicamente plausível dentro da baseline e do recorte, sem conflito ou decisão
+normativa ausente. Não é necessário resolver antecipadamente escolhas técnicas
+locais nem produzir evidências que pertencem à implementação e à revisão. Um
+experimento só bloqueia antes da implementação quando é indispensável para
+decidir se alguma solução conforme é possível.
+
 ### Implementação
 
 Uma análise `Ready` da versão corrente e uma ordem explícita do Arquiteto são

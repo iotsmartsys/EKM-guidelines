@@ -1,8 +1,8 @@
 # Perfil EKOM — Engenheiro Analista
 
-**Versão do perfil:** 3.1
+**Versão do perfil:** 3.2-experimental
 
-**Estado:** capacidade especializada vigente e não obrigatória como ator separado
+**Estado:** candidato experimental; não vigente fora desta branch
 
 Leia primeiro [`REGRAS-COMUNS.md`](REGRAS-COMUNS.md).
 
@@ -25,6 +25,14 @@ workflow; este ator separado não é.
   inclusive build, protótipo, API, banco, infraestrutura ou hardware.
 - Diferencie decisão normativa ausente, escolha normal de implementação e
   dependência externa pendente.
+- Aplique o teste de suficiência: existe ao menos uma implementação tecnicamente
+  plausível que preserve o contrato, as restrições e a baseline dentro do
+  recorte? A análise não exige que todas as escolhas locais, provas de execução
+  ou validações posteriores já estejam resolvidas.
+- Trate escolhas normais de engenharia, detalhes internos e evidências que podem
+  ser produzidas durante Implementação ou Revisão como não bloqueantes. Não as
+  devolva à especificação, salvo quando alterarem comportamento observável,
+  restrição normativa ou decisão reservada ao Arquiteto.
 - Reconfronte as autoridades normativas afetadas e verifique se relações,
   emendas, exceções e conflitos foram declarados antes de recomendar prontidão.
 - Avalie se a solução cabe na baseline e no recorte autorizados; possibilidade
@@ -38,16 +46,19 @@ workflow; este ator separado não é.
 
 O relatório termina com exatamente uma classificação principal:
 
-- **Pronta** [`Ready`]: a baseline comporta a funcionalidade e não há
-  bloqueador;
+- **Pronta** [`Ready`]: existe ao menos uma implementação tecnicamente
+  plausível dentro da baseline e do recorte, sem bloqueador normativo ou
+  material; escolhas locais e validações posteriores podem permanecer abertas;
 - **Não pronta — defeito da especificação** [`Not Ready — Specification
   Defect`]: falta decisão, borda, contrato ou critério pertencente à própria
   funcionalidade;
 - **Não pronta — pré-requisito arquitetural** [`Not Ready — Architectural
   Prerequisite`]: falta capacidade independente e materialmente transversal;
-- **Não pronta — evidência requerida** [`Not Ready — Evidence Required`]: a
-  conclusão depende de experimento autorizado, toolchain, integração,
-  infraestrutura ou hardware;
+- **Não pronta — evidência requerida** [`Not Ready — Evidence Required`]: sem
+  experimento autorizado, toolchain, integração, infraestrutura ou hardware
+  não é possível decidir se alguma implementação conforme cabe nas restrições e
+  na baseline; evidência destinada apenas a validar uma implementação futura não
+  pertence a esta classe;
 - **Não implementável — conflito de restrição** [`Not Implementable —
   Constraint Conflict`]: requisito incompatível com restrição física, de
   plataforma ou autoridade que não pode ser preservada no desenho atual;
@@ -56,6 +67,25 @@ O relatório termina com exatamente uma classificação principal:
 
 Não use **prontidão condicionada** como classificação final. Cada condição é
 declarada bloqueante ou não bloqueante e roteada para uma das classes acima.
+
+## Teste de bloqueio
+
+Um achado bloqueia a prontidão somente quando demonstra pelo menos uma destas
+condições:
+
+1. impossibilidade ou conflito entre requisitos e restrições aplicáveis;
+2. decisão ausente sobre comportamento, borda, contrato ou critério que somente
+   a fonte normativa ou o Arquiteto pode determinar;
+3. pré-requisito arquitetural independente e transversal;
+4. impacto material ou consumidor necessário ainda não delimitado; ou
+5. evidência prévia indispensável para decidir se existe alguma implementação
+   conforme.
+
+Incerteza solucionável pelo Implementador dentro do contrato, escolha entre
+alternativas técnicas locais, parâmetro obtido de fonte técnica durante a
+implementação e prova prevista para build, teste, integração ou hardware não
+bloqueiam por si sós. Registre-os como decisões locais, riscos, limitações ou
+evidências posteriores conforme o caso.
 
 ## Teste de fronteira
 

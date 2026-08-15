@@ -1,8 +1,8 @@
 # Comando mínimo — perfil EKOM referenciado
 
-**Modelo EKOM:** 4.4
+**Modelo EKOM:** 4.4-experimental
 
-**Estado:** vigente
+**Estado:** candidato experimental
 
 Atue como **<PAPEL EKOM>** na especificação
 **<CAMINHO OU ID, OU NÃO SE APLICA>**.
@@ -20,10 +20,14 @@ Na autoria, localize e confronte as autoridades normativas dos elementos
 afetados antes de recomendar prontidão; registre relações na especificação e a
 matriz detalhada no relatório de análise.
 
-Na análise, produza exatamente uma classificação do EKOM 4.4 e teste se a
-mudança cabe na baseline e no recorte. Não use `prontidão condicionada` como
-resultado nem devolva capacidade arquitetural independente como simples ajuste
-da funcionalidade.
+Na análise, produza exatamente uma classificação do EKOM e teste se existe ao
+menos uma implementação tecnicamente plausível e conforme na baseline e no
+recorte. Não exija solução interna completa nem evidência própria de
+Implementação ou Revisão. Só bloqueie por impossibilidade ou conflito, decisão
+normativa ausente, pré-requisito arquitetural, impacto material não delimitado
+ou evidência prévia indispensável para decidir se alguma solução conforme é
+possível. Não use `prontidão condicionada` nem devolva capacidade arquitetural
+independente como simples ajuste da funcionalidade.
 
 Na implementação, confirme análise `Ready` da versão corrente. Esta ordem,
 quando nomeia inequivocamente a implementação e a versão, aprova e autoriza a
