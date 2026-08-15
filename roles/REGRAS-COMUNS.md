@@ -2,7 +2,7 @@
 
 **Modelo EKOM aplicável:** 4.4
 
-**Versão do perfil:** 3.5-experimental
+**Versão do perfil:** 3.6-experimental
 
 **Estado:** candidato experimental; não vigente fora desta branch
 
@@ -178,14 +178,23 @@ bloqueantes; e, antes de `Ready`, executa challenge limitado a contradição
 interna, critério insatisfazível, remediação fora do recorte e achado anterior
 sem disposição. `Ready` sem esses controles é inválido.
 
+Esses controles dirigem a investigação, não autorizam relatório extenso. O
+relatório de análise tem no máximo 800 palavras, não reproduz requisitos nem
+inventários, não antecipa solução e não recomenda correção ou próximos passos.
+Registra somente classificação, bloqueadores objetivos, reconciliação anterior,
+controle resumido e restrições indispensáveis ao handoff.
+
 Autoridade limitada não afasta conflito dentro da própria especificação. Um
 critério que exige comportamento cuja implementação foi explicitamente
 postergada ou excluída do recorte continua bloqueante até que contrato, recorte
 ou decisão normativa sejam coerentes.
 
-Análise formal produz relatório persistido no destino autorizado do projeto.
-Quando a ordem proibir escrita ou não identificar destino, o parecer permanece
-consultivo e não conclui formalmente o estágio de análise.
+Análise formal produz um relatório novo no destino autorizado do projeto, com
+UTC até segundos, revisão e identificador único da execução no nome. Relatório
+existente é histórico e imutável; reanálise ou correção cria outro arquivo. A
+criação deve aparecer como `A` no delta Git, nunca como substituição `M`. Quando
+a ordem proibir escrita ou não autorizar o diretório de destino, o parecer
+permanece consultivo e não conclui formalmente o estágio de análise.
 
 ### 4.2 Implementação
 

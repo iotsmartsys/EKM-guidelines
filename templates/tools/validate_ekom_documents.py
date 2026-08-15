@@ -17,6 +17,17 @@ REPORT_FIELDS = (
     "**Estado:**",
 )
 
+ANALYSIS_FILENAME = re.compile(
+    r"^\d{4}-\d{2}-\d{2}T\d{6}Z-[A-Za-z0-9._-]+-[A-Za-z0-9._-]+-implementability-analysis\.md$"
+)
+
+ANALYSIS_HEADINGS = (
+    "problemas bloqueantes",
+    "reconciliação anterior",
+    "controle",
+    "restrições não bloqueantes",
+)
+
 FORBIDDEN_SPEC_HEADINGS = (
     "análise de implementabilidade",
     "resultado da implementação",
@@ -45,7 +56,30 @@ def headings(text: str) -> list[str]:
 def validate_report(path: Path, text: str) -> list[str]:
     if path.name.lower() == "readme.md":
         return []
-    return [f"campo obrigatório ausente: {field}" for field in REPORT_FIELDS if field not in text]
+    errors = [
+        f"campo obrigatório ausente: {field}"
+        for field in REPORT_FIELDS
+        if field not in text
+    ]
+    if path.parent.name == "analysis" and "**Execução:**" in text:
+        if not ANALYSIS_FILENAME.fullmatch(path.name):
+            errors.append("nome de análise fora do formato UTC-revisão-execução")
+        for field in ("**Execução:**", "**Classificação:**"):
+            if field not in text:
+                errors.append(f"campo obrigatório de análise ausente: {field}")
+        level_two = [
+            match.group(1).strip().lower()
+            for match in re.finditer(r"^##\s+(.+)$", text, re.MULTILINE)
+        ]
+        for required in ANALYSIS_HEADINGS:
+            if required not in level_two:
+                errors.append(f"seção obrigatória de análise ausente: {required}")
+        unexpected = [item for item in level_two if item not in ANALYSIS_HEADINGS]
+        for item in unexpected:
+            errors.append(f"seção não permitida no relatório curto: {item}")
+        if len(re.findall(r"\S+", text)) > 800:
+            errors.append("relatório de análise excede 800 palavras")
+    return errors
 
 
 def validate_adr(path: Path, text: str) -> list[str]:

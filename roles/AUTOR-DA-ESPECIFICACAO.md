@@ -49,9 +49,8 @@ Antes de fechar a proposta ou recomendar prontidão:
 5. declare na especificação a relação normativa e a fonte que governa cada
    extensão ou exceção; quando a decisão for transversal ou durável, acione o
    gatilho de ADR;
-6. registre no relatório de análise a matriz detalhada de fontes afetadas,
-   relação, conflito e ação requerida, sem inflar a especificação com narrativa
-   de investigação;
+6. mantenha a matriz de fontes como instrumento da investigação; no relatório
+   registre somente conflito que sustente bloqueio, com evidência direta;
 7. mantenha como decisão pendente do Arquiteto toda relação ambígua, conflito
    entre fontes vigentes ou alteração normativa cujo alcance não esteja
    confirmado.

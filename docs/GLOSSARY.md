@@ -30,7 +30,7 @@
 | Pipeline | Ciclo governado de Autoria, Análise de Implementabilidade, Implementação e Revisão, seguido da decisão humana de conclusão ou reabertura. |
 | Fonte derivada | Código, teste, relatório ou automação que implementa, evidencia ou consome uma especificação sem criar requisito. |
 | ADR | Registro de decisão arquitetural transversal ou durável, com contexto, alternativas, decisão e consequências; não substitui o contrato comportamental da especificação. |
-| Relatório | Registro histórico e não normativo dos fatos, achados e evidências de uma atuação. |
+| Relatório | Registro histórico, imutável e não normativo dos fatos, achados e evidências de uma atuação; correção ou reanálise cria novo arquivo relacionado. |
 | Roteamento documental | Associação obrigatória entre classe de conhecimento, destino, autoridade de escrita e ciclo de vida. |
 | Mapa de conhecimento | Fonte navegacional que combina índice de autoridade, árvore hierárquica, relações materiais e lacunas sem duplicar contratos. |
 | Árvore de conhecimento | Visão textual da contenção, composição e responsabilidade entre alvos, domínios e componentes. |

@@ -92,6 +92,10 @@ critérios e débitos, preserva restrições materiais não bloqueantes e regist
 challenge final contra inconsistência interna. Parecer não persistido permanece
 consultivo.
 
+Essa cobertura dirige a investigação, não o volume da saída. O relatório é uma
+síntese decisória curta, e cada execução cria evidência nova sem substituir
+relatórios anteriores.
+
 ### Implementação
 
 Uma análise `Ready` da versão corrente e uma ordem explícita do Arquiteto são

@@ -17,8 +17,8 @@ comuns, o perfil correspondente ao papel, a especificação indicada e as fontes
 técnicas pertinentes.
 
 Na autoria, localize e confronte as autoridades normativas dos elementos
-afetados antes de recomendar prontidão; registre relações na especificação e a
-matriz detalhada no relatório de análise.
+afetados antes de recomendar prontidão; registre relações na especificação e,
+no relatório, somente conflito material que sustente bloqueio.
 
 Na análise, produza exatamente uma classificação do EKOM e teste se existe ao
 menos uma implementação tecnicamente plausível e conforme na baseline e no
@@ -38,8 +38,17 @@ cada bloqueador anterior aplicável; registre até cinco restrições materiais 
 bloqueantes; confronte critérios com recorte e remediações postergadas; e, antes
 de `Ready`, execute challenge limitado contra contradição interna, critério
 insatisfazível, remediação fora do recorte ou achado anterior omitido. Persista o
-relatório no caminho autorizado. Sem relatório persistido, o parecer é apenas
-consultivo.
+relatório no diretório autorizado. Sem relatório persistido, o parecer é apenas
+consultivo. A investigação pode ser profunda, mas o relatório tem no máximo 800
+palavras e contém somente classificação, bloqueadores objetivos, reconciliação,
+controle resumido e restrições indispensáveis. Não repita requisitos, não
+antecipe implementação, não sugira correções e não escreva próximos passos.
+
+Crie sempre um arquivo novo e imutável no formato
+`YYYY-MM-DDTHHMMSSZ-<revisão>-<id-da-execução>-implementability-analysis.md`.
+Reanálise ou correção não substitui relatório anterior. Antes de entregar,
+confirme que o Git registra o relatório como adicionado (`A`), nunca modificado
+(`M`).
 
 Na implementação, confirme análise `Ready` da versão corrente. Esta ordem,
 quando nomeia inequivocamente a implementação e a versão, aprova e autoriza a

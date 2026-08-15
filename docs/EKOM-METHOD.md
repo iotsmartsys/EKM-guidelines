@@ -294,9 +294,10 @@ técnica em decisão.
 
 Antes de recomendar prontidão, identifica os elementos normativos afetados,
 localiza suas autoridades e declara se a proposta preserva, altera, substitui,
-corrige ou descontinua cada contrato pertinente. O detalhamento do confronto
-permanece no relatório de análise; a especificação conserva somente as relações
-e decisões normativas vigentes.
+corrige ou descontinua cada contrato pertinente. A matriz detalhada permanece
+instrumento da investigação; o relatório registra somente conflito material
+que sustente bloqueio. A especificação conserva as relações e decisões
+normativas vigentes.
 
 ### 5.2 Análise de implementabilidade
 
@@ -307,14 +308,10 @@ A análise é obrigatória antes da implementação. Pode ser executada:
 - por agente especializado;
 - por especialista separado quando risco ou incerteza justificarem segregação.
 
-Seu relatório registra:
-
-- evidências encontradas no repositório;
-- componentes e fontes impactados;
-- restrições conhecidas;
-- incertezas;
-- experimentos necessários;
-- bloqueadores identificados.
+Seu relatório registra somente a classificação, os bloqueadores objetivos, a
+reconciliação anterior, o controle resumido e as restrições indispensáveis ao
+handoff. Evidências, impactos, incertezas ou experimentos aparecem apenas quando
+sustentam diretamente um desses campos.
 
 A análise aplica um teste de suficiência, não de exaustão: pergunta se existe
 ao menos uma implementação tecnicamente plausível que satisfaça contrato e
@@ -372,6 +369,17 @@ O challenge não autoriza investigação aberta nem prova negativa de regressão
 Análise formal termina com relatório separado persistido no destino autorizado
 do projeto. Parecer somente em conversa ou produzido sob proibição de escrita é
 consultivo: pode informar o experimento, mas não estabelece `Ready` formal.
+
+O relatório é síntese decisória, não transcrição da investigação. Possui no
+máximo 800 palavras e somente classificação, bloqueadores com evidência e regra,
+reconciliação anterior, controle resumido e até cinco restrições indispensáveis.
+Não repete requisitos, propõe correções, antecipa implementação ou enumera
+validações posteriores.
+
+Cada atuação formal cria um arquivo imutável com nome
+`YYYY-MM-DDTHHMMSSZ-<revisão>-<id-da-execução>-implementability-analysis.md`.
+Reanálise e correção criam novo relatório relacionado; nunca substituem o
+anterior. A entrega confirma adição (`A`) no delta Git.
 
 ### 5.3 Implementador
 

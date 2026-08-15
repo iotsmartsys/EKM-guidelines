@@ -1391,6 +1391,13 @@ challenge limitado antes de `Ready`. Critério que exige remediação postergada
 fora do recorte permanece bloqueante. Parecer não persistido é consultivo e não
 conclui o estágio formal.
 
+**Síntese operacional em 2026-08-15:** o experimento mostrou que declarar
+objetividade sem reduzir o template produz relatório extenso. O relatório passa
+a ter cinco blocos, máximo de 800 palavras e proibição de repetir contrato,
+antecipar implementação, sugerir correção ou listar próximos passos. Cada
+execução cria arquivo novo, imutável e identificável por UTC, revisão e ID da
+execução; o delta deve registrá-lo como adição.
+
 **Estado da decisão:** experimento autorizado pelo Arquiteto em 2026-08-14.
 Aplicada somente na branch experimental; não está vigente na `main` e não altera
 a versão oficial EKOM 4.4. Sua eficácia será confrontada pela nova análise da
