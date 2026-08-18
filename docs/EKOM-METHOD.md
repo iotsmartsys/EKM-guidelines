@@ -1,8 +1,8 @@
 # Método EKOM
 
-**Versão do documento:** 4.5
+**Versão do documento:** 4.6
 
-**Modelo EKOM:** 4.5
+**Modelo EKOM:** 4.6
 
 **Estado:** aprovado e vigente
 
@@ -620,7 +620,7 @@ não é gate universal nem substitui avaliação da solução e decisão do Arqu
 
 ## 12. Limites atuais
 
-O EKOM 4.5 não define infraestrutura distribuída de agentes e não promete
+O EKOM 4.6 não define infraestrutura distribuída de agentes e não promete
 autonomia completa de julgamento. O modelo atual não substitui Arquiteto,
 testes, revisão, observabilidade ou CI/CD. Autonomia completa permanece
 horizonte evolutivo condicionado a evidências futuras.

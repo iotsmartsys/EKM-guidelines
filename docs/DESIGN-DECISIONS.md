@@ -1423,3 +1423,59 @@ challenge foram então acrescentados; duas análises independentes convergiram n
 - **Confirmação final:** concedida pelo Arquiteto em 2026-08-15 para registrar,
   promover à `main` e tornar vigente. Não autoriza release, deploy nem adoção
   automática por repositórios consumidores.
+
+## DD-045 — A autoria confirma o rascunho antes do registro normativo
+
+**Problema observado:** escrever imediatamente o arquivo da especificação
+transferia ambiguidades de intenção para a fonte normativa e produzia
+retrabalho. No extremo oposto, explorar todo o código antes de conversar com o
+Arquiteto elevava custo e latência sem garantia proporcional de qualidade.
+
+**Evidência:** no experimento `Client-SDK-Configurable-Features` do
+`IoTSmartLink15.4`, a consulta prévia ao mapa, especificações e ADRs, combinada
+com inspeção dirigida do código, revelou antes da escrita as duas temporizações
+de deep sleep, o intervalo próprio da bateria sem deep sleep, a fronteira entre
+GPIO configurável e board model, a ordem da primeira medição após o boot e um
+débito fora do recorte. As decisões foram reconciliadas em um rascunho aprovado
+antes da criação da especificação. A análise formal posterior confrontou 25
+requisitos, 12 critérios e um débito relacionado sem encontrar lacuna ou
+bloqueador.
+
+**Decisão:** para especificação nova ou revisão material, o Autor consulta
+primeiro as fontes de conhecimento aplicáveis, explora o código apenas para
+resolver dúvidas materiais e apresenta ao Arquiteto um rascunho funcional
+conciso. O rascunho explicita comportamento, defaults, dependências, escopo,
+fontes relacionadas, decisões e perguntas que alterem contrato, arquitetura ou
+alcance. Respostas são reconciliadas antes do registro normativo.
+
+**Fronteira operacional:** o rascunho é conversacional e provisório; não é
+especificação, relatório nem substituto da análise de implementabilidade.
+Pergunta, consulta sobre o próximo passo ou concordância com o conteúdo não
+autoriza mutação. Criar ou alterar a especificação exige ordem explícita do
+Arquiteto. Escolhas técnicas locais permanecem nos estágios posteriores.
+
+**Proporcionalidade:** a investigação é orientada por conhecimento e impacto,
+não por leitura universal do repositório. A regra busca antecipar decisões
+materiais sem converter a Autoria em análise exaustiva ou desenho de
+implementação.
+
+**Estado da decisão:** confirmada pelo Arquiteto em 2026-08-18 e incorporada ao
+EKOM 4.6 como evolução compatível da etapa de Autoria.
+
+### Registro da atuação EKOM 4.6
+
+- **Capacidade:** Consultor de Arquitetura.
+- **Ordem:** incorporar o aprendizado do experimento ao perfil do Autor da
+  Especificação e promovê-lo a vigente sem alterar a major 4.
+- **Recorte:** perfil do Autor, versões vigentes do modelo, navegação, decisão
+  de desenho e histórico experimental do repositório central. Nenhum template
+  ou regra comum operacional foi criado.
+- **Resultado material:** perfil do Autor 3.3 e EKOM 4.6 vigentes, com
+  investigação dirigida, rascunho funcional, reconciliação humana e ordem
+  explícita antes da escrita normativa.
+- **Validação e limites:** mudança exclusivamente documental, sustentada por um
+  caso de firmware com participação ativa do Arquiteto; não demonstra eficácia
+  universal nem dispensa análise de implementabilidade.
+- **Confirmação final:** concedida pelo Arquiteto em 2026-08-18 para registrar,
+  promover à `main` e tornar vigente dentro da major 4. Não autoriza release,
+  deploy nem adoção automática por repositórios consumidores.

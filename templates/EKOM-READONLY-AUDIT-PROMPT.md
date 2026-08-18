@@ -3,7 +3,7 @@
 **Estado:** Experimental
 
 Use somente quando o Arquiteto solicitar uma revisão independente. Esta não é
-uma atuação de auditoria do EKOM 4.5 e não possui autoridade de aprovação.
+uma atuação de auditoria do EKOM 4.6 e não possui autoridade de aprovação.
 
 ```text
 Revise a integridade EKOM da mudança <EKOM-CHG-NNNN> no repositório

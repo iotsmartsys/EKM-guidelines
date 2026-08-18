@@ -1,6 +1,6 @@
 # Avaliação experimental de adequação dos atores EKOM
 
-**Modelo EKOM:** 4.5
+**Modelo EKOM:** 4.6
 
 **Versão da métrica:** 0.1
 

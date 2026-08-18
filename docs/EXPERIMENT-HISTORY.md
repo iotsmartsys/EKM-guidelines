@@ -812,3 +812,55 @@ controles, não sua infalibilidade.
 A [`ADR-0014`](adr/ADR-0014-IMPLEMENTABILITY-SUFFICIENCY-BOUNDARY.md) incorpora
 o aprendizado no EKOM 4.5, sem reinterpretar relatórios produzidos sob regras
 anteriores.
+
+## 35. Client SDK configurável — rascunho antes da escrita normativa
+
+O experimento `Client-SDK-Configurable-Features` no `IoTSmartLink15.4` avaliou
+como reduzir retrabalho de autoria sem exigir exploração exaustiva do código. O
+Autor começou pela intenção do Arquiteto e pelas fontes de conhecimento do
+repositório, consultando mapa, especificações, ADRs e precedentes relacionados.
+A inspeção do código foi limitada aos pontos necessários para esclarecer o
+comportamento vigente e formular decisões materiais.
+
+Antes de criar o arquivo normativo, o Autor apresentou um rascunho funcional.
+Esse passo revelou que “tempo de despertar” abrangia o intervalo de 15 minutos
+e a janela acordada de 30 segundos; que a bateria sem deep sleep precisava de
+período próprio com default de duas horas; que sua contagem começaria no boot,
+mas medição e report ocorreriam somente depois da conclusão bem-sucedida das
+tarefas de boot; e que o GPIO configurável alteraria apenas o número do pino,
+preservando polaridade e fatos elétricos no board model.
+
+O confronto com o conhecimento existente também permitiu decidir por uma
+emenda estreita à ADR do board model e manter fora do recorte uma divergência
+preexistente do `sdkconfig`, registrada como débito técnico. As respostas do
+Arquiteto foram reconciliadas no rascunho e somente uma ordem posterior e
+explícita autorizou a criação da especificação.
+
+A análise de implementabilidade posterior classificou a versão como `Ready`,
+sem bloqueadores, depois de confrontar 25 requisitos, 12 critérios de aceite e
+um débito relacionado. O resultado sustenta que conhecimento existente,
+exploração dirigida e confirmação prévia do rascunho podem antecipar decisões
+normativas e reduzir retornos à Autoria sem antecipar a implementação completa.
+
+### Hipóteses sustentadas
+
+- documentos de conhecimento reduzem a necessidade de leitura ampla do código;
+- exploração dirigida é suficiente para revelar decisões materiais de autoria
+  no recorte observado;
+- apresentar o rascunho antes do arquivo normativo desloca correções para uma
+  etapa mais barata;
+- separar concordância com o conteúdo de autorização para escrever preserva a
+  autoridade do Arquiteto;
+- o rascunho não substitui a análise formal de implementabilidade.
+
+### Limites da evidência
+
+O experimento ocorreu em uma única especificação de firmware, com participação
+ativa do Arquiteto e sem comparação quantitativa com autorias equivalentes. O
+caso demonstra utilidade no recorte observado, não redução universal de tempo
+ou retrabalho. A regra deve continuar proporcional e ser reavaliada em outras
+classes de mudança.
+
+A [`DD-045`](DESIGN-DECISIONS.md#dd-045--a-autoria-confirma-o-rascunho-antes-do-registro-normativo)
+incorpora o aprendizado ao EKOM 4.6 sem reinterpretar especificações produzidas
+sob versões anteriores.

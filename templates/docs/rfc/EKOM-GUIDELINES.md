@@ -3,9 +3,9 @@
 Use este arquivo somente quando o projeto precisar de regras locais além da
 diretriz externa aplicável.
 
-**Versão do documento:** 4.5
+**Versão do documento:** 4.6
 
-**Versão do modelo EKOM:** 4.5
+**Versão do modelo EKOM:** 4.6
 
 **Estado:** vigente
 

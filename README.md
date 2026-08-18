@@ -1,6 +1,6 @@
 # EKOM Guidelines
 
-**Modelo EKOM vigente:** 4.5
+**Modelo EKOM vigente:** 4.6
 
 **Estado:** aprovado e vigente
 
@@ -48,15 +48,21 @@ A normatização de débito técnico 4.4 está na
 O limite de prontidão por suficiência, a autoridade normativa limitada e os
 controles contra omissão 4.5 estão na
 [`ADR-0014`](docs/adr/ADR-0014-IMPLEMENTABILITY-SUFFICIENCY-BOUNDARY.md).
+A autoria progressiva orientada pelo conhecimento 4.6 está no perfil do
+[`Autor da Especificação`](roles/AUTOR-DA-ESPECIFICACAO.md) e na
+[`DD-045`](docs/DESIGN-DECISIONS.md#dd-045--a-autoria-confirma-o-rascunho-antes-do-registro-normativo).
 
 O EKOM deve começar pequeno. Governança é útil quando acelera decisões, reduz
 retrabalho ou aumenta confiança; não quando apenas multiplica documentos,
 agentes ou passagens operacionais.
 
-## Princípios da versão 4.5
+## Princípios da versão 4.6
 
 - A especificação é a fonte da verdade, nasce antes do código e possui ciclo de
   vida próprio.
+- Antes do registro normativo, o Autor consulta o conhecimento existente,
+  explora o código de forma dirigida, reconcilia dúvidas materiais em um
+  rascunho e aguarda ordem explícita de escrita do Arquiteto.
 - Antes da prontidão, o Autor confronta a mudança com as autoridades normativas
   dos comportamentos necessariamente alterados e torna relações ou conflitos
   materiais explícitos; proximidade de arquivo ou componente não amplia
@@ -289,7 +295,7 @@ docs/
 ## Conteúdo
 
 - [`docs/EKOM-CONCEPT.md`](docs/EKOM-CONCEPT.md): definição, visão, problema e limites.
-- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 4.5.
+- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 4.6.
 - [`docs/VISION.md`](docs/VISION.md): estado futuro orientado por especificações.
 - [`docs/PRINCIPLES.md`](docs/PRINCIPLES.md): princípios normativos do EKOM.
 - [`docs/GLOSSARY.md`](docs/GLOSSARY.md): vocabulário canônico e termos legados.
@@ -339,7 +345,7 @@ ou julgamento humano. Orquestração é a coordenação normativa do trabalho pe
 especificação, não uma alegação de automação total. Qualidade e aceleração
 continuam hipóteses a demonstrar em casos reais.
 - [`docs/EKOM-CONCEPT.md`](docs/EKOM-CONCEPT.md): definição, objetivo e limites.
-- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 4.5.
+- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 4.6.
 - [`docs/VISION.md`](docs/VISION.md): visão e horizonte evolutivo.
 - [`docs/PRINCIPLES.md`](docs/PRINCIPLES.md): princípios normativos.
 - [`docs/GOVERNANCE.md`](docs/GOVERNANCE.md): evolução e versionamento.
@@ -352,7 +358,7 @@ continuam hipóteses a demonstrar em casos reais.
 
 ## Limite atual e horizonte
 
-O EKOM 4.5 não promete substituição do Arquiteto nem autonomia completa de
+O EKOM 4.6 não promete substituição do Arquiteto nem autonomia completa de
 julgamento. A interpretação conservadora da pesquisa pública e dos experimentos
 registrados é que eles ainda não sustentam engenharia de software amplamente
 autônoma, de ponta a ponta, sem supervisão e autoridade humanas. A base pública

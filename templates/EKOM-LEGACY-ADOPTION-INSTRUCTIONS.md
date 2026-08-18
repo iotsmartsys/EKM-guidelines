@@ -1,6 +1,6 @@
 # Instrução — Adoção inicial do EKOM em repositório legado
 
-Adote o EKOM 4.5 no repositório `<CAMINHO_DO_REPOSITORIO>`.
+Adote o EKOM 4.6 no repositório `<CAMINHO_DO_REPOSITORIO>`.
 
 O Arquiteto autoriza nesta tarefa somente levantamento e fundação documental.
 Não altere código, testes, dependências, build, automações ou configuração.

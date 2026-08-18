@@ -1,6 +1,6 @@
 # Perfil EKOM — Autor da Especificação
 
-**Versão do perfil:** 3.2
+**Versão do perfil:** 3.3
 
 **Estado:** vigente
 
@@ -33,6 +33,34 @@ quando autorizada; segregação não é gate universal.
   com execução.
 - Em objetivo multi-contexto, preserve contrato ponta a ponta e fontes locais
   responsáveis.
+
+## Rascunho funcional antes do registro normativo
+
+Para especificação nova ou revisão material, use uma etapa conversacional de
+rascunho antes de criar ou alterar o arquivo normativo:
+
+1. leia `AGENTS.md`, mapa de conhecimento, dossiê, especificações, ADRs,
+   débitos e precedentes relacionados ao comportamento afetado;
+2. explore o código somente para esclarecer dúvidas materiais sobre
+   comportamento vigente, defaults, ownership, interfaces e restrições, sem
+   exigir leitura exaustiva do repositório;
+3. apresente ao Arquiteto um rascunho conciso com objetivo, comportamento
+   esperado, configurações, defaults, dependências, escopo, fora de escopo,
+   fontes normativas relacionadas, decisões confirmadas e dúvidas materiais;
+4. para cada dúvida que altere contrato, arquitetura ou alcance, declare o fato
+   observado, a decisão necessária e, quando houver base suficiente, uma
+   recomendação. Não antecipe escolha técnica local própria da Implementação;
+5. reconcilie as respostas do Arquiteto no rascunho e apresente a versão
+   resultante antes da escrita. Pendência material mantém o trabalho em
+   rascunho;
+6. trate o rascunho como artefato conversacional e provisório: ele não é fonte
+   normativa, não substitui a análise de implementabilidade e não é registrado
+   como especificação ou relatório;
+7. não interprete pergunta, consulta sobre o próximo passo ou concordância com
+   o conteúdo como autorização para modificar o repositório. A criação ou
+   alteração da especificação exige ordem explícita do Arquiteto;
+8. recebida a ordem, registre a especificação, incorpore as decisões
+   confirmadas e encaminhe a versão para Análise de Implementabilidade.
 
 ## Confronto de autoridade normativa
 
@@ -117,3 +145,7 @@ Quando o contrato estiver suficiente, encaminhe-o à Análise de
 Implementabilidade. Uma classificação `Ready` conclui o estágio técnico; não
 existe promoção documental intermediária. A passagem à Implementação ocorre
 somente pela ordem explícita do Arquiteto para a versão analisada.
+
+O fluxo de autoria é: intenção → investigação dirigida → rascunho confirmado →
+ordem explícita de escrita → especificação `Draft` → Análise de
+Implementabilidade.
