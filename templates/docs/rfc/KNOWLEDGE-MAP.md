@@ -83,8 +83,12 @@ transações e lacunas
 
 Atualize este mapa quando uma especificação, fonte relacionada, autoridade,
 responsabilidade, evidência, estado, lacuna ou débito mudar. Cada domínio deve
-apontar para uma especificação como autoridade normativa; não remova entrada
+apontar para a especificação ou fonte normativa aplicável; não remova entrada
 sem indicar o destino do conhecimento.
+
+Na implementação pequena sem especificação autorizada ao Consultor, atualize ao
+final o elemento ou relação afetada e a fonte vigente. Não crie uma
+especificação implícita nem duplique contrato no mapa.
 
 Reconcilie também a árvore quando contenção ou responsabilidade mudar e o
 diagrama quando surgir, desaparecer ou mudar uma relação material entre alvos.

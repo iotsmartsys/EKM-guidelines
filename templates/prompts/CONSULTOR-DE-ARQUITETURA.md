@@ -1,6 +1,6 @@
 # Comando — Consultor de Arquitetura
 
-**Modelo EKOM:** 4.6
+**Modelo EKOM:** 4.7
 
 **Estado:** vigente
 
@@ -17,6 +17,9 @@ aplicável, o Tech Lead.
 CONFIGURAÇÃO OU OUTRAS OPERAÇÕES DELIMITADAS>`
 
 **Especificação relacionada:** `<CAMINHO OU ID, OU NÃO SE APLICA>`
+
+**Implementação pequena sem especificação determinada pelo Arquiteto:**
+`<SIM OU NÃO>`
 
 **Decisões confirmadas:** `<DECISÕES DO ARQUITETO OU NENHUMA>`
 

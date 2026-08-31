@@ -45,9 +45,10 @@ o substitui.
 
 ## Implementability before Implementation
 
-Toda especificação é analisada antes de implementar. A função é obrigatória; um
-Engenheiro Analista separado não é. Segregação é escolhida quando risco,
-incerteza ou necessidade de especialização justificarem seu custo.
+Toda especificação é analisada antes de sua implementação. A função é
+obrigatória no workflow governado por especificação; um Engenheiro Analista
+separado não é. Segregação é escolhida quando risco, incerteza ou necessidade
+de especialização justificarem seu custo.
 
 Prontidão é suficiência, não exaustão: existe ao menos uma implementação
 tecnicamente plausível e conforme na baseline e no recorte. Escolhas locais de
@@ -106,6 +107,15 @@ publicam, reescrevem ou removem história continuam fora dessa autorização.
 Trabalho governado por especificação usa branch `spec/<slug>` derivada do nome
 do documento normativo. O Arquiteto decide intenção e prontidão, não nomes Git;
 automação aplica a convenção, bloqueia colisões e não inventa identificadores.
+
+## Explicit Small-change Exception
+
+O Consultor de Arquitetura pode implementar sem especificação somente por
+determinação e ordem explícitas do Arquiteto para uma alteração pequena, local
+e de baixo risco. Ampliação material interrompe a implementação e devolve o
+trabalho ao workflow com especificação; o recorte não pode ser parcelado para
+contornar esse limite. Se estiver na `main`, o Consultor cria antes uma branch
+derivada dela e atualiza obrigatoriamente o mapa de conhecimento ao final.
 
 ## Continuous Knowledge Evolution
 

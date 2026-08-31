@@ -1,8 +1,8 @@
 # Método EKOM
 
-**Versão do documento:** 4.6
+**Versão do documento:** 4.7
 
-**Modelo EKOM:** 4.6
+**Modelo EKOM:** 4.7
 
 **Estado:** aprovado e vigente
 
@@ -10,8 +10,9 @@
 
 O EKOM permite que uma solução seja especificada, implementada, documentada e
 entregue sem que o Arquiteto precise executar diretamente o desenvolvimento.
-A especificação governa a execução dos agentes de IA; o Arquiteto mantém
-autoridade sobre decisões, riscos, validação e conclusão do workflow.
+A especificação governa o workflow normativo dos agentes de IA; o Arquiteto
+mantém autoridade sobre decisões, riscos, validação e conclusão. A via curta do
+Consultor para alteração pequena é uma exceção explícita e limitada.
 
 > **Specifications orchestrate. Code implements.**
 
@@ -276,6 +277,26 @@ recorte, arquitetura e risco não mudarem. Diagnóstico e experimento sobre
 `Draft` exigem ordem própria e não produzem implementação normativa. A regra
 completa está na [`ADR-0009`](adr/ADR-0009-FOUR-STAGE-WORKFLOW.md).
 
+### 4.2 Via curta do Consultor
+
+O Arquiteto pode dispensar especificação e análise `Ready` exclusivamente para
+o Consultor de Arquitetura quando determinar explicitamente que a alteração é
+pequena, ordenar a implementação sem especificação e delimitar objetivo,
+recorte e operações.
+
+A alteração permanece local, de baixo risco e compreensível sem novo contrato
+funcional. Se exigir ou revelar ampliação material de arquitetura, contrato,
+dados, segurança, protocolo, concorrência, operação, componentes, consumidores,
+escopo ou risco, o Consultor não implementa o recorte ampliado nem divide o
+trabalho para contornar o limite. Ele devolve ao Arquiteto o workflow governado
+por especificação.
+
+Se estiver na `main`, cria uma branch derivada dela antes da primeira mutação.
+Ao final, atualiza obrigatoriamente o mapa de conhecimento com o elemento ou a
+relação afetada e a fonte vigente. Permanecem aplicáveis validação proporcional,
+entrega Git e permissões operacionais próprias. A regra completa está na
+[`ADR-0015`](adr/ADR-0015-SMALL-CONSULTANT-IMPLEMENTATION.md).
+
 ## 5. Funções e papéis
 
 Função necessária não implica pessoa, sessão ou agente separado. A segregação
@@ -301,7 +322,8 @@ normativas vigentes.
 
 ### 5.2 Análise de implementabilidade
 
-A análise é obrigatória antes da implementação. Pode ser executada:
+A análise é obrigatória antes da implementação governada por especificação.
+Pode ser executada:
 
 - pelo próprio Autor;
 - pelo Autor apoiado por IA;
@@ -453,6 +475,11 @@ alegação.
 O Consultor apoia investigação, desenho, governança, especificação, análise,
 implementação, revisão e coordenação dentro do recorte autorizado. Não recebe
 autoridade humana e não alega independência no trabalho de que participou.
+
+Sob determinação e ordem explícitas do Arquiteto, pode usar a via curta para
+implementação pequena sem especificação. Ele recusa trabalho materialmente
+maior, cria branch derivada da `main` quando estiver nela e atualiza o mapa de
+conhecimento ao final.
 
 ## 6. Validação proporcional
 
@@ -620,7 +647,7 @@ não é gate universal nem substitui avaliação da solução e decisão do Arqu
 
 ## 12. Limites atuais
 
-O EKOM 4.6 não define infraestrutura distribuída de agentes e não promete
+O EKOM 4.7 não define infraestrutura distribuída de agentes e não promete
 autonomia completa de julgamento. O modelo atual não substitui Arquiteto,
 testes, revisão, observabilidade ou CI/CD. Autonomia completa permanece
 horizonte evolutivo condicionado a evidências futuras.

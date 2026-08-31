@@ -1479,3 +1479,24 @@ EKOM 4.6 como evolução compatível da etapa de Autoria.
 - **Confirmação final:** concedida pelo Arquiteto em 2026-08-18 para registrar,
   promover à `main` e tornar vigente dentro da major 4. Não autoriza release,
   deploy nem adoção automática por repositórios consumidores.
+
+## DD-046 — O Consultor pode executar implementação pequena sem especificação
+
+**Problema observado:** o workflow completo orientado por especificação impõe
+custo desproporcional quando o Arquiteto já delimitou uma alteração pequena,
+local e de baixo risco.
+
+**Decisão:** adotar a
+[`ADR-0015`](adr/ADR-0015-SMALL-CONSULTANT-IMPLEMENTATION.md) e promover o
+modelo para EKOM 4.7. Exclusivamente o Consultor de Arquitetura pode implementar
+sem especificação quando o Arquiteto determinar explicitamente que a alteração
+é pequena, ordenar essa via e delimitar objetivo, recorte e operações.
+
+**Guardas:** ampliação material de arquitetura, contrato, dados, segurança,
+protocolo, concorrência, operação, componentes, consumidores, escopo ou risco
+torna a exceção inaplicável. O Consultor não implementa nem parcela trabalho
+grande. Se estiver na `main`, cria antes uma branch derivada dela; ao final,
+atualiza obrigatoriamente o mapa de conhecimento.
+
+**Estado da decisão:** confirmada pelo Arquiteto em 2026-08-31 e incorporada ao
+EKOM 4.7 como evolução compatível e proporcional.

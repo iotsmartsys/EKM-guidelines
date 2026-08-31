@@ -1,8 +1,8 @@
 # Regras comuns dos perfis EKOM
 
-**Modelo EKOM aplicável:** 4.6
+**Modelo EKOM aplicável:** 4.7
 
-**Versão do perfil:** 3.6
+**Versão do perfil:** 3.7
 
 **Estado:** vigente
 
@@ -66,6 +66,30 @@ Correções de implementação devolvidas pela Revisão permanecem cobertas pela
 ordem original enquanto versão, recorte, arquitetura e risco autorizado não
 mudarem. Decisão humana nova ou ampliação material retorna ao Arquiteto; não se
 cria autorização repetida para cada iteração ordinária.
+
+### 2.1.1 Exceção do Consultor para implementação pequena
+
+Exclusivamente para o Consultor de Arquitetura, o Arquiteto pode dispensar
+especificação e análise `Ready` ao determinar explicitamente que uma alteração
+é pequena e ordenar sua implementação sem especificação. A ordem delimita
+objetivo, recorte e operações autorizadas; permissão genérica para implementar
+não aciona a exceção.
+
+A alteração deve permanecer local, de baixo risco e compreensível sem novo
+contrato funcional. Mudança arquitetural, contrato público, persistência ou
+migração de dados, segurança ou autorização, protocolo, concorrência, operação
+externa, múltiplos componentes ou consumidores, impacto material não delimitado
+ou ampliação material de escopo ou risco tornam a exceção inaplicável. O
+Consultor interrompe antes de implementar o recorte ampliado, não o divide para
+contornar o limite e devolve ao Arquiteto o workflow governado por
+especificação.
+
+Se estiver na `main`, o Consultor cria, antes da primeira mutação, uma branch
+derivada da `main`. Ao final, atualiza obrigatoriamente o mapa de conhecimento
+com o elemento ou relação afetada e sua fonte vigente. A exceção não dispensa
+preservação arquitetural, validação proporcional, entrega Git nem permissão
+própria para operações externas. A regra completa está na
+[`ADR-0015`](../docs/adr/ADR-0015-SMALL-CONSULTANT-IMPLEMENTATION.md).
 
 ### 2.2 Build intrínseco à implementação
 
@@ -148,10 +172,11 @@ permissão para evoluir a arquitetura durante a implementação.
 
 ### 4.1 Autoria e análise
 
-A especificação nasce antes do código. O Autor consulta repositório,
-arquitetura e conhecimento existente. Antes de implementar, deve existir
-análise de implementabilidade que registre evidências, componentes impactados,
-restrições, incertezas, experimentos necessários e bloqueadores.
+A especificação nasce antes do código no workflow normativo. O Autor consulta
+repositório, arquitetura e conhecimento existente. Antes de implementar esse
+contrato, deve existir análise de implementabilidade que registre evidências,
+componentes impactados, restrições, incertezas, experimentos necessários e
+bloqueadores. A única dispensa é a via curta da seção 2.1.1.
 
 Implementabilidade não significa antecipar a solução completa nem possuir
 evidência de uma execução que ainda será produzida. Uma versão pode receber

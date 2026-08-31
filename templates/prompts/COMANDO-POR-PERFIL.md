@@ -1,6 +1,6 @@
 # Comando mínimo — perfil EKOM referenciado
 
-**Modelo EKOM:** 4.6
+**Modelo EKOM:** 4.7
 
 **Estado:** vigente
 

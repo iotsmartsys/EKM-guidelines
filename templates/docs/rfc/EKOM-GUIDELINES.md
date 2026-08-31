@@ -3,17 +3,18 @@
 Use este arquivo somente quando o projeto precisar de regras locais além da
 diretriz externa aplicável.
 
-**Versão do documento:** 4.6
+**Versão do documento:** 4.7
 
-**Versão do modelo EKOM:** 4.6
+**Versão do modelo EKOM:** 4.7
 
 **Estado:** vigente
 
 ## 1. Definição e objetivo
 
 O EKOM é um modelo de orquestração de engenharia no qual a especificação
-governa a execução dos agentes de IA, enquanto o Arquiteto mantém autoridade
-sobre decisões, riscos, validação e conclusão.
+governa o workflow normativo dos agentes de IA, enquanto o Arquiteto mantém
+autoridade sobre decisões, riscos, validação e conclusão. A via curta do
+Consultor para alteração pequena é exceção explícita e limitada.
 
 O objetivo é entregar uma solução especificada, implementada e documentada sem
 que o Arquiteto precise desenvolver diretamente.
@@ -38,6 +39,10 @@ Autoria bloqueada → preparação arquitetural validada → nova análise
 - defeito técnico encontrado na Revisão retorna à Implementação;
 - problema na especificação retorna ao rascunho/análise;
 - nova evidência pode motivar reabertura pelo Arquiteto.
+- o Consultor pode implementar sem especificação somente quando o Arquiteto
+  determinar explicitamente que a alteração é pequena e ordenar essa via. Se o
+  recorte crescer, ele não implementa e retorna ao workflow com especificação;
+  na `main`, cria antes uma branch derivada dela e, ao final, atualiza o mapa;
 - capacidade arquitetural ausente, independente e transversal bloqueia a
   funcionalidade; análise e especificação preparatória são separadas por
   decisão do Arquiteto;

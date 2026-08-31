@@ -3,9 +3,10 @@
 ## Definição operacional
 
 Engineering Knowledge Orchestration Model (EKOM) é um modelo de orquestração
-de engenharia no qual a especificação governa a execução dos agentes de IA,
-enquanto o Arquiteto mantém autoridade sobre decisões, riscos, validação e
-conclusão do workflow.
+de engenharia no qual a especificação governa o workflow normativo dos agentes
+de IA, enquanto o Arquiteto mantém autoridade sobre decisões, riscos, validação
+e conclusão. Por exceção explícita e limitada, o Consultor pode executar
+alteração pequena sem especificação, preservando branch e mapa de conhecimento.
 
 > **Specifications orchestrate. Code implements.**
 
@@ -187,7 +188,7 @@ testes verdes como prova suficiente e autonomia completa como capacidade atual.
 
 ## Estado do método
 
-O EKOM 4.6 está aprovado e vigente para adoção. Autonomia completa permanece
+O EKOM 4.7 está aprovado e vigente para adoção. Autonomia completa permanece
 horizonte evolutivo, não capacidade comprovada. A decisão está registrada no
 [`ADR-0002`](adr/ADR-0002-EKOM-3-OPERATIONAL-AUTHORITY.md), com o roteamento
 documental operacionalizado pela
@@ -214,3 +215,6 @@ A preservação e remediação de débito técnico aceito estão registradas na
 O limite de prontidão por suficiência, a autoridade normativa limitada e os
 controles contra omissão estão registrados na
 [`ADR-0014`](adr/ADR-0014-IMPLEMENTABILITY-SUFFICIENCY-BOUNDARY.md).
+A via curta do Consultor para implementação pequena sem especificação está
+registrada na
+[`ADR-0015`](adr/ADR-0015-SMALL-CONSULTANT-IMPLEMENTATION.md).

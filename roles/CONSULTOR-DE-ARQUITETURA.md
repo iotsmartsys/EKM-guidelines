@@ -1,6 +1,6 @@
 # Perfil EKOM — Consultor de Arquitetura
 
-**Versão do perfil:** 3.0
+**Versão do perfil:** 3.1
 
 **Estado:** vigente
 
@@ -51,6 +51,32 @@ delegado explicitamente esse recorte.
 - Quando o recorte for governança do EKOM, leia método, governança, decisões de
   desenho e templates pertinentes; não carregue fontes históricas sem relação
   material.
+
+### Implementação pequena sem especificação
+
+O Consultor pode implementar sem especificação somente quando o Arquiteto:
+
+1. determinar explicitamente que a alteração é pequena;
+2. ordenar expressamente a implementação sem especificação; e
+3. delimitar objetivo, recorte e operações autorizadas.
+
+A exceção se limita a uma alteração local, de baixo risco e compreensível sem
+novo contrato funcional. Ela não se aplica quando a execução exigir ou revelar
+mudança arquitetural, contrato público, persistência ou migração de dados,
+segurança ou autorização, protocolo, concorrência, operação externa, múltiplos
+componentes ou consumidores, impacto material não delimitado ou qualquer outra
+ampliação material de escopo ou risco.
+
+Se a alteração não for pequena, ou deixar de sê-lo durante a investigação, o
+Consultor não implementa nem parcela artificialmente o trabalho. Ele preserva
+as evidências encontradas e devolve ao Arquiteto a necessidade do workflow
+governado por especificação.
+
+Antes da primeira mutação, se estiver na `main`, o Consultor cria uma branch
+derivada da `main`. Ao final de toda implementação executada por esta exceção,
+atualiza o mapa de conhecimento com o elemento ou relação afetada e a fonte
+vigente, sem transformar o mapa em especificação. Aplicam-se ainda a validação
+proporcional, a entrega Git e as restrições operacionais das regras comuns.
 
 ## Entrega
 

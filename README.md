@@ -1,13 +1,14 @@
 # EKOM Guidelines
 
-**Modelo EKOM vigente:** 4.6
+**Modelo EKOM vigente:** 4.7
 
 **Estado:** aprovado e vigente
 
 Engineering Knowledge Orchestration Model (EKOM) é um modelo experimental de
-orquestração de engenharia no qual a especificação governa a execução dos
-agentes de IA, enquanto o Arquiteto mantém autoridade sobre decisões, riscos,
-validação e conclusão do workflow.
+orquestração de engenharia no qual a especificação governa o workflow
+normativo dos agentes de IA, enquanto o Arquiteto mantém autoridade sobre
+decisões, riscos, validação e conclusão. Uma via curta explicitamente ordenada
+permite ao Consultor implementar alterações pequenas sem especificação.
 
 Seu objetivo operacional é permitir que uma solução seja especificada,
 implementada, documentada e entregue sem que o Arquiteto precise executar
@@ -51,12 +52,15 @@ controles contra omissão 4.5 estão na
 A autoria progressiva orientada pelo conhecimento 4.6 está no perfil do
 [`Autor da Especificação`](roles/AUTOR-DA-ESPECIFICACAO.md) e na
 [`DD-045`](docs/DESIGN-DECISIONS.md#dd-045--a-autoria-confirma-o-rascunho-antes-do-registro-normativo).
+A implementação pequena pelo Consultor, explicitamente determinada pelo
+Arquiteto e sem especificação, está na
+[`ADR-0015`](docs/adr/ADR-0015-SMALL-CONSULTANT-IMPLEMENTATION.md).
 
 O EKOM deve começar pequeno. Governança é útil quando acelera decisões, reduz
 retrabalho ou aumenta confiança; não quando apenas multiplica documentos,
 agentes ou passagens operacionais.
 
-## Princípios da versão 4.6
+## Princípios da versão 4.7
 
 - A especificação é a fonte da verdade, nasce antes do código e possui ciclo de
   vida próprio.
@@ -105,6 +109,11 @@ agentes ou passagens operacionais.
   trabalho e com árvore limpa, sem um segundo gate apenas para commit e push.
 - Trabalho governado por especificação usa branch `spec/<slug>` derivada do
   nome do documento normativo, sem exigir que o Arquiteto escolha nomes Git.
+- O Consultor pode implementar sem especificação somente quando o Arquiteto
+  determinar explicitamente que a alteração é pequena e ordenar essa via; se o
+  recorte crescer, a implementação para e retorna ao workflow com especificação.
+  Na `main`, cria antes uma branch derivada dela e, ao final, atualiza o mapa
+  de conhecimento.
 - A IA amplia a capacidade do Arquiteto; não o substitui.
 
 Os princípios normativos completos estão em
@@ -151,6 +160,12 @@ concluir honestamente que não encontrou risco adicional relevante.
 
 O Consultor de Arquitetura é um papel institucional de apoio transversal,
 subordinado ao Arquiteto, e não uma autoridade paralela.
+
+Excepcionalmente, ele pode implementar uma alteração pequena sem especificação
+quando o Arquiteto assim a determinar e ordenar de modo explícito. A via curta
+não cobre ampliação material de arquitetura, contrato, operação, escopo ou
+risco. Se estiver na `main`, o Consultor cria antes uma branch derivada dela;
+ao final, atualiza o mapa de conhecimento.
 
 ## Validação baseada em evidências
 
@@ -295,7 +310,7 @@ docs/
 ## Conteúdo
 
 - [`docs/EKOM-CONCEPT.md`](docs/EKOM-CONCEPT.md): definição, visão, problema e limites.
-- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 4.6.
+- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 4.7.
 - [`docs/VISION.md`](docs/VISION.md): estado futuro orientado por especificações.
 - [`docs/PRINCIPLES.md`](docs/PRINCIPLES.md): princípios normativos do EKOM.
 - [`docs/GLOSSARY.md`](docs/GLOSSARY.md): vocabulário canônico e termos legados.
@@ -312,6 +327,7 @@ docs/
 - [`docs/adr/ADR-0012-SPECIFICATION-DERIVED-BRANCH.md`](docs/adr/ADR-0012-SPECIFICATION-DERIVED-BRANCH.md): convenção previsível de branch derivada do nome da especificação.
 - [`docs/adr/ADR-0013-TECHNICAL-DEBT.md`](docs/adr/ADR-0013-TECHNICAL-DEBT.md): débito técnico aceito como conhecimento persistente, distinto de lacuna e defeito.
 - [`docs/adr/ADR-0014-IMPLEMENTABILITY-SUFFICIENCY-BOUNDARY.md`](docs/adr/ADR-0014-IMPLEMENTABILITY-SUFFICIENCY-BOUNDARY.md): prontidão por suficiência, autoridade limitada e controle contra omissão.
+- [`docs/adr/ADR-0015-SMALL-CONSULTANT-IMPLEMENTATION.md`](docs/adr/ADR-0015-SMALL-CONSULTANT-IMPLEMENTATION.md): via curta do Consultor para implementação pequena sem especificação.
 - [`docs/ACTOR-EVALUATION.md`](docs/ACTOR-EVALUATION.md): avaliação experimental dos atores.
 - [`docs/DESIGN-DECISIONS.md`](docs/DESIGN-DECISIONS.md): razões e evolução das decisões.
 - [`docs/LEGACY-ADOPTION.md`](docs/LEGACY-ADOPTION.md): adoção incremental.
@@ -345,7 +361,7 @@ ou julgamento humano. Orquestração é a coordenação normativa do trabalho pe
 especificação, não uma alegação de automação total. Qualidade e aceleração
 continuam hipóteses a demonstrar em casos reais.
 - [`docs/EKOM-CONCEPT.md`](docs/EKOM-CONCEPT.md): definição, objetivo e limites.
-- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 4.6.
+- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 4.7.
 - [`docs/VISION.md`](docs/VISION.md): visão e horizonte evolutivo.
 - [`docs/PRINCIPLES.md`](docs/PRINCIPLES.md): princípios normativos.
 - [`docs/GOVERNANCE.md`](docs/GOVERNANCE.md): evolução e versionamento.
@@ -358,7 +374,7 @@ continuam hipóteses a demonstrar em casos reais.
 
 ## Limite atual e horizonte
 
-O EKOM 4.6 não promete substituição do Arquiteto nem autonomia completa de
+O EKOM 4.7 não promete substituição do Arquiteto nem autonomia completa de
 julgamento. A interpretação conservadora da pesquisa pública e dos experimentos
 registrados é que eles ainda não sustentam engenharia de software amplamente
 autônoma, de ponta a ponta, sem supervisão e autoridade humanas. A base pública

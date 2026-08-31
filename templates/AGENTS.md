@@ -1,6 +1,6 @@
 # Instruções permanentes e roteamento EKOM
 
-**Modelo EKOM:** 4.6
+**Modelo EKOM:** 4.7
 
 **Modalidade:** capacidades referenciadas e governança proporcional
 
@@ -66,6 +66,15 @@ Implementação exige análise `Ready` da versão corrente e ordem explícita do
 Arquiteto para implementar essa versão. A ordem aprova e autoriza a passagem;
 não existe promoção ou campo documental intermediário. Análise ausente,
 superada por mudança normativa ou ordem ambígua obriga recusa sem mutação.
+
+Exceção exclusiva do Consultor de Arquitetura: o Arquiteto pode determinar
+explicitamente que uma alteração é pequena e ordenar sua implementação sem
+especificação. O recorte deve permanecer local, de baixo risco e sem novo
+contrato funcional ou ampliação material arquitetural, operacional, de escopo
+ou risco. Se estiver na `main`, o Consultor cria antes da primeira mutação uma
+branch derivada da `main`; ao final, atualiza obrigatoriamente o mapa de
+conhecimento. Se a alteração não for pequena ou deixar de sê-lo, não implementa
+nem parcela o trabalho e devolve ao Arquiteto o workflow com especificação.
 
 Satisfeita essa entrada, a implementação de artefato construível inclui seu
 build canônico proporcional. Build não exige cláusula na especificação e não
