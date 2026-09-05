@@ -1,8 +1,8 @@
 # Método EKOM
 
-**Versão do documento:** 4.7
+**Versão do documento:** 5.0
 
-**Modelo EKOM:** 4.7
+**Modelo EKOM:** 5.0
 
 **Estado:** aprovado e vigente
 
@@ -73,7 +73,7 @@ decisão ou desvio material.
 
 O `AGENTS.md` do projeto localiza arquitetura, padrões e restrições. Por padrão,
 toda implementação preserva organização e separação de responsabilidades,
-segue o precedente equivalente mais próximo e não cria nova camada, estrutura
+segue o contrato aprovado e seus precedentes oficiais compatíveis e não cria nova camada, estrutura
 ou abstração transversal por preferência do agente.
 
 Uma evolução arquitetural identifica o padrão atual, a mudança, o alcance e a
@@ -263,7 +263,7 @@ granulares podem mantê-los, desde que não transfiram a autoridade de conclusã
 
 ### 4.1 Entrada da implementação
 
-A passagem exige análise `Ready` aplicável à versão normativa corrente e ordem
+Em repositório habilitado por Repository Readiness, a passagem exige análise `Ready` aplicável à versão normativa corrente e ordem
 explícita do Arquiteto para implementar essa versão. A ordem é a aprovação e a
 autorização; não existe promoção intermediária nem campo documental obrigatório
 de autorização.
@@ -647,7 +647,28 @@ não é gate universal nem substitui avaliação da solução e decisão do Arqu
 
 ## 12. Limites atuais
 
-O EKOM 4.7 não define infraestrutura distribuída de agentes e não promete
+O EKOM 5.0 não define infraestrutura distribuída de agentes e não promete
 autonomia completa de julgamento. O modelo atual não substitui Arquiteto,
 testes, revisão, observabilidade ou CI/CD. Autonomia completa permanece
 horizonte evolutivo condicionado a evidências futuras.
+
+## Qualificação do repositório — EKOM 5.0
+
+Antes de implementar, confirme contrato de engenharia aprovado por
+Arquiteto/responsável técnico humano e Repository Readiness válida cobrindo
+todo o recorte e suas dependências materiais. `Not Ready` bloqueia;
+`Conditionally Ready` permite apenas escopos explicitamente `Ready` e habilitados
+por decisão humana. Ausência, insuficiência, aprovação pendente ou avaliação
+superada impede mutação de implementação, inclusive na via curta do Consultor.
+Levantamento, proposta e documentação autorizados podem preparar a qualificação.
+
+O `Ready` da análise de uma especificação não substitui essa condição de adoção.
+Não repita aprovação vigente a cada tarefa. A IA pode sugerir contrato a partir
+do código, mas somente o humano pode aprová-lo como norma.
+
+Aplique especificação da tarefa → contrato aprovado → precedentes oficiais →
+código existente → preferência do implementador. Especificação não revoga regra
+arquitetural silenciosamente: exceção exige decisão humana com regra, motivo,
+alcance e validade. Precedente contraditório não se torna norma.
+
+Norma detalhada: [Repository Readiness](REPOSITORY-READINESS.md).

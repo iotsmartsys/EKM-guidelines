@@ -1,6 +1,6 @@
 # Instrução — Adoção inicial do EKOM em repositório legado
 
-Adote o EKOM 4.7 no repositório `<CAMINHO_DO_REPOSITORIO>`.
+Adote o EKOM 5.0 no repositório `<CAMINHO_DO_REPOSITORIO>`.
 
 O Arquiteto autoriza nesta tarefa somente levantamento e fundação documental.
 Não altere código, testes, dependências, build, automações ou configuração.
@@ -102,3 +102,37 @@ A fundação está concluída quando o conhecimento necessário para o próximo
 experimento é localizável, decisões, lacunas e débitos aceitos estão explícitos,
 os arquivos estão consistentes e a entrega foi enviada por commit e push.
 Quantidade de documentos não é medida de sucesso.
+
+## Qualificação do repositório — EKOM 5.0
+
+Antes de implementar, confirme contrato de engenharia aprovado por
+Arquiteto/responsável técnico humano e Repository Readiness válida cobrindo
+todo o recorte e suas dependências materiais. `Not Ready` bloqueia;
+`Conditionally Ready` permite apenas escopos explicitamente `Ready` e habilitados
+por decisão humana. Ausência, insuficiência, aprovação pendente ou avaliação
+superada impede mutação de implementação, inclusive na via curta do Consultor.
+Levantamento, proposta e documentação autorizados podem preparar a qualificação.
+
+O `Ready` da análise de uma especificação não substitui essa condição de adoção.
+Não repita aprovação vigente a cada tarefa. A IA pode sugerir contrato a partir
+do código, mas somente o humano pode aprová-lo como norma.
+
+Aplique especificação da tarefa → contrato aprovado → precedentes oficiais →
+código existente → preferência do implementador. Especificação não revoga regra
+arquitetural silenciosamente: exceção exige decisão humana com regra, motivo,
+alcance e validade. Precedente contraditório não se torna norma.
+
+
+## Qualificação na fundação
+
+Produza `docs/rfc/REPOSITORY-ENGINEERING-CONTRACT.md` como Draft/Proposed,
+separe observações de inferências e deixe aprovação pendente até decisão humana.
+Use o template `REPOSITORY-READINESS-REPORT-TEMPLATE.md` para registrar cobertura,
+evidências, lacunas e desvios em `docs/reports/repository-readiness/`.
+Mantenha `docs/rfc/REPOSITORY-READINESS.md` com estado inicial Not Ready e referências
+à revisão, avaliação e decisão humana; cadastre ambos no mapa de conhecimento.
+Uma norma local existente pode ser referenciada pelo contrato, com versão e alcance.
+
+A fundação documental pode ser entregue com aprovação pendente e implementação
+bloqueada. Só anuncie adoção habilitada após qualificação válida no alcance;
+não transforme a ordem de instalar EKOM em aprovação do contrato inferido.

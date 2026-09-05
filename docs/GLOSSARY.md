@@ -60,3 +60,16 @@
 | Débito quitado [`Repaid`] | Estado determinado pelo Arquiteto quando o critério de quitação possui evidência considerada suficiente. |
 | Débito substituído [`Superseded`] | Estado de registro substituído por outro débito ou decisão identificada, sem apagar seu histórico. |
 | `EKM-CHG` / `EKM-GAP` | Namespaces legados aceitos para compatibilidade com adoções EKM 1.x. |
+
+## Termos de qualificação — EKOM 5.0
+
+- **Repository Engineering Contract:** regras imperativas de construção do
+  repositório, aprovadas por Arquiteto/responsável técnico humano.
+- **Repository Readiness:** qualificação do repositório e seu alcance para adoção
+  com implementação: Not Ready, Conditionally Ready ou Ready.
+- **Ready do repositório:** elegibilidade do alcance; não é análise Ready de uma
+  especificação nem ordem para implementar.
+- **Precedente oficial:** exemplo indicado para aplicar regra aprovada; não
+  substitui norma nem torna todo código existente um padrão autorizado.
+
+Norma: [Repository Readiness](REPOSITORY-READINESS.md).

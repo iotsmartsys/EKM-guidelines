@@ -150,3 +150,13 @@ validação, conforme risco e recorte.
 Análise, implementação, challenge e validação são registrados em relatórios
 separados. A especificação pode referenciá-los e refletir decisões incorporadas
 pelo Arquiteto, mas não recebe a narrativa dessas atuações.
+
+## Regras de construção aplicáveis
+
+- Contrato de engenharia e revisão aprovada: <REFERENCIA>
+- Readiness do repositório e alcance necessário: <REFERENCIA>
+- Regras e precedentes oficiais pertinentes: <REFERENCIAS>
+- Exceções: <NENHUMA OU REGRA, DECISAO HUMANA, MOTIVO, ALCANCE E VALIDADE>
+
+Esta seção referencia regras de construção; não duplica o contrato nem a
+avaliação de readiness. Análise Ready da tarefa não habilita o repositório.

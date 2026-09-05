@@ -1,8 +1,8 @@
 # Regras comuns dos perfis EKOM
 
-**Modelo EKOM aplicável:** 4.7
+**Modelo EKOM aplicável:** 5.0
 
-**Versão do perfil:** 3.7
+**Versão do perfil:** 4.0
 
 **Estado:** vigente
 
@@ -44,7 +44,8 @@ determinarem segregação.
 O workflow possui quatro estágios: Autoria, Análise de Implementabilidade,
 Implementação e Revisão. Promoção documental não é estágio nem gate.
 
-A implementação normativa exige somente:
+Em repositório habilitado pela qualificação descrita abaixo, a passagem para
+a implementação normativa exige:
 
 1. análise concluída com classificação **Pronta** [`Ready`] aplicável à versão
    normativa corrente; e
@@ -131,8 +132,8 @@ A regra completa está na
 
 > **Specifications orchestrate. Code implements.**
 
-Preserve arquitetura, organização e separação de responsabilidades. Use o
-precedente equivalente mais próximo. Nova camada, estrutura ou abstração
+Preserve arquitetura, organização e separação de responsabilidades. Siga o
+contrato aprovado e use precedentes oficiais compatíveis como exemplos. Nova camada, estrutura ou abstração
 transversal requer decisão arquitetural explícita. Ausência ou conflito de
 precedente é incerteza a registrar; só retorna ao Arquiteto quando implica
 decisão normativa, conflito ou mudança transversal material.
@@ -318,3 +319,24 @@ Antes de promover estado, criar commit, fazer push ou responder
 conclusivamente, confirme que toda execução iniciada chegou a estado terminal.
 Estado pendente ou desconhecido bloqueia conclusão e nunca é convertido em
 evidência aprovada.
+
+## Qualificação do repositório — EKOM 5.0
+
+Antes de implementar, confirme contrato de engenharia aprovado por
+Arquiteto/responsável técnico humano e Repository Readiness válida cobrindo
+todo o recorte e suas dependências materiais. `Not Ready` bloqueia;
+`Conditionally Ready` permite apenas escopos explicitamente `Ready` e habilitados
+por decisão humana. Ausência, insuficiência, aprovação pendente ou avaliação
+superada impede mutação de implementação, inclusive na via curta do Consultor.
+Levantamento, proposta e documentação autorizados podem preparar a qualificação.
+
+O `Ready` da análise de uma especificação não substitui essa condição de adoção.
+Não repita aprovação vigente a cada tarefa. A IA pode sugerir contrato a partir
+do código, mas somente o humano pode aprová-lo como norma.
+
+Aplique especificação da tarefa → contrato aprovado → precedentes oficiais →
+código existente → preferência do implementador. Especificação não revoga regra
+arquitetural silenciosamente: exceção exige decisão humana com regra, motivo,
+alcance e validade. Precedente contraditório não se torna norma.
+
+Norma completa: [Repository Readiness](../docs/REPOSITORY-READINESS.md).

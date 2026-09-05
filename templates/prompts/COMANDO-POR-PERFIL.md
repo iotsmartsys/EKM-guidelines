@@ -1,6 +1,6 @@
 # Comando mínimo — perfil EKOM referenciado
 
-**Modelo EKOM:** 4.7
+**Modelo EKOM:** 5.0
 
 **Estado:** vigente
 
@@ -70,3 +70,10 @@ proporcional ao risco. Somente o Arquiteto conclui ou reabre.
 CONFIGURAÇÃO OU OUTRAS OPERAÇÕES DELIMITADAS>`
 
 **Exceções autorizadas pelo Arquiteto:** `<EXCEÇÕES OU NENHUMA>`
+
+## Qualificação do repositório
+
+Localize contrato/revisão aprovada e Repository Readiness no alcance da tarefa.
+Ausência é pendência, não aprovação implícita. Use as regras comuns EKOM 5.0;
+auditoria somente leitura pode avaliar e propor, mas não aprova nem habilita
+implementação. Not Ready bloqueia implementação também pela via curta.

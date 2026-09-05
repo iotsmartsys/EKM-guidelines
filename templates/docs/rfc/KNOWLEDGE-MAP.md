@@ -14,6 +14,8 @@ organiza; o diagrama, como elementos separados se conectam.
 |---|---|---|---|
 | Instruções para agentes | `AGENTS.md` | Normativo | Active |
 | Diretrizes EKOM | `<REFERÊNCIA EXTERNA OU docs/rfc/EKOM-GUIDELINES.md>` | Normativo | Active |
+| Contrato de engenharia | `docs/rfc/REPOSITORY-ENGINEERING-CONTRACT.md` | Normativo | Draft até aprovação humana |
+| Qualificação do repositório | `docs/rfc/REPOSITORY-READINESS.md` | Operacional | Not Ready até qualificação |
 | Mapa de conhecimento | `docs/rfc/KNOWLEDGE-MAP.md` | Normativo | Active |
 | Histórico EKOM | `docs/rfc/EKOM-CHANGELOG.md` | Operacional | Active |
 | Visão do sistema | `docs/specs/SYSTEM-DOSSIER.md` | `<CLASSIFICAÇÃO>` | `<ESTADO>` |

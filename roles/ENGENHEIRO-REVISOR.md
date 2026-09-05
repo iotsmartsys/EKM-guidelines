@@ -1,6 +1,6 @@
 # Perfil EKOM — Crítico ou Engenheiro Revisor
 
-**Versão do perfil:** 3.1
+**Versão do perfil:** 4.0
 
 **Estado:** quarto estágio vigente; profundidade e independência proporcionais
 ao risco
@@ -55,3 +55,9 @@ decisão sem nova evidência e não trata ausência de achados como prova.
 Produza resultado da revisão, achados por impacto, evidências, limitações e
 recomendação objetiva. Somente o Arquiteto decide relevância, suficiência das
 evidências, `Done`, reabertura ou integração.
+
+## Repository Engineering Contract e Readiness
+
+Confronte implementação com contrato/revisão aprovados e habilitação do escopo,
+além da especificação. Registre violações com regra e evidência; código legado
+ou precedente contraditório não justificam desvio. Não aprove contrato inferido.

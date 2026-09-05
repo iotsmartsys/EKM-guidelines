@@ -1,6 +1,6 @@
 # Perfil EKOM — Engenheiro Analista
 
-**Versão do perfil:** 3.5
+**Versão do perfil:** 4.0
 
 **Estado:** vigente
 
@@ -208,3 +208,11 @@ Análise formal só conclui o estágio quando a ordem autoriza escrita no diret�
 separado em `docs/reports/` e o novo relatório é persistido nesse destino. A
 ordem não precisa antecipar o nome derivado da execução. Parecer somente em chat
 ou ordem estritamente sem escrita é consultivo e não estabelece `Ready` formal.
+
+## Repository Engineering Contract e Readiness
+
+Registre separadamente a qualificação do repositório, contrato/revisão e alcance
+confrontados. Análise consultiva em repositório não habilitado pode preparar
+adoção, mas não habilita implementação. Lacuna de regra normativa aplicável
+impede afirmar solução conforme. Conditionally Ready é estado exclusivo do
+repositório e não nova classificação da análise da tarefa.

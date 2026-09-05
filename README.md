@@ -1,6 +1,6 @@
 # EKOM Guidelines
 
-**Modelo EKOM vigente:** 4.7
+**Modelo EKOM vigente:** 5.0
 
 **Estado:** aprovado e vigente
 
@@ -52,7 +52,7 @@ controles contra omissão 4.5 estão na
 A autoria progressiva orientada pelo conhecimento 4.6 está no perfil do
 [`Autor da Especificação`](roles/AUTOR-DA-ESPECIFICACAO.md) e na
 [`DD-045`](docs/DESIGN-DECISIONS.md#dd-045--a-autoria-confirma-o-rascunho-antes-do-registro-normativo).
-A implementação pequena pelo Consultor, explicitamente determinada pelo
+A implementação pequena pelo Consultor na versão 4.7, explicitamente determinada pelo
 Arquiteto e sem especificação, está na
 [`ADR-0015`](docs/adr/ADR-0015-SMALL-CONSULTANT-IMPLEMENTATION.md).
 
@@ -60,7 +60,7 @@ O EKOM deve começar pequeno. Governança é útil quando acelera decisões, red
 retrabalho ou aumenta confiança; não quando apenas multiplica documentos,
 agentes ou passagens operacionais.
 
-## Princípios da versão 4.7
+## Princípios da versão 5.0
 
 - A especificação é a fonte da verdade, nasce antes do código e possui ciclo de
   vida próprio.
@@ -82,7 +82,8 @@ agentes ou passagens operacionais.
   é preparada separadamente.
 - O fluxo possui quatro estágios: Autoria, Análise de Implementabilidade,
   Implementação e Revisão.
-- Análise `Ready` da versão corrente e ordem explícita do Arquiteto bastam para
+- Em repositório habilitado por Repository Readiness, análise `Ready` da versão
+  corrente e ordem explícita do Arquiteto bastam para
   iniciar a Implementação; não existe promoção ou autorização documental
   intermediária.
 - Implementação autorizada de artefato construível inclui seu build canônico e
@@ -301,6 +302,8 @@ docs/
 ├── adr/
 ├── reports/
 ├── rfc/
+│   ├── REPOSITORY-ENGINEERING-CONTRACT.md
+│   ├── REPOSITORY-READINESS.md
 │   ├── KNOWLEDGE-MAP.md
 │   └── EKOM-CHANGELOG.md
 └── specs/
@@ -310,7 +313,7 @@ docs/
 ## Conteúdo
 
 - [`docs/EKOM-CONCEPT.md`](docs/EKOM-CONCEPT.md): definição, visão, problema e limites.
-- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 4.7.
+- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 5.0.
 - [`docs/VISION.md`](docs/VISION.md): estado futuro orientado por especificações.
 - [`docs/PRINCIPLES.md`](docs/PRINCIPLES.md): princípios normativos do EKOM.
 - [`docs/GLOSSARY.md`](docs/GLOSSARY.md): vocabulário canônico e termos legados.
@@ -342,6 +345,23 @@ docs/
   guarda estrutural opcional para documentos novos ou alterados.
 - [`templates/`](templates/): ativos reutilizáveis.
 
+## Qualificação obrigatória para adoção
+
+A EKOM 5.0 exige [Repository Engineering Contract e Repository Readiness](docs/REPOSITORY-READINESS.md).
+Regras explícitas de arquitetura, organização e estilo devem ser fornecidas e
+aprovadas pelo Arquiteto/responsável técnico humano. A IA pode propor; não aprova.
+`Not Ready` bloqueia implementação; `Conditionally Ready` habilita somente
+escopos explicitamente Ready; `Ready` torna o alcance elegível ao workflow.
+A via curta do Consultor também exige qualificação. Concluir a fundação não
+significa estar habilitado a implementar.
+
+A precedência é especificação da tarefa → contrato aprovado → precedentes
+oficiais → código existente → preferência do implementador. Exceções normativas
+exigem decisão humana explícita. Consulte a [ADR-0016](docs/adr/ADR-0016-REPOSITORY-ENGINEERING-CONTRACT-READINESS.md)
+e o [roteiro do experimento, ainda não executado](docs/experiments/REPOSITORY-READINESS-RUN-001.md).
+A versão 5.0 é major por introduzir esse pré-requisito; adotantes 4.x migram
+deliberadamente, sem certificação retroativa.
+
 ## Adoção rápida
 
 1. O Arquiteto delimita repositório, escopo e restrições.
@@ -349,7 +369,9 @@ docs/
 3. O agente aplica
    [`EKOM-LEGACY-ADOPTION-INSTRUCTIONS.md`](templates/EKOM-LEGACY-ADOPTION-INSTRUCTIONS.md).
 4. A fundação instala o roteador `AGENTS.md` e aponta para os perfis EKOM.
-5. A especificação aplicável torna-se a autoridade do pipeline.
+5. O responsável técnico aprova o contrato e habilita o escopo com avaliação
+   de readiness; sem isso, implementação permanece bloqueada. A especificação
+   aplicável governa o comportamento da tarefa no repositório habilitado.
 6. Cada capacidade registra seu relatório e as evidências correspondentes; o
    Arquiteto incorpora decisões normativas e promove estados.
 7. A entrega termina com fontes reconciliadas, commit, push e árvore limpa.
@@ -361,7 +383,7 @@ ou julgamento humano. Orquestração é a coordenação normativa do trabalho pe
 especificação, não uma alegação de automação total. Qualidade e aceleração
 continuam hipóteses a demonstrar em casos reais.
 - [`docs/EKOM-CONCEPT.md`](docs/EKOM-CONCEPT.md): definição, objetivo e limites.
-- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 4.7.
+- [`docs/EKOM-METHOD.md`](docs/EKOM-METHOD.md): método de referência 5.0.
 - [`docs/VISION.md`](docs/VISION.md): visão e horizonte evolutivo.
 - [`docs/PRINCIPLES.md`](docs/PRINCIPLES.md): princípios normativos.
 - [`docs/GOVERNANCE.md`](docs/GOVERNANCE.md): evolução e versionamento.
@@ -374,7 +396,7 @@ continuam hipóteses a demonstrar em casos reais.
 
 ## Limite atual e horizonte
 
-O EKOM 4.7 não promete substituição do Arquiteto nem autonomia completa de
+O EKOM 5.0 não promete substituição do Arquiteto nem autonomia completa de
 julgamento. A interpretação conservadora da pesquisa pública e dos experimentos
 registrados é que eles ainda não sustentam engenharia de software amplamente
 autônoma, de ponta a ponta, sem supervisão e autoridade humanas. A base pública

@@ -1,7 +1,7 @@
 # Guardas estruturais EKOM
 
 `validate_ekom_documents.py` verifica somente regras objetivas do roteamento e
-do mapa no EKOM 4.7; as regras visuais do mapa foram introduzidas no EKOM 3.2:
+do mapa no EKOM 5.0; as regras visuais do mapa foram introduzidas no EKOM 3.2:
 
 - campos mínimos dos relatórios;
 - estrutura mínima das ADRs;
@@ -26,3 +26,7 @@ python3 tools/validate_ekom_documents.py . docs/specs/nova.md docs/reports/mudan
 A guarda não decide se uma ADR é necessária, se árvore ou diagrama possuem boa
 semântica, se um achado é relevante ou se a evidência é suficiente. Esses
 pontos permanecem sob julgamento humano.
+
+Repository Readiness é uma guarda operacional dos perfis EKOM 5.0. Este script
+valida a estrutura documental e não certifica contrato, decisão humana ou
+habilitação para implementação. Resultado estrutural válido não significa Ready.

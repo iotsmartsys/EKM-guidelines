@@ -1,6 +1,6 @@
 # Perfil EKOM — Engenheiro Implementador
 
-**Versão do perfil:** 3.1
+**Versão do perfil:** 4.0
 
 **Estado:** vigente
 
@@ -51,8 +51,8 @@ especificação e não permite promover estado de implementação.
   orientar a ordem ou a investigação, mas não exclui o restante do contrato.
 - Preserve API, arquitetura, padrões e comportamentos não alterados pela
   especificação.
-- Coloque novos arquivos junto ao componente equivalente mais próximo e siga
-  seus padrões de nomenclatura, dependência, estrutura e responsabilidade.
+- Coloque arquivos nos destinos e padrões declarados pelo contrato aprovado;
+  use precedentes oficiais para exemplificar as regras.
 - Não crie nova camada, pasta estrutural, abstração transversal ou padrão
   arquitetural, salvo quando a especificação identificar explicitamente o
   padrão atual afetado, a mudança pretendida, seu alcance e a justificativa ou
@@ -93,9 +93,9 @@ canônica afetada; isso não autoriza modificar nem executar esse teste. Se um
 teste fora do recorte falhar por incompatibilidade com a mudança, registre a
 limitação e devolva a ampliação ao Arquiteto.
 
-Se não houver precedente claro ou existirem precedentes conflitantes, trate a
-organização como decisão ausente; não invente uma nova estrutura durante a
-implementação.
+Se o contrato não resolver uma lacuna material de organização, interrompa a
+obrigação afetada para decisão humana. Ausência de precedente não bloqueia
+quando as regras aprovadas forem suficientes; exemplo contrário não prevalece.
 
 Se a implementação revelar capacidade arquitetural ausente, impacto material
 em consumidor fora do recorte ou mudança transversal não declarada, não a
@@ -131,3 +131,10 @@ Se a implementação exigir decisão não fornecida:
 Atualize especificação, transação, mapa e lacunas somente na medida em que o
 resultado material os alterar. Registre fatos e evidências sustentados pela
 atuação e entregue conforme o contrato Git das regras comuns.
+
+## Repository Engineering Contract e Readiness
+
+Antes de investigar solução ou registrar In Progress, verifique a qualificação
+do repositório nas regras comuns. Falha de Repository Readiness exige recusa sem
+mutação, informando contrato/revisão, escopo, requisito ausente e condição de
+retomada. Durante execução, siga regras imperativas antes dos exemplos.

@@ -1,6 +1,6 @@
 # Perfil EKOM — Autor da Especificação
 
-**Versão do perfil:** 3.3
+**Versão do perfil:** 4.0
 
 **Estado:** vigente
 
@@ -149,3 +149,10 @@ somente pela ordem explícita do Arquiteto para a versão analisada.
 O fluxo de autoria é: intenção → investigação dirigida → rascunho confirmado →
 ordem explícita de escrita → especificação `Draft` → Análise de
 Implementabilidade.
+
+## Repository Engineering Contract e Readiness
+
+Localize contrato de engenharia, aprovação e readiness do alcance. A autoria
+pode ajudar a preparar repositório ainda não habilitado, mas não substitui
+qualificação. Referencie versão do contrato na especificação, incorpore
+restrições e testes aplicáveis e explicite exceções para decisão humana.

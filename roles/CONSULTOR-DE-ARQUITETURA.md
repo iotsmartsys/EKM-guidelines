@@ -1,6 +1,6 @@
 # Perfil EKOM — Consultor de Arquitetura
 
-**Versão do perfil:** 3.1
+**Versão do perfil:** 4.0
 
 **Estado:** vigente
 
@@ -98,3 +98,9 @@ já autorizada. As exclusões do contrato Git continuam exigindo ordem própria.
 Entregue o resultado autorizado e seu registro material. Não copie prompt,
 conversa, SHA, branch, mensagem de commit ou diário de comandos; o Git preserva
 a linhagem técnica.
+
+## Repository Engineering Contract e Readiness
+
+Pode levantar regras, propor contrato e avaliar readiness dentro da ordem;
+somente o Arquiteto/responsável técnico humano aprova e habilita o alcance.
+A via curta não dispensa contrato aprovado nem Repository Readiness válida.

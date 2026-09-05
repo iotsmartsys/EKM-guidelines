@@ -6,7 +6,7 @@ Evoluir o EKOM por evidência, com autoridade humana e com a menor carga
 operacional capaz de manter conhecimento, decisões, auditabilidade e
 verificabilidade.
 
-**Modelo vigente:** EKOM 4.7.
+**Modelo vigente:** EKOM 5.0.
 
 A especificação é a fonte única da verdade para o comportamento pretendido e
 o principal objeto do pipeline. Mudanças no método não podem criar em prompts,
@@ -86,3 +86,24 @@ O sucesso não é quantidade de documentos ou controles. Avalie:
 
 Autonomia completa é horizonte evolutivo. Não é promovida a capacidade vigente
 sem experimentos materiais e decisão arquitetural versionada.
+
+## Qualificação do repositório — EKOM 5.0
+
+Antes de implementar, confirme contrato de engenharia aprovado por
+Arquiteto/responsável técnico humano e Repository Readiness válida cobrindo
+todo o recorte e suas dependências materiais. `Not Ready` bloqueia;
+`Conditionally Ready` permite apenas escopos explicitamente `Ready` e habilitados
+por decisão humana. Ausência, insuficiência, aprovação pendente ou avaliação
+superada impede mutação de implementação, inclusive na via curta do Consultor.
+Levantamento, proposta e documentação autorizados podem preparar a qualificação.
+
+O `Ready` da análise de uma especificação não substitui essa condição de adoção.
+Não repita aprovação vigente a cada tarefa. A IA pode sugerir contrato a partir
+do código, mas somente o humano pode aprová-lo como norma.
+
+Aplique especificação da tarefa → contrato aprovado → precedentes oficiais →
+código existente → preferência do implementador. Especificação não revoga regra
+arquitetural silenciosamente: exceção exige decisão humana com regra, motivo,
+alcance e validade. Precedente contraditório não se torna norma.
+
+Norma detalhada: [Repository Readiness](REPOSITORY-READINESS.md).

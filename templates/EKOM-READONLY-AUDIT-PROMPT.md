@@ -3,7 +3,7 @@
 **Estado:** Experimental
 
 Use somente quando o Arquiteto solicitar uma revisão independente. Esta não é
-uma atuação de auditoria do EKOM 4.7 e não possui autoridade de aprovação.
+uma atuação de auditoria do EKOM 5.0 e não possui autoridade de aprovação.
 
 ```text
 Revise a integridade EKOM da mudança <EKOM-CHG-NNNN> no repositório
@@ -35,3 +35,10 @@ preserva esses dados.
 
 O resultado é uma recomendação ao Arquiteto, que mantém a autoridade sobre
 aceite e integração.
+
+## Qualificação do repositório
+
+Localize contrato/revisão aprovada e Repository Readiness no alcance da tarefa.
+Ausência é pendência, não aprovação implícita. Use as regras comuns EKOM 5.0;
+auditoria somente leitura pode avaliar e propor, mas não aprova nem habilita
+implementação. Not Ready bloqueia implementação também pela via curta.

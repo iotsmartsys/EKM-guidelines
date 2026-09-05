@@ -69,14 +69,14 @@ satisfeita, registre `In Progress` como primeiro efeito da atuação.
 <ARQUITETURA, PADRÕES, SOLID, CONCORRÊNCIA, ESTILO E RESTRIÇÕES DO PROJETO>
 
 - Preserve arquitetura, organização e separação de responsabilidades vigentes.
-- Coloque novos arquivos junto ao componente equivalente mais próximo e siga
-  seus padrões de nomenclatura, dependência e estrutura.
+- Coloque arquivos nos destinos e padrões declarados pelo contrato aprovado;
+  use precedentes oficiais para exemplificar as regras.
 - Não crie camada, pasta estrutural, abstração transversal ou padrão
   arquitetural, salvo quando a especificação identificar explicitamente o
   padrão atual afetado, a mudança, o alcance e a justificativa ou decisão do
   Arquiteto.
-- Na ausência ou conflito de precedentes, interrompa o recorte e devolva a
-  decisão ao Arquiteto.
+- Se o contrato não resolver lacuna normativa material, interrompa a obrigação
+  afetada. Ausência de precedente não bloqueia quando a regra for suficiente.
 - Se surgir capacidade arquitetural ausente, impacto material fora do recorte
   ou consumidor compartilhado não delimitado, não absorva a mudança como
   detalhe técnico. Interrompa a obrigação afetada e registre pré-requisito
@@ -145,3 +145,26 @@ Informe de forma concisa:
 - validações executadas;
 - limitações ou decisões pendentes;
 - confirmação de commit, push e árvore limpa.
+
+## Qualificação do repositório — EKOM 5.0
+
+Antes de implementar, confirme contrato de engenharia aprovado por
+Arquiteto/responsável técnico humano e Repository Readiness válida cobrindo
+todo o recorte e suas dependências materiais. `Not Ready` bloqueia;
+`Conditionally Ready` permite apenas escopos explicitamente `Ready` e habilitados
+por decisão humana. Ausência, insuficiência, aprovação pendente ou avaliação
+superada impede mutação de implementação, inclusive na via curta do Consultor.
+Levantamento, proposta e documentação autorizados podem preparar a qualificação.
+
+O `Ready` da análise de uma especificação não substitui essa condição de adoção.
+Não repita aprovação vigente a cada tarefa. A IA pode sugerir contrato a partir
+do código, mas somente o humano pode aprová-lo como norma.
+
+Aplique especificação da tarefa → contrato aprovado → precedentes oficiais →
+código existente → preferência do implementador. Especificação não revoga regra
+arquitetural silenciosamente: exceção exige decisão humana com regra, motivo,
+alcance e validade. Precedente contraditório não se torna norma.
+
+Fontes locais: `docs/rfc/REPOSITORY-ENGINEERING-CONTRACT.md` e
+`docs/rfc/REPOSITORY-READINESS.md`; configure caminhos equivalentes no roteador.
+Consulte também `docs/REPOSITORY-READINESS.md` na raiz do EKOM referenciada.

@@ -1500,3 +1500,17 @@ atualiza obrigatoriamente o mapa de conhecimento.
 
 **Estado da decisão:** confirmada pelo Arquiteto em 2026-08-31 e incorporada ao
 EKOM 4.7 como evolução compatível e proporcional.
+
+## DD-047 — A adoção exige contrato de engenharia e qualificação do repositório
+
+**Decisão:** incorporar a exigência determinada pelo Arquiteto em 2026-09-05,
+conforme [ADR-0016](adr/ADR-0016-REPOSITORY-ENGINEERING-CONTRACT-READINESS.md).
+EKOM 5.0 exige regras de construção explícitas aprovadas por humano e avaliação
+de readiness antes de habilitar implementação, inclusive a via curta.
+A especificação governa comportamento; contrato governa construção; precedentes
+não substituem norma. A classificação do repositório não altera a da tarefa.
+
+**Hipótese ainda não comprovada:** o controle reduz desvios e retrabalho com
+custo proporcional. O [experimento planejado](experiments/REPOSITORY-READINESS-RUN-001.md)
+fornece cenários positivos, negativos e medidas; não há resultado registrado.
+A revisão é major pelo novo pré-requisito de adoção. Registros 4.x são preservados.
