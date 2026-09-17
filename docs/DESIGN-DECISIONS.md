@@ -1514,3 +1514,21 @@ não substituem norma. A classificação do repositório não altera a da tarefa
 custo proporcional. O [experimento planejado](experiments/REPOSITORY-READINESS-RUN-001.md)
 fornece cenários positivos, negativos e medidas; não há resultado registrado.
 A revisão é major pelo novo pré-requisito de adoção. Registros 4.x são preservados.
+
+## DD-048 — Nenhuma informação sensível pode ser versionada
+
+**Estado:** vigente, determinada pelo Arquiteto em 17/09/2026 como emenda à EKOM 5.0.
+
+**Decisão humana:** incorporar imediatamente a proibição de versionar qualquer
+informação sensível. A ordem expressa do Arquiteto aprova esta regra; não é
+proposta pendente nem depende da aprovação de contratos de repositórios adotantes.
+
+**Aplicação:** a seção 8.0 do método define alcance, conferência de commit/push,
+exemplos sanitizados e tratamento de exposição anterior. Princípios, regras
+comuns e templates de roteamento, contrato e adoção propagam a obrigação.
+A regra limita a entrega Git e a preservação de evidências: nenhuma delas
+justifica armazenar segredos ou dados confidenciais no histórico.
+
+**Limites:** esta alteração documental não audita nem saneia históricos dos
+adotantes, não instala scanners e não executa rotação de credenciais. Não há
+alegação de detecção automática ou ausência de informação sensível no legado.

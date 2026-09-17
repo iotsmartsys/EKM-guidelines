@@ -13,6 +13,18 @@ arquitetura, risco aceitável, relevância das críticas, suficiência das
 evidências, aprovação, conclusão ou reabertura e integração. A especificação é
 a fonte da verdade para comportamento e governa a execução dos agentes.
 
+## Informações sensíveis
+
+Nenhuma informação sensível pode ser versionada, inclusive em código,
+configuração, documentação, testes, relatórios, logs, anexos ou metadados Git,
+mesmo em repositório privado. Use placeholders ou dados sintéticos; mantenha
+segredos fora do controle de versão. Confira o conteúdo preparado para commit
+e os commits locais antes do push. Não entregue informação sensível nem
+reproduza seu valor ao relatar achados. `.gitignore` não remove conteúdo já
+rastreado ou histórico. Aplique a seção 8.0 de `docs/EKOM-METHOD.md` na raiz
+referenciada abaixo; saneamento de histórico e operações externas requerem
+tratamento autorizado próprio. A obrigação de entrega não permite exceção.
+
 ## Fonte dos perfis
 
 **Raiz do EKOM:** `<CAMINHO_ACESSIVEL_DO_EKOM>`

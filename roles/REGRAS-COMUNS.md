@@ -272,6 +272,20 @@ testes, hardware, APIs, bancos, infraestrutura, relatórios, decisões do
 Arquiteto e defeitos posteriores. Evidência real pode ter precedência funcional;
 o Arquiteto decide a suficiência do conjunto.
 
+## 5.1 Informações sensíveis
+
+Nenhuma informação sensível pode ser versionada, mesmo em repositório privado.
+A regra é vigente e alcança código, configurações, documentação, relatórios,
+testes, logs, anexos, artefatos e metadados Git. Use apenas placeholders ou dados
+sintéticos nos exemplos; mantenha valores reais fora do controle de versão.
+Confira o conteúdo preparado antes de cada commit e os commits locais antes do
+push. Não prossiga com entrega que contenha informação sensível. `.gitignore`
+não remove arquivos rastreados nem histórico. Não reproduza valores encontrados;
+registre o achado de forma sanitizada. Exposição preexistente exige tratamento
+explícito; a entrega ordinária não autoriza rotação externa, reescrita ou force push.
+Aplique integralmente a [regra do método](../docs/EKOM-METHOD.md#80-informações-sensíveis-não-são-versionadas).
+Rastreabilidade e obrigação de entrega nunca prevalecem sobre esta proibição.
+
 ## 6. Conhecimento, estado e entrega
 
 - Atualize somente conhecimento materialmente afetado.

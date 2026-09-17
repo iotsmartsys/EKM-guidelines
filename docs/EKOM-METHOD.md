@@ -541,6 +541,42 @@ A entrega Git intrínseca não autoriza force push, reescrita, merge, tag,
 release, deploy, exclusão de branch nem publicação em outro destino. Git é a
 evidência desses atos; documentos não repetem hashes sem motivo material.
 
+### 8.0 Informações sensíveis não são versionadas
+
+**Estado:** vigente por determinação do Arquiteto em 17/09/2026; aplica-se
+imediatamente a todas as atuações EKOM, inclusive em repositórios privados.
+
+Nenhuma informação sensível pode ser versionada. A proibição abrange código,
+configurações, especificações, ADRs, relatórios, fixtures, logs, dumps, imagens,
+anexos, artefatos gerados e metadados Git, incluindo mensagens de commit.
+Inclui senhas, tokens, chaves privadas, credenciais, strings de conexão com
+segredos, dados pessoais sensíveis e informações confidenciais do usuário,
+cliente ou organização. A lista exemplifica, não limita a regra.
+
+Mantenha valores sensíveis fora do controle de versão, em configuração local
+ignorada, variáveis de ambiente ou armazenamento de segredos adequado ao projeto.
+Versione somente exemplos com placeholders inequívocos ou dados sintéticos sem
+vínculo com valores reais. Não copie valores sensíveis para evidenciar um achado;
+registre apenas sua categoria, localização segura e disposição, sem reproduzi-los.
+
+Antes de cada commit, confira os arquivos e o conteúdo efetivamente preparados,
+inclusive documentos e artefatos, e retire ou sanitize qualquer informação
+sensível. Antes do push, confira também os commits locais que serão enviados.
+Não prossiga com commit ou push que contenha informação sensível. Ferramentas
+de detecção podem complementar a conferência, mas resultado limpo não comprova
+ausência de dados sensíveis. Não imponha uma ferramenta específica ao adotante.
+
+`.gitignore` não protege arquivos já rastreados nem apaga histórico. Se houver
+informação sensível previamente versionada, não a reproduza, preserve o trabalho
+alheio e informe a exposição sem revelar o valor. Não envie commits que ainda a
+contenham. A remoção do conteúdo atual não resolve a presença no histórico;
+revogação/rotação de credenciais e saneamento do histórico exigem tratamento
+explícito, com autorização própria para operações externas, reescrita ou force
+push. A ordem ordinária de entrega não autoriza essas operações automaticamente.
+
+A exigência de entrega e rastreabilidade nunca autoriza versionar informação
+sensível. Preserve evidências apenas em forma sanitizada.
+
 ### 8.1 Branch derivada da especificação
 
 Trabalho governado por uma especificação principal usa branch previsível

@@ -36,6 +36,15 @@ normas existentes com versão; não copie conteúdo apenas para preencher campos
 
 <ACESSO, OWNERSHIP E RESTRICOES>
 
+## Informações sensíveis e versionamento
+
+Nenhuma informação sensível pode ser versionada. Declare os destinos locais
+ignorados ou mecanismos externos de configuração/segredos do projeto, exemplos
+sanitizados e a conferência antes de commit e push. Cubra documentação, testes,
+logs, anexos e metadados além do código. Não inclua valores reais neste contrato.
+Aplique a seção 8.0 do método EKOM: `.gitignore` não elimina histórico e a entrega
+ordinária não autoriza reescrita nem operações externas de remediação.
+
 ## Erros e logging
 
 <TRATAMENTO, PROPAGACAO, OBSERVABILIDADE E DADOS PROIBIDOS>

@@ -106,6 +106,9 @@ agentes ou passagens operacionais.
   alteração só integra o recorte quando exigida explicitamente pela
   especificação e vinculada a critérios de aceite; execução exige permissão
   operacional própria.
+- Nenhuma informação sensível pode ser versionada, inclusive em repositórios
+  privados. A [regra vigente](docs/EKOM-METHOD.md#80-informações-sensíveis-não-são-versionadas)
+  exige conteúdo sanitizado e conferência antes de commit e push.
 - Toda mudança material autorizada termina versionada, enviada na branch de
   trabalho e com árvore limpa, sem um segundo gate apenas para commit e push.
 - Trabalho governado por especificação usa branch `spec/<slug>` derivada do

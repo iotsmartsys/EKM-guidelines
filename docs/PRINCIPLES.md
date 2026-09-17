@@ -95,6 +95,15 @@ proporcional. A especificação funcional não repete essa permissão. Build fal
 ou não executado não sustenta conclusão; testes, hardware e operações externas
 continuam sujeitos a autorização própria.
 
+## Sensitive Information Is Never Versioned
+
+Nenhuma informação sensível pode ser versionada, inclusive em repositórios
+privados. Conhecimento e evidências devem ser sanitizados; código, documentação,
+testes e artefatos não constituem exceções. Confira o conteúdo de commits e
+pushes; `.gitignore` não remove exposições já presentes no histórico.
+A [regra operacional](EKOM-METHOD.md#80-informações-sensíveis-não-são-versionadas)
+é vigente e limita a obrigação de entrega.
+
 ## Material Work Ends Delivered
 
 Toda atuação autorizada que altera materialmente o repositório inclui commit e

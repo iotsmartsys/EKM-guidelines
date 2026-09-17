@@ -84,6 +84,16 @@ resposta mudar a interpretação ou o trabalho.
 - especificações: somente contratos prioritários, em Rascunho [`Draft`] ou
   Proposta [`Proposed`] até existir decisão humana.
 
+## Informações sensíveis
+
+Nenhuma informação sensível pode ser versionada. No levantamento, não copie
+segredos ou dados confidenciais para dossiê, contrato, relatório ou exemplos.
+Registre fatos e achados de forma sanitizada. Confira todo o conteúdo preparado
+para commit e os commits locais antes do push. Não prossiga com envio de
+informação sensível; `.gitignore` não saneia arquivos rastreados nem histórico.
+Aplique a seção 8.0 do método, inclusive o tratamento autorizado de exposição
+preexistente, sem reproduzir valores encontrados.
+
 ## Validação e conclusão
 
 Antes de encerrar:
